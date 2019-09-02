@@ -33,7 +33,7 @@ class Arrastrarcontroller extends Controller
 
             if ($fecha>='01' and $fecha<='06'){
 
-                $Materias_Grupo=materia_grupo::where('Semestre','=','SEGUNDO SEMESTRE')->orWhere('Semestre','=','CUARTO SEMESTRE')->orWhere('Semestre','=','SEXTO SEMESTRE')->get('Clave');
+                $Materias_Grupo=materia_grupo::where('Semestre','=','SEGUNDO SEMESTRE')->orWhere('Semestre','=','CUARTO SEMESTRE')->orWhere('Semestre','=','SEXTO SEMESTRE')->get('Clave_M');
                 if (count($Materias_Grupo)==0){
                     return redirect('/ControlEscolarInicio')->with('MsjERR','No tiene materias registrados');
                 }
@@ -118,7 +118,7 @@ class Arrastrarcontroller extends Controller
                 }
             }
             if ($fecha>='07' and $fecha<='12'){
-                $Materias_Grupo=materia_grupo::where('Semestre','=','PRIMER SEMESTRE')->orWhere('Semestre','=','TERCER SEMESTRE')->orWhere('Semestre','=','QUINTO SEMESTRE')->get('Clave');
+                $Materias_Grupo=materia_grupo::where('Semestre','=','PRIMER SEMESTRE')->orWhere('Semestre','=','TERCER SEMESTRE')->orWhere('Semestre','=','QUINTO SEMESTRE')->get('Clave_M');
                 if (count($Materias_Grupo)==0){
                     return redirect('/ControlEscolarInicio')->with('MsjERR','No tiene materias registrados');
                 }
@@ -356,10 +356,10 @@ class Arrastrarcontroller extends Controller
                 //return $nueva_materiaasignada.$nuevo_grupo;
                 $materiaasignada=$nueva_materiaasignada;
 
-                $Materias_all= Materia::where('Nombre',$materiaasignada)->get('Clave');
+                $Materias_all= Materia::where('Nombre',$materiaasignada)->get('Clave_M');
                 
                 $Relacion=new RelacionDocenteMateriaGrupo();
-                $Relacion->ClaveMateria=$Materias_all[0]->Clave;
+                $Relacion->Clave_M=$Materias_all[0]->Clave_M;
                 $Relacion->Materia=$materiaasignada;
                 $Relacion->Docente=$docenteselec;
                 $Relacion->Grupo=$nuevo_grupo;

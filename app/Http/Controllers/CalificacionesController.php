@@ -24,7 +24,7 @@ class CalificacionesController extends Controller
         $id=$_GET['valor'];
         $usua=$id;
         //return $id;
-        $NombreDoc=Docentes::where('id',$id)->get();
+        $NombreDoc=Docentes::where('Clave_D',$id)->get();
         $MateriasDelDocente=RelacionDocenteMateriaGrupo::where('Docente',$NombreDoc[0]->Nombre)->get();
         $Periodo1ini=Periodo::where('id','1')->get('fecha1');
         $Periodo1fin=Periodo::where('id','1')->get('fecha2');
@@ -92,25 +92,25 @@ class CalificacionesController extends Controller
         $id=$request->idDocente;
         $usua=$id;
 
-        $NombreDoc=Docentes::where('id',$id)->get();
+        $NombreDoc=Docentes::where('Clave_D',$id)->get();
         $MateriasDelDocente=RelacionDocenteMateriaGrupo::where('Docente',$NombreDoc[0]->Nombre)->get();
 
 
         $AlumnoEnGrupo=Grupo::where('Grupo',$request->Grupo)->get();
         $AlumnoEnGRupoSemestre=Materia_Grupo::where('Grupo',$request->Grupo)->get();
-        $SemestreMateria=Materia_Grupo::where('Clave',$request->ClaveMateriaSelec)->where('Grupo',$request->Grupo)->get();
+        $SemestreMateria=Materia_Grupo::where('Clave_M',$request->ClaveMateriaSelec)->where('Grupo',$request->Grupo)->get();
         //return $SemestreMateria[0]->Semestre;
         $AlumnosEnMismoSemestre=array();
         //return $AlumnoEnGrupo;
 
         for ($i=0; $i < count($AlumnoEnGrupo); $i++) {
-            $SemestreAlumno=Alumno::where('id',$AlumnoEnGrupo[$i]->id)->get('Semestre');
+            $SemestreAlumno=Alumno::where('Clave_A',$AlumnoEnGrupo[$i]->id)->get('Semestre');
             //print $SemestreAlumno[0]->Semestre;
 
             //return $SemestreAlumno;
             //return $SemestreMateria->Semestre;
             if (($SemestreAlumno[0]->Semestre)==($SemestreMateria[0]->Semestre)) {
-                $AlumnoParaTabla=Alumno::where('id',$AlumnoEnGrupo[$i]->id)->get();
+                $AlumnoParaTabla=Alumno::where('Clave_A',$AlumnoEnGrupo[$i]->id)->get();
                 //print $AlumnoEnGrupo[$i]->id;
                 //print $AlumnoParaTabla;
                 array_push($AlumnosEnMismoSemestre,$AlumnoParaTabla );
@@ -124,7 +124,7 @@ class CalificacionesController extends Controller
         }
 
         //return count($AlumnosEnMismoSemestre);
-        $DatosCalificaciones=CalificacionesParciales::get('ClaveM',$request->ClaveMateriaSelec);
+        $DatosCalificaciones=CalificacionesParciales::get('Clave_M',$request->ClaveMateriaSelec);
         //return 'Hi1'.$DatosCalificaciones.count($DatosCalificaciones);
         //return $ClaveMateriaSelec;
         
@@ -145,7 +145,7 @@ class CalificacionesController extends Controller
         else
         {
 
-            $Calif_Extraidas=CalificacionesParciales::where('ClaveM',$request->ClaveMateriaSelec)->get();
+            $Calif_Extraidas=CalificacionesParciales::where('Clave_M',$request->ClaveMateriaSelec)->get();
             if (count($AlumnosEnMismoSemestre)!=count($Calif_Extraidas)){
 
                 for ($i=0; $i < count($AlumnosEnMismoSemestre); $i++)
@@ -174,7 +174,7 @@ class CalificacionesController extends Controller
                 }
             }
         }
-        $Calif_Extraidas=CalificacionesParciales::where('ClaveM',$request->ClaveMateriaSelec)->get();
+        $Calif_Extraidas=CalificacionesParciales::where('Clave_M',$request->ClaveMateriaSelec)->get();
         //return count($AlumnosEnMismoSemestre).count($Calif_Extraidas);
         //return $Calif_Extraidas;
         //User::destroy($id);
@@ -200,7 +200,7 @@ class CalificacionesController extends Controller
 
         $calif=CalificacionesParciales::find($g);
 
-        $usua=$calif->ClaveA;
+        $usua=$calif->Clave_A;
         $calif->Parcial1 = $r->Parcial1;
         $calif->Parcial2 = $r->Parcial2;
         //echo $docente->Domicilio;
@@ -228,7 +228,7 @@ class CalificacionesController extends Controller
         $Cant_Calif=count($id->get('Calif1'));
         $Calificaciones_1=$id->get('Calif1');
         $Calificaciones_2=$id->get('Calif2');
-        $Claves_Alumnos=$id->get('ClaveA');
+        $Claves_Alumnos=$id->get('Clave_A');
         $usua=$id->Usua;
 
         for ($i=0; $i < $Cant_Calif; $i++)
@@ -241,8 +241,8 @@ class CalificacionesController extends Controller
                 //$Calif->Semestre=$id->Semestre;
                 //$Calif->Año=$year_date;
                 //$Calif->save();
-                CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('ClaveA',$Claves_Alumnos[$i])->update(['Parcial1'=>$Calificaciones_1[$i]]);
-                CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('ClaveA',$Claves_Alumnos[$i])->update(['Parcial2'=>$Calificaciones_2[$i]]);
+                CalificacionesParciales::where('Clave_M',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->update(['Parcial1'=>$Calificaciones_1[$i]]);
+                CalificacionesParciales::where('Clave_M',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->update(['Parcial2'=>$Calificaciones_2[$i]]);
                 
             }
 
