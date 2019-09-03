@@ -24,7 +24,7 @@ class AlumnosController extends Controller
       $clave=$alumno1->id;
       $nombre=$alumno1->nombre;
       if (isset($clave)&&isset($nombre)) {
-        $CAlumno = Alumno::where('id',$alumno1->id)->get();
+        $CAlumno = Alumno::where('Clave_A',$alumno1->id)->get();
         if (count($CAlumno)==0){
           return back()->with('msj',' algún dato no existe' );
         }
@@ -42,7 +42,7 @@ class AlumnosController extends Controller
       }
 
       else if  (isset($clave)) {
-        $CAlumno = Alumno::where('id', $alumno1->id)->get();
+        $CAlumno = Alumno::where('Clave_A', $alumno1->id)->get();
         //return $CAlumno;
 
         if (count($CAlumno)==0){
@@ -94,7 +94,7 @@ class AlumnosController extends Controller
 
         $alumno=new Alumno();
 
-        $alumno->id=$request['id'];
+        $alumno->id=$request['Clave_A'];
         $alumno->Nombre_A=$request['nombre'];
         $alumno->Nombre_P=$request['nombrepadre'];
         $alumno->Nombre_M=$request['nombremadre'];
@@ -149,7 +149,7 @@ class AlumnosController extends Controller
             {
         $ides=$alumno1['id'];
         $alumn="";
-        $alumns=Alumno::where([['id',$alumno1->id]])->get();
+        $alumns=Alumno::where([['Clave_A',$alumno1->id]])->get();
         foreach ($alumns as $row){
             $alumn=$row;
             $alumn->fill($alumno1->all());
@@ -175,7 +175,7 @@ class AlumnosController extends Controller
     public function update($id)
     {
         //return $id;
-        $CAlumno = Alumno::where('id', $id)->get();
+        $CAlumno = Alumno::where('Clave_A', $id)->get();
         return view('Alumnos.show',compact('CAlumno'));
     }
 
@@ -187,7 +187,7 @@ class AlumnosController extends Controller
      */
     public function destroy($id)
     {
-      Alumno::where('id',$id)->delete();
+      Alumno::where('Clave_A',$id)->delete();
       usuarioalumno::where('Usuario',$id)->delete();
        $alumnos=Alumno::get();
         //return  view('Alumnos.index',compact('alumnos'));

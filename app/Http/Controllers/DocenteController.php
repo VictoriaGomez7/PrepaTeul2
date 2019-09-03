@@ -54,7 +54,7 @@ class DocenteController extends Controller
         }
 
         if ($id->name!="" && $id->id1!=""){
-            $CDocente = Docentes::where('id', $id->id1)->get();
+            $CDocente = Docentes::where('Clave_D', $id->id1)->get();
             foreach ($CDocente as $key) {
                 return $id->name;
                 if ($key->Nombre==$id->name){
@@ -88,7 +88,7 @@ class DocenteController extends Controller
     public function store(TagStoreRequestDocentes $request)
     {
         $docente=new Docentes();
-        $docente->id=$request['id'];
+        $docente->id=$request['Clave_D'];
         $docente->Nombre=$request['nombre'];
         $docente->Domicilio=$request['direccion'];
         $docente->Telefono=$request['telefono'];
@@ -115,7 +115,7 @@ class DocenteController extends Controller
     {
         //echo "hola";
         //return $id;
-        $CDocente = Docentes::where('id', $id->id)->get();
+        $CDocente = Docentes::where('Clave_D', $id->id)->get();
         //return $CAlumno;
         //return $CDocente;
         //return $CDocente;
@@ -177,7 +177,7 @@ class DocenteController extends Controller
      */
     public function destroy($id)
     {
-        Docentes::where('id',$id)->delete();
+        Docentes::where('Clave_D',$id)->delete();
       usuariomaestro::where('Usuario',$id)->delete();
        Docentes::get();
         //return  view('Alumnos.index',compact('alumnos'));

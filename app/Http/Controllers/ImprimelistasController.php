@@ -73,17 +73,17 @@ class ImprimelistasController extends Controller
 
             }else if ($r->Grupo=="A"){
 
-                 $listaA=DB::select("SELECT DISTINCT alumnos.id,alumnos.Nombre_A
+                 $listaA=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A
             from alumnos    WHERE  (EXISTS (SELECT 1 from grupos
-        WHERE grupos.id=alumnos.id and grupos.Grupo='A'))
+        WHERE grupos.id=alumnos.Clave_A and grupos.Grupo='A'))
                           AND alumnos.Semestre= :sem" ,['sem'=>$semestre]);
                  $titulo=$semestre . " GRUPO A";
             }else{
 
 
-                 $listaA=DB::select("SELECT DISTINCT alumnos.id,alumnos.Nombre_A
+                 $listaA=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A
             from alumnos    WHERE  (EXISTS (SELECT 1 from grupos
-        WHERE grupos.id=alumnos.id and grupos.Grupo='B'))
+        WHERE grupos.id=alumnos.Clave_A and grupos.Grupo='B'))
                           AND alumnos.Semestre= :sem" ,['sem'=>$semestre]);
                  
             }
@@ -112,9 +112,9 @@ class ImprimelistasController extends Controller
     {
         //
         $formacion=$r->formacionT;
-        $listaA=DB::select("SELECT DISTINCT alumnos.id,alumnos.Nombre_A
+        $listaA=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A
             from alumnos    WHERE  (EXISTS (SELECT 1 from ft_baches
-        WHERE ft_baches.id=alumnos.id and ft_baches.Formación_Trabajo= :formacion ))
+        WHERE ft_baches.Clave_A=alumnos.Clave_A and ft_baches.Formación_Trabajo= :formacion ))
                           AND alumnos.Semestre= :sem" ,['sem'=>$semestre   , 'formacion'=>$formacion]);
       $titulo=$semestre . " ".$r->formacionT;
 
@@ -143,9 +143,9 @@ class ImprimelistasController extends Controller
     
 
        $bachillerato=$r->bachilleratoT;
-        $listaA=DB::select("SELECT DISTINCT alumnos.id,alumnos.Nombre_A
+        $listaA=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A
            from alumnos    WHERE  (EXISTS (SELECT 1 from ft_baches
-        WHERE ft_baches.id=alumnos.id and ft_baches.Bachillerato= :bachillerato ))
+        WHERE ft_baches.Clave_A=alumnos.Clave_A and ft_baches.Bachillerato= :bachillerato ))
                           AND alumnos.Semestre= :sem" ,['sem'=>$semestre   , 'bachillerato'=>$bachillerato]);
          if(count($listaA)>0){
          $titulo=$semestre . " ".$r->bachilleratoT;
