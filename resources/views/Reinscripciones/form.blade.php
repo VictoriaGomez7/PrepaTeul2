@@ -20,7 +20,7 @@
 
         <div class="card-header text-center" style="font-size:200%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 5%;" >{{ __('SOLICITUD DE RE-INSCRIPCIÓN') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
 
-        {!! Form::open(['route'=>['Reinscripcion.edit',$alumno->id],'method'=>'GET','files'=>true]) !!}
+        {!! Form::open(['route'=>['Reinscripcion.edit',$alumno->Clave_A],'method'=>'GET','files'=>true]) !!}
                 <!--<form class="form-group" method="PUT" action="/Reinscripcion/{{$alumno->id}}/edit">-->
                     {{--@method('PUT')--}}
             @csrf
@@ -36,7 +36,7 @@
             </div>
 
             <div style="position: absolute;top: 62%; left: 24.9%; width: 25%;height:53%;background-color:#aaa">
-                <p><input type="text" required pattern="[1-9]{2}[0]{2}[1]{2}[0-9]{4}" id="id" name="id" value="{{$alumno->id}}" style="font-size:105%; width: 95%"/></p>
+                <p><input type="text" required pattern="[1-9]{2}[0]{2}[1]{2}[0-9]{4}" id="id" name="id" value="{{$alumno->Clave_A}}" style="font-size:105%; width: 95%"/></p>
 
                 <p><input type="text" required readonly id="nombr" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" name="nombre" value="{{$alumno->Nombre_A}}"style="font-size:105%; width: 95%;" /></h1>
 

@@ -43,7 +43,7 @@ class ReinscripcionesController extends Controller
     {
 
         $campo=new ft_bach();
-        $campo->id=$request['id'];
+        $campo->id=$request['Clave_A'];//id
         $campo->Formación_Trabajo=$request2['ft1'];
         $campo->Bachillerato=$request2['bach1'];
         $campo->save();
@@ -58,7 +58,7 @@ class ReinscripcionesController extends Controller
     public function show(Request $alumno1)//show($id)
     {
         //return $alumno1;
-        $CAlumno = Alumno::where('id', $alumno1->PMatri)->get();
+        $CAlumno = Alumno::where('Clave_A', $alumno1->PMatri)->get();
         //return $CAlumno;
 
         if (count($CAlumno)==0)
@@ -70,8 +70,8 @@ class ReinscripcionesController extends Controller
             if ($CAlumno[0]->Semestre=="SEXTO SEMESTRE") {
                 return back()->with('msj','No se puede reinscribir un alumno de Sexto Semestre' );
             } else {
-            $Semes= Alumno::where('id', $alumno1->PMatri)->get();
-            $FtOBache=ft_bach::where('id', $alumno1->PMatri)->get();
+            $Semes= Alumno::where('Clave_A', $alumno1->PMatri)->get();
+            $FtOBache=ft_bach::where('Clave_A', $alumno1->PMatri)->get();//id
             //return $FtOBache;
             $bandera=0;
             //return $Semes->;
@@ -126,8 +126,8 @@ class ReinscripcionesController extends Controller
         $Grados=['PRIMER','SEGUNDO','TERCER'];
         $ides=$alumno1['id'];
 
-        $CAlumno = Alumno::where('id', $alumno1->id)->get();
-        $CAlumno2 = ft_bach::where('id', $alumno1->id)->get();
+        $CAlumno = Alumno::where('Clave_A', $alumno1->id)->get();
+        $CAlumno2 = ft_bach::where('Clave_A', $alumno1->id)->get();
         //return $CAlumno[0]->Semestre;
         $SemestreAntiguo=$CAlumno[0]->Semestre;
         //return $alumno1;
@@ -150,8 +150,8 @@ class ReinscripcionesController extends Controller
         }
         //return $CAlumno;
         //return $CAlumno;
-        ft_bach::where('id', $alumno1->id)->update(['Formación_Trabajo'=>$alumno1->ft2]);
-        ft_bach::where('id', $alumno1->id)->update(['Bachillerato'=>$alumno1->bach1]);
+        ft_bach::where('Clave_A', $alumno1->id)->update(['Formación_Trabajo'=>$alumno1->ft2]);
+        ft_bach::where('Clave_A', $alumno1->id)->update(['Bachillerato'=>$alumno1->bach1]);
         //return $CAlumno.' '.$alumno1->id;
         foreach ($CAlumno as $row) {
 
