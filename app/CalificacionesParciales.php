@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class CalificacionesParciales extends Model
 {
-    protected $fillable = ['id','Clave_A','Clave_M','Parcial1','Parcial2','Semestre','Año'];
+    protected $fillable = ['id','ClaveA','ClaveM','Parcial1','Parcial2','Semestre','Año'];
 }
