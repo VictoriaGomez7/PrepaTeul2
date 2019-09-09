@@ -11,7 +11,7 @@
 |
 */
 
-
+Route::get('materia/buscador','materiasBuscadorController@buscador');
 Route::get('/', function () {
     return view('interfazprincipal.Interfaz');
 });
@@ -147,5 +147,3 @@ Route::resource('AsignarCalificacion','CalificacionesController');
 
 Route::resource('Calificaciones','CalificacionesController');
 
-Route::get('materia/buscador','materias
-    BuscadorController@buscador');

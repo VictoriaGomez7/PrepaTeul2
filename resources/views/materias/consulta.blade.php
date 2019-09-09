@@ -128,7 +128,7 @@ body{
 		</div>
 		<div class="input-group input-group-lg">
 
-			<input type="text" id="claveId" name="Clave" class="form-control" placeholder="Clave" aria-describedby="sizing-addon1" required style="z-index: 0;">
+			<input type="text" id="claveId" name="Clave_M" class="form-control" placeholder="Clave" aria-describedby="sizing-addon1" required style="z-index: 0;">
 		</div>
 		<br>
 		<p><button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Buscar</button></p>
@@ -142,20 +142,25 @@ body{
 		
 {!! Form::close() !!}
  <script >
-			
-			window.addEventListener('load',function(){
-        document.getElementById("claveId").addEventListener("keyup", () => {
-            
-            if((document.getElementById("claveId").value.length)>=1)
-                fetch(`materia/buscador?claveId=${document.getElementById("claveId").value}`,{ method:'get' })
+			function busquedaInteligente(){
+				 if((document.getElementById("claveId").value.trim().length)>=1)
+                fetch(`/materia/buscador?claveId=${document.getElementById("claveId").value}`,{ method:'get' })
                 .then(response  =>  response.text() )
                 .then(html      =>  {   document.getElementById("busq").innerHTML = html  })
             else
                 document.getElementById("busq").innerHTML = ""
+			}
+
+
+			window.addEventListener('load',function(){
+        document.getElementById("claveId").addEventListener("keyup", () => {
+            busquedaInteligente()
         })
+        busquedaInteligente()
     });    
 		</script>
- <div class="col-8" id="busq">
+		<center>
+ <div class="col-8" id="busq" align="justify">
         @include('materias.busqueda')
     </div>
 		 <a href="ControlEscolarInicio">
@@ -163,7 +168,7 @@ body{
 
 
 		 </div>
-		 		
+	</center>	 		
 </body>
  <!-- vinculando a libreria Jquery-->
 

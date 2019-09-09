@@ -27,11 +27,11 @@
       <div class="card-header text-center" style="font-size:200%;width: 50%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 25%;" >{{ __('Modificar Materia') }}</div>
 
       <div style="position: absolute;top: 62%; left: 25%; width: 50%;height:50%; background-color:#aaa">
-      {!! Form::open(['route'=>['materia.store',$materia->Clave],'method'=>'POST','files'=>false]) !!}     {{ csrf_field() }}
+      {!! Form::open(['route'=>['materia.store',$materia->Clave_M],'method'=>'POST','files'=>false]) !!}     {{ csrf_field() }}
    	
    			<p><label  style="font-size:130%; position:  absolute;top: 10%; left: 5%">Clave:</label></p>
-    		<p><input type="text" name="Clave" value="{{ $materia->Clave }}" required="true" min="1" readonly style="font-size:105%; width: 65%; position:  absolute;top: 10%; left: 30%"></p>
-        <p><input type="input" name="claveOriginal" value="{{ $materia->Clave }}"  hidden="true"></p>
+    		<p><input type="text" name="Clave_M" value="{{ $materia->Clave_M }}" required="true" min="1" readonly style="font-size:105%; width: 65%; position:  absolute;top: 10%; left: 30%"></p>
+        <p><input type="input" name="claveOriginal" value="{{ $materia->Clave_M }}"  hidden="true"></p>
 
         <p><label  style="font-size:130%; position:  absolute;top: 25%; left: 5%">Tipo:</label><p>
         <p><select name="Tipo" required="true"  style="font-size:105%; width: 65%; position:  absolute;top: 25%; left: 30%" onchange="habilitar(this.value)"><?php
