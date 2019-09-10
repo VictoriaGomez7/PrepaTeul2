@@ -52,10 +52,11 @@ class ImprimelistasController extends Controller
      */
     public function show(Request $r )
     {
+
         $semestre=$r->semestre;
         $titulo='';
         if(($r->grupos =='formacion' && $r->semestre =='PRIMER SEMESTRE') || ($r->grupos =='formacion' && $r->semestre =='SEGUNDO SEMESTRE')){
-            //return 'esta aqui';
+       
             return back()->with('msj2','Sólo Tercer y Cuarto Semestre tienen asignado Formación Para el Trabajo');
             }else if($r->grupos =='formacion'){
                 return view('Listas.formacion',compact('semestre'));
@@ -75,7 +76,7 @@ class ImprimelistasController extends Controller
 
                  $listaA=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A
             from alumnos    WHERE  (EXISTS (SELECT 1 from grupos
-        WHERE grupos.id=alumnos.Clave_A and grupos.Grupo='A'))
+        WHERE grupos.Clave_A=alumnos.Clave_A and grupos.Grupo='A'))
                           AND alumnos.Semestre= :sem" ,['sem'=>$semestre]);
                  $titulo=$semestre . " GRUPO A";
             }else{
@@ -83,11 +84,11 @@ class ImprimelistasController extends Controller
 
                  $listaA=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A
             from alumnos    WHERE  (EXISTS (SELECT 1 from grupos
-        WHERE grupos.id=alumnos.Clave_A and grupos.Grupo='B'))
+        WHERE grupos.Clave_A=alumnos.Clave_A and grupos.Grupo='B'))
                           AND alumnos.Semestre= :sem" ,['sem'=>$semestre]);
                  
             }
-            if(count($listaA)){
+            if(count($listaA)>0){
                 $titulo=$semestre . " GRUPO B";
                  $pdf= PDF::loadView('Listas.muestraGrupos',compact('listaA','semestre','titulo'));
              return $pdf->stream();
@@ -110,7 +111,7 @@ class ImprimelistasController extends Controller
    
     public function edit(Request $r,$semestre)
     {
-        //
+
         $formacion=$r->formacionT;
         $listaA=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A
             from alumnos    WHERE  (EXISTS (SELECT 1 from ft_baches
@@ -140,7 +141,7 @@ class ImprimelistasController extends Controller
      */
     public function update(Request $r,$semestre)
     {
-    
+ //   return $r;
 
        $bachillerato=$r->bachilleratoT;
         $listaA=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A
