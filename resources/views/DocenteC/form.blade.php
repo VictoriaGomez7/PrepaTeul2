@@ -22,7 +22,7 @@
         <div class="card-header text-center" style="font-size:200%;width: 50%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 25%;" >{{ __('Modificar Docente') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
 
 
-        <form class="form-group" method="PUT" action="/Docente/{{$docente->id}}/edit">
+        <form class="form-group" method="PUT" action="/Docente/{{$docente->Clave_D}}/edit">
             {{--@method('PUT')--}}
             @csrf
 
@@ -38,7 +38,7 @@
 
             <div style="position: absolute;top: 62%; left: 45%; width: 25%;height:45%;background-color:#aaa">
                 <p></p>
-                <p><input type="number" required readonly min="1" max="9999999999" id="clave1" name="clave1" value="{{$docente->id}}" style="font-size:105%; width: 105%"/></p>
+                <p><input type="number" required readonly min="1" max="9999999999" id="clave1" name="clave1" value="{{$docente->Clave_D}}" style="font-size:105%; width: 105%"/></p>
 
                 <p><input type="text" required id="nombre1" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" name="nombre1" value="{{$docente->Nombre}}"style="font-size:105%; width: 105%;" /></h1>
 

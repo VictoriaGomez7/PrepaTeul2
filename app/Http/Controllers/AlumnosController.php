@@ -151,7 +151,7 @@ class AlumnosController extends Controller
     public function edit(Request $alumno1)
 
     {
-        return 'Hola';
+        //return 'Hola';
         $ides=$alumno1['Clave_A'];
         $alumn="";
         $alumns=Alumno::where([['Clave_A',$alumno1->id]])->get();

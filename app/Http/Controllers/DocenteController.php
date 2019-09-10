@@ -23,7 +23,6 @@ class DocenteController extends Controller
         //return $id->id1;
         //return $id->name;
         if ($id->name!="" && $id->id1==""){
-            return 'Primer if';
             $CDocente = Docentes::where('Nombre', $id->name)->get();
             if (count($CDocente)==0)
             {
@@ -40,7 +39,7 @@ class DocenteController extends Controller
             }
         }
         if ($id->id1!="" && $id->name==""){
-            $CDocente = Docentes::where('id', $id->id1)->get();
+            $CDocente = Docentes::where('Clave_D', $id->id1)->get();
             if (count($CDocente)==0){
                 return back()->with('msj',' El docente no existe' );
             }
@@ -56,7 +55,7 @@ class DocenteController extends Controller
         if ($id->name!="" && $id->id1!=""){
             $CDocente = Docentes::where('Clave_D', $id->id1)->get();
             foreach ($CDocente as $key) {
-                return $id->name;
+                //return $id->name;
                 if ($key->Nombre==$id->name){
                     return view('DocenteC.showC',compact('CDocente'));
                 }
@@ -132,25 +131,23 @@ class DocenteController extends Controller
      */
     public function edit(request $docente1)
     {
+        //return $docente1->input('clave1');
         $NombreN=$docente1->input('nombre1');
         $DomicilioN=$docente1->input('domicilio1');
         $TelefonoN=$docente1->input('telefono1');
-        $ides=$docente1->input('clave1');
+        //$ides=$docente1->input('clave1');
         //$docente = Docente::where('Clave', $docente1->clave1)->first();
+        $ides=$docente1['clave1'];
+        $alumn="";
+        $alumns=Docentes::where([['Clave_D',$docente1->clave1]])->get();
+        foreach ($alumns as $row){
+            $alumn=$row;
+            $alumn->fill($docente1->all());
+        }
+        $alumn->save();
 
-
-        $docente=Docentes::find($ides);
-
-
-        $docente->Nombre = $NombreN;
-        $docente->Domicilio = $DomicilioN;
-        $docente->Telefono = $TelefonoN;
-        //echo $docente->Domicilio;
-        //$docente->save();
-        $docente->save();
-
-
-            //return view('Docente.create')->with('msj1','Docente modificado exitosamente');
+        //return 'paso';
+        //return view('Docente.create')->with('msj1','Docente modificado exitosamente');
         return Redirect('docenteconsulta')->with('msj1','Docente modificado exitosamente' );
 
     }
@@ -178,8 +175,8 @@ class DocenteController extends Controller
     public function destroy($id)
     {
         Docentes::where('Clave_D',$id)->delete();
-      usuariomaestro::where('Usuario',$id)->delete();
-       Docentes::get();
+        usuariomaestro::where('Usuario',$id)->delete();
+        Docentes::get();
         //return  view('Alumnos.index',compact('alumnos'));
        return Redirect('docenteconsulta')->with('msj1','Docente Eliminado Correctamente');
     }
