@@ -114,13 +114,13 @@ return view('grupos.creaGrupos',compact('alumnosHombres','alumnosMujeres' ,'seme
                 return view('grupos.index'); 
 
         }else {
-            //return $r;
+            
             $numeros=[];
                          $alumnos=Alumno::where([['Semestre',$semestre] ])->get();
              foreach ($alumnos as $alumno) {
                  # code...
                 $n=$alumno->Clave_A;
-                $boton='eliminar'.$alumno->Clave_A;
+                $boton='eliminar'.$n;
                 
                 if(isset($r->$n)){
                     $c='combo'.$n;
@@ -130,17 +130,15 @@ return view('grupos.creaGrupos',compact('alumnosHombres','alumnosMujeres' ,'seme
                         $GrupoTemporal->save();
                 }
                  if(isset($r->$boton)){
-                     $eliminado=Grupo::where([['Clave_A',$alumno->Clave_A] ])->get();
+                    
+                     $eliminado=Grupo::where([['Clave_A',$n] ])->get();
                     foreach ($eliminado as $elimina) {
-                        # code...
-                        //return $elimina;
                         $elimina->delete();
                     }
-                   $eliminado=GrupoTemporal::where([['Clave_A',$alumno->Clave_A] ])->get();
-                  // return $alumno->Clave_A;
+                   $eliminado=GrupoTemporal::where([['Clave_A',$n] ])->get();
+                  
                      foreach ($eliminado as $elimina) {
-                        # code...
-                        //return $elimina;
+                      
                         $elimina->delete();
                     }
                 } 

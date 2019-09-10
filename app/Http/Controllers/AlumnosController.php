@@ -93,6 +93,7 @@ class AlumnosController extends Controller
     public function store(TagStoreRequest $request, TagStoreRequestFTyBACH $request2)
     {
         //return $request;
+
         $alumno=new Alumno();
         $alumno->Clave_A=$request['Clave_A'];
         $alumno->Nombre_A=$request['nombre'];

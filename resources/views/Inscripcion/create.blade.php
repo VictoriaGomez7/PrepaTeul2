@@ -79,7 +79,7 @@
             </div>
 
             <div style="position: absolute;top: 62%; left: 25%; width: 26%;height:53%;  background-color:#aaa">
-                <p><input type="text" placeholder="1800110001" value="{{ old('id') }}" required pattern="[1-9]{2}[0]{2}[1]{2}[0-9]{4}" id="id" name="id" style="font-size:105%; width: 95%"/></p>
+                <p><input type="text" placeholder="1800110001" value="{{ old('Clave_A') }}" required pattern="[1-9]{2}[0]{2}[1]{2}[0-9]{4}" id="id" name="Clave_A" style="font-size:105%; width: 95%"/></p>
                 <p><input type="text" placeholder="Velazquez Torres Ximena" value="{{ old('nombre') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="nombre" name="nombre" style="font-size:105%; width: 95%;" /></h1>
                 <p><input type="text" placeholder="Torres Cortes Maria" value="{{ old('nombremadre') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="nombremadre" name="nombremadre" style="font-size:105%; width: 95%;"/></p>
                 <p><input type="text" placeholder="Velazquez Luna Abel" value="{{ old('nombrepadre') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="nombrepadre" name="nombrepadre" style="font-size:105%; width: 95%;"/></p>
