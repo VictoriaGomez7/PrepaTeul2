@@ -22,8 +22,8 @@ class VisualizarMateriaGrupoController extends Controller
         $id=$_GET['valor'];
         $usua=$id;
         //return $id;
-        $NombreDoc=Docentes::where('id',$id)->get();
-        $MateriasDelDocente=RelacionDocenteMateriaGrupo::where('Docente',$NombreDoc[0]->Nombre)->get();
+        $NombreDoc=Docentes::where('Clave_D',$id)->get();
+        $MateriasDelDocente=RelacionDocenteMateriaGrupo::where('Clave_D',$NombreDoc[0]->Nombre)->get();
         $visibility=2;
         //return $MateriasDelDocente;
         if (count($MateriasDelDocente)==0){
@@ -59,24 +59,24 @@ class VisualizarMateriaGrupoController extends Controller
         $id=$request->idDocente;
         $usua=$id;
 
-        $NombreDoc=Docentes::where('id',$id)->get();
-        $MateriasDelDocente=RelacionDocenteMateriaGrupo::where('Docente',$NombreDoc[0]->Nombre)->get();
+        $NombreDoc=Docentes::where('Clave_D',$id)->get();
+        $MateriasDelDocente=RelacionDocenteMateriaGrupo::where('Clave_D',$NombreDoc[0]->Nombre)->get();
 
 
         $AlumnoEnGrupo=Grupo::where('Grupo',$request->Grupo)->get();
         $AlumnoEnGRupoSemestre=Materia_Grupo::where('Grupo',$request->Grupo)->get();
-        $SemestreMateria=Materia_Grupo::where('Clave',$request->ClaveMateriaSelec)->where('Grupo',$request->Grupo)->get();
+        $SemestreMateria=Materia_Grupo::where('Clave_M',$request->ClaveMateriaSelec)->where('Grupo',$request->Grupo)->get();
         //return $SemestreMateria[0]->Semestre;
         $AlumnosEnMismoSemestre=array();
         //return $AlumnoEnGrupo;
         for ($i=0; $i < count($AlumnoEnGrupo); $i++) {
-            $SemestreAlumno=Alumno::where('id',$AlumnoEnGrupo[$i]->id)->get('Semestre');
+            $SemestreAlumno=Alumno::where('Clave_A',$AlumnoEnGrupo[$i]->id)->get('Semestre');
             //print $SemestreAlumno[0]->Semestre;
 
             //return $SemestreAlumno;
             //return $SemestreMateria->Semestre;
             if (($SemestreAlumno[0]->Semestre)==($SemestreMateria[0]->Semestre)) {
-                $AlumnoParaTabla=Alumno::where('id',$AlumnoEnGrupo[$i]->id)->get();
+                $AlumnoParaTabla=Alumno::where('Clave_A',$AlumnoEnGrupo[$i]->id)->get();
                 //print $AlumnoEnGrupo[$i]->id;
                 //print $AlumnoParaTabla;
                 array_push($AlumnosEnMismoSemestre,$AlumnoParaTabla );
