@@ -14,7 +14,7 @@ class CreateGrupoTemporalsTable extends Migration
     public function up()
     {
         Schema::create('grupo_temporals', function (Blueprint $table) {
-            $table->string('id');
+            $table->string('Clave_A');
             $table->bigIncrements('Numero');
             $table->string('Grupo');
             $table->timestamps();

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class GrupoTemporal extends Model
 {
     //
-    protected $fillable = ['Numero','Grupo']; 
+    protected $fillable = ['Clave_A','Numero','Grupo']; 
 
 }

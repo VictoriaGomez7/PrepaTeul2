@@ -55,8 +55,8 @@
             foreach ($listaA as $r) {
                 ?>
                 <tr><td>
-               <label for="eliminar{{ $r->id }}"> {{$r->Nombre_A}}</label>
-                <input type="submit" name="eliminar{{$r->id}}" value="Mover" > 
+               <label for="eliminar{{ $r->Clave_A }}"> {{$r->Nombre_A}}</label>
+                <input type="submit" name="eliminar{{$r->Clave_A}}" value="Mover" > 
               </td></tr>
                 <?php
               }  
@@ -72,8 +72,8 @@
             foreach ($listaB as $r) {
                 ?>
                 <tr><td>
-               <label for="eliminar{{ $r->id }}"> {{$r->Nombre_A}}</label>
-                <input type="submit" name="eliminar{{$r->id}}" value="Mover" > 
+               <label for="eliminar{{ $r->Clave_A }}"> {{$r->Nombre_A}}</label>
+                <input type="submit" name="eliminar{{$r->Clave_A}}" value="Mover" > 
                 </td></tr>
                 <?php
               }  
@@ -88,12 +88,12 @@
             foreach ($alumnosHombres as $r) {
                 ?>
                 <tr><td>
-               <label for="{{ $r->id }}"> {{ $r->Nombre_A }}</label>
-               <select name="combo{{$r->id}}" >
+               <label for="{{ $r->Clave_A }}"> {{ $r->Nombre_A }}</label>
+               <select name="combo{{$r->Clave_A}}" >
                   <option value="A" >A</option>
                   <option value="B" >B</option>
               </select>
-                <input type="submit" name="{{ $r->id }}" value="Aceptar" > 
+                <input type="submit" name="{{ $r->Clave_A }}" value="Aceptar" > 
                 </td></tr>
                 <?php
               }  
@@ -105,12 +105,12 @@
          
             foreach ($alumnosMujeres as $r) {
                 ?>
-               <label for="{{ $r->id }}"> {{ $r->Nombre_A }}</label>
-               <select name="combo{{$r->id}}" >
+               <label for="{{ $r->Clave_A }}"> {{ $r->Nombre_A }}</label>
+               <select name="combo{{$r->Clave_A}}" >
                   <option value="A">A</option>
                   <option value="B">B</option>
               </select>
-                <input type="submit" name="{{ $r->id }}" value="Asignar" > 
+                <input type="submit" name="{{ $r->Clave_A }}" value="Asignar" > 
                 <br><br>
 
                 <?php

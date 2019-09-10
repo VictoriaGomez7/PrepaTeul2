@@ -24,7 +24,7 @@ class TagStoreRequestFTyBACH extends FormRequest
     public function rules()
     {
         return [
-            'Clave_A'=>'unique:ft_baches,id,'.$this->tag,
+            'Clave_A'=>'unique:ft_baches,Clave_A'.$this->tag,
         ];
     }
 }

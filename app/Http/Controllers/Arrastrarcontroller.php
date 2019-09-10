@@ -35,7 +35,7 @@ class Arrastrarcontroller extends Controller
 
                 $Materias_Grupo=materia_grupo::where('Semestre','=','SEGUNDO SEMESTRE')->orWhere('Semestre','=','CUARTO SEMESTRE')->orWhere('Semestre','=','SEXTO SEMESTRE')->get('Clave_M');
                 if (count($Materias_Grupo)==0){
-                    return redirect('/ControlEscolarInicio')->with('MsjERR','No tiene materias registrados');
+                    return redirect('/ControlEscolarInicio')->with('MsjERR','No tiene materias registradas');
                 }
                 else{
 
@@ -120,7 +120,7 @@ class Arrastrarcontroller extends Controller
             if ($fecha>='07' and $fecha<='12'){
                 $Materias_Grupo=materia_grupo::where('Semestre','=','PRIMER SEMESTRE')->orWhere('Semestre','=','TERCER SEMESTRE')->orWhere('Semestre','=','QUINTO SEMESTRE')->get('Clave_M');
                 if (count($Materias_Grupo)==0){
-                    return redirect('/ControlEscolarInicio')->with('MsjERR','No tiene materias registrados');
+                    return redirect('/ControlEscolarInicio')->with('MsjERR','No tiene materias registradas');
                 }
                 else{
 

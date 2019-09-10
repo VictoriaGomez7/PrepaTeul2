@@ -92,9 +92,9 @@ class AlumnosController extends Controller
      */
     public function store(TagStoreRequest $request, TagStoreRequestFTyBACH $request2)
     {
-        //return 'hola';
+        //return $request;
         $alumno=new Alumno();
-        $alumno->Clave_A=$request['id'];
+        $alumno->Clave_A=$request['Clave_A'];
         $alumno->Nombre_A=$request['nombre'];
         $alumno->Nombre_P=$request['nombrepadre'];
         $alumno->Nombre_M=$request['nombremadre'];
@@ -115,7 +115,7 @@ class AlumnosController extends Controller
         $alumno->save();
 
         $requisito=new Requisito();
-        $requisito->Clave_A=$request['id'];
+        $requisito->Clave_A=$request['Clave_A'];
         $requisito->Requisito_A=$request['A'];
         $requisito->Requisito_B=$request['B'];
         $requisito->Requisito_C=$request['C'];
@@ -127,11 +127,11 @@ class AlumnosController extends Controller
         $requisito->save();
 
         $alumnoL=new usuarioalumno();
-        $alumnoL->Usuario=$request['id'];
+        $alumnoL->Usuario=$request['Clave_A'];
         $alumnoL->save();
 
         $campo=new ft_bach();
-        $campo->Clave_A=$request['id'];
+        $campo->Clave_A=$request['Clave_A'];
         $campo->Formación_Trabajo=$request2['ft1'];
         $campo->Bachillerato=$request2['bach1'];
         $campo->save();

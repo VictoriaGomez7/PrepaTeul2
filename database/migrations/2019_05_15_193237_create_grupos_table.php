@@ -14,7 +14,7 @@ class CreateGruposTable extends Migration
     public function up()
     {
         Schema::create('grupos', function (Blueprint $table) {
-            $table->string('id');
+            $table->string('Clave_A');
             $table->bigIncrements('Numero');
             $table->string('Grupo');
             $table->timestamps();
