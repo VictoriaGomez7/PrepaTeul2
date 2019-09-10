@@ -42,7 +42,7 @@ th {
           <tr>
             <th  align="center">Matrícula</th>
 
-              <td  align="justify">{{$row->id}}</td>
+              <td  align="justify">{{$row->Clave_A}}</td>
 
             <th   align="center">Alumno</th>
 

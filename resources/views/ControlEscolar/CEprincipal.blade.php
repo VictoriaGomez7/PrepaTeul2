@@ -22,6 +22,7 @@
 							<li><a href ="http://127.0.0.1:8000/inscripcion"> Inscripción</a></li>
 							<li><a href="http://127.0.0.1:8000/reinscripcion">Reinscripión</a></li>
 							<li><a href="http://127.0.0.1:8000/alumnosconsulta">Consultar</a></li>
+							<li><a href="http://127.0.0.1:8000/Irregulares">Irregulares</a></li>
 						</ul>
 					</li>
 					<li><a href="#">Docentes</a>

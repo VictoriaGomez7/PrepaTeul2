@@ -41,6 +41,7 @@
 						<li><a href ="inscripcion"> Inscripción</a></li>
 						<li><a href="reinscripcion">Reinscripión</a></li>
 						<li><a href="alumnosconsulta">Consultar</a></li>
+						<li><a href="http://127.0.0.1:8000/Irregulares">Irregulares</a></li>
 					</ul>
 				</li>
 				<li><a href="#">Docentes</a>

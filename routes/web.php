@@ -12,6 +12,7 @@
 */
 
 Route::get('materia/buscador','materiasBuscadorController@buscador');
+
 Route::get('/', function () {
     return view('interfazprincipal.Interfaz');
 });
@@ -96,12 +97,7 @@ Route::get('/CONSULTACALIFICACIONESDC', function () {
     return view('Calificaciones.ConsultaDC');
 });
 
-
-
-
-
 Route::get('Asistencias','AsistenciasController@Report');
-
 
 Route::resource('Imprimelistas','ImprimelistasController');
 
@@ -147,3 +143,4 @@ Route::resource('AsignarCalificacion','CalificacionesController');
 
 Route::resource('Calificaciones','CalificacionesController');
 
+Route::resource('Irregulares', 'IrregularController');

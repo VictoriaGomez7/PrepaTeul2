@@ -51,7 +51,7 @@
 					</ul>
 				</li>
 				<?php use App\Docentes;
-					$Docente=Docentes::where('id',$usua)->get('Nombre');
+					$Docente=Docentes::where('Clave_D',$usua)->get('Nombre');
 				?>
 				<li style="left: 55%;"><a  href="#" >Docente: {{$Docente[0]->Nombre}}</a>
 					<ul class="submenu">

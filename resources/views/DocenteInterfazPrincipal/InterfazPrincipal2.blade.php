@@ -23,7 +23,7 @@
 
 	<header>
 		<?php use App\Docentes;
-			$Docente=Docentes::where('id',$usua)->get('Nombre');
+			$Docente=Docentes::where('Clave_D',$usua)->get('Nombre');
 		?>
 		<div class="alert alert-success" role="alert" style="width: 90%; position:  absolute;top: 45%; left: 5%;z-index: 1;">
 				<button class="close" data-dismiss="alert"><span>&times;</span></button>

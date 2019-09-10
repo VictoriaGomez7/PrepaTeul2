@@ -9,6 +9,7 @@ use App\ft_bach;
 use App\Grupo;
 use App\Http\Requests\TagStoreRequestFTyBACH;
 use App\Http\Requests\TagStoreRequest;
+use App\Requisito;
 
 
 
@@ -91,10 +92,9 @@ class AlumnosController extends Controller
      */
     public function store(TagStoreRequest $request, TagStoreRequestFTyBACH $request2)
     {
-
+        //return 'hola';
         $alumno=new Alumno();
-
-        $alumno->id=$request['Clave_A'];
+        $alumno->Clave_A=$request['id'];
         $alumno->Nombre_A=$request['nombre'];
         $alumno->Nombre_P=$request['nombrepadre'];
         $alumno->Nombre_M=$request['nombremadre'];
@@ -112,23 +112,26 @@ class AlumnosController extends Controller
         $alumno->Semestre=$request['semestree'];
         $alumno->Sexo=$request['sexo'];
         $alumno->Estado='REGULAR';
-        $alumno->Requisito_A=$request['A'];
-        $alumno->Requisito_B=$request['B'];
-        $alumno->Requisito_C=$request['C'];
-        $alumno->Requisito_D=$request['D'];
-        $alumno->Requisito_E=$request['E'];
-        $alumno->Requisito_F=$request['F'];
-        $alumno->Requisito_G=$request['G'];
-        $alumno->Requisito_H=$request['H'];
         $alumno->save();
+
+        $requisito=new Requisito();
+        $requisito->Clave_A=$request['id'];
+        $requisito->Requisito_A=$request['A'];
+        $requisito->Requisito_B=$request['B'];
+        $requisito->Requisito_C=$request['C'];
+        $requisito->Requisito_D=$request['D'];
+        $requisito->Requisito_E=$request['E'];
+        $requisito->Requisito_F=$request['F'];
+        $requisito->Requisito_G=$request['G'];
+        $requisito->Requisito_H=$request['H'];
+        $requisito->save();
 
         $alumnoL=new usuarioalumno();
         $alumnoL->Usuario=$request['id'];
         $alumnoL->save();
 
         $campo=new ft_bach();
-
-        $campo->id=$request['id'];
+        $campo->Clave_A=$request['id'];
         $campo->Formación_Trabajo=$request2['ft1'];
         $campo->Bachillerato=$request2['bach1'];
         $campo->save();
@@ -146,8 +149,9 @@ class AlumnosController extends Controller
      */
     public function edit(Request $alumno1)
 
-            {
-        $ides=$alumno1['id'];
+    {
+        return 'Hola';
+        $ides=$alumno1['Clave_A'];
         $alumn="";
         $alumns=Alumno::where([['Clave_A',$alumno1->id]])->get();
         foreach ($alumns as $row){

@@ -2,9 +2,10 @@
 
 @extends('layouts.app')
 
-@section('title','Consultar Alumnos')
+@section('title','Consultar Alumnos Irregulares')
 @include('ControlEscolar.CEprincipal')
-@section('frameTitulo')
+@section('MostrarIrregulares')
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -17,38 +18,31 @@
     <table  id="alumn" class="table" >
       <thead>
         <tr>
-          <th  align="center">Matrícula</th>
           <th  align="center">Alumno</th>
-          <th  align="center">Padre</th>
-          <th  align="center">Madre</th>
-          <th  align="center">Domicilio</th>
-          <th  align="center">Semestre</th>
-          <th  align="center">Teléfono Tutor</th>
-          <th  align="center">Edad</th>
-          <th   align="center">Email</th>
+          <th  align="center">Materia</th>
+          <th  align="center">Calificación 1</th>
+          <th  align="center">Calificación 2</th>
+          <th  align="center">Calificación 3</th>
 
           <th></th>
           <th></th>
         </tr>
       </thead>
         <tbody>
-          @foreach($CAlumno as $alumno)
+          @foreach($Alumnos as $alumno)
           <tr>
-            <td align="center">{{ $alumno->Clave_A }}</td>
-            <td align="center">{{ $alumno->Nombre_A}}</td>
-            <td align="center">{{ $alumno->Nombre_P }}</td>
-            <td align="center">{{ $alumno->Nombre_M}}</td>
-            <td align="justify">{{ $alumno->Domicilio}}</td>
-            <td align="justify">{{ $alumno->Semestre }}</td>
-            <td align="justify">{{ $alumno->Telefono_T }}</td>
-            <td align="justify">{{ $alumno->Edad}}</td>
-            <td align="justify">{{ $alumno->Email}}</td>
+            <td align="center">hola</td>
+            <td align="center">hola2</td>
+            <td align="center">hola3</td>
+            <td align="center">hola4 </td>
+            <td align="justify">hola5</td>
+
             {!!Form::open(['route' => ['Alumnos.update',$alumno->id],'method'=>'PUT'])!!}
-            <td>{!!Form::submit('Modificar',['class'=>'btn btn-primary'])!!}</td>
+              <td>{!!Form::submit('Modificar',['class'=>'btn btn-primary'])!!}</td>
             {!! Form::close()!!}
             
             {!!Form::open(['route' => ['Alumnos.destroy',$alumno->id],'method'=>'DELETE'])!!}
-            {!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
+              {!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
             {!! Form::close()!!}
                       </div>
                     </div>

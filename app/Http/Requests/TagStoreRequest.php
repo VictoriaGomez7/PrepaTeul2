@@ -23,8 +23,7 @@ class TagStoreRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'id'=>'unique:Alumnos,id,'.$this->tag,
+        return ['Clave_A'=>'unique:Alumnos,id,'.$this->tag,
         ];
     }
 }
