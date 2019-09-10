@@ -25,7 +25,7 @@ class CalificacionesController extends Controller
         $usua=$id;
         //return $id;
         $NombreDoc=Docentes::where('Clave_D',$id)->get();
-        $MateriasDelDocente=RelacionDocenteMateriaGrupo::where('Docente',$NombreDoc[0]->Nombre)->get();
+        $MateriasDelDocente=RelacionDocenteMateriaGrupo::where('Clave_D',$NombreDoc[0]->Nombre)->get();
         $Periodo1ini=Periodo::where('id','1')->get('fecha1');
         $Periodo1fin=Periodo::where('id','1')->get('fecha2');
         $Periodo2ini=Periodo::where('id','2')->get('fecha1');
@@ -93,7 +93,7 @@ class CalificacionesController extends Controller
         $usua=$id;
 
         $NombreDoc=Docentes::where('Clave_D',$id)->get();
-        $MateriasDelDocente=RelacionDocenteMateriaGrupo::where('Docente',$NombreDoc[0]->Nombre)->get();
+        $MateriasDelDocente=RelacionDocenteMateriaGrupo::where('Clave_D',$NombreDoc[0]->Nombre)->get();
 
 
         $AlumnoEnGrupo=Grupo::where('Grupo',$request->Grupo)->get();
