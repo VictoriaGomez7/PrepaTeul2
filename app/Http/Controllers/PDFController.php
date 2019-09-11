@@ -22,7 +22,7 @@ class PDFController extends Controller
     public function index(Request $id)
     {
       if ($id->opcion==null) {
-        
+
       }
 
       $alumno=Alumno::where([
@@ -78,7 +78,7 @@ class PDFController extends Controller
 
         $alumno=Alumno::where([
 
-        ['id',$id->id]
+        ['id',$id->Clave_A]
         ])->get();
 
         if (count($alumno)==0)

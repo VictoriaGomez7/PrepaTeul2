@@ -28,7 +28,7 @@
 
 			{!!Form::open(['route' => ['VisualizaMaGr.store'],'method'=>'POST'])!!}
 			<input type="submit" value="{{$MateriasDelDocent->Materia." ".$MateriasDelDocent->Grupo}}" name="MateriaSeleccionada" class="NombreMateria" style="background-color: #85C1E9; border: 2px solid #0000000; width: 200px;height: 40px; margin: 5px;" readonly>
-			<input type="hidden" value="{{$MateriasDelDocent->ClaveMateria}}" name="ClaveMateriaSelec" >
+			<input type="hidden" value="{{$MateriasDelDocent->Clave_M}}" name="ClaveMateriaSelec" >
 			<input type="hidden" value="{{$MateriasDelDocent->Grupo}}" name="Grupo" >
 			<input type="hidden" value="{{$id}}" name="idDocente" >
 			<input type="hidden" value="{{$usua}}" name="usua" >
