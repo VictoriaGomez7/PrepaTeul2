@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIrregularesTable extends Migration
+class CreateIrregularMateriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateIrregularesTable extends Migration
      */
     public function up()
     {
-        Schema::create('irregulares', function (Blueprint $table) {
+        Schema::create('irregular_materias', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Clave_A');
+            $table->string('Clave_M');
+            $table->float('Calificacion1');
+            $table->float('Calificacion2');
+            $table->float('Calificacion3');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class CreateIrregularesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('irregulares');
+        Schema::dropIfExists('irregular_materias');
     }
 }

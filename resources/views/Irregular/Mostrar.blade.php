@@ -20,8 +20,7 @@
         <tr>
           <th  align="center">Matrícula</th>
           <th  align="center">Alumno</th>
-          <th  align="center">Clave</th>
-          <th  align="center">Materia</th>
+          <th  align="center">Materias reprobadas</th>
           <th></th>
         </tr>
       </thead>
@@ -30,10 +29,8 @@
           @foreach($ObtenerIrregulares as $alumno)
           <tr>
             <td align="justify">{{ $alumno->Clave_A }}</td>
-            <td align="justify">{{ $Listado_Nombres[$Cont] }}</td>
-            <td align="justify">{{ $alumno->Clave_M}}</td>
-            <?php $Cont+=1; ?>
-            <td align="justify">{{ $Listado_Nombres[$Cont]}}</td>
+            <td align="justify">{{ $Listado_Nombres_Alumnos[$Cont] }}</td>
+            <td align="justify">{{ $Cantidad_Materias_Reprobadas[$Cont]}}</td>
 
             {!!Form::open(['route' => ['Alumnos.update',$alumno->id],'method'=>'PUT'])!!}
             <td>{!!Form::submit('Ver',['class'=>'btn btn-primary'])!!}</td>
