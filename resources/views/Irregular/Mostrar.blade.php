@@ -29,11 +29,11 @@
           <?php $Cont=0; ?>
           @foreach($ObtenerIrregulares as $alumno)
           <tr>
-            <td align="center">{{ $alumno->Clave_A }}</td>
-            <td align="center">{{ $Listado_Nombres[$Cont] }}</td>
-            <td align="center">{{ $alumno->Clave_M}}</td>
+            <td align="justify">{{ $alumno->Clave_A }}</td>
+            <td align="justify">{{ $Listado_Nombres[$Cont] }}</td>
+            <td align="justify">{{ $alumno->Clave_M}}</td>
             <?php $Cont+=1; ?>
-            <td align="center">{{ $Listado_Nombres[$Cont]}}</td>
+            <td align="justify">{{ $Listado_Nombres[$Cont]}}</td>
 
             {!!Form::open(['route' => ['Alumnos.update',$alumno->id],'method'=>'PUT'])!!}
             <td>{!!Form::submit('Ver',['class'=>'btn btn-primary'])!!}</td>
