@@ -32,8 +32,8 @@ class AsistenciasController extends Controller
         $request=$_GET['valor'];
         $usua=$_GET['valor'];
         $otro_id=$request;
-        $doc=Docente::where('id',$request)->get();
-        $CDocente = RelacionDocenteMateriaGrupo::where('docente', $doc[0]->Nombre)->get();
+        $doc=Docente::where('Clave_D',$request)->get();
+        $CDocente = RelacionDocenteMateriaGrupo::where('Clave_D', $doc[0]->Nombre)->get();
 
             //return $CDocente[0]->Materia;
             $CMateria = Materia::get();
@@ -93,8 +93,8 @@ class AsistenciasController extends Controller
           $asistencia->Materia=$Mat;
           $asistencia->save();
 
-          $doc=Docente::where('id',$usua)->get();
-        $CDocente = RelacionDocenteMateriaGrupo::where('docente', $doc[0]->Nombre)->get();
+          $doc=Docente::where('Clave_D',$usua)->get();
+        $CDocente = RelacionDocenteMateriaGrupo::where('Clave_D', $doc[0]->Nombre)->get();
 
             //return $CDocente[0]->Materia;
             $CMateria = Materia::get();
@@ -105,8 +105,8 @@ class AsistenciasController extends Controller
           break;
 
         default:
-       $doc=Docente::where('id',$usua)->get();
-        $CDocente = RelacionDocenteMateriaGrupo::where('docente', $doc[0]->Nombre)->get();
+       $doc=Docente::where('Clave_D',$usua)->get();
+        $CDocente = RelacionDocenteMateriaGrupo::where('Clave_D', $doc[0]->Nombre)->get();
 
             //return $CDocente[0]->Materia;
             $CMateria = Materia::get();
@@ -144,7 +144,7 @@ class AsistenciasController extends Controller
 
       if ($Grupo == 'A' || $Grupo =='B') {
         $Claves = Grupo::where('Grupo', $Grupo)->get();
-        $Materia= Materia::where('Clave',$Clavemat)->get();
+        $Materia= Materia::where('Clave_M',$Clavemat)->get();
       $Alumnos= Alumno::get();
       $asis=Asistencia::where('Materia',$Clavemat)->get();
       $periodo=Periodo::get();
@@ -166,7 +166,7 @@ class AsistenciasController extends Controller
       $arrayalumnos = array();
       for ($i=0; $i <count($Claves) ; $i++) {
         for ($j=0; $j <count($Alumnos) ; $j++) {
-          if ($Claves[$i]['id']==$Alumnos[$j]['id'] && $Materia[0]['Semestre']==$Alumnos[$j]['Semestre']) {
+          if ($Claves[$i]['id']==$Alumnos[$j]['Clave_A'] && $Materia[0]['Semestre']==$Alumnos[$j]['Semestre']) {
             array_push($arrayalumnos, $Alumnos[$j]);
           }
         }
@@ -201,7 +201,7 @@ class AsistenciasController extends Controller
       $arrayalumnos = array();
       for ($i=0; $i <count($Claves) ; $i++) {
         for ($j=0; $j <count($Alumnos) ; $j++) {
-          if ($Claves[$i]['id']==$Alumnos[$j]['id'] && $Materia[0]['Semestre']==$Alumnos[$j]['Semestre']) {
+          if ($Claves[$i]['id']==$Alumnos[$j]['Clave_A'] && $Materia[0]['Semestre']==$Alumnos[$j]['Semestre']) {
             array_push($arrayalumnos, $Alumnos[$j]);
           }
         }
@@ -233,7 +233,7 @@ class AsistenciasController extends Controller
       $arrayalumnos = array();
       for ($i=0; $i <count($Claves) ; $i++) {
         for ($j=0; $j <count($Alumnos) ; $j++) {
-          if ($Claves[$i]['id']==$Alumnos[$j]['id'] && $Materia[0]['Semestre']==$Alumnos[$j]['Semestre']) {
+          if ($Claves[$i]['id']==$Alumnos[$j]['Clave_A'] && $Materia[0]['Semestre']==$Alumnos[$j]['Semestre']) {
             array_push($arrayalumnos, $Alumnos[$j]);
           }
         }
@@ -291,7 +291,7 @@ class AsistenciasController extends Controller
       
       if ($Grupo == 'A' || $Grupo =='B') {
         $Claves = Grupo::where('Grupo', $Grupo)->get();
-        $Materia= Materia::where('Clave',$Clavemat)->get();
+        $Materia= Materia::where('Clave_M',$Clavemat)->get();
       $Alumnos= Alumno::get();
       $asis=Asistencia::where('Materia',$Clavemat)->get();
       $periodo=Periodo::get();
@@ -299,7 +299,7 @@ class AsistenciasController extends Controller
       $arrayalumnos = array();
       for ($i=0; $i <count($Claves) ; $i++) {
         for ($j=0; $j <count($Alumnos) ; $j++) {
-          if ($Claves[$i]['id']==$Alumnos[$j]['id'] && $Materia[0]['Semestre']==$Alumnos[$j]['Semestre']) {
+          if ($Claves[$i]['id']==$Alumnos[$j]['Clave_A'] && $Materia[0]['Semestre']==$Alumnos[$j]['Semestre']) {
             array_push($arrayalumnos, $Alumnos[$j]);
           }
         }
@@ -321,7 +321,7 @@ class AsistenciasController extends Controller
       $arrayalumnos = array();
       for ($i=0; $i <count($Claves) ; $i++) {
         for ($j=0; $j <count($Alumnos) ; $j++) {
-          if ($Claves[$i]['id']==$Alumnos[$j]['id'] && $Materia[0]['Semestre']==$Alumnos[$j]['Semestre']) {
+          if ($Claves[$i]['id']==$Alumnos[$j]['Clave_A'] && $Materia[0]['Semestre']==$Alumnos[$j]['Semestre']) {
             array_push($arrayalumnos, $Alumnos[$j]);
           }
         }
@@ -339,7 +339,7 @@ class AsistenciasController extends Controller
       $arrayalumnos = array();
       for ($i=0; $i <count($Claves) ; $i++) {
         for ($j=0; $j <count($Alumnos) ; $j++) {
-          if ($Claves[$i]['id']==$Alumnos[$j]['id'] && $Materia[0]['Semestre']==$Alumnos[$j]['Semestre']) {
+          if ($Claves[$i]['id']==$Alumnos[$j]['Clave_A'] && $Materia[0]['Semestre']==$Alumnos[$j]['Semestre']) {
             array_push($arrayalumnos, $Alumnos[$j]);
           }
         }

@@ -70,7 +70,7 @@
 
 
     <label style="font-size:130%; position:  absolute;top: 10%; left: 40%" >
-          <input type="radio" name="formacionT"  class="with-gap" value="Lenguas" required="true" >
+          <input type="radio" name="formacionT"  class="with-gap" value="Turismo" required="true" >
       <span>Turismo</span>
     </label>
 

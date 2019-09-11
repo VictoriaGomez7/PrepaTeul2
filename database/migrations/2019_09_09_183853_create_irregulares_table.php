@@ -18,7 +18,7 @@ class CreateIrregularesTable extends Migration
             $table->string('Clave_A');
             $table->string('Clave_M');
             $table->float('Calificacion1');
-            $table->float('Calificacio2');
+            $table->float('Calificacion2');
             $table->float('Calificacion3');
             $table->timestamps();
         });

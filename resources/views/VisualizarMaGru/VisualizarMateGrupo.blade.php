@@ -53,7 +53,7 @@
 		        	<?php $contador=0;?>
 		        @foreach($AlumnosEnMismoSemestre as $AlumnosEnMismoSemestr)
 		          <tr>
-		            <td>{{ $AlumnosEnMismoSemestr[$contador]->id }}</td>
+		            <td>{{ $AlumnosEnMismoSemestr[$contador]->Clave_A }}</td>
 		            <td >{{ $AlumnosEnMismoSemestr[$contador]->Nombre_A}}</td>
 		          </tr>
 		         @endforeach

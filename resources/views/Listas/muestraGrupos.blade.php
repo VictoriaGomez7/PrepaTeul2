@@ -37,7 +37,7 @@
             foreach ($listaA as $r) {
                 ?>
                 <tr><td>
-               <label > {{ $r->id }}</label> </td>
+               <label > {{ $r->Clave_A }}</label> </td>
                   <td>
                <label > {{ $r->Nombre_A }}</label> </td></tr>
                 <?php

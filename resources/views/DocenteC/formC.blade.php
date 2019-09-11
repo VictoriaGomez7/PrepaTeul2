@@ -19,7 +19,7 @@
         <div class="card-header text-center" style="font-size:200%;width: 50%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 25%;" >{{ __('Modificar Docente') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
 
 
-        <form class="form-group" method="PUT" action="/Docente/{{$docente->id}}">
+        <form class="form-group" method="PUT" action="/Docente/{{$docente->Clave_D}}">
 
             <div style="position: absolute;top: 62%; left: 25%; width: 50%;height:50%;background-color:#aaa">
 
@@ -34,7 +34,7 @@
 
             <div style="position: absolute;top: 62%; left: 45%; width: 25%;height:53%;">
                 <p></p>
-                <p><input type="number" required pattern="[1-9]{1-5}[0-9]{9}"  min="1"  id="id" name="id" value="{{$docente->id}}" style="position: absolute;top: 6%;left:0%; width:105%"/></p>
+                <p><input type="number" required pattern="[1-9]{1-5}[0-9]{9}"  min="1"  id="id" name="id" value="{{$docente->Clave_D}}" style="position: absolute;top: 6%;left:0%; width:105%"/></p>
 
                 <p><input type="text" required readonly id="nombre1" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" name="nombre1" value="{{$docente->Nombre}}" style="position: absolute;top: 20%;left:0%; width:105%" /></h1>
 
@@ -58,6 +58,6 @@
     @endsection
 </body>
 
-{!!Form::open(['route' => ['Docente.destroy',$docente->id],'method'=>'DELETE'])!!}
+{!!Form::open(['route' => ['Docente.destroy',$docente->Clave_D],'method'=>'DELETE'])!!}
 {!!Form::submit('Eliminar',['class'=>'btn btn-danger', 'style'=>'position: absolute;top: 120%;left:35%'])!!}
 {!! Form::close()!!}

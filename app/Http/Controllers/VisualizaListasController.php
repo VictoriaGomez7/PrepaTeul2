@@ -18,6 +18,7 @@ class VisualizaListasController extends Controller
      */
     public function index()
     { 
+        return "Hola";
         
         $id=$_GET['valor'];
         $usua=$_GET['valor'];
@@ -36,6 +37,7 @@ class VisualizaListasController extends Controller
      */
     public function create(Request $request)
     {
+        return $request;
         //return 'En el create:'. $request;
         //return $request['NombreM'].$request['NomDocente'];
         $id=$request['NomDocente']; //ESTE ESTA
@@ -89,7 +91,7 @@ class VisualizaListasController extends Controller
 
         $usua=$id;
         //return $usua;
-        $Nombre_Docente=Docentes::where('id',$usua)->get('Nombre');
+        $Nombre_Docente=Docentes::where('Clave_D',$usua)->get('Nombre');
         //return $Nombre_Docente;
         $Materias=RelacionDocenteMateriaGrupo::where('Docente',$Nombre_Docente[0]->Nombre)->get('Materia');
         //return $Materias;
@@ -177,7 +179,7 @@ class VisualizaListasController extends Controller
             $Materia_Clave=RelacionDocenteMateriaGrupo::where('Materia',$nombreM)->get('ClaveMateria');
             //return $Materia_Clave;
 
-            $Materia_Semestre=materia_grupo::where('Clave',$Materia_Clave[0]->ClaveMateria)->get('Semestre');
+            $Materia_Semestre=materia_grupo::where('Clave_M',$Materia_Clave[0]->ClaveMateria)->get('Semestre');
             //return $Materia_Semestre;
 
             
@@ -188,13 +190,13 @@ class VisualizaListasController extends Controller
 
                 foreach ($alum as $alumno) {
                     //print $alumno->id;
-                    $Alum=Grupo::where('id',$alumno->id)->get('Grupo');
+                    $Alum=Grupo::where('id',$alumno->Clave_A)->get('Grupo');
                     //return $Alum;
                     //return $Alum[0]->Grupo.$grupo;
                     if ($Alum[0]->Grupo==$grupo){
                         $Dat=array();
                         //print $grupo;
-                        array_push($Dat,$alumno->id,$alumno->Nombre_A);
+                        array_push($Dat,$alumno->Clave_A,$alumno->Nombre_A);
                         array_push($Lista,$Dat);
                         //print_r($Lista);
                     }
@@ -208,11 +210,11 @@ class VisualizaListasController extends Controller
                 $Lista=array();
                 foreach ($alum as $alumno) {
                     //return $alumno->id;
-                    $Alum=Grupo::where('id',$alumno->id)->get('Grupo');
+                    $Alum=Grupo::where('id',$alumno->Clave_A)->get('Grupo');
                     if ($Alum[0]->Grupo==$grupo){
                         $Dat=array();
                         //print $grupo;
-                        array_push($Dat,$alumno->id,$alumno->Nombre_A);
+                        array_push($Dat,$alumno->Clave_A,$alumno->Nombre_A);
                         array_push($Lista,$Dat);
                         //print_r($Lista);
                     }
@@ -243,9 +245,10 @@ class VisualizaListasController extends Controller
      */
     public function show($id)
     {
+        return $id;
         $usu=$id;
         $usua=$id;
-        $Nom_Do=Docentes::where('id',$usu)->get('Nombre');
+        $Nom_Do=Docentes::where('Clave_D',$usu)->get('Nombre');
         $Ma=RelacionDocenteMateriaGrupo::where('Docente',$Nom_Do[0]->Nombre)->get();
         $M=RelacionDocenteMateriaGrupo::where('Docente',$Nom_Do[0]->Nombre)->get('Materia');
         $G=RelacionDocenteMateriaGrupo::where('Docente',$Nom_Do[0]->Nombre)->get('Grupo');

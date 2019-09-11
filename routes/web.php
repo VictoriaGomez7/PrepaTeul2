@@ -89,7 +89,6 @@ Route::get('/periodos' ,function(){
 Route::get('/Asistencias' ,function(){
     return view('Periodos.show');
 });
-
 //Ruta para vista de calificaciones de Control Escolar
 Route::resource('CONSULTACALIFICACIONESCE','ConsultarCalificacionesCEController');
 //Ruta para vista de calificaciones de Docenetes

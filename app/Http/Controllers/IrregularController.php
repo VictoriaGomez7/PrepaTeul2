@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Irregulares;
+use App\Alumno;
+use App\Materia;
 
 class IrregularController extends Controller
 {
@@ -14,8 +16,23 @@ class IrregularController extends Controller
      */
     public function index()
     {
-        //
-        return 'Estoy en index de los irregulares';
+        $ObtenerIrregulares=Irregulares::all();
+        $Listado_Nombres=array();
+
+        if (count($ObtenerIrregulares)==0){
+            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay alumnos irregulares');
+        }
+        else{
+            $datos="";
+            foreach ($ObtenerIrregulares as $alumnos) {
+                $Alumno=Alumno::where('Clave_A','=',$alumnos->Clave_A)->get('Nombre_A');
+                $Materia=Materia::where('Clave_M','=',$alumnos->Clave_M)->get('Nombre');
+                //return $alumnos->Clave_A;
+                array_push($Listado_Nombres,$Alumno[0]->Nombre_A,$Materia[0]->Nombre);
+                
+            }
+            return view('Irregular.Mostrar',compact('ObtenerIrregulares','Listado_Nombres'));
+        }
     }
 
     /**
