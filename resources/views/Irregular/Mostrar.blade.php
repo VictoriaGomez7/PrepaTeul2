@@ -23,7 +23,6 @@
           <th  align="center">Clave</th>
           <th  align="center">Materia</th>
           <th></th>
-          <th></th>
         </tr>
       </thead>
         <tbody>
