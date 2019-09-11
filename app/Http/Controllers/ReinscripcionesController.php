@@ -43,7 +43,7 @@ class ReinscripcionesController extends Controller
     {
 
         $campo=new ft_bach();
-        $campo->id=$request['Clave_A'];//id
+        $campo->Clave_A=$request['Clave_A'];//id
         $campo->Formación_Trabajo=$request2['ft1'];
         $campo->Bachillerato=$request2['bach1'];
         $campo->save();
@@ -124,10 +124,10 @@ class ReinscripcionesController extends Controller
     {
         $Semestres=['PRIMER SEMESTRE','SEGUNDO SEMESTRE','TERCER SEMESTRE','CUARTO SEMESTRE','QUINTO SEMESTRE','SEXTO SEMESTRE'];
         $Grados=['PRIMER','SEGUNDO','TERCER'];
-        $ides=$alumno1['id'];
+        $ides=$alumno1['Clave_A'];
 
-        $CAlumno = Alumno::where('Clave_A', $alumno1->id)->get();
-        $CAlumno2 = ft_bach::where('Clave_A', $alumno1->id)->get();
+        $CAlumno = Alumno::where('Clave_A', $alumno1->Clave_A)->get();
+        $CAlumno2 = ft_bach::where('Clave_A', $alumno1->Clave_A)->get();
         //return $CAlumno[0]->Semestre;
         $SemestreAntiguo=$CAlumno[0]->Semestre;
         //return $alumno1;
