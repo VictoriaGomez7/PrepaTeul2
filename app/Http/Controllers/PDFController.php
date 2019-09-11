@@ -27,7 +27,7 @@ class PDFController extends Controller
 
       $alumno=Alumno::where([
 
-     ['id',$id->id]
+     ['Clave_A',$id->id]
   ])->get();
 
   if (count($alumno)==0)

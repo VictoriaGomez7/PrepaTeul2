@@ -32,6 +32,7 @@ class AlumnosController extends Controller
         else {
           foreach ($CAlumno as $campo) {
             if ($campo->Nombre_A==$nombre) {
+                $Requisitos= Requisito::where('Clave_A',$CAlumno->Clave_A)->get();
               return view('Alumnos.formdisable',compact('CAlumno'));
             }
             else {
@@ -50,7 +51,9 @@ class AlumnosController extends Controller
           return back()->with('msj','La matrícula no existe' );
       }
           else{
-              return view('Alumnos.formdisable',compact('CAlumno'));
+            $Requisitos= Requisito::where('Clave_A',$alumno1->id)->get();
+
+              return view('Alumnos.formdisable',compact('CAlumno','Requisitos'));
           }
         }
 
@@ -151,7 +154,7 @@ class AlumnosController extends Controller
     public function edit(Request $alumno1)
 
     {
-        return 'Hola';
+
         $ides=$alumno1['Clave_A'];
         $alumn="";
         $alumns=Alumno::where([['Clave_A',$alumno1->id]])->get();
@@ -180,8 +183,10 @@ class AlumnosController extends Controller
     public function update($id)
     {
         //return $id;
+
         $CAlumno = Alumno::where('Clave_A', $id)->get();
-        return view('Alumnos.show',compact('CAlumno'));
+        $Requisitos = Requisito::where('Clave_A', $id)->get();
+        return view('Alumnos.show',compact('CAlumno','Requisitos'));
     }
 
     /**

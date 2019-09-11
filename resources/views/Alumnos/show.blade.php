@@ -3,5 +3,5 @@
 @section('title','Alumno')
 
 @section('content')
-		@include('alumnos.form',compact('CAlumno'))
+		@include('alumnos.form',compact('CAlumno','Requisitos'))
 @endsection()

@@ -10,6 +10,7 @@
 <body>
     @section('ModificarAlumnosD')
         @foreach($CAlumno as $alumno)
+        @foreach($Requisitos as $requi)
 
 
           <script type="text/javascript">
@@ -24,10 +25,10 @@
             }
         </script>
 
-        <div class="card-header text-center" style="font-size:200%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 5%;" >{{ __('MODIFICAR ALUMNO') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
+        <div class="card-header text-center" style="font-size:200%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 5%;" >{{ __('CONSULTAR ALUMNO') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
 
 
-        <form class="form-group" method="PUT" action="/ModificarAlumno/{{$alumno->id}}/edit">
+        <form class="form-group" method="PUT" action="/ModificarAlumno/{{$alumno->Clave_A}}/edit">
             {{--@method('PUT')--}}
             @csrf
 
@@ -42,7 +43,7 @@
             </div>
 
             <div style="position: absolute;top: 62%; left: 24.9%; width: 25%;height:53%;background-color:#aaa">
-                <p><input type="text" required readonly pattern="[1-9]{2}[0]{2}[1]{2}[0-9]{4}" name="id" value="{{$alumno->id}}" style="font-size:105%; width: 95%"/></p>
+                <p><input type="text" required readonly pattern="[1-9]{2}[0]{2}[1]{2}[0-9]{4}" name="id" value="{{$alumno->Clave_A}}" style="font-size:105%; width: 95%"/></p>
 
                 <p><input type="text" required readonly id="nombr" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" name="Nombre_A" value="{{$alumno->Nombre_A}}"style="font-size:105%; width: 95%;" /></h1>
 
@@ -134,43 +135,43 @@
 
             <div style="position: absolute;top: 135%; left: 75%; width: 20%; height:65%;background-color:#aaa">
                 <p><select id="A" name="Requisito_A" required disabled style="width: 18%;height: 9%; position: absolute;top: 0%;left:10%">
-                    <option  value="{{$alumno->Requisito_A}}"> {{$alumno->Requisito_A}} </option>
+                    <option  value="{{$requi->Requisito_A}}"> {{$requi->Requisito_A}} </option>
                     <option value="Si">SI</option>
                     <option value="No">NO</option>
                 </select></p>
                 <p><select required disabled id="B" name="Requisito_B" style="width: 18%;height: 9%; position: absolute;top: 12%;left:10%">
-                  <option  value="{{$alumno->Requisito_B}}"> {{$alumno->Requisito_B}} </option>
+                  <option  value="{{$requi->Requisito_B}}"> {{$requi->Requisito_B}} </option>
                     <option value="Si">SI</option>
                     <option value="No">NO</option>
                 </select></p>
                 <p><select required disabled id="C" name="Requisito_C" style="width: 18%;height: 9%; position: absolute;top: 23%;left:10%">
-                    <option  value="{{$alumno->Requisito_C}}"> {{$alumno->Requisito_C}} </option>
+                    <option  value="{{$requi->Requisito_C}}"> {{$requi->Requisito_C}} </option>
                     <option value="Si">SI</option>
                     <option value="No">NO</option>
                 </select></p>
 
                 <p><select required disabled id="D" name="Requisito_D" style="width: 18%;height: 9%; position: absolute;top: 34%;left:10%">
-                    <option  value="{{$alumno->Requisito_D}}"> {{$alumno->Requisito_D}} </option>
+                    <option  value="{{$requi->Requisito_D}}"> {{$requi->Requisito_D}} </option>
                     <option value="Si">SI</option>
                     <option value="No">NO</option>
                 </select></p>
                 <p><select required disabled name="Requisito_E" style="width: 18%;height: 9%; position: absolute;top: 46%;left:10%">
-                    <option  value="{{$alumno->Requisito_E}}"> {{$alumno->Requisito_E}} </option>
+                    <option  value="{{$requi->Requisito_E}}"> {{$requi->Requisito_E}} </option>
                     <option value="Si">SI</option>
                     <option value="No">NO</option>
                 </select></p>
                 <p><select required disabled id="F" name="Requisito_F" style="width: 18%;height: 9%; position: absolute;top: 59%;left:10%">
-               <option  value="{{$alumno->Requisito_F}}"> {{$alumno->Requisito_F}} </option>
+               <option  value="{{$requi->Requisito_F}}"> {{$requi->Requisito_F}} </option>
                     <option value="Si">SI</option>
                     <option value="No">NO</option>
                 </select></p>
                 <p><select required disabled id="G" name="Requisito_G" style="width: 18%;height: 9%; position: absolute;top: 72%;left:10%">
-                    <option  value="{{$alumno->Requisito_G}}"> {{$alumno->Requisito_G}} </option>
+                    <option  value="{{$requi->Requisito_G}}"> {{$requi->Requisito_G}} </option>
                     <option value="Si">SI</option>
                     <option value="No">NO</option>
                 </select></p>
                 <p><select required disabled id="H" name="Requisito_H" style="width: 18%;height: 9%; position: absolute;top: 85%;left:10%">
-                <option  value="{{$alumno->Requisito_H}}"> {{$alumno->Requisito_H}} </option>
+                <option  value="{{$requi->Requisito_H}}"> {{$requi->Requisito_H}} </option>
                     <option value="Si">SI</option>
                     <option value="No">NO</option>
                 </select></p>
@@ -180,16 +181,17 @@
 
         </form>
 
-    {!!Form::open(['route' => ['Alumnos.update',$alumno->id],'method'=>'PUT'])!!}
+    {!!Form::open(['route' => ['Alumnos.update',$alumno->Clave_A],'method'=>'PUT'])!!}
     {!!Form::submit('Modificar',['class'=>'btn btn-primary','style'=>'position: absolute;top:210%;left:5%;'])!!}
     {!! Form::close()!!}
 
-    {!!Form::open(['route' => ['Alumnos.destroy',$alumno->id],'method'=>'DELETE'])!!}
+    {!!Form::open(['route' => ['Alumnos.destroy',$alumno->Clave_A],'method'=>'DELETE'])!!}
     {!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'position: absolute;top:210%;left:15%;'])!!}
     {!! Form::close()!!}
 
 
 @endsection()
 
+@endforeach()
 @endforeach()
 </body>

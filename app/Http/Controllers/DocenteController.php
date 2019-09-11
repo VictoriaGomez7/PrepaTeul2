@@ -88,7 +88,7 @@ class DocenteController extends Controller
     public function store(TagStoreRequestDocentes $request)
     {
         $docente=new Docentes();
-        $docente->id=$request['Clave_D'];
+        $docente->Clave_D=$request['id'];
         $docente->Nombre=$request['nombre'];
         $docente->Domicilio=$request['direccion'];
         $docente->Telefono=$request['telefono'];
