@@ -140,25 +140,45 @@ class ReinscripcionesController extends Controller
             if ($SemestreAntiguo!="SEXTO SEMESTRE") {
                 if ($SemestreAntiguo==$Semestres[$i] ) {
                 //print "Si Son iguales";
-                $CAlumno[0]->Semestre=$Semestres[$i+1];
+                Alumno::where('Clave_A', $alumno1->Clave_A)->update(['Semestre'=>$Semestres[$i+1]]);
+
+        
+                //$CAlumno[0]->;
                 $Grado=($i+1)/2;
+                Alumno::where('Clave_A', $alumno1->Clave_A)->update(['Grado'=>$Grados[$Grado]]);
                 //return $Grados[$Grado];
-                $CAlumno[0]->Grado=$Grados[$Grado];
+                //$CAlumno[0]->Grado=$Grados[$Grado];
                 }
             }
 
         }
         //return $CAlumno;
         //return $CAlumno;
-        ft_bach::where('Clave_A', $alumno1->id)->update(['Formación_Trabajo'=>$alumno1->ft2]);
-        ft_bach::where('Clave_A', $alumno1->id)->update(['Bachillerato'=>$alumno1->bach1]);
+        ft_bach::where('Clave_A', $alumno1->Clave_A)->update(['Formación_Trabajo'=>$alumno1->ft2]);
+        ft_bach::where('Clave_A', $alumno1->Clave_A)->update(['Bachillerato'=>$alumno1->bach1]);
         //return $CAlumno.' '.$alumno1->id;
-        foreach ($CAlumno as $row) {
+        
+        Alumno::where('Clave_A', $alumno1->Clave_A)->update(['Telefono_T'=>$alumno1->Telefono_T]);
 
-                $row->fill($CAlumno->all());
+        Alumno::where('Clave_A', $alumno1->Clave_A)->update(['Telefono_A'=>$alumno1->Telefono_A]);
+        Alumno::where('Clave_A', $alumno1->Clave_A)->update(['Domicilio'=>$alumno1->Domicilio]);
 
-                $row->save();
-            }
+        Alumno::where('Clave_A', $alumno1->Clave_A)->update(['Municipio'=>$alumno1->Municipio]);
+
+        Alumno::where('Clave_A', $alumno1->Clave_A)->update(['Poblacion'=>$alumno1->Poblacion]);
+
+        Alumno::where('Clave_A', $alumno1->Clave_A)->update(['Email'=>$alumno1->Email]);
+
+        Alumno::where('Clave_A', $alumno1->Clave_A)->update(['NSS'=>$alumno1->NSS]);
+
+        Alumno::where('Clave_A', $alumno1->Clave_A)->update(['Edad'=>$alumno1->Edad]);
+
+        //foreach ($CAlumno as $row) {
+
+          //      $row->fill($CAlumno->all($alumno1));
+
+            //    $row->save();
+            //}
         //return 'hola';
         return redirect('/reinscripcion')->with('msjCorrecto','Alumno reinscrito con éxito.');
     }
