@@ -74,7 +74,19 @@ class IrregularController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request->Clave_A;
+        $Nombres_Mat=array();
+        $NombreAlumno=Alumno::where('Clave_A',$request->Clave_A)->get('Nombre_A');
+        $AlumnoMateriasRepro=IrregularMateria::where('Clave_A',$request->Clave_A)->get();
+        //return count($AlumnoMateriasRepro);
+        
+        for ($i=0; $i < count($AlumnoMateriasRepro) ; $i++) { 
+            $Mat=Materia::where('Clave_M',$AlumnoMateriasRepro[$i]->Clave_M)->get();
+            //return $Mat[0]->Nombre;
+            array_push($Nombres_Mat,$Mat[0]->Nombre);
+        }
+        return view('Irregular.IrregularVisu',compact('AlumnoMateriasRepro','Nombres_Mat','NombreAlumno'));
+        //return $AlumnoMateriasRepro;
     }
 
     /**

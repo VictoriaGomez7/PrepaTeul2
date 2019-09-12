@@ -28,11 +28,13 @@
           <?php $Cont=0; ?>
           @foreach($ObtenerIrregulares as $alumno)
           <tr>
+            {!!Form::open(['route' => ['Irregulares.store'],'method'=>'POST'])!!}
             <td align="justify">{{ $alumno->Clave_A }}</td>
+            <input type="hidden" name="Clave_A" value="{{$alumno->Clave_A }}">
             <td align="justify">{{ $Listado_Nombres_Alumnos[$Cont] }}</td>
             <td align="justify">{{ $Cantidad_Materias_Reprobadas[$Cont]}}</td>
 
-            {!!Form::open(['route' => ['Alumnos.update',$alumno->id],'method'=>'PUT'])!!}
+            
             <td>{!!Form::submit('Ver',['class'=>'btn btn-primary'])!!}</td>
             {!! Form::close()!!}
 
