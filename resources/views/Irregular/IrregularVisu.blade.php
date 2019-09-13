@@ -5,6 +5,8 @@
 	<div class="card-header text-center" style="font-size:200%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 48%; left: 5%;" >{{ $NombreAlumno[0]->Nombre_A }}</div>
 	<section style="background: #aaa; width:90%; height: 35%; position: absolute; top: 58%; left: 5%; overflow-y: scroll; text-align:  center;">
   <div class="container">
+     {!!Form::open(['route' => ['Irregulares.create'],'method'=>'GET'])!!}
+     <input type="number" name="Clave_A" value="{{ $clave_A}}" style="width: 30%;" hidden="true">
     <table  id="alumn" class="table" style="top: 50%;">
       <thead>
         <tr>
@@ -23,9 +25,9 @@
            
             <td align="center">{{ $Mate->Clave_M }}</td>
             <td align="center">{{ $Nombres_Mat[$Cont] }}</td>
-            <td align="center" > <input type="number" name="Cal1" style="width: 30%;"> </td>
-            <td align="center"> <input type="number" name="Cal2" style="width: 30%;"> </td>
-            <td align="center"> <input type="number" name="Cal3" style="width: 30%;"> </td>
+            <td align="center" > <input type="number" name="{{ $Mate->Clave_M }}Cal1" style="width: 30%;"> </td>
+            <td align="center"> <input type="number" name="{{ $Mate->Clave_M }}Cal2" style="width: 30%;"> </td>
+            <td align="center"> <input type="number" name="{{ $Mate->Clave_M }}Cal3" style="width: 30%;"> </td>
 
 
 
@@ -35,7 +37,7 @@
         </tbody>
 
     </table>
-     {!!Form::open(['route' => ['Irregulares.store'],'method'=>'POST'])!!}
+    
      {!!Form::submit('Guardar',['class'=>'btn btn-primary'])!!}
             {!! Form::close()!!}</div></section>
   </div>
