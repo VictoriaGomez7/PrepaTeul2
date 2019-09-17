@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Alumno;
+use App\Requisito;
 use App\usuarioalumno;
 use App\ft_bach;
 use App\Grupo;
@@ -199,6 +200,7 @@ class AlumnosController extends Controller
     {
       Alumno::where('Clave_A',$id)->delete();
       usuarioalumno::where('Usuario',$id)->delete();
+        Requisito::where('Clave_A',$id)->delete();
        $alumnos=Alumno::get();
         //return  view('Alumnos.index',compact('alumnos'));
        return redirect('/alumnosconsulta')->with('msj2','Alumno Eliminado Correctamente');
