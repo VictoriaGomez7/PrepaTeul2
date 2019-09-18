@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Alumno;
+use App\Requisito;
 use App\usuarioalumno;
 use App\ft_bach;
 use App\Grupo;
 use App\Http\Requests\TagStoreRequestFTyBACH;
 use App\Http\Requests\TagStoreRequest;
-use App\Requisito;
+
 
 
 
@@ -156,11 +157,13 @@ class AlumnosController extends Controller
     {
 
         $ides=$alumno1['Clave_A'];
+        //return $alumno1;
         $alumn="";
         $alumns=Alumno::where([['Clave_A',$alumno1->id]])->get();
         foreach ($alumns as $row){
             $alumn=$row;
             $alumn->fill($alumno1->all());
+
         }
         $alumn->save();
 
@@ -199,6 +202,7 @@ class AlumnosController extends Controller
     {
       Alumno::where('Clave_A',$id)->delete();
       usuarioalumno::where('Usuario',$id)->delete();
+        Requisito::where('Clave_A',$id)->delete();
        $alumnos=Alumno::get();
         //return  view('Alumnos.index',compact('alumnos'));
        return redirect('/alumnosconsulta')->with('msj2','Alumno Eliminado Correctamente');
