@@ -76,57 +76,37 @@ class IrregularController extends Controller
 
                     $MateriasAprobadas+=1;
                     array_push($Aprobadas, $Materia->Clave_M);
+                    IrregularMateria::where('Clave_M',$Materia->Clave_M)->delete();
                     /*
 
                     */
+                } else {
+                    $Opo=IrregularMateria::where('Clave_M',$Materia->Clave_M)->get();
+                    //return $Opo;
+                    $Oportunidad=$Opo[0]->Oportunidades+1;
+                    //return $Oportunidad;
+                    IrregularMateria::where('Clave_M',$Materia->Clave_M)->update(['Oportunidades'=>$Oportunidad]);
                 }
             }
-             $verificado=$Materia->Clave_M.'Cal2';
-            if($request->$verificado!=null  and (in_array( $Materia->Clave_M , $Aprobadas)==false)){
-                $ban=in_array( $Materia->Clave_M , $Aprobadas);
-                $Materia->Calificacion2=$request->$verificado;
-                $Materia->save();
-                if($request->$verificado>=7){
-
-                    $MateriasAprobadas+=1;
-                    array_push($Aprobadas, $Materia->Clave_M);
-                    
-                }
+            
                 
             }
-             $verificado=$Materia->Clave_M.'Cal3';
-            if($request->$verificado!=null and (in_array( $Materia->Clave_M , $Aprobadas)==false)){
-                $Materia->Calificacion3=$request->$verificado;
-                $Materia->save();
-                if($request->$verificado>=7){
+        
 
-                    $MateriasAprobadas+=1;
-                    array_push($Aprobadas, $Materia->Clave_M);
-                    
-                }
-                
-            }
-        }
-
+        //return count($Aprobadas);
 
         if(count($Aprobadas)==$cuenta){
 
-            $busca=$request->Clave_A;
-        $alumn="";
-        $alumnos=Alumno::where([['Clave_A',$busca]])->get();
-        foreach ($alumnos as $row){
-            $alumn=$row;
-            $alumn->Estado="REGULAR";
+            Alumno::where('Clave_A', $request->Clave_A)->update(['Estado'=>'REGULAR']);
+            Irregulares::where('Clave_A',$request->Clave_A)->delete();
         }
-        $alumn->save();
 
        return redirect('alumnosconsulta')->with('msj2','Alumno modificado correctamente');
             
              
         }
-        return redirect('ControlEscolarInicio' )->with('msj','Calificacion de Alumno Actualizada');
        
-    }
+    
 
     /**
      * Store a newly created resource in storage.
