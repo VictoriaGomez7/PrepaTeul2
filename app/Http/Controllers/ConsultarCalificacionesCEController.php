@@ -54,37 +54,29 @@ class ConsultarCalificacionesCEController extends Controller
     public function show(Request $request)
     {
         //return "hola";
-        $AL = CalificacionesParciales::where('ClaveA', $request->id)->get();
-        $nombreA=Alumno::where('id', $request->id)->get('Nombre_A');
-        $Materia=CalificacionesParciales::where('ClaveA', $request->id)->get('ClaveM');
+        $AL = CalificacionesParciales::where('Clave_A', $request->id)->get();
+        $nombreA=Alumno::where('Clave_A', $request->id)->get('Nombre_A');
+        $Materia=CalificacionesParciales::where('Clave_A', $request->id)->get('ClaveM');
         $Materia1=array();
         $Materia2=array();
-        $mat=Materia::all('Clave','Nombre');
-        //return $mat;
+        $mat=Materia::all('Clave_M','Nombre');
+
         foreach ($mat as $ma) {
             foreach ($Materia as $M) {
-                if($ma->Clave==$M->ClaveM)
+                if($ma->Clave_M==$M->ClaveM)
                 {
                     array_push($Materia1,$ma->Nombre);
                     
                 }
             }
         }
-            
-                
-            
-          //  print $Materia[$i][0];
-            //array_push($Materia1,Materia::where('Clave',$Materia[$i][0])->get());
-        
-        //return $Materia1;
 
         if (count($AL)==0)
         {
-
-            return back()->with('msj',' Esa matricula no existe');
+            return back()->with('msj',' La matrícula no existe');
         }
         else{
-            
+            //return $Materia1;
             view('Calificaciones.TablaC1',compact('AL','nombreA','Materia1'));
             return view('Calificaciones.TablaC1',compact('AL','nombreA','Materia1',));
             }

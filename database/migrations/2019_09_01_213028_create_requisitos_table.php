@@ -14,7 +14,7 @@ class CreateRequisitosTable extends Migration
     public function up()
     {
         Schema::create('requisitos', function (Blueprint $table) {
-          $table->bigIncrements('Numero');
+          $table->bigIncrements('id');
           $table->string('Clave_A')->unique();
           $table->string('Requisito_A');
           $table->string('Requisito_B');

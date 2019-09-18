@@ -15,8 +15,16 @@ class gruposController extends Controller
      */
     public function index()
     {
+        
+        $Alumnoss= Alumno::get();
 
-        return view('Grupos.index');
+        if (count($Alumnoss)==0){
+            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay alumnos registrados' );
+        }
+        else {
+            return view('Grupos.index');
+        }
+        
     }
 
     /**
@@ -49,10 +57,7 @@ class gruposController extends Controller
     {
         //return $r;
         if(isset($r->aceptar)){
-           
-
  
-
   $alumnosHombres=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Semestre ,alumnos.Sexo,alumnos.Nombre_A
 from alumnos    WHERE not EXISTS (SELECT 1 from grupos
         WHERE grupos.Clave_A=alumnos.Clave_A

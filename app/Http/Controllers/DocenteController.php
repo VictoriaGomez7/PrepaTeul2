@@ -87,9 +87,9 @@ class DocenteController extends Controller
      */
     public function store(TagStoreRequestDocentes $request)
     {
-        return 'Hello';
+        //return $request;
         $docente=new Docentes();
-        $docente->Clave_D=$request['Clave_D'];
+        $docente->Clave_D=$request['Clave'];
         $docente->Nombre=$request['nombre'];
         $docente->Domicilio=$request['direccion'];
         $docente->Telefono=$request['telefono'];
@@ -98,7 +98,7 @@ class DocenteController extends Controller
         $docente->save();
 
         $docenteL=new usuariomaestro();
-        $docenteL->Usuario=$request['Clave_D'];
+        $docenteL->Usuario=$request['Clave'];
         $docenteL->Password='12345';
         $docenteL->save();
 
@@ -133,23 +133,16 @@ class DocenteController extends Controller
      */
     public function edit(request $docente1)
     {
-        //return $docente1->input('clave1');
-        $NombreN=$docente1->input('nombre1');
-        $DomicilioN=$docente1->input('domicilio1');
-        $TelefonoN=$docente1->input('telefono1');
-        //$ides=$docente1->input('clave1');
-        //$docente = Docente::where('Clave', $docente1->clave1)->first();
-        $ides=$docente1['clave1'];
-        $alumn="";
-        $alumns=Docentes::where([['Clave_D',$docente1->clave1]])->get();
-        foreach ($alumns as $row){
-            $alumn=$row;
-            $alumn->fill($docente1->all());
+        $doce="";
+        $doces=Docentes::where([['Clave_D',$docente1->clave1]])->get();
+        //return $doces;
+        foreach ($doces as $row){
+            $doce=$row;
+            $doce->fill($docente1->all());
         }
-        $alumn->save();
+        $doce->save();
 
-        //return 'paso';
-        //return view('Docente.create')->with('msj1','Docente modificado exitosamente');
+
         return Redirect('docenteconsulta')->with('msj1','Docente modificado exitosamente' );
 
     }

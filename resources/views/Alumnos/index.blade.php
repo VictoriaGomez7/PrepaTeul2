@@ -43,18 +43,13 @@
             <td align="justify">{{ $alumno->Telefono_T }}</td>
             <td align="justify">{{ $alumno->Edad}}</td>
             <td align="justify">{{ $alumno->Email}}</td>
-            {!!Form::open(['route' => ['Alumnos.update',$alumno->id],'method'=>'PUT'])!!}
+            {!!Form::open(['route' => ['Alumnos.update',$alumno->Clave_A],'method'=>'PUT'])!!}
             <td>{!!Form::submit('Modificar',['class'=>'btn btn-primary'])!!}</td>
             {!! Form::close()!!}
             
-            {!!Form::open(['route' => ['Alumnos.destroy',$alumno->id],'method'=>'DELETE'])!!}
-            {!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
-            {!! Form::close()!!}
-                      </div>
-                    </div>
-                </div>
-            </div></td>-->
-            {!!Form::open(['route' => ['Alumnos.destroy',$alumno->id],'method'=>'DELETE'])!!}
+            
+            </td>
+            {!!Form::open(['route' => ['Alumnos.destroy',$alumno->Clave_A],'method'=>'DELETE'])!!}
             <td>{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}</td>
             {!! Form::close()!!}
 
