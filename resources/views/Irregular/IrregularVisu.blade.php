@@ -12,9 +12,10 @@
         <tr>
           <th  align="center">Clave</th>
           <th  align="center">Materia</th>
-          <th  align="center">Calificacion 1</th>
-          <th  align="center">Calificacion 2</th>
-          <th  align="center">Calificacion 3</th>
+          <th  align="center">Calificación </th>
+          <th  align="center">Intentos Realizados </th>
+
+
           <th></th>
         </tr>
       </thead>
@@ -25,9 +26,9 @@
            
             <td align="center">{{ $Mate->Clave_M }}</td>
             <td align="center">{{ $Nombres_Mat[$Cont] }}</td>
-            <td align="center" > <input type="number" name="{{ $Mate->Clave_M }}Cal1" style="width: 30%;"> </td>
-            <td align="center"> <input type="number" name="{{ $Mate->Clave_M }}Cal2" style="width: 30%;"> </td>
-            <td align="center"> <input type="number" name="{{ $Mate->Clave_M }}Cal3" style="width: 30%;"> </td>
+            <td align="center" > <input type="number" name="{{ $Mate->Clave_M }}Cal1" style="width: 30%;" value={{$Mate->Calificacion1}}> </td>
+            <td align="center">{{$Mate->Oportunidades}}</td>
+    
 
 
 
