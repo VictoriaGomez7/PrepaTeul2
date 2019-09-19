@@ -26,15 +26,16 @@ class AlumnosController extends Controller
       $clave=$alumno1->id;
       $nombre=$alumno1->nombre;
       if (isset($clave)&&isset($nombre)) {
-        $CAlumno = Alumno::where('Clave_A',$alumno1->id)->get();
+        $CAlumno = Alumno::where('Clave_A',$clave)->get();
         if (count($CAlumno)==0){
-          return back()->with('msj',' algún dato no existe' );
+          return back()->with('msj',' Algún dato no existe' );
         }
         else {
           foreach ($CAlumno as $campo) {
             if ($campo->Nombre_A==$nombre) {
-                $Requisitos= Requisito::where('Clave_A',$CAlumno->Clave_A)->get();
-              return view('Alumnos.formdisable',compact('CAlumno'));
+              //return $CAlumno;
+              $Requisitos= Requisito::where('Clave_A',$CAlumno[0]->Clave_A)->get();
+              return view('Alumnos.formdisable',compact('CAlumno','Requisitos'));
             }
             else {
                 return back()->with('msj',' Datos no encontrados' );
@@ -50,29 +51,29 @@ class AlumnosController extends Controller
 
         if (count($CAlumno)==0){
           return back()->with('msj','La matrícula no existe' );
-      }
+          }
           else{
             $Requisitos= Requisito::where('Clave_A',$alumno1->id)->get();
 
-              return view('Alumnos.formdisable',compact('CAlumno','Requisitos'));
+            return view('Alumnos.formdisable',compact('CAlumno','Requisitos'));
           }
         }
 
 
-
-
-        else {$CAlumno = Alumno::where('Nombre_A', $alumno1->nombre)->get();
-        //return $CAlumno;
-        if (count($CAlumno)==0){
-          return back()->with('msj',' ese nombre no existe' );
-      }
-      else if(count($CAlumno)==1){
-          return view('Alumnos.formdisable',compact('CAlumno','alumno1'));
-        }
-      else {
-          return view('Alumnos.index',compact('CAlumno','alumno1'));
-      }
-
+        else {
+          $CAlumno = Alumno::where('Nombre_A', $alumno1->nombre)->get();
+          
+          if (count($CAlumno)==0){
+            return back()->with('msj',' El nombre ingresado no existe' );
+          }
+          else if(count($CAlumno)==1){
+            $Requisitos= Requisito::where('Clave_A',$CAlumno[0]->Clave_A)->get();
+            return view('Alumnos.formdisable',compact('CAlumno','alumno1','Requisitos'));
+          }
+          else {
+            //return 'aqui';
+            return view('Alumnos.index',compact('CAlumno','alumno1'));
+          }
 
         }
     }
@@ -99,7 +100,7 @@ class AlumnosController extends Controller
         //return $request;
 
         $alumno=new Alumno();
-        $alumno->Clave_A=$request['Clave_A'];
+        $alumno->Clave_A=$request['matricula'];
         $alumno->Nombre_A=$request['nombre'];
         $alumno->Nombre_P=$request['nombrepadre'];
         $alumno->Nombre_M=$request['nombremadre'];
@@ -120,7 +121,7 @@ class AlumnosController extends Controller
         $alumno->save();
 
         $requisito=new Requisito();
-        $requisito->Clave_A=$request['Clave_A'];
+        $requisito->Clave_A=$request['matricula'];
         $requisito->Requisito_A=$request['A'];
         $requisito->Requisito_B=$request['B'];
         $requisito->Requisito_C=$request['C'];
@@ -132,11 +133,11 @@ class AlumnosController extends Controller
         $requisito->save();
 
         $alumnoL=new usuarioalumno();
-        $alumnoL->Usuario=$request['Clave_A'];
+        $alumnoL->Usuario=$request['matricula'];
         $alumnoL->save();
 
         $campo=new ft_bach();
-        $campo->Clave_A=$request['Clave_A'];
+        $campo->Clave_A=$request['matricula'];
         $campo->Formación_Trabajo=$request2['ft1'];
         $campo->Bachillerato=$request2['bach1'];
         $campo->save();
@@ -155,17 +156,22 @@ class AlumnosController extends Controller
     public function edit(Request $alumno1)
 
     {
-
-        $ides=$alumno1['Clave_A'];
         //return $alumno1;
         $alumn="";
-        $alumns=Alumno::where([['Clave_A',$alumno1->id]])->get();
+        $alumns=Alumno::where([['Clave_A',$alumno1->Clave_A]])->get();
         foreach ($alumns as $row){
             $alumn=$row;
             $alumn->fill($alumno1->all());
-
         }
         $alumn->save();
+
+        $req="";
+        $reqs=Requisito::where([['Clave_A',$alumno1->Clave_A]])->get();
+        foreach ($reqs as $row){
+            $req=$row;
+            $req->fill($alumno1->all());
+        }
+        $req->save();
 
        return redirect('alumnosconsulta')->with('msj2','Alumno modificado correctamente');
 
@@ -185,8 +191,6 @@ class AlumnosController extends Controller
      */
     public function update($id)
     {
-        //return $id;
-
         $CAlumno = Alumno::where('Clave_A', $id)->get();
         $Requisitos = Requisito::where('Clave_A', $id)->get();
         return view('Alumnos.show',compact('CAlumno','Requisitos'));
@@ -205,6 +209,6 @@ class AlumnosController extends Controller
         Requisito::where('Clave_A',$id)->delete();
        $alumnos=Alumno::get();
         //return  view('Alumnos.index',compact('alumnos'));
-       return redirect('/alumnosconsulta')->with('msj2','Alumno Eliminado Correctamente');
+       return redirect('/alumnosconsulta')->with('msj2','Alumno eliminado correctamente');
     }
 }

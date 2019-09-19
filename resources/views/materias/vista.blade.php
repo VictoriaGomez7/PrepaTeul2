@@ -49,13 +49,13 @@
           <p><input type="number" name="Horas"  min="1"  max="12" value="{{ $materia->Horas }}" required="true" style="font-size:105%; width: 65%; position:  absolute;top: 74%; left: 30%" disabled="true"></p>
         
 
-         {!!Form::submit('Modificar',['class'=>'btn btn-primary', 'style'=>'width: 20%; position:  absolute;top: 105%; left: 55%'])!!}
+         {!!Form::submit('Modificar',['class'=>'btn btn-primary', 'style'=>'width: 15%; position:  absolute;top: 105%; left: 0%'])!!}
          {!! form::close() !!}
         {!!Form::open(['route' => ['materia.destroy',$materia->Clave_M],'method'=>'DELETE'])!!}
-        <td>{!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'width: 20%; position:  absolute;top: 105%; left: 80%'])!!}</td>
+        <td>{!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'width: 15%; position:  absolute;top: 105%; left: 17%'])!!}</td>
                 {!! Form::close()!!}
         <a href="http://127.0.0.1:8000/materia">
-                <button class="btn btn-success " style="position: absolute;top: 105%;left:0%">Cancelar</button></a></div>
+                <button class="btn btn-success " style="position: absolute;top: 105%;left:85%">Cancelar</button></a></div>
     <div>
 
 </body>

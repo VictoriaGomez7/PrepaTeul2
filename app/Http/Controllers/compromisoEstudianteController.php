@@ -19,7 +19,7 @@ class compromisoEstudianteController extends Controller
      
         $compromisos=compromisoEstudiante::take(100)->get();
         
-         return view('compromisos.index',compact('compromisos'));
+        return view('compromisos.index',compact('compromisos'));
      
           // return view('mostrar',compact('compromisos'));
     }
@@ -72,17 +72,10 @@ class compromisoEstudianteController extends Controller
         
             $compromiso->save();
        
-        
-
-      
-       
-
        }else{
-                        $c='';
-
-                    return redirect()->route('compromisos.index')->with('status',$c);
-
-            }
+            $c='';
+            return redirect()->route('compromisos.index')->with('status',$c);
+        }
         }
            $compromisos=compromisoEstudiante::take(100)->get();
             return redirect()->route('compromisos.index')->with('status',$compromisos);

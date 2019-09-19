@@ -567,6 +567,7 @@ class MateriaController extends Controller
               return redirect('/RegistraMateria')->with('msjERROR','Materia ya registrada (Elija otra).');
             }
             else{
+
               $materia=new Materia();
               $materia->Clave_M=$Clavemat;
               $materia->Tipo=$request['tipo'];
@@ -582,6 +583,12 @@ class MateriaController extends Controller
           if ($request->semestre=="QUINTO SEMESTRE" or $request->semestre=="SEXTO SEMESTRE") {
               $materia->fill($request->all());
               $materia->save();
+              $matgrup=new materia_grupo();
+              $matgrup->Clave_M=$Clavemat;
+              $matgrup->Grupo=$request['bachillerato'];
+              $matgrup->Semestre=$request['semestre'];
+              $matgrup->save();
+
               //return $materia;
               return redirect('/ControlEscolarInicio')->with('msj','Materia Registrada Correctamente');
           }
@@ -590,11 +597,16 @@ class MateriaController extends Controller
             return back()->with('msjERROR','El semestre seleccionado no coincide para el tipo de materia.' );
             }
         }
-        if ($request->Tipo=="Formación Para El Trabajo"){
+        if ($request->tipo=="Formación Para El Trabajo"){
           if ($request->semestre=="TERCER SEMESTRE" or $request->semestre=="CUARTO SEMESTRE" or $request->semestre=="QUINTO SEMESTRE" or $request->semestre=="SEXTO SEMESTRE") {
             //return "aqui";
               $materia->fill($request->all());
               $materia->save();
+              $matgrup=new materia_grupo();
+              $matgrup->Clave_M=$Clavemat;
+              $matgrup->Grupo=$request['nombre'];
+              $matgrup->Semestre=$request['semestre'];
+              $matgrup->save();
               return redirect('/ControlEscolarInicio')->with('msj','Materia Registrada Correctamente');
           }
           else{
@@ -604,6 +616,16 @@ class MateriaController extends Controller
         else{
           $materia->fill($request->all());
           $materia->save();
+          $matgrup=new materia_grupo();
+          $matgrup->Clave_M=$Clavemat;
+          $matgrup->Grupo='A';
+          $matgrup->Semestre=$request['semestre'];
+          $matgrup->save();
+          $matgrup=new materia_grupo();
+          $matgrup->Clave_M=$Clavemat;
+          $matgrup->Grupo='B';
+          $matgrup->Semestre=$request['semestre'];
+          $matgrup->save();
           return redirect('/ControlEscolarInicio')->with('msj','Materia Registrada Correctamente');
         }
       }

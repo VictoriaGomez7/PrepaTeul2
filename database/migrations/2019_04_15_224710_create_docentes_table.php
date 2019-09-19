@@ -14,6 +14,7 @@ class CreateDocentesTable extends Migration
     public function up()
     {
         Schema::create('docentes', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('Clave_D')->unique();
             $table->string('Nombre');
             $table->string('Domicilio');

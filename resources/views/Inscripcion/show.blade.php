@@ -162,7 +162,7 @@ th {
               <td align="justify">{{ $row->Requisito_D}}</td>
           </tr>
           <tr>
-              <th   align="center">E) 6 Fotografias tamaño infantil,blanco y negro(no instantáneas)</th>
+              <th   align="center">E) 6 Fotografias tamaño infantil,blanco y negro (no instantáneas)</th>
 
               <td  align="justify">{{ $row->Requisito_E}}</td>
           </tr>
@@ -180,7 +180,7 @@ th {
           </tr>
 
           <tr>
-              <th  align="center">H) Firmar de conformidad padres y alumno en la hoja se solicitud de inscripcion</th>
+              <th  align="center">H) Firmar de conformidad padres y alumno en la hoja se solicitud de inscripción</th>
 
               <td align="justify">{{ $row->Requisito_H}}</td>
           </tr>
@@ -222,7 +222,7 @@ width: 20px;
 
       				@endforeach
       		</table>
-            <p>Teúl de González Ortega, Zac.a <?php echo date("d/m/Y");?> </p>
+            <p>Teul de González Ortega, Zac.a <?php echo date("d/m/Y");?> </p>
 </center>
           <center>
             <br><br>
