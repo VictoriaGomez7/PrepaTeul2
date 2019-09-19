@@ -359,10 +359,11 @@ class Arrastrarcontroller extends Controller
 
                 $Materias_all= Materia::where('Nombre',$materiaasignada)->get('Clave_M');
                 
+                //return 'aqui';
                 $Relacion=new RelacionDocenteMateriaGrupo();
                 $Relacion->Clave_M=$Materias_all[0]->Clave_M;
                 $Relacion->Materia=$materiaasignada;
-                $Relacion->Docente=$docenteselec;
+                $Relacion->Clave_D=$docenteselec;
                 $Relacion->Grupo=$nuevo_grupo;
                 $Relacion->save();
                 }

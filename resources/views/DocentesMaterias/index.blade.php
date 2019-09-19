@@ -11,7 +11,7 @@
 		<?php $var1=array(); ?>
 		@foreach($Docents as $Docentes)
 		@foreach($Relacion as $Rela)
-			@if($Rela->Docente == $Docentes->Nombre )
+			@if($Rela->Clave_D == $Docentes->Nombre )
 			
 			
 			
@@ -29,7 +29,7 @@
 				    <br>
 
 				    @foreach($Relacion as $Rela)
-			@if($Rela->Docente == $Docentes->Nombre )
+			@if($Rela->Clave_D == $Docentes->Nombre )
 				    
 					<div style="position: absolute;lef:5%,">
 				    	
