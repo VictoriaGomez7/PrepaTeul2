@@ -12,6 +12,12 @@
                 <strong>¡Correcto! </strong>{{ session('msj') }}
             </div>
         @endif
+@if (session()->has('msj1'))
+    <div class="alert alert-danger" role="alert" style="width: 30%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
+        <button type="button" class="close" data-dismiss="alert" >&times;</button>
+        <strong>¡Error! </strong>{{session('msj1')}}
+        </div>
+    @endif
 <body>
 
     

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\periodo;
 use App\CalificacionesParciales;
 use App\Irregulares;
+use App\IrregularMateria;
 Use Session;
 Use Redirect;
 Use Alert;
@@ -19,16 +20,22 @@ class CierreController extends Controller
      */
     public function index()
     {
+        $bandera=False;
         $Fecha=periodo::where('id','2')->get();
+
+        if ($Fecha[0]->fecha2==null) {
+            return view('CerrarCiclo.index',compact('bandera'))->with('msj1','Favor de asignar fechas a periodos');        }
+        else{
         $fechasis=$Fecha[0]->fecha2;
         $fechaact=date('Y-m-d');
-        $bandera=False;
+        
         if( $fechaact > $fechasis) {
             $bandera=True;
         }
         
         return view('CerrarCiclo.index',compact('bandera'));
     }
+}
 
     /**
      * Show the form for creating a new resource.
@@ -44,11 +51,13 @@ class CierreController extends Controller
             if ($todo[$i]->Parcial1<7 or $todo[$i]->Parcial2<7) {
                 $alumnoL=new Irregulares();
                 $alumnoL->Clave_A=$todo[$i]->Clave_A;
-                $alumnoL->Clave_M=$todo[$i]->ClaveM;
-                $alumnoL->Calificacion1=0;
-                $alumnoL->Calificacio2=0;
-                $alumnoL->Calificacion3=0;
                 $alumnoL->save(); 
+                $mate=new IrregularMateria();
+                $mate->Clave_A=$todo[$i]->Clave_A;
+                $mate->Clave_M=$todo[$i]->ClaveM;
+                $mate->Calificacion1=0;
+                $mate->Oportunidades=3;
+                $mate->save();
             }
         }
         $bandera=true;
