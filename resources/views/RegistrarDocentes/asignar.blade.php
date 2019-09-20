@@ -88,60 +88,73 @@ section {
 #arrastrable1 {
 	background: white;
 	border: 2px solid black;
+	cursor: pointer;
 }
 
 #arrastrable2 {
 	background: white;
 	border: 2px solid black;
+	cursor: pointer;
 }
 
 #arrastrable3 {
 	background: white;
 	border: 2px solid black;
+	cursor: pointer;
 }
 
 #arrastrable4 {
 	background: white;
 	border: 2px solid black;
+	cursor: pointer;
 }
 
 #arrastrable5 {
 	background: white;
 	border: 2px solid black;
+	cursor: pointer;
 }
 
 #arrastrable6 {
 	background: white;
 	border: 2px solid black;
+	cursor: pointer;
 }
 #arrastrable7 {
 	background: white;
 	border: 2px solid black;
+	cursor: pointer;
 }
 
 #arrastrable8 {
 	background: white;
 	border: 2px solid black;
+	cursor: pointer;
 }
 
 #arrastrable9 {
 	background: white;
 	border: 2px solid black;
+	cursor: pointer;
 }
 
 #arrastrable10 {
 	background: white;
 	border: 2px solid black;
+	cursor: pointer;
 }
 
 #arrastrable11{
 	background: white;
 	border: 2px solid black;
+	cursor: pointer;
 }
 
 #arrastrable12{
 	background: white;
 	border: 2px solid black;
+	cursor: pointer;
+}
 
 	</style>
 	<script type="text/javascript">
@@ -161,7 +174,7 @@ section {
 			e.dataTransfer.clearData("Data");
 			materiaObtenida=e.target.value;
 			if (docenteObtenido=="" || materiaObtenida==""){
-				alert("Ese no se agrego")
+				alert("Materia no asignada correctamente")
 			} else{
 				MateriYCuadro.push(materiaObtenida);
 				MateriYCuadro.push(docenteObtenido);

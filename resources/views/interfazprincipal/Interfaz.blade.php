@@ -51,13 +51,6 @@
           </div>
        </a>
 
-        <a href="LoginDirector">
-          <div class="Contenedor" id="cuatro">
-            <img class="icon" src="/images/icon11.png">
-            <p class="texto4">Directivo</p>
-          </div>
-        </a>
-
 
         </header>
          <div class="content-all">
