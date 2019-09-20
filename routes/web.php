@@ -82,6 +82,10 @@ Route::get('/Docentes', function () {
     return view('DocenteInterfazPrincipal.InterfazPrincipal');
 });
 
+Route::get('/Alumnosinicio', function () {
+    return view('Alumnosinterfazprincipal.InterfazPrincipal');
+});
+
 Route::get('/periodos' ,function(){
     return view('Periodos.create');
 });

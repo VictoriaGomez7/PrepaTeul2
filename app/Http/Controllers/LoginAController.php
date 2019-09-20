@@ -52,11 +52,11 @@ class LoginAController extends Controller
     {
         $CE = usuarioalumno::where('Usuario', $request->Usuario)->get();
         //$Ps=usuariomaestro::where('Usuario', $request->Usuario)->get('Password');
-        
+
         $Ps=usuarioalumno::where('Password', $request->Contraseña)->where('Usuario', $request->Usuario) ->get();
         //return 'CE'.$CE.'/'.'PS'.$Ps;
         //return $Ps;
-
+        $usua=$CE[0]->Usuario;
         if (count($CE)==0)
         {
 
@@ -66,12 +66,14 @@ class LoginAController extends Controller
             if ($CE==$Ps)
             {
                 //return 'son igual';
-                return 'LoginM';//view('ControlEscolar.CEprincipal');
+                //return $usua;
+                return view('Alumnosinterfazprincipal.InterfazPrincipal',compact('usua','CE'));
+                //return 'LoginM';//view('ControlEscolar.CEprincipal');
             }
             else{
 
-                //return 'no son igual '.$CE.'/'.$Ps;       
-                return back()->with('msj',' Usuario o Contrseña incorrecta' );         
+                //return 'no son igual '.$CE.'/'.$Ps;
+                return back()->with('msj',' Usuario o Contrseña incorrecta' );
             }
         }
     }
