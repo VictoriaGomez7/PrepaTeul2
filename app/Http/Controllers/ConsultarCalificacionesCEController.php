@@ -42,7 +42,6 @@ class ConsultarCalificacionesCEController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**

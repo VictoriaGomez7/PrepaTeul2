@@ -26,7 +26,7 @@
 			<ul class="menu">
 				<li><a href="#">Calificaciones</a>
 						<ul class="submenu">
-						<li><a href ="http://127.0.0.1:8000/VisualizaMaGr?valor=">Visualizar</a></li>
+						<li><a href ="http://127.0.0.1:8000/CONSULTACALIFICACIONESAL/">Visualizar</a></li>
 					</ul>
 				</li>
 				<li><a href="#">Contraseña</a>
