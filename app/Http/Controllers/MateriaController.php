@@ -51,13 +51,13 @@ class MateriaController extends Controller
                 break;
               case 'Formación Propedéutica':
                   switch ($request['bachillerato']) {
-                    case 'Químico Biológico':
+                    case "Químico Biológica":
                       $Clavemat=$Clavemat.'QB-';
                       break;
-                    case 'Físico Matemático':
+                    case "Físico Matemática":
                       $Clavemat=$Clavemat.'FM-';
                       break;
-                    case 'Ciencias Sociales y Humanidades':
+                    case "Humanidades y Ciencias Sociales":
                       $Clavemat=$Clavemat.'CSH-';
                       break;
 
