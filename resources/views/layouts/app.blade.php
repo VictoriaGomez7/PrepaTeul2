@@ -27,6 +27,8 @@
         @yield('VerListas')
         @yield('BuscarListas')
         @yield('MostrarIrregulares')
+        @yield('frameDocentesTutores')
+        @yield('frameBoletasParciales')
 
     </body>
 </html>

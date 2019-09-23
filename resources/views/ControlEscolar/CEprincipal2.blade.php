@@ -48,7 +48,8 @@
 					<ul class="submenu">
 						<li><a href="RegistraDocente">Registrar</a></li>
 						<li><a href="docenteconsulta">Consultar</a></li>
-						<li><a href="VisualizarDocentes">Materia de los Docentes</a></li>
+						<li><a href="http://127.0.0.1:8000/VisualizarDocentes">Materias</a></li>
+						<li><a href="http://127.0.0.1:8000/RegistrarTutores">Tutores</a></li>
 					</ul>
 				</li>
 				<li><a href="#">Materias</a>
@@ -76,13 +77,13 @@
 							<li><a href="http://127.0.0.1:8000/grupos">Crear Grupos</a></li>
 							<li><a href="http://127.0.0.1:8000/Asigna">Materias a los Docentes</a></li>
 							<li><a href="http://127.0.0.1:8000/Periodos">Periodos</a></li>
-
+							<li><a href="http://127.0.0.1:8000/Cerrar_Semestre">Cerrar Ciclo</a></li>
 						</ul>
 					</li>
-					<li><a href="#">Imprimir listas</a>
+					<li><a href="#">Imprimir</a>
 						<ul class="submenu">
-							<li><a href="http://127.0.0.1:8000/Imprimelistas">Listar Grupos</a></li>
-
+							<li><a href="http://127.0.0.1:8000/Imprimelistas">Listas</a></li>
+							<li><a href="http://127.0.0.1:8000/ImprimeBoletasParciales">Boletas Parciales</a></li>
 						</ul>
 					</li>
                     <li><a href="#" >Control Escolar</a>

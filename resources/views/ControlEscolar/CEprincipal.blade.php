@@ -30,7 +30,9 @@
 							<li><a href="http://127.0.0.1:8000/RegistraDocente">Registrar</a></li>
 							<li><a href="http://127.0.0.1:8000/docenteconsulta">Consultar
 							</a></li>
-							<li><a href="http://127.0.0.1:8000/VisualizarDocentes">Materia de los Docentes
+							<li><a href="http://127.0.0.1:8000/VisualizarDocentes">Materias
+							</a></li>
+							<li><a href="http://127.0.0.1:8000/RegistrarTutores">Tutores
 							</a></li>
 
 						</ul>
@@ -63,10 +65,10 @@
 							<li><a href="http://127.0.0.1:8000/Cerrar_Semestre">Cerrar Ciclo</a></li>
 						</ul>
 					</li>
-					<li><a href="#">Imprimir listas</a>
+					<li><a href="#">Imprimir</a>
 						<ul class="submenu">
-							<li><a href="http://127.0.0.1:8000/Imprimelistas">Listar Grupos</a></li>
-
+							<li><a href="http://127.0.0.1:8000/Imprimelistas">Listas</a></li>
+							<li><a href="http://127.0.0.1:8000/ImprimeBoletasParciales">Boletas Parciales</a></li>
 						</ul>
 					</li>
                     <li><a href="#" >Control Escolar</a>
