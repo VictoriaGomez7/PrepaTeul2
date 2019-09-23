@@ -95,7 +95,9 @@ Route::get('/Asistencias' ,function(){
 });
 //Ruta para vista de calificaciones de Control Escolar
 Route::resource('CONSULTACALIFICACIONESCE','ConsultarCalificacionesCEController');
-//Ruta para vista de calificaciones de Docenetes
+
+Route::resource('CONSULTACALIFICACIONESAL','ConsultarCalificacionesCEController');
+//Ruta para vista de calificaciones de Docentes
 Route::get('/CONSULTACALIFICACIONESDC', function () {
     return view('Calificaciones.ConsultaDC');
 });
@@ -147,4 +149,8 @@ Route::resource('AsignarCalificacion','CalificacionesController');
 Route::resource('Calificaciones','CalificacionesController');
 
 Route::resource('Irregulares', 'IrregularController');
+<<<<<<< HEAD
+=======
+
+>>>>>>> debf1185f41cb8fe49cf230dc13e9f7197129cab
 Route::resource('Cerrar_Semestre', 'CierreController');

@@ -22,8 +22,11 @@ class CierreController extends Controller
     {
         $bandera=False;
         $Fecha=periodo::where('id','2')->get();
+        //$Fecha=periodo::all();
+        //return $Fecha;
 
-        if ($Fecha[0]->fecha2==null) {
+        if (count($Fecha)==0 or $Fecha[0]->fecha2==null) {
+            //return "entra";
             return view('CerrarCiclo.index',compact('bandera'))->with('msj1','Favor de asignar fechas a periodos');        }
         else{
         $fechasis=$Fecha[0]->fecha2;
@@ -31,10 +34,15 @@ class CierreController extends Controller
         
         if( $fechaact > $fechasis) {
             $bandera=True;
-        }
         
+        //return "entra2";
         return view('CerrarCiclo.index',compact('bandera'));
     }
+    else{
+        $bandera=False;
+        return view('CerrarCiclo.index',compact('bandera'));        }
+    }
+    
 }
 
     /**
