@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 class RequisitoSeeder extends Seeder
 {
     /**
@@ -11,7 +12,7 @@ class RequisitoSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('Requisitos')->insert([
+        DB::table('Requisitos')->insert([
           'Clave_A'=>'1900110001',
           'Requisito_A'=>'Si',
           'Requisito_B'=>'Si',
@@ -607,5 +608,4 @@ class RequisitoSeeder extends Seeder
           'Requisito_H'=>'Si'
       ]);
     }
-
 }

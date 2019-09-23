@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 class ftbachesSeeder extends Seeder
 {
     /**
@@ -11,7 +12,7 @@ class ftbachesSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('ft_baches')->insert([
+    	DB::table('ft_baches')->insert([
           'Clave_A'=>'1900110001',
           'Formación_Trabajo'=>'',
           'Bachillerato'=>''
@@ -308,6 +309,6 @@ class ftbachesSeeder extends Seeder
           'Formación_Trabajo'=>'Higiene y Salud Comunitaria',
           'Bachillerato'=>'Económico Administrativa'
       ]);
+        
     }
-
 }

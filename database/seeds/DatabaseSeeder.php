@@ -15,7 +15,13 @@ class DatabaseSeeder extends Seeder
         $this->call(PoblarUsuarioCE::class); //Esta es la línea que añadimos
         $this->call(AlumnosSeeder::class);
         $this->call(UsuarioAlumnoSeeder::class);
+        
         $this->call(ftbachesSeeder::class);
         $this->call(RequisitoSeeder::class);
+
+        $this->call(Docentesseeder::class);
+        $this->call(Materiasseeder::class);
+        $this->call(UsuarisMaestrossSeeder::class);
+        $this->call(MateriaGruposSeeder::class);
     }
 }

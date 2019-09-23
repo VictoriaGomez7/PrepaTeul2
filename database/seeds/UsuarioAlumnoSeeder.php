@@ -3,7 +3,6 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-
 class UsuarioAlumnoSeeder extends Seeder
 {
     /**
@@ -13,7 +12,7 @@ class UsuarioAlumnoSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('usuarioalumnos')->insert([
+        DB::table('usuarioalumnos')->insert([
           'Usuario'=>'1900110001',
           'Password'=>'12345'
       ]);
