@@ -98,6 +98,7 @@ return view('grupos.creaGrupos',compact('alumnosHombres','alumnosMujeres' ,'seme
 
 
         }else if(isset($r->A)){
+
             $alumnos=GrupoTemporal::take(10000)->get();
            
 
@@ -116,8 +117,9 @@ return view('grupos.creaGrupos',compact('alumnosHombres','alumnosMujeres' ,'seme
                   }
                     $temporal=GrupoTemporal::all();
                     //return $temporal;
-                return view('grupos.index'); 
-
+               // return view('grupos.index'); 
+                    return redirect('grupos')->with('msj','Grupos modifcados correctamente');
+       
         }else {
             
             $numeros=[];
