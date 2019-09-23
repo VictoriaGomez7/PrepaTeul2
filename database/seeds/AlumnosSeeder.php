@@ -14,7 +14,7 @@ class AlumnosSeeder extends Seeder
     public function run()
     {
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008001',
+            'Clave_A'=>'1900110001',
             'Nombre_A'=>'Mario Gutíerrez Macías',
             'Nombre_P'=>'Jose Gutíerrez Mendoza',
             'Nombre_M'=>'Maria Macías Solis',
@@ -35,7 +35,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008002',
+            'Clave_A'=>'1900110002',
             'Nombre_A'=>'Maria Fernanda Gómez Pérez',
             'Nombre_P'=>'Jose Gómez Ayala',
             'Nombre_M'=>'Maria Pérez Reyna',
@@ -56,7 +56,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008003',
+            'Clave_A'=>'1900110003',
             'Nombre_A'=>'Jorge Gómez Escobedo',
             'Nombre_P'=>'Jorge Luis Gómez Valdéz',
             'Nombre_M'=>'Guadalupe Escobedo Villegaz',
@@ -77,7 +77,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008004',
+            'Clave_A'=>'1900110004',
             'Nombre_A'=>'Felipe Guzman López',
             'Nombre_P'=>'Salvador Guzman Salas',
             'Nombre_M'=>'Maria Guadalupe López Luevano',
@@ -98,7 +98,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008005',
+            'Clave_A'=>'1900110005',
             'Nombre_A'=>'Archivaldo Guzman Salazar',
             'Nombre_P'=>'Joaquin Guzman Loera',
             'Nombre_M'=>'Scarlethe Salazar Leyva',
@@ -120,7 +120,7 @@ class AlumnosSeeder extends Seeder
 
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008006',
+            'Clave_A'=>'1900110006',
             'Nombre_A'=>'Edgar Guzman Salazar',
             'Nombre_P'=>'Joaquin Guzman Loera',
             'Nombre_M'=>'Scarlethe Salazar Leyva',
@@ -141,7 +141,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008007',
+            'Clave_A'=>'1900110007',
             'Nombre_A'=>'Edgar Guzman Salazar',
             'Nombre_P'=>'Pedro Guzman Pérez',
             'Nombre_M'=>'Josefina Salazar García',
@@ -162,7 +162,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008008',
+            'Clave_A'=>'1900110008',
             'Nombre_A'=>'Pedro Ureña Martínez',
             'Nombre_P'=>'Pedro Ureña Pérez',
             'Nombre_M'=>'Josefa Martínez García',
@@ -183,7 +183,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008009',
+            'Clave_A'=>'1900110009',
             'Nombre_A'=>'Paola Huerta Martínez',
             'Nombre_P'=>'Pedro Huerta Pérez',
             'Nombre_M'=>'Jazmín Martínez García',
@@ -204,7 +204,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008010',
+            'Clave_A'=>'1900110010',
             'Nombre_A'=>'Francisca Haro Macias',
             'Nombre_P'=>'Pedro Haro Raygoza',
             'Nombre_M'=>'Jazmín Macias Gutiérrez',
@@ -225,7 +225,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008011',
+            'Clave_A'=>'1900110011',
             'Nombre_A'=>'Fernanda Gutiérrez Escobedo',
             'Nombre_P'=>'Javier Gutiérrez Ramírez',
             'Nombre_M'=>'Manuela Escobedo Garza',
@@ -246,7 +246,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008012',
+            'Clave_A'=>'1900110012',
             'Nombre_A'=>'Alma Escobedo Gamboa',
             'Nombre_P'=>'Javier Escobedo Romo',
             'Nombre_M'=>'Leticia Gamboa Gutiérrez',
@@ -267,7 +267,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008013',
+            'Clave_A'=>'1900110013',
             'Nombre_A'=>'Itzel Pérez Gamboa',
             'Nombre_P'=>'Julian Pérez Romo',
             'Nombre_M'=>'Laura Gamboa Gutiérrez',
@@ -288,7 +288,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008014',
+            'Clave_A'=>'1900110014',
             'Nombre_A'=>'Karen Michelle García Valdivia',
             'Nombre_P'=>'Luis García Robledo',
             'Nombre_M'=>'Ofelia Valdivia Gutiérrez',
@@ -310,7 +310,7 @@ class AlumnosSeeder extends Seeder
 
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008015',
+            'Clave_A'=>'1900110015',
             'Nombre_A'=>'Karen Michelle García Valdivia',
             'Nombre_P'=>'Fernando García Ramos',
             'Nombre_M'=>'Oralia Valdivia Gómez',
@@ -331,7 +331,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008016',
+            'Clave_A'=>'1900110016',
             'Nombre_A'=>'Kimberly Robledo Ramos',
             'Nombre_P'=>'Brayan Robledo Lamas',
             'Nombre_M'=>'Norma Ramos Gómez',
@@ -352,7 +352,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008017',
+            'Clave_A'=>'1900110017',
             'Nombre_A'=>'Karin Velazquez Contreras',
             'Nombre_P'=>'Broly Velazquez Partida',
             'Nombre_M'=>'Nely Contreras Lizarraga',
@@ -373,7 +373,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008018',
+            'Clave_A'=>'1900110018',
             'Nombre_A'=>'Fernando Hernández Contreras',
             'Nombre_P'=>'Brandon Hernández Lomas',
             'Nombre_M'=>'Nayeli Contreras Lizarraga',
@@ -394,7 +394,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008019',
+            'Clave_A'=>'1900110019',
             'Nombre_A'=>'Francisco López Fernandez',
             'Nombre_P'=>'Braulio López Salazar',
             'Nombre_M'=>'Veronica Fernandez Franco',
@@ -415,7 +415,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008020',
+            'Clave_A'=>'1900110020',
             'Nombre_A'=>'Francis Lamas Fernandez',
             'Nombre_P'=>'Andres Lamas Salazar',
             'Nombre_M'=>'Veronica Fernandez Franco',
@@ -436,7 +436,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008021',
+            'Clave_A'=>'1900110021',
             'Nombre_A'=>'Goku Camacho Cortez',
             'Nombre_P'=>'Andres Lamas Salazar',
             'Nombre_M'=>'Veronica Fernandez Franco',
@@ -456,7 +456,7 @@ class AlumnosSeeder extends Seeder
             'Estado'=>'Regular'
         ]);
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008022',
+            'Clave_A'=>'1900110022',
             'Nombre_A'=>'Jose Luis Ruiz Diaz',
             'Nombre_P'=>'Jesus Ruiz Serrano',
             'Nombre_M'=>'Federica Serrano Dominguez',
@@ -477,7 +477,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008023',
+            'Clave_A'=>'1900110023',
             'Nombre_A'=>'Susana Rubio Molina',
             'Nombre_P'=>'Jose Manuel Rubio Saez',
             'Nombre_M'=>'Lucia Molina Cano',
@@ -498,7 +498,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008024',
+            'Clave_A'=>'1900110024',
             'Nombre_A'=>'Rosa Maria Torres Ortiz',
             'Nombre_P'=>'Alvaro Torres Rubio',
             'Nombre_M'=>'Lucy Ortiz Alarcon',
@@ -519,7 +519,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008025',
+            'Clave_A'=>'1900110025',
             'Nombre_A'=>'Julia Martinez Lopez',
             'Nombre_P'=>'Angel Martinez Frausto',
             'Nombre_M'=>'Pilar Lopez Alaniz',
@@ -540,7 +540,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008026',
+            'Clave_A'=>'1900110026',
             'Nombre_A'=>'Julian Martinez Lopez',
             'Nombre_P'=>'Angel Martinez Frausto',
             'Nombre_M'=>'Pilar Lopez Alaniz',
@@ -561,7 +561,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008027',
+            'Clave_A'=>'1900110027',
             'Nombre_A'=>'Jaime Francisco Aguayo González',
             'Nombre_P'=>'Angel Aguayo Lopez',
             'Nombre_M'=>'Perla González Flores',
@@ -582,7 +582,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008028',
+            'Clave_A'=>'1900110028',
             'Nombre_A'=>'Miguel Alejandro Guerrero Paredes',
             'Nombre_P'=>'Avelardo Guerrero Ortiz',
             'Nombre_M'=>'Gabriela Paredes Fernandez',
@@ -603,7 +603,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008029',
+            'Clave_A'=>'1900110029',
             'Nombre_A'=>'Jessica Moreno Rebeles',
             'Nombre_P'=>'Alejandro Moreno Reyes',
             'Nombre_M'=>'Flor Rebeles Vega',
@@ -624,7 +624,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008030',
+            'Clave_A'=>'1900110030',
             'Nombre_A'=>'Itzel Nuñes García',
             'Nombre_P'=>'Pablo Nuñes Gutiérrez',
             'Nombre_M'=>'Itzamara García Sánchez',
@@ -645,7 +645,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008031',
+            'Clave_A'=>'1900110031',
             'Nombre_A'=>'Eduardo Parga Fuentes',
             'Nombre_P'=>'Lucio Parga Pérez',
             'Nombre_M'=>'Abigail Fuentes Jiménez',
@@ -666,7 +666,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008032',
+            'Clave_A'=>'1900110032',
             'Nombre_A'=>'Enrique Acevedo Mejía',
             'Nombre_P'=>'Salomon Acevedo Pinedo',
             'Nombre_M'=>'Marcela Mejía Jiménez',
@@ -687,7 +687,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008033',
+            'Clave_A'=>'1900110033',
             'Nombre_A'=>'Adolfo Vargas Aldrete',
             'Nombre_P'=>'Sual Vargas Franco',
             'Nombre_M'=>'Rocio Aldrete Figueroa',
@@ -708,7 +708,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008034',
+            'Clave_A'=>'1900110034',
             'Nombre_A'=>'Alfredo Bautista Encina',
             'Nombre_P'=>'Sual Bautista Obrador',
             'Nombre_M'=>'Rosa Encina Calderon',
@@ -729,7 +729,7 @@ class AlumnosSeeder extends Seeder
         ]);
 
         DB::table('alumnos')->insert([
-            'Clave_A'=>'19008035',
+            'Clave_A'=>'1900110035',
             'Nombre_A'=>'Karol Juliana Acuña Lopez',
             'Nombre_P'=>'Salvador Acuña Delgado',
             'Nombre_M'=>'Aurora Lopez Obregon',
@@ -744,6 +744,322 @@ class AlumnosSeeder extends Seeder
             'Curp'=>'HOTJ980131NCYRN07',
             'NSS'=>'null',
             'Sexo'=>'Mujer',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110036',
+            'Nombre_A'=>'Yohana Delgado Contreras',
+            'Nombre_P'=>'Raul Delgado Villa',
+            'Nombre_M'=>'Alondra Contreras Chavez',
+            'Domicilio'=>'Revolucion #76',
+            'Telefono_T'=>'4371041871',
+            'Telefono_A'=>'3315103326',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/05',
+            'Edad'=>'17',
+            'Email'=>'yoh129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Mujer',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110037',
+            'Nombre_A'=>'Gabriela Fernanda Gutiérrez Rodriguez',
+            'Nombre_P'=>'Roman Gutiérrez Pineda',
+            'Nombre_M'=>'Violeta Rodriguez Valdéz',
+            'Domicilio'=>'Revolucion #77',
+            'Telefono_T'=>'4371041872',
+            'Telefono_A'=>'3315103327',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/06',
+            'Edad'=>'17',
+            'Email'=>'gfgr129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Mujer',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110038',
+            'Nombre_A'=>'Carol Dayana García Caballero',
+            'Nombre_P'=>'Rodrigo García Garza',
+            'Nombre_M'=>'Veronica Caballero Partida',
+            'Domicilio'=>'Revolucion #78',
+            'Telefono_T'=>'4371041873',
+            'Telefono_A'=>'3315103328',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/07',
+            'Edad'=>'17',
+            'Email'=>'carolday129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Mujer',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110039',
+            'Nombre_A'=>'Sofia Jaramillo Figueroa',
+            'Nombre_P'=>'Socrates Jaramillo Ramos',
+            'Nombre_M'=>'Luna Figueroa Alvarez',
+            'Domicilio'=>'Revolucion #79',
+            'Telefono_T'=>'4371041874',
+            'Telefono_A'=>'3315103329',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/08',
+            'Edad'=>'17',
+            'Email'=>'sofj129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Mujer',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110040',
+            'Nombre_A'=>'Natalia Ramirez Melgarejo',
+            'Nombre_P'=>'Jose Ramirez Pinto',
+            'Nombre_M'=>'Luz Melgarejo Soto',
+            'Domicilio'=>'Revolucion #80',
+            'Telefono_T'=>'4371041875',
+            'Telefono_A'=>'3315103330',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/09',
+            'Edad'=>'17',
+            'Email'=>'nat129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Mujer',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110041',
+            'Nombre_A'=>'Javier Rojas Salazar',
+            'Nombre_P'=>'Jaime Rojas Rojas',
+            'Nombre_M'=>'Monica Salazar Beltran',
+            'Domicilio'=>'Revolucion #81',
+            'Telefono_T'=>'4371041876',
+            'Telefono_A'=>'3315103331',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/10',
+            'Edad'=>'17',
+            'Email'=>'javr129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Hombre',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110042',
+            'Nombre_A'=>'Omar David Avila Diaz',
+            'Nombre_P'=>'Leonardo Avila Camacho',
+            'Nombre_M'=>'Monica Maria Diaz Salinas',
+            'Domicilio'=>'Revolucion #82',
+            'Telefono_T'=>'4371041877',
+            'Telefono_A'=>'3315103332',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/11',
+            'Edad'=>'17',
+            'Email'=>'omdv129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Hombre',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110043',
+            'Nombre_A'=>'Alexander Alvarado Angulo',
+            'Nombre_P'=>'Leonel Alvarado Romo',
+            'Nombre_M'=>'Maria del Socorro Angulo Sotelo',
+            'Domicilio'=>'Revolucion #83',
+            'Telefono_T'=>'4371041878',
+            'Telefono_A'=>'3315103333',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/12',
+            'Edad'=>'17',
+            'Email'=>'aaa129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Hombre',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110044',
+            'Nombre_A'=>'Kevin Blanco Anaya',
+            'Nombre_P'=>'Macario Blanco Pineda',
+            'Nombre_M'=>'Maria Auxilio Pineda Salas',
+            'Domicilio'=>'Revolucion #84',
+            'Telefono_T'=>'4371041879',
+            'Telefono_A'=>'3315103334',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/13',
+            'Edad'=>'17',
+            'Email'=>'kevb129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Hombre',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110045',
+            'Nombre_A'=>'Gustavo Castillo Vega',
+            'Nombre_P'=>'Mariano Castillo González',
+            'Nombre_M'=>'Engracias Vega Fuentes',
+            'Domicilio'=>'Revolucion #85',
+            'Telefono_T'=>'4371041880',
+            'Telefono_A'=>'3315103335',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/14',
+            'Edad'=>'17',
+            'Email'=>'guscast129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Hombre',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110046',
+            'Nombre_A'=>'Gustavo Castillo Vega',
+            'Nombre_P'=>'Mariano Castillo González',
+            'Nombre_M'=>'Engracia Vega Fuentes',
+            'Domicilio'=>'Revolucion #85',
+            'Telefono_T'=>'4371041880',
+            'Telefono_A'=>'3315103335',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/14',
+            'Edad'=>'17',
+            'Email'=>'guscast129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Hombre',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110047',
+            'Nombre_A'=>'Valentin Chacon Barrera',
+            'Nombre_P'=>'Martin Cachon Herrera',
+            'Nombre_M'=>'Enriqueta Barrera Gómez',
+            'Domicilio'=>'Revolucion #86',
+            'Telefono_T'=>'4371041881',
+            'Telefono_A'=>'3315103324',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/14',
+            'Edad'=>'17',
+            'Email'=>'vc129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Hombre',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110048',
+            'Nombre_A'=>'Gabino Barrera Vazquez',
+            'Nombre_P'=>'Lucio Barrera Hernández',
+            'Nombre_M'=>'Emma Vazquez Aguilar',
+            'Domicilio'=>'Revolucion #87',
+            'Telefono_T'=>'4371041882',
+            'Telefono_A'=>'3315103325',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/15',
+            'Edad'=>'17',
+            'Email'=>'gabba129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Hombre',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110049',
+            'Nombre_A'=>'Petronilo Bonilla Verdaguer',
+            'Nombre_P'=>'Lamberto Bonilla Cardona',
+            'Nombre_M'=>'Mayra Verdaguer Elizalde',
+            'Domicilio'=>'Revolucion #88',
+            'Telefono_T'=>'4371041883',
+            'Telefono_A'=>'3315103326',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/16',
+            'Edad'=>'17',
+            'Email'=>'petbo129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Hombre',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'1900110050',
+            'Nombre_A'=>'Petronilo Bonilla Verdaguer',
+            'Nombre_P'=>'Lamberto Bonilla Carmin',
+            'Nombre_M'=>'Mayra Verdaguer Sanchez',
+            'Domicilio'=>'Revolucion #89',
+            'Telefono_T'=>'4371041884',
+            'Telefono_A'=>'3315103327',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/17',
+            'Edad'=>'17',
+            'Email'=>'petboni129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Hombre',
             'Semestre'=>'QUINTO SEMESTRE',
             'Grado'=>'TERCER',
             'Estado'=>'Regular'
