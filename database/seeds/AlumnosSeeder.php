@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class AlumnosSeeder extends Seeder
 {
@@ -13,7 +11,7 @@ class AlumnosSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('alumnos')->insert([
+       DB::table('alumnos')->insert([
             'Clave_A'=>'1900110001',
             'Nombre_A'=>'Mario Gutíerrez Macías',
             'Nombre_P'=>'Jose Gutíerrez Mendoza',

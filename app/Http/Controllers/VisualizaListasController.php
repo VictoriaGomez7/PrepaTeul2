@@ -18,7 +18,6 @@ class VisualizaListasController extends Controller
      */
     public function index()
     { 
-        return "Hola";
         
         $id=$_GET['valor'];
         $usua=$_GET['valor'];

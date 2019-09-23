@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class Docentesseeder extends Seeder
 {
@@ -13,7 +11,7 @@ class Docentesseeder extends Seeder
      */
     public function run()
     {
-    	//#1
+        //#1
         DB::table('docentes')->insert([
             'Clave_D'=>'1234',
             'Nombre'=>'Ruben Delgado López',

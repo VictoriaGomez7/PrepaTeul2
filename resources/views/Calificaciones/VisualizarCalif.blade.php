@@ -27,7 +27,7 @@
 
 				{!!Form::open(['route' => ['AsignarCalificacion.store'],'method'=>'POST'])!!}
 				<input type="submit" value="{{$MateriasDelDocent->Materia." ".$MateriasDelDocent->Grupo}}" name="MateriaSeleccionada" class="NombreMateria" style="background-color: #85C1E9; border: 2px solid #0000000; width: 200px;height: 40px; margin: 5px;" readonly>
-				<input type="hidden" value="{{$MateriasDelDocent->ClaveMateria}}" name="ClaveMateriaSelec" >
+				<input type="hidden" value="{{$MateriasDelDocent->Clave_M}}" name="ClaveMateriaSelec" >
 				<input type="hidden" value="{{$MateriasDelDocent->Grupo}}" name="Grupo" >
 				<input type="hidden" value="{{$id}}" name="idDocente" >
 				<input type="hidden" value="{{$usua}}" name="usua" >
@@ -60,14 +60,14 @@
 				        	
 					        @foreach($AlumnosEnMismoSemestre as $AlumnosEnMismoSemestr)
 
-						        <input type="hidden" name="ClaveA[]" value="{{ $AlumnosEnMismoSemestr[$contador]->id }}">
+						        <input type="hidden" name="ClaveA[]" value="{{ $AlumnosEnMismoSemestr[$contador]->Clave_A}}">
 						        <input type="hidden" name="ClaveM" value="{{$Calif_Extraidas[$contador]->ClaveM}}">
 						        <input type="hidden" name="Semestre" value="{{$Calif_Extraidas[$contador]->Semestre}}">
 						        <input type="hidden" name="Año" value="{{$Calif_Extraidas[$contador]->Año}}">
 						        <input type="hidden" name="Usua" value="{{ __($usua)}}">
 
 							    <tr>
-						            <td>{{ $AlumnosEnMismoSemestr[$contador]->id }}</td>
+						            <td>{{ $AlumnosEnMismoSemestr[$contador]->Clave_A }}</td>
 						            <td >{{ $AlumnosEnMismoSemestr[$contador]->Nombre_A}}</td>
 						            @if($PeriodoActivo==1)
 						            	<td><input type="number" step="0.1" name="Calif1[]" min="0" max="10" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
@@ -77,7 +77,7 @@
 						            	<input disabled="" type="number" step="0.1" min="0"  max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
 						            @elseif($PeriodoActivo==2)
 					            		<input hidden="" type="number" step="0.1" min="0"  max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}">
-					            		<td><input disabled type="number" min="0"  max="10" step="0.1" name="Calif1[][]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
+					            		<td><input disabled type="number" min="0"  max="10" step="0.1" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
 					            		<td><input type="number" step="0.1" min="0"  max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
 					            	@else
 							            <input hidden="" type="number" step="0.1" min="0"  max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}">
@@ -95,7 +95,7 @@
 			    	</table>
 			    	
 				</div>
-				{!!Form::submit('Guardar',['class'=>'btn btn-primary','style'=>'position: absolute; top: 100%;left:80%;'])!!}
+				{!!Form::submit('Guardar',['class'=>'btn btn-primary','style'=>'position: absolute; top: 110%;left:80%;'])!!}
 			{!! Form::close()!!}
 
 		@elseif($visibility==2)

@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class MateriaGruposSeeder extends Seeder
 {
@@ -13,7 +11,6 @@ class MateriaGruposSeeder extends Seeder
      */
     public function run()
     {
-    	
         DB::table('materia__grupos')->insert([
 	        'Clave_M'=>'FB-MAT1',
 	        'Grupo'=>'A',
