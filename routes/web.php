@@ -149,5 +149,8 @@ Route::resource('AsignarCalificacion','CalificacionesController');
 Route::resource('Calificaciones','CalificacionesController');
 
 Route::resource('Irregulares', 'IrregularController');
+<<<<<<< HEAD
+=======
 
+>>>>>>> 0eadb561a06f25747664a5d126d597660252e232
 Route::resource('Cerrar_Semestre', 'CierreController');

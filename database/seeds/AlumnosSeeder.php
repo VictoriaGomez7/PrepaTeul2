@@ -698,10 +698,52 @@ class AlumnosSeeder extends Seeder
             'Municipio'=>'Tlaltenango',
             'Fecha_Nac'=>'2002/03/05',
             'Edad'=>'17',
-            'Email'=>'enria129@gmail.com',
+            'Email'=>'bof129@gmail.com',
             'Curp'=>'HOTJ980131NCYRN07',
             'NSS'=>'null',
             'Sexo'=>'Hombre',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'19008034',
+            'Nombre_A'=>'Alfredo Bautista Encina',
+            'Nombre_P'=>'Sual Bautista Obrador',
+            'Nombre_M'=>'Rosa Encina Calderon',
+            'Domicilio'=>'Revolucion #73',
+            'Telefono_T'=>'4371041869',
+            'Telefono_A'=>'3315103324',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/06',
+            'Edad'=>'17',
+            'Email'=>'alfb129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Hombre',
+            'Semestre'=>'QUINTO SEMESTRE',
+            'Grado'=>'TERCER',
+            'Estado'=>'Regular'
+        ]);
+
+        DB::table('alumnos')->insert([
+            'Clave_A'=>'19008035',
+            'Nombre_A'=>'Karol Juliana Acuña Lopez',
+            'Nombre_P'=>'Salvador Acuña Delgado',
+            'Nombre_M'=>'Aurora Lopez Obregon',
+            'Domicilio'=>'Revolucion #75',
+            'Telefono_T'=>'4371041870',
+            'Telefono_A'=>'3315103325',
+            'Poblacion'=>'Tlaltenango',
+            'Municipio'=>'Tlaltenango',
+            'Fecha_Nac'=>'2002/03/04',
+            'Edad'=>'17',
+            'Email'=>'kj129@gmail.com',
+            'Curp'=>'HOTJ980131NCYRN07',
+            'NSS'=>'null',
+            'Sexo'=>'Mujer',
             'Semestre'=>'QUINTO SEMESTRE',
             'Grado'=>'TERCER',
             'Estado'=>'Regular'
