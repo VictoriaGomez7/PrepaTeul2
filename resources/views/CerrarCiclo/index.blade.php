@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title','Reinscripción Alumno')
+@section('title','Cerrar Ciclo Escolar')
  @include('ControlEscolar.CEprincipal')
 @section('content')
 
-<a href="http://127.0.0.1:8000/reinscripcion">
+<a href="http://127.0.0.1:8000/ControlEscolarInicio">
             <button class="btn btn-success" style="position: absolute;top: 80%;left:35%">Cancelar</button></a>
 @if (session()->has('msj'))
             <div class="alert alert-success" role="alert" style="width: 90%; position:  absolute; top: 43%; left: 5%;z-index: 1;">
@@ -36,7 +36,7 @@
             
             @endif()
             @if($bandera==False)
-            <a href="#"style="position: absolute;top: 70%;left:35%">Aún no ha culminado el segundo periodo</a>
+            <div href="#"style="position: absolute;top: 70%;left:35%">Aún no ha culminado el segundo periodo</div>
             @endif()
 
 
