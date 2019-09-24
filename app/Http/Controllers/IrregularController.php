@@ -108,7 +108,7 @@ class IrregularController extends Controller
             Irregulares::where('Clave_A',$request->Clave_A)->delete();
         }
 
-       return redirect('alumnosconsulta')->with('msj2','Alumno modificado correctamente');
+       return redirect('/ControlEscolarInicio')->with('msj','Calificación guardada correctamente');
             
              
         }
