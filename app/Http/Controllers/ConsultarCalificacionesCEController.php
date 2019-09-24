@@ -71,7 +71,7 @@ class ConsultarCalificacionesCEController extends Controller
 
         if (count($AL)==0)
         {
-            return back()->with('msj',' La matrícula no existe');
+            return back()->with('msj',' No hay calificaciones asignadas para este alumno');
         }
         else{
             view('Calificaciones.TablaC1',compact('AL','nombreA','Materia1'));
