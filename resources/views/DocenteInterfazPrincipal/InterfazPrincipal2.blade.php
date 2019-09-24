@@ -47,7 +47,7 @@
 						<li><a href ="http://127.0.0.1:8000//Asistencias?valor={{ ($usua) }}">Capturar</a></li>
 						</ul>
 
-				<li style="left: 65%;"><a  href="#" >Docente: {{$Docente[0]->Nombre}}</a>
+				<li style="left: 40%;"><a  href="#" >Docente: {{$Docente[0]->Nombre}}</a>
 					<ul class="submenu">
 						<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESION</a>
 					</ul>

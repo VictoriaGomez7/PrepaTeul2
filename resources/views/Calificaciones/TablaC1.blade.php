@@ -55,7 +55,7 @@ tr:nth-child(even) {
       <td>{{$Materia1[$c]}}</td>
 	    <td>{{$alumno->Parcial1}}</td>
 	    <td>{{$alumno->Parcial2}}</td>
-      <td ><button class="btn btn-success" style="height: 25px;" >Modificar</button></td>
+      <td ><button class="btn btn-primary" style="height: 25px;" >Modificar</button></td>
       </form>
   	</tr>
   <?php $c=$c+1; ?>
