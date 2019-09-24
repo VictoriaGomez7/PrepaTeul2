@@ -93,6 +93,13 @@ from alumnos    WHERE  (EXISTS (SELECT 1 from grupos
         WHERE grupo_temporals.Clave_A=alumnos.Clave_A and grupo_temporals.Grupo='B'
                           )))
                           AND alumnos.Semestre= :sem" ,['sem'=>$r->semestre]);
+
+             if(count($alumnosHombres)>0 or count($alumnosMujeres)>0 or count($listaA)>0 or count($listaB)>0){
+                    return view('grupos.creaGrupos',compact('alumnosHombres','alumnosMujeres' ,'semestre','listaA','listaB'));
+             }else{
+                return redirect('/grupos')->with('msj2','No hay alumnos registrados' );
+
+             }
 return view('grupos.creaGrupos',compact('alumnosHombres','alumnosMujeres' ,'semestre','listaA','listaB'));
       
 
@@ -184,6 +191,8 @@ from alumnos    WHERE  (EXISTS (SELECT 1 from grupos
                           AND alumnos.Semestre= :sem" ,['sem'=>$r->semestre]);
 
 
+
+             
               return back()->with('alumnosHombres')->with('alumnosMujeres')->with('semestre')->with('listaA')->with('listaB');
 
 

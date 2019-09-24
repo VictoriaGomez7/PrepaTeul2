@@ -4,7 +4,7 @@
 @if (count($materias)>0)
     @foreach ($materias as $materia)          
         
-        <input type="submit" class="btn  btn-lg btn-success btn-block btn-signin" name="{{$materia->Clave_M }}" value="{{$materia->Clave_M }}   {{$materia->Nombre}}"></input >
+        <input type="submit" class="btn  btn-lg btn-success btn-block btn-signin" name="{{$materia->Clave_M }}" value="{{$materia->Clave_M }}   {{$materia->Nombre}}" width="250px"></input >
     @endforeach             
 @endif
 @endif
@@ -12,7 +12,7 @@
 @if (count($materias2)>0)
     @foreach ($materias2 as $materia)          
        
-        <input type="submit" class="btn  btn-lg btn-success btn-block btn-signin" name="{{$materia->Clave_M }}" value="{{$materia->Clave_M }} {{$materia->Nombre}}"></input >
+        <input type="submit" class="btn  btn-lg btn-success btn-block btn-signin" name="{{$materia->Clave_M }}" value="{{$materia->Clave_M }} {{$materia->Nombre}}" width="250px"></input >
     @endforeach             
 @endif
 @endif
@@ -20,7 +20,7 @@
 @if (count($materias1A)>0)
     @foreach ($materias1A as $materia)          
        
-        <input type="submit" class="btn  btn-lg btn-success btn-block btn-signin" name="{{$materia->Clave_M }}" value="{{$materia->Clave_M }} {{$materia->Nombre}}"></input >
+        <input type="submit" class="btn  btn-lg btn-success btn-block btn-signin" name="{{$materia->Clave_M }}" value="{{$materia->Clave_M }} {{$materia->Nombre}}" width="250px"></input >
     @endforeach             
 @endif
 @endif
@@ -30,7 +30,7 @@
 @if (count($materias2A)>0)
     @foreach ($materias2A as $materia)          
        
-        <input type="submit" class="btn  btn-lg btn-success btn-block btn-signin" name="{{$materia->Clave_M }}" value="{{$materia->Clave_M }} {{$materia->Nombre}}"></input >
+        <input type="submit" class="btn  btn-lg btn-success btn-block btn-signin" name="{{$materia->Clave_M }}" value="{{$materia->Clave_M }} {{$materia->Nombre}}" width="250px"></input >
     @endforeach             
 @endif
 @endif

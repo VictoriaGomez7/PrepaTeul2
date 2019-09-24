@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <a href="ControlEscolarInicio">
-            <button class="btn btn-success" style="font-size:120%; position: absolute;top: 115%;left:67%">Cancelar</button></a>
+            <button class="btn btn-success" style="font-size:120%; position: absolute;top: 112%;left:67%">Cancelar</button></a>
 <html>
 
     <head>
@@ -19,7 +19,7 @@
     
         @if (session()->has('msj2'))
 
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger" role="alert" style="width: 50%; position:  relative;text-align: center; left: 25%;">
       <button type="button" class="close" data-dismiss="alert" >&times;</button>
       <strong>¡Error! </strong>{{session('msj2')}}
     </div>
@@ -114,7 +114,7 @@
       <span>SEXTO SEMESTRE</span>
     </label>
 
-     <input type="submit"  name="aceptar" value="Aceptar" class="btn btn-primary" style="font-size:120%; position :absolute;top: 110%; left: 65%" >
+     <input type="submit"  name="aceptar" value="Aceptar" class="btn btn-primary" style="font-size:120%; position :absolute;top: 105%; left: 65%" >
 
      {!! form::close() !!}
     </div>
