@@ -22,7 +22,7 @@
 
     
         
-        <div class="" style="font-size:200%;width: 90%; height: 9.8%; color: black; position:  absolute;top: 52%; left: 5%;" >{{ __('Antes de dar clic en Cerrar Ciclo, debe estar completamente seguro de realizar dicha acción') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
+        <div class="" style="font-size:200%;width: 90%; height: 9.8%; color: black; position:  absolute;top: 52%; left: 5%;" >{{ __('Antes de dar clic en cerrar ciclo, debe estar completamente seguro de realizar dicha acción') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
 
         
 
