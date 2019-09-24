@@ -64,7 +64,7 @@ class CierreController extends Controller
                 $mate->Clave_A=$todo[$i]->Clave_A;
                 $mate->Clave_M=$todo[$i]->ClaveM;
                 $mate->Calificacion1=0;
-                $mate->Oportunidades=3;
+                $mate->Oportunidades=0;
                 $mate->save();
             }
         }

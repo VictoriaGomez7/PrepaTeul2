@@ -36,15 +36,11 @@ class AsistenciasController extends Controller
         $CDocente = RelacionDocenteMateriaGrupo::where('Clave_D', $doc[0]->Nombre)->get();
 
             //return $CDocente[0]->Materia;
-            $CMateria = Materia::get();
-            $Mat_grup = Materia_Grupo::get();
-            //return $CMateria;
-            $new=[$CDocente,$CMateria];
-            //return $CMateria;
-            return view('Asistencias.create',compact('CDocente','CMateria','Mat_grup','usua'));
-
-
-
+        $CMateria = Materia::get();
+        $Mat_grup = Materia_Grupo::get();
+        //return $CMateria;
+        $new=[$CDocente,$CMateria];
+        return view('Asistencias.create',compact('CDocente','CMateria','Mat_grup','usua'));
 
     }
 

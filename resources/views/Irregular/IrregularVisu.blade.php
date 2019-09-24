@@ -26,7 +26,7 @@
            
             <td align="center">{{ $Mate->Clave_M }}</td>
             <td align="center">{{ $Nombres_Mat[$Cont] }}</td>
-            <td align="center" > <input type="number" name="{{ $Mate->Clave_M }}Cal1" style="width: 30%;" value={{$Mate->Calificacion1}}> </td>
+            <td align="center" > <input type="number" min="0" max="10" name="{{ $Mate->Clave_M }}Cal1" style="width: 30%;" value={{$Mate->Calificacion1}}> </td>
             <td align="center">{{$Mate->Oportunidades}}</td>
     
 

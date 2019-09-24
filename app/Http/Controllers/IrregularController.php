@@ -7,6 +7,7 @@ use App\Irregulares;
 use App\IrregularMateria;
 use App\Alumno;
 use App\Materia;
+use App\Grupo;
 
 class IrregularController extends Controller
 {
@@ -21,6 +22,8 @@ class IrregularController extends Controller
         $Materia_B=Materia::all();
         $ObtenerIrregulares=Irregulares::all();
         $Listado_Nombres_Alumnos=array();
+        $Listado_Semestres=array();
+        $Listado_Grupos=array();
         $Listado_Nombres_Materias=array();
         $DatosAlumnos=array();
         $Cantidad_Materias_Reprobadas=array();
@@ -40,7 +43,11 @@ class IrregularController extends Controller
             $datos="";
             foreach ($ObtenerIrregulares as $alumnos) {
                 $Alumno=Alumno::where('Clave_A','=',$alumnos->Clave_A)->get('Nombre_A');
+                $Alumno1=Alumno::where('Clave_A','=',$alumnos->Clave_A)->get('Semestre');
+                $Alumno2=Grupo::where('Clave_A','=',$alumnos->Clave_A)->get('Grupo');
                 array_push($Listado_Nombres_Alumnos,$Alumno[0]->Nombre_A);
+                array_push($Listado_Semestres,$Alumno1[0]->Semestre);
+                array_push($Listado_Grupos,$Alumno2[0]->Grupo);
                 $Datos=IrregularMateria::where('Clave_A','=',$alumnos->Clave_A)->get();
                 //return count($Datos);
                 array_push($DatosAlumnos,$Datos);
@@ -49,7 +56,7 @@ class IrregularController extends Controller
                 
             }
             
-        return view('Irregular.Mostrar',compact('ObtenerIrregulares','Listado_Nombres_Alumnos','Listado_Nombres_Materias','Cantidad_Materias_Reprobadas'));
+        return view('Irregular.Mostrar',compact('ObtenerIrregulares','Listado_Nombres_Alumnos','Listado_Nombres_Materias','Cantidad_Materias_Reprobadas','Listado_Semestres','Listado_Grupos'));
     }
 
     /**

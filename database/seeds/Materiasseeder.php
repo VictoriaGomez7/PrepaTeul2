@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class Materiasseeder extends Seeder
 {
@@ -13,8 +11,7 @@ class Materiasseeder extends Seeder
      */
     public function run()
     {
-    	//
-    	DB::table('materias')->insert([
+        DB::table('materias')->insert([
 	            'Clave_M'=>'FB-MAT1',
 	            'Tipo'=>'Formación Básica',
 	            'Bachillerato'=>null,
@@ -730,8 +727,5 @@ class Materiasseeder extends Seeder
 	        'Semestre'=>'SEXTO SEMESTRE',
 	        'Horas'=>1
         ]);
-
-        
-        
     }
 }
