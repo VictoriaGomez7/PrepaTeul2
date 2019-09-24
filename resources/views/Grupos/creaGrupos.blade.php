@@ -110,7 +110,7 @@
                   <option value="A">A</option>
                   <option value="B">B</option>
               </select>
-                <input type="submit" name="{{ $r->Clave_A }}" value="Asignar" > 
+                <input type="submit" name="{{ $r->Clave_A }}" value="Aceptar" > 
                 <br><br>
 
                 <?php

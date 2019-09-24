@@ -12,7 +12,7 @@
 	<title>Docente Inicio</title>
 </head>
 <body>
-	
+
 
 	<header>
 		<nav class="navegacion" style="width: 90%">
@@ -35,7 +35,7 @@
 				<?php use App\Docentes;
 					$Docente=Docentes::where('Clave_D',$usua)->get('Nombre');
 				?>
-				<li style="left: 55%;"><a  href="#" >Docente: {{$Docente[0]->Nombre}}</a>
+				<li style="left: 40%;"><a  href="#" >Docente: {{$Docente[0]->Nombre}}</a>
 					<ul class="submenu">
 						<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESION</a>
 					</ul>

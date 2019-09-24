@@ -140,49 +140,49 @@ th {
           <tr>
             <th  align="center">A) Certificado de Secundaria</th>
 
-            <td  align="justify">{{ $row->Requisito_A}}</td>
+            <td  align="justify">{{ $req->Requisito_A}}</td>
           </tr>
 
           <tr>
               <th   align="center">B) Acta de Nacimiento</th>
 
-              <td  align="justify">{{ $row->Requisito_B}}</td>
+              <td  align="justify">{{ $req->Requisito_B}}</td>
           </tr>
 
 
           <tr>
             <th  align="center">C) Curp</th>
 
-            <td align="justify">{{ $row->Requisito_C}}</td>
+            <td align="justify">{{ $req->Requisito_C}}</td>
           </tr>
 
           <tr>
               <th align="center">D) Carta de Conducta</th>
 
-              <td align="justify">{{ $row->Requisito_D}}</td>
+              <td align="justify">{{ $req->Requisito_D}}</td>
           </tr>
           <tr>
               <th   align="center">E) 6 Fotografias tamaño infantil,blanco y negro(no instantáneas)</th>
 
-              <td  align="justify">{{ $row->Requisito_E}}</td>
+              <td  align="justify">{{ $req->Requisito_E}}</td>
           </tr>
 
           <tr>
             <th   align="center">F) Ser alumno regular del grado anterior</th>
 
-            <td  align="justify">{{ $row->Requisito_F}}</td>
+            <td  align="justify">{{ $req->Requisito_F}}</td>
           </tr>
 
           <tr>
             <th  align="center">G) Cubrir cuota semestral</th>
 
-            <td align="justify">{{ $row->Requisito_G}}</td>
+            <td align="justify">{{ $req->Requisito_G}}</td>
           </tr>
 
           <tr>
               <th  align="center">H) Firmar de conformidad padres y alumno en la hoja se solicitud de inscripcion</th>
 
-              <td align="justify">{{ $row->Requisito_H}}</td>
+              <td align="justify">{{ $req->Requisito_H}}</td>
           </tr>
         </table>
 

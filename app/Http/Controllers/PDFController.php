@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\compromisoEstudiante;
 use App\compromisosFamilia;
 use App\Alumno;
+use App\Requisito;
 use DB;
 use PDF;
 use Session;
@@ -30,6 +31,11 @@ class PDFController extends Controller
      ['Clave_A',$id->id]
   ])->get();
 
+  $requisitos=Requisito::where([
+
+ ['Clave_A',$id->id]
+])->get();
+
   if (count($alumno)==0)
     {
       return back()->with('msj',' Matrícula inexistente');
@@ -40,9 +46,15 @@ class PDFController extends Controller
                # code...
                    //return $row;
            }
+           foreach ($requisitos as $req ) {
+              # code...
+                  //return $row;
+          }
+          //return $req;
+
                  $compromisos2=compromisosFamilia::take(100)->get();
                  $compromisos=compromisoEstudiante::take(100)->get();
-                 $pdf= PDF::loadView('Inscripcion.show0',compact('compromisos','row','compromisos2'));
+                 $pdf= PDF::loadView('Inscripcion.show0',compact('compromisos','row','compromisos2','req'));
 
                  return $pdf->stream();
           }
@@ -51,10 +63,15 @@ class PDFController extends Controller
             # code...
                //return $row;
           }
+          foreach ($requisitos as $req ) {
+             # code...
+                 //return $row;
+         }
+         //return $req;
 
             $compromisos2=compromisosFamilia::take(100)->get();
              $compromisos=compromisoEstudiante::take(100)->get();
-             $pdf= PDF::loadView('Inscripcion.show',compact('compromisos','row','compromisos2'));
+             $pdf= PDF::loadView('Inscripcion.show',compact('compromisos','row','compromisos2','req'));
 
            return $pdf->stream();
           }
