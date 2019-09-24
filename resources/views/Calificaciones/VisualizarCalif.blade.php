@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <a href="/DocenteInicios?valor={{ ($usua)}}">
-    <button class="btn btn-success" style="position: absolute;top: 103%;left:5%;z-index: 1;">Cancelar</button></a>
+    <button class="btn btn-success" style="position: absolute;top: 120%;left:85%;z-index: 1;">Cancelar</button></a>
 
 <html>
 	<head>
@@ -13,6 +13,12 @@
 	</head>
 
 	<body>
+		@if (session()->has('msj'))
+	        <div class="alert alert-success" role="alert" style="width: 90%; position:  absolute; top: 44%; left: 5%;z-index: 1;">
+	            <button class="close" data-dismiss="alert"><span>&times;</span></button>
+	                <strong>¡Correcto! </strong>{{ session('msj') }}
+	        </div>
+    	@endif
 		<style type="text/css">
 			.NombreMateria{
 				cursor: pointer;}
@@ -20,8 +26,8 @@
 		
 		@include('DocenteInterfazPrincipal.InterfazPrincipal')
 
-	 	<div class="card-header text-center" style="font-size:200%;width: 20%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 48%; left: 5%;" >{{ __('Materias') }}</div>
-		<section style="background: #aaa; width:20%; height: 42%; position: absolute; top: 58%; left: 5%; overflow-y: scroll; text-align:  center;">
+	 	<div class="card-header text-center" style="font-size:200%;width: 20%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 55%; left: 5%;" >{{ __('Materias') }}</div>
+		<section style="background: #aaa; width:20%; height: 42%; position: absolute; top: 65%; left: 5%; overflow-y: scroll; text-align:  center;">
 
 			@foreach($MateriasDelDocente as $MateriasDelDocent)
 
@@ -42,9 +48,9 @@
 
 		@if($visibility==1)
 			{!! Form::open(['route'=>['AsignarCalificacion.edit',$usua],'method'=>'GET']) !!}
-				<div class="card-header text-center" style="font-size:200%;width: 69%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 48%; left: 26%;" >{{ __($Materiasele)}}</div>
+				<div class="card-header text-center" style="font-size:200%;width: 69%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 55%; left: 26%;" >{{ __($Materiasele)}}</div>
 
-				<div class="card-header text-center" style="font-size:100%;width: 70%; height:51%; background: white; overflow-y: scroll; color: rgb(212, 172, 13); position:  absolute;top: 58%; left: 25%;" >
+				<div class="card-header text-center" style="font-size:100%;width: 70%; height:51%; background: white; overflow-y: scroll; color: rgb(212, 172, 13); position:  absolute;top: 65%; left: 25%;" >
 					<table  id="alumn" class="table" style="width: 100%">
 				        <tr style="font-size:120%">
 				        	<th  align="center" style="width:2%">{{ ('Matrícula') }}</th>
@@ -65,6 +71,7 @@
 						        <input type="hidden" name="Semestre" value="{{$Calif_Extraidas[$contador]->Semestre}}">
 						        <input type="hidden" name="Año" value="{{$Calif_Extraidas[$contador]->Año}}">
 						        <input type="hidden" name="Usua" value="{{ __($usua)}}">
+						        <input type="hidden" value="{{$Grupo_Seleccionado}}" name="Grupo_Selec" >
 
 							    <tr>
 						            <td>{{ $AlumnosEnMismoSemestr[$contador]->Clave_A }}</td>
@@ -95,14 +102,14 @@
 			    	</table>
 			    	
 				</div>
-				{!!Form::submit('Guardar',['class'=>'btn btn-primary','style'=>'position: absolute; top: 110%;left:80%;'])!!}
+				{!!Form::submit('Guardar',['class'=>'btn btn-primary','style'=>'position: absolute; top: 120%;left:75%;'])!!}
 			{!! Form::close()!!}
 
 		@elseif($visibility==2)
-			<div class="card-header text-center" style="font-size:135%;width: 30%; height:15%; background: #FFFFFF; color: rgb(26, 35, 126); position:  absolute;top: 70%; left: 45%;" >{{ __(' ') }}</div>
+			<div class="card-header text-center" style="font-size:135%;width: 30%; height:15%; background: #FFFFFF; color: rgb(26, 35, 126); position:  absolute;top: 77%; left: 45%;" >{{ __(' ') }}</div>
 		@else
-			<div class="card-header text-center" style="font-size:200%;width: 69%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 48%; left: 26%;" >{{ __($Materiasele)}}</div>
-			<div class="card-header text-center" style="font-size:135%;width: 30%; height:15%; background: #839192; color: rgb(26, 35, 126); position:  absolute;top: 70%; left: 45%;" >{{ __('No hay alumnos registrados en esta materia.') }}</div>
+			<div class="card-header text-center" style="font-size:200%;width: 69%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 55%; left: 26%;" >{{ __($Materiasele)}}</div>
+			<div class="card-header text-center" style="font-size:135%;width: 30%; height:15%; background: #839192; color: rgb(26, 35, 126); position:  absolute;top: 77%; left: 45%;" >{{ __('No hay alumnos registrados en esta materia.') }}</div>
 		@endif
 	</body>
 </html>

@@ -58,7 +58,7 @@ class CierreController extends Controller
         for ($i=0; $i <count($todo) ; $i++){
             //if ($todo[$i]->Parcial1<7 or $todo[$i]->Parcial2<7) {
             $suma=($todo[$i]->Parcial1+$todo[$i]->Parcial2)/2;
-            if ($suma<7) {
+            if ($suma<6) {
                 $alumnoL=new Irregulares();
                 $alumnoL->Clave_A=$todo[$i]->Clave_A;
                 $alumnoL->save(); 

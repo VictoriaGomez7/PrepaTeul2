@@ -8,6 +8,5 @@ class Materia_Grupo extends Model
 {
     //
 
-    protected $fillable = ['id',
-        'Clave_M', 'Grupo','Semestre'];
+    protected $fillable = ['id','Clave_M', 'Grupo','Semestre'];
 }
