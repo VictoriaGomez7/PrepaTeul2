@@ -19,13 +19,13 @@
 			<?php array_push($var1, $Docentes->Nombre); ?>
 		<div class="col-sm" style="background:#aaa">
 			
-				<div class="card text-center" style="width:20rem; margin-top: 50px;">
+				<div class="card text-center" style="width:32rem; margin-top: 50px;">
 					
 				  <div class="card-body">  	
 			
 				    <h5 class="card-title" style="color: rgb(212, 172, 13)">{{$Docentes->Nombre}}</h5>
 				    <p class="card text" style="position: absolute;left:5%;color: rgb(212, 172, 13);border-color:white">Materia</p>
-				    <p class="card text" style="position: absolute;left:50%;color: rgb(212, 172, 13);border-color:white" >Grupo</p>
+				    <p class="card text" style="position: absolute;left:61.5%;color: rgb(212, 172, 13);border-color:white" >Grupo</p>
 				    <br>
 
 				    @foreach($Relacion as $Rela)
@@ -35,7 +35,7 @@
 				    	
 				    	<p class="card-text">{{$Rela->Materia}}</P>
 				    </div>
-				    <div style="position: absolute;left:50%">
+				    <div style="position: absolute;left:61.5%">
 				    	<p class="card-text">{{$Rela->Grupo}}</P>
 
 				    </div>

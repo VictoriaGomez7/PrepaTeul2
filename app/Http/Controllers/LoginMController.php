@@ -51,29 +51,22 @@ class LoginMController extends Controller
      */
     public function show(Request $request)
     {
+        
         $CE = usuariomaestro::where('Usuario', $request->Usuario)->get();
-
-
-        $Ps=usuariomaestro::where('Password', $request->Contraseña)->where('Usuario', $request->Usuario) ->get();
-        //return 'CE'.$CE.'/'.'PS'.$Ps;
-        //return $Ps;
-        $usua=$CE[0]->Usuario;
-        //return $usua;
-
         if (count($CE)==0)
         {
 
             return back()->with('msj',' Usuario o Contrseña incorrecta');
         }
         else{
+            $Ps=usuariomaestro::where('Password', $request->Contraseña)->where('Usuario', $request->Usuario) ->get();
+            $usua=$CE[0]->Usuario;
             if ($CE==$Ps)
             {
                 view('DocenteInterfazPrincipal.InterfazPrincipal',compact('usua'));
                 return view('DocenteInterfazPrincipal.InterfazPrincipal2',compact('usua','CE'));
             }
             else{
-
-                //return 'no son igual '.$CE.'/'.$Ps;
                 return back()->with('msj',' Usuario o Contrseña incorrecta' );
             }
         }
