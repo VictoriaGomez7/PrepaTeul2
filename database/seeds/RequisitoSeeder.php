@@ -11,7 +11,7 @@ class RequisitoSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Requisitos')->insert([
+         DB::table('Requisitos')->insert([
           'Clave_A'=>'1900110001',
           'Requisito_A'=>'Si',
           'Requisito_B'=>'Si',

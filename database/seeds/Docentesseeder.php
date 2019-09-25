@@ -11,7 +11,6 @@ class Docentesseeder extends Seeder
      */
     public function run()
     {
-        //#1
         DB::table('docentes')->insert([
             'Clave_D'=>'1234',
             'Nombre'=>'Ruben Delgado López',

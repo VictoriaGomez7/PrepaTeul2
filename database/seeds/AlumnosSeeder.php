@@ -11,7 +11,7 @@ class AlumnosSeeder extends Seeder
      */
     public function run()
     {
-       DB::table('alumnos')->insert([
+        DB::table('alumnos')->insert([
             'Clave_A'=>'1900110001',
             'Nombre_A'=>'Mario Gutíerrez Macías',
             'Nombre_P'=>'Jose Gutíerrez Mendoza',
@@ -1062,7 +1062,5 @@ class AlumnosSeeder extends Seeder
             'Grado'=>'TERCER',
             'Estado'=>'Regular'
         ]);
-
-
     }
 }

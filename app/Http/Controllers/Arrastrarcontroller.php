@@ -119,7 +119,7 @@ class Arrastrarcontroller extends Controller
             }
             if ($fecha>='07' and $fecha<='12'){
                 $Materias_Grupo=materia_grupo::where('Semestre','=','PRIMER SEMESTRE')->orWhere('Semestre','=','TERCER SEMESTRE')->orWhere('Semestre','=','QUINTO SEMESTRE')->get('Clave_M');
-                //return $Materias_Grupo;
+                //return count($Materias_Grupo);
                 if (count($Materias_Grupo)==0){
                     return redirect('/ControlEscolarInicio')->with('MsjERR','Primero debe crear los grupos');
                 }
@@ -131,12 +131,13 @@ class Arrastrarcontroller extends Controller
                     $Materias1=array();
                     $Grupo_M1=array();
                     $bandera2=0;
-
+                    //return count($Nom_Mat2);
                     for ($i=0; $i < count($Materias_Grupo); $i++) {
-                        $Clave_Mat=$Materias_Grupo[$i]->Clave;
+                        $Clave_Mat=$Materias_Grupo[$i]->Clave_M;
+                        //return $Materias_Grupo[$i];
 
                         for ($j=0; $j <count($Nom_Mat2) ; $j++) {
-                            $Clave_2=$Nom_Mat2[$j]->Clave;
+                            $Clave_2=$Nom_Mat2[$j]->Clave_M;
                             
                             if ($Clave_Mat == $Clave_2){
                                 //print_r('entro');
@@ -162,6 +163,7 @@ class Arrastrarcontroller extends Controller
                     //ESTO ES PARA SACAR LA MATERIA Y EL GRUPO, PARA COMPARAR CUALES MATERIAS YA ESTAN ASIGNADAS A QUE MAESTRO.
                     $Materias2=array();
                     $Grupo_M2=array();
+                    //return count($Materias1);
                     foreach ($Materias1 as $Materia1) {
                         array_push($Materias2,$Materia1->Nombre);
                     }
@@ -195,7 +197,7 @@ class Arrastrarcontroller extends Controller
                         return redirect('/ControlEscolarInicio')->with('MsjERR','Todas las materias han sido asignadas');
                     }
                     else{
-                    
+                    //return count($Materias);
                     return view('RegistrarDocentes.asignar',compact('Materias','Docentes','M_S_S','M_C_S','M_SIX_S','num','M_P_S','M_T_S','M_Q_S','Grupo_M'));
                     }
                 }
