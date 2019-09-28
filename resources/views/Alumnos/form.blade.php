@@ -32,7 +32,7 @@
               edad=Math.floor(edad/(1000*60*60*24*365));
               alert("Tienes "+edad+" años");
               }
-            </script> 
+            </script>
 
 
             <div class="card-header text-center" style="font-size:200%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 5%;" >{{ __('MODIFICAR ALUMNO') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->

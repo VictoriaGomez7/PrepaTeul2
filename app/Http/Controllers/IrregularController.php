@@ -53,10 +53,9 @@ class IrregularController extends Controller
                 array_push($DatosAlumnos,$Datos);
                 array_push($Cantidad_Materias_Reprobadas,count($Datos));
                 }
-                
-            }
-            
-        return view('Irregular.Mostrar',compact('ObtenerIrregulares','Listado_Nombres_Alumnos','Listado_Nombres_Materias','Cantidad_Materias_Reprobadas','Listado_Semestres','Listado_Grupos'));
+
+            }     
+            return view('Irregular.Mostrar',compact('ObtenerIrregulares','Listado_Nombres_Alumnos','Listado_Nombres_Materias','Cantidad_Materias_Reprobadas','Listado_Semestres','Listado_Grupos'));
     }
 
     /**
@@ -95,10 +94,10 @@ class IrregularController extends Controller
                     IrregularMateria::where('Clave_M',$Materia->Clave_M)->update(['Oportunidades'=>$Oportunidad]);
                 }
             }
-            
-                
+
+
             }
-        
+
 
         //return count($Aprobadas);
 
@@ -109,11 +108,11 @@ class IrregularController extends Controller
         }
 
        return redirect('/ControlEscolarInicio')->with('msj','Calificación guardada correctamente');
-            
-             
+
+
         }
-       
-    
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -128,8 +127,8 @@ class IrregularController extends Controller
         $NombreAlumno=Alumno::where('Clave_A',$request->Clave_A)->get('Nombre_A');
         $AlumnoMateriasRepro=IrregularMateria::where('Clave_A',$request->Clave_A)->get();
         //return count($AlumnoMateriasRepro);
-        
-        for ($i=0; $i < count($AlumnoMateriasRepro) ; $i++) { 
+
+        for ($i=0; $i < count($AlumnoMateriasRepro) ; $i++) {
             $Mat=Materia::where('Clave_M',$AlumnoMateriasRepro[$i]->Clave_M)->get();
             //return $Mat[0]->Nombre;
             array_push($Nombres_Mat,$Mat[0]->Nombre);

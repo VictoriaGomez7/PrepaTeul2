@@ -17,7 +17,7 @@ class CreateCalificacionesParcialesTable extends Migration
             $table->bigIncrements('id');
             $table->string('Clave_A');
             $table->string('ClaveM');
-            $table->string('Grupo');
+            $table->string('Grupo')->null();
             $table->float('Parcial1');
             $table->float('Parcial2');
             $table->string('Semestre');

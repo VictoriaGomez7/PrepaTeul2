@@ -71,6 +71,8 @@
             <div style="position: absolute;top: 62%; left: 5%; width: 20%;height:53%; background-color:#aaa">
                 <p style="font-size:130%">{{('Matrícula:')}}</p>
                 <p style="font-size:130%">{{('Nombre del alumno:')}}</p>
+                <p style="font-size:130%">{{('Apellido paterno:')}}</p>
+                <p style="font-size:130%">{{('Apellido materno:')}}</p>
                 <p style="font-size:130%">{{('Nombre de la madre:')}}</p>
                 <p style="font-size:130%">{{('Nombre del padre:')}}</p>
                 <p style="font-size:130%">{{('Teléfono del tutor:')}}</p>
@@ -80,7 +82,9 @@
 
             <div style="position: absolute;top: 62%; left: 25%; width: 26%;height:53%;  background-color:#aaa">
                 <p><input type="text" placeholder="1800110001" value="{{ old('Clave_A') }}" required pattern="[1-9]{2}[0]{2}[1]{2}[0-9]{4}" id="id" name="matricula" style="font-size:105%; width: 95%"/></p>
-                <p><input type="text" placeholder="Velazquez Torres Ximena" value="{{ old('nombre') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="nombre" name="nombre" style="font-size:105%; width: 95%;" /></h1>
+                <p><input type="text" placeholder="Karla Ximena" value="{{ old('nombre') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="nombre" name="nombre" style="font-size:105%; width: 95%;" /></h1>
+                <p><input type="text" placeholder="Velazquez" value="{{ old('ApellidoP') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="ApellidoP" name="ApellidoP" style="font-size:105%; width: 95%;" /></h1>
+                <p><input type="text" placeholder="Torres" value="{{ old('ApellidoM') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="ApellidoM" name="ApellidoM" style="font-size:105%; width: 95%;" /></h1>
                 <p><input type="text" placeholder="Torres Cortes Maria" value="{{ old('nombremadre') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="nombremadre" name="nombremadre" style="font-size:105%; width: 95%;"/></p>
                 <p><input type="text" placeholder="Velazquez Luna Abel" value="{{ old('nombrepadre') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="nombrepadre" name="nombrepadre" style="font-size:105%; width: 95%;"/></p>
                 <p><input type="tel" placeholder="4671001421" value="{{ old('telefonotutor') }}" required pattern="[0-9]{10}" id="telefonotutor" name="telefonotutor" style="font-size:105%; width: 95%;"/></p>

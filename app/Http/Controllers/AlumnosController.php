@@ -8,6 +8,7 @@ use App\Requisito;
 use App\usuarioalumno;
 use App\ft_bach;
 use App\Grupo;
+use App\Nombrealumno;
 use App\Http\Requests\TagStoreRequestFTyBACH;
 use App\Http\Requests\TagStoreRequest;
 
@@ -62,7 +63,7 @@ class AlumnosController extends Controller
 
         else {
           $CAlumno = Alumno::where('Nombre_A', $alumno1->nombre)->get();
-          
+
           if (count($CAlumno)==0){
             return back()->with('msj',' El nombre ingresado no existe' );
           }
@@ -98,10 +99,12 @@ class AlumnosController extends Controller
     public function store(TagStoreRequest $request, TagStoreRequestFTyBACH $request2)
     {
         //return $request;
-
+        $nombrealumn='';
+        $nombrealumn=$nombrealumn.$request['nombre'].' '.$request['ApellidoP'].' '.$request['ApellidoM'];
+        //return $nombrealumn;
         $alumno=new Alumno();
         $alumno->Clave_A=$request['matricula'];
-        $alumno->Nombre_A=$request['nombre'];
+        $alumno->Nombre_A=$nombrealumn;
         $alumno->Nombre_P=$request['nombrepadre'];
         $alumno->Nombre_M=$request['nombremadre'];
         $alumno->Domicilio=$request['domicilio'];
@@ -119,6 +122,13 @@ class AlumnosController extends Controller
         $alumno->Sexo=$request['sexo'];
         $alumno->Estado='REGULAR';
         $alumno->save();
+
+        $nombreal=new Nombrealumno();
+        $nombreal->Clave_A=$request['matricula'];
+        $nombreal->Nombre=$request['nombre'];
+        $nombreal->ApellidoP=$request['ApellidoP'];
+        $nombreal->ApellidoM=$request['ApellidoM'];
+        $nombreal->save();
 
         $requisito=new Requisito();
         $requisito->Clave_A=$request['matricula'];
