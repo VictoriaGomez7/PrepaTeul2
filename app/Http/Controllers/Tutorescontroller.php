@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tutor;
+use App\Docentes;
 
 class Tutorescontroller extends Controller
 {
@@ -14,10 +15,12 @@ class Tutorescontroller extends Controller
      */
     public function index()
     {
+        $Datos_tabla_Docentes=Docentes::get();
         $Datos_tabla_tutor=Tutor::get();
 
         if (count($Datos_tabla_tutor)==0){
-            return view('Tutores.create');
+
+            return view('Tutores.create',compact('Datos_tabla_Docentes'));
         }
         else {
             //return 'Si hay datos';
@@ -45,7 +48,7 @@ class Tutorescontroller extends Controller
      */
     public function store(Request $request)
     {
-        //return $request->nombre1;
+        //return $request;
         $docente=new Tutor();
         $docente->Nombre_D=$request->nombre1;
         $docente->Grado='PRIMERO';
