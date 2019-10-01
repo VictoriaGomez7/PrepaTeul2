@@ -552,7 +552,7 @@ class AlumnosSeeder extends Seeder
             'Email'=>'juli129@gmail.com',
             'Curp'=>'HOTJ980131NCYRN07',
             'NSS'=>'null',
-            'Sexo'=>'Mujer',
+            'Sexo'=>'Hombre',
             'Semestre'=>'TERCER SEMESTRE',
             'Grado'=>'SEGUNDO',
             'Estado'=>'Regular'
