@@ -1,7 +1,7 @@
 <!doctype html>
 
 <a href="http://127.0.0.1:8000/ControlEscolarInicio">
-            <button class="btn btn-success" style="position: absolute;top: 130%;left:75%">Cancelar</button></a>
+            <button class="btn btn-success" style="position: absolute;top: 130%;left:90%">Cancelar</button></a>
 
 @extends('layouts.app')
 
@@ -10,6 +10,11 @@
 @include('ControlEscolar.CEprincipal')
 
 <body>
+    <style type="text/css">
+            .SemestreSeleccionado{
+                cursor: pointer;}
+    </style>
+
     @section('frameBoletasParciales')
     
 
@@ -30,17 +35,79 @@
         @endif
 
 
+    <div class="card-header text-center" style="font-size:200%;width: 20%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 48%; left: 5%;" >{{ __('Semestre') }}</div>
+    <section style="background: #aaa; width:20%; height: 42%; position: absolute; top: 58%; left: 5%; overflow-y: scroll; text-align:  center;">
+    
+        @if($Sem_Activado==1)
+            <input type="submit" value="SEGUNDO SEMESTRE" name="SemestreSelect" class="SemestreSeleccionado" style="background-color: #85C1E9; border: 2px solid #0000000; width: 200px;height: 40px; margin: 5px;" readonly>
+            <input type="submit" value="CUARTO SEMESTRE" name="SemestreSelect" class="SemestreSeleccionado" style="background-color: #85C1E9; border: 2px solid #0000000; width: 200px;height: 40px; margin: 5px;" readonly>
+            <input type="submit" value="SEXTO SEMESTRE" name="SemestreSelect" class="SemestreSeleccionado" style="background-color: #85C1E9; border: 2px solid #0000000; width: 200px;height: 40px; margin: 5px;" readonly>
+        @elseif($Sem_Activado==2)
+            {!!Form::open(['route' => ['ImprimeBoletasParciales.store'],'method'=>'POST'])!!}
+                <input type="submit" value="PRIMER SEMESTRE" name="SemestreSelect" class="SemestreSeleccionado" style="background-color: #85C1E9; border: 2px solid #0000000; width: 200px;height: 40px; margin: 5px;" readonly>
+                <input type="submit" value="TERCER SEMESTRE" name="SemestreSelect" class="SemestreSeleccionado" style="background-color: #85C1E9; border: 2px solid #0000000; width: 200px;height: 40px; margin: 5px;" readonly>
+                <input type="submit" value="QUINTO SEMESTRE" name="SemestreSelect" class="SemestreSeleccionado" style="background-color: #85C1E9; border: 2px solid #0000000; width: 200px;height: 40px; margin: 5px;" readonly>
+            {!! Form::Close() !!}
+        @endif
 
-        <div class="card-header text-center" style="font-size:200%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 5%;" >{{ __('Imprimir Boletas Parciales') }}</div>
+    </section>
+    
+    @if($visibility==1)
+        <div class="card-header text-center" style="font-size:200%;width: 69%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 48%; left: 26%;" >{{ ($Semestre_Seleccionado)}}</div>
 
-        <div style="position: absolute;top: 62%; left: 5%; width: 90%;height:53%; background-color:#aaa">
-                <p style="font-size:130%">{{('Matrícula:')}}</p>
-                <p style="font-size:130%">{{('Nombre del alumno:')}}</p>
-                <p style="font-size:130%">{{('Nombre de la madre:')}}</p>
-                <p style="font-size:130%">{{('Nombre del padre:')}}</p>
-                <p style="font-size:130%">{{('Teléfono del tutor:')}}</p>
-                <p style="font-size:130%">{{('Teléfono del alumno:')}}</p>
-                <p style="font-size:130%">{{('Domicilio:')}}</p>
-        </div>
+        {!!Form::open(['route' => ['ImprimeBoletasParciales.create'],'method'=>'get'])!!}
+            <input type="hidden" value="{{$Sem_Activado}}" name="Semestre" >
+            <input type="hidden" value="{{$Semestre_Seleccionado}}" name="SemestreSelect" >
+
+            <div class="card-header text-center" style="font-size:100%;width: 70%; height:70%; background: white; overflow-y: scroll; color: rgb(212, 172, 13); position:  absolute;top: 58%; left: 25%;" >
+                <table  id="alumn" class="table" style="width: 100%">
+                    <tr style="font-size:120%; color: rgb(212, 172, 13)">
+                        <td align="left">{{ ('No.') }}</th>
+                        <td align="left">{{ ('Matrícula') }}</th>
+                        <td align="left">{{ ('Alumno') }}</th>
+                        <td align="left">{{ ('Imprimir') }}</th>
+                    </tr>
+                    <tr style="font-size:120%" >
+                        <td align="center" style="background:#F0F8FF; color: rgb(0, 128, 0)" colspan="4">{{ ('Grupo A') }}</th>
+                    </tr>
+
+                    <?php $contador_A=0;?>
+                    @foreach($Matriculas_Alumnos_Grupo_A as $Alumnos_Grupo_A)
+                      <tr style="color: rgb(0, 0, 0)">
+                        <td >{{ $contador_A+1 }}</td>
+                        <td >{{ $Alumnos_Grupo_A }}</td>
+                        <td >{{ $Nombres_Alumnos_Grupo_A[$contador_A]->Nombre_A}}</td>
+                        <td><input type="checkbox" id="checkbox_A" name="checkbox_A[]" value="{{ ($Alumnos_Grupo_A) }}"></td>
+                      </tr>
+                    <?php $contador_A+=1;?>
+                    @endforeach
+
+                    <tr style="font-size:120%">
+                        <td align="center" style="background:#F0F8FF; color: rgb(0, 128, 0)" colspan="4">{{ ('Grupo B') }}</th>
+                    </tr>
+                    <?php $contador_B=0;?>
+                    @foreach($Matriculas_Alumnos_Grupo_B as $Alumnos_Grupo_B)
+                      <tr style="color: rgb(0, 0, 0)">
+                        <td >{{ $contador_B+1 }}</td>
+                        <td >{{ $Alumnos_Grupo_B }}</td>
+                        <td >{{ $Nombres_Alumnos_Grupo_B[$contador_B]->Nombre_A}}</td>
+                        <td><input type="checkbox" id="checkbox_B" name="checkbox_B[]" value="{{ ($Alumnos_Grupo_B) }}"></td>
+                      </tr>
+                    <?php $contador_B+=1;?>
+                    @endforeach
+                </table>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="position: absolute;top: 130%;left:75%">Imprimir</button>
+
+        {!! Form::Close() !!}
+        
+    @elseif($visibility==2)
+        <div class="card-header text-center" style="font-size:135%;width: 30%; height:15%; background: #FFFFFF; color: rgb(26, 35, 126); position:  absolute;top: 70%; left: 45%;" >{{ __(' ') }}</div>
+    @else
+        <div class="card-header text-center" style="font-size:200%;width: 69%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 48%; left: 26%;" >{{ __(ep)}}</div>
+        <div class="card-header text-center" style="font-size:135%;width: 30%; height:15%; background: #839192; color: rgb(26, 35, 126); position:  absolute;top: 70%; left: 45%;" >{{ __('No hay alumnos registrados en esta materia.') }}</div>
+    @endif
+    </div>
 </body>
-@endsection
+</html>

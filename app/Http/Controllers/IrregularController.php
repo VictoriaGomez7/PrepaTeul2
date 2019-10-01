@@ -8,6 +8,7 @@ use App\IrregularMateria;
 use App\Alumno;
 use App\Materia;
 use App\Grupo;
+use Carbon\Carbon;
 
 class IrregularController extends Controller
 {
@@ -21,10 +22,10 @@ class IrregularController extends Controller
         $Alumno_B=Alumno::all();
         $Materia_B=Materia::all();
         $ObtenerIrregulares=Irregulares::all();
+        $Listado_Matriculas_Alumnos=array();
         $Listado_Nombres_Alumnos=array();
         $Listado_Semestres=array();
         $Listado_Grupos=array();
-        $Listado_Nombres_Materias=array();
         $DatosAlumnos=array();
         $Cantidad_Materias_Reprobadas=array();
 
@@ -39,23 +40,38 @@ class IrregularController extends Controller
             return redirect('/ControlEscolarInicio')->with('MsjERR','No hay materias registradas');
         }
         else{
-
+            //return $ObtenerIrregulares;
             $datos="";
             foreach ($ObtenerIrregulares as $alumnos) {
+                //print $alumnos;
                 $Alumno=Alumno::where('Clave_A','=',$alumnos->Clave_A)->get('Nombre_A');
                 $Alumno1=Alumno::where('Clave_A','=',$alumnos->Clave_A)->get('Semestre');
                 $Alumno2=Grupo::where('Clave_A','=',$alumnos->Clave_A)->get('Grupo');
-                array_push($Listado_Nombres_Alumnos,$Alumno[0]->Nombre_A);
-                array_push($Listado_Semestres,$Alumno1[0]->Semestre);
-                array_push($Listado_Grupos,$Alumno2[0]->Grupo);
-                $Datos=IrregularMateria::where('Clave_A','=',$alumnos->Clave_A)->get();
-                //return count($Datos);
-                array_push($DatosAlumnos,$Datos);
-                array_push($Cantidad_Materias_Reprobadas,count($Datos));
+                $ban=False;
+                //return $Alumno[0]->Nombre_A;
+                for ($i=0; $i < count($Listado_Nombres_Alumnos); $i++) {
+                    //print ('SI ENTRO');
+                    if ($Alumno[0]->Nombre_A==$Listado_Nombres_Alumnos[$i]){
+                        //print ('Esta ');
+                        $ban=True;
+                    }
                 }
-
-            }     
-            return view('Irregular.Mostrar',compact('ObtenerIrregulares','Listado_Nombres_Alumnos','Listado_Nombres_Materias','Cantidad_Materias_Reprobadas','Listado_Semestres','Listado_Grupos'));
+                //print $ban;
+                if ($ban==0){
+                    array_push($Listado_Nombres_Alumnos,$Alumno[0]->Nombre_A);
+                    array_push($Listado_Semestres,$Alumno1[0]->Semestre);
+                    array_push($Listado_Grupos,$Alumno2[0]->Grupo);
+                    array_push($Listado_Matriculas_Alumnos,$alumnos->Clave_A);
+                    $Datos=IrregularMateria::where('Clave_A','=',$alumnos->Clave_A)->get();
+                    //return count($Datos);
+                    array_push($DatosAlumnos,$Datos);
+                    array_push($Cantidad_Materias_Reprobadas,count($Datos));
+                    }
+                }
+                //return $Listado_Nombres_Alumnos;
+            }
+            //return $Listado_Grupos;
+            return view('Irregular.Mostrar',compact('ObtenerIrregulares','Listado_Nombres_Alumnos','Cantidad_Materias_Reprobadas','Listado_Semestres','Listado_Grupos','Listado_Matriculas_Alumnos'));
     }
 
     /**
@@ -65,38 +81,62 @@ class IrregularController extends Controller
      */
     public function create(Request $request)
     {
-        //
+        //return $request;
         $clave_A=$request->Clave_A;
         $materias=IrregularMateria::where('Clave_A',$clave_A)->get();
         $cuenta=count($materias);
         $MateriasAprobadas=0;
         $Aprobadas=[];
-        //return $cuenta;
+
+        $now= Carbon::now();
+        $fecha="";
+        $fecha2="";
+        $fecha3="";
+        $f='';
+
         foreach ($materias as $Materia) {
-            $verificado=$Materia->Clave_M.'Cal1';
-            if($request->$verificado!=null and (in_array($Materia->Clave_M , $Aprobadas)==false)){
-
-                $Materia->Calificacion1=$request->$verificado;
-                $Materia->save();
-                if($request->$verificado>=7){
-
-                    $MateriasAprobadas+=1;
-                    array_push($Aprobadas, $Materia->Clave_M);
-                    IrregularMateria::where('Clave_M',$Materia->Clave_M)->delete();
-                    /*
-
-                    */
-                } else {
-                    $Opo=IrregularMateria::where('Clave_M',$Materia->Clave_M)->get();
-                    //return $Opo;
-                    $Oportunidad=$Opo[0]->Oportunidades+1;
-                    //return $Oportunidad;
-                    IrregularMateria::where('Clave_M',$Materia->Clave_M)->update(['Oportunidades'=>$Oportunidad]);
-                }
+            $verificado1=$Materia->Clave_M.'Cal1';
+            $verificado2=$Materia->Clave_M.'Cal2';
+            $verificado3=$Materia->Clave_M.'Cal3';
+            //return $request->$verificado1;
+            if ($request->$verificado1!=0 and $request->$verificado2==0 and $request->$verificado3==0){
+                $fecha=$now-> format('d-m-o');
+                $f='1';
+            }
+            if ($request->$verificado1!=0 and $request->$verificado2!=0 and $request->$verificado3==0){
+                $fecha=$now-> format('d-m-o');
+                $f='2';
+            }
+            if ($request->$verificado1!=0 and $request->$verificado2!=0 and $request->$verificado3!=0){
+                $fecha=$now-> format('d-m-o');
+                $f='3';
+            }
+            //return $fecha;
+            $Fech='Fecha'.$f;
+            //return $Fech;
+            $Materia->Calificacion1=$request->$verificado1;
+            $Materia->Calificacion2=$request->$verificado2;
+            $Materia->Calificacion3=$request->$verificado3;
+            $Materia->$Fech=$fecha;
+            $Materia->save();
+            if($request->$verificado1>=6){
+                $MateriasAprobadas+=1;
+                array_push($Aprobadas, $Materia->Clave_M);
+                IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->delete();
+            }
+            if($request->$verificado2>=6){
+                $MateriasAprobadas+=1;
+                array_push($Aprobadas, $Materia->Clave_M);
+                IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->delete();
+            }
+            
+            if($request->$verificado3>=6){
+                $MateriasAprobadas+=1;
+                array_push($Aprobadas, $Materia->Clave_M);
+                IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->delete();
             }
 
-
-            }
+        }
 
 
         //return count($Aprobadas);
@@ -107,7 +147,7 @@ class IrregularController extends Controller
             Irregulares::where('Clave_A',$request->Clave_A)->delete();
         }
 
-       return redirect('/ControlEscolarInicio')->with('msj','Calificación guardada correctamente');
+       return redirect('Irregulares')->with('msj','Calificación guardada correctamente');
 
 
         }
@@ -133,6 +173,7 @@ class IrregularController extends Controller
             //return $Mat[0]->Nombre;
             array_push($Nombres_Mat,$Mat[0]->Nombre);
         }
+        //return $AlumnoMateriasRepro;
         return view('Irregular.IrregularVisu',compact('AlumnoMateriasRepro','Nombres_Mat','NombreAlumno','clave_A'));
         //return $AlumnoMateriasRepro;
     }

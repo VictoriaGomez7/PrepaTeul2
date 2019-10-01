@@ -14,57 +14,69 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 <title>Alumnos</title>
 <body>
-  <div class="container">
-    <table  id="alumn" class="table" >
-      <thead>
-        <tr>
-          <th  align="center">Matrícula</th>
-          <th  align="center">Alumno</th>
-          <th  align="center">Semestre</th>
-          <th  align="center">Grupo</th>
-          <th  align="center">Materias reprobadas</th>
-          <th></th>
-        </tr>
-      </thead>
-        <tbody>
-          <?php $Cont=0; ?>
-          @foreach($ObtenerIrregulares as $alumno)
+
+  @if (Session()->has('msj'))
+    <div class="alert alert-success" role="alert" style="width: 90%; position:  absolute; top: 43%; left: 5%;z-index: 1;">
+    <button class="close" data-dismiss="alert"><span>&times;</span></button>
+    <strong>¡Correcto! </strong>{{Session('msj')}}
+    </div>
+  @endif
+
+  <div class="card-header text-center" style="font-size:200%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 5%; " >{{ __('Alumnos Irregulares') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
+
+  <div style="background-color:#aaa; position: absolute;top: 62%; left: 5%; width: 90%">
+    
+    <div class="container">
+      <table  id="alumn" class="table" >
+        <thead>
           <tr>
-            {!!Form::open(['route' => ['Irregulares.store'],'method'=>'POST'])!!}
-            <td align="justify">{{ $alumno->Clave_A }}</td>
-            <input type="hidden" name="Clave_A" value="{{$alumno->Clave_A }}">
-            <td align="justify">{{ $Listado_Nombres_Alumnos[$Cont] }}</td>
-            <td align="justify">{{ $Listado_Semestres[$Cont] }}</td>
-            <td align="justify">{{ $Listado_Grupos[$Cont] }}</td>
-            <td align="justify">{{ $Cantidad_Materias_Reprobadas[$Cont]}}</td>
-
-            <td>{!!Form::submit('Ver',['class'=>'btn btn-primary'])!!}</td>
-            {!! Form::close()!!}
-
+            <th  align="center">Matrícula</th>
+            <th  align="center">Alumno</th>
+            <th  align="center">Semestre</th>
+            <th  align="center">Grupo</th>
+            <th  align="center">Materias reprobadas</th>
+            <th></th>
           </tr>
-          <?php $Cont+=1; ?>
-          @endforeach
-        </tbody>
+        </thead>
+          <tbody>
+            <?php $Cont=0; ?>
+            @foreach($Listado_Nombres_Alumnos as $alumno)
+            <tr>
+              {!!Form::open(['route' => ['Irregulares.store'],'method'=>'POST'])!!}
+                <td align="justify">{{ $Listado_Matriculas_Alumnos[$Cont] }}</td>
+                <input type="hidden" name="Clave_A" value="{{($Listado_Matriculas_Alumnos[$Cont]) }}">
+                <td align="justify">{{ $alumno }}</td>
+                <td align="justify">{{ $Listado_Semestres[$Cont] }}</td>
+                <td align="justify">{{ $Listado_Grupos[$Cont] }}</td>
+                <td align="justify">{{ $Cantidad_Materias_Reprobadas[$Cont]}}</td>
+                <td>{!!Form::submit('Ver',['class'=>'btn btn-primary'])!!}</td>
 
-    </table>
+              {!! Form::close()!!}
+
+            </tr>
+            <?php $Cont+=1; ?>
+            @endforeach
+          </tbody>
+
+      </table>
 
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
-    <script>
-      $(document).ready(function() {
-        $('#alumn').DataTable({
-          "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"}
+      <script>
+        $(document).ready(function() {
+          $('#alumn').DataTable({
+            "language": {
+              "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"}
+          });
         });
-      });
-    </script>
+      </script>
 
+    </div>
   </div>
-
 </body>
 </html>
 @endsection
