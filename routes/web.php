@@ -93,6 +93,11 @@ Route::get('/periodos' ,function(){
 Route::get('/Asistencias' ,function(){
     return view('Periodos.show');
 });
+
+Route::get('/Modificarcontra' ,function(){
+    return view('Alumnos.Cambiarcontra');
+});
+
 //Ruta para vista de calificaciones de Control Escolar
 Route::resource('CONSULTACALIFICACIONESCE','ConsultarCalificacionesCEController');
 
