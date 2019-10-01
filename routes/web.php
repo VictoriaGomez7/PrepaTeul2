@@ -96,7 +96,7 @@ Route::get('/Asistencias' ,function(){
 //Ruta para vista de calificaciones de Control Escolar
 Route::resource('CONSULTACALIFICACIONESCE','ConsultarCalificacionesCEController');
 
-Route::resource('CONSULTACALIFICACIONESAL','ConsultarCalificacionesCEController');
+Route::resource('CONSULTACALIFICACIONESAL','ConsultaCalificacionesAlController');
 //Ruta para vista de calificaciones de Docentes
 Route::get('/CONSULTACALIFICACIONESDC', function () {
     return view('Calificaciones.ConsultaDC');
