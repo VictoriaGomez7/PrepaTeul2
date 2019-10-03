@@ -8,6 +8,7 @@ use App\IrregularMateria;
 use App\Alumno;
 use App\Materia;
 use App\Grupo;
+use App\IrregularMateriaHistorico;
 
 class IrregularController extends Controller
 {
@@ -66,6 +67,7 @@ class IrregularController extends Controller
     public function create(Request $request)
     {
         //
+        //return $request;
         $clave_A=$request->Clave_A;
         $materias=IrregularMateria::where('Clave_A',$clave_A)->get();
         $cuenta=count($materias);
@@ -75,13 +77,23 @@ class IrregularController extends Controller
         foreach ($materias as $Materia) {
             $verificado=$Materia->Clave_M.'Cal1';
             if($request->$verificado!=null and (in_array($Materia->Clave_M , $Aprobadas)==false)){
-
                 $Materia->Calificacion1=$request->$verificado;
+                $Materia->Fecha=$request->Fecha;
                 $Materia->save();
                 if($request->$verificado>=7){
-
+                    $Opo=IrregularMateria::where('Clave_M',$Materia->Clave_M)->get();
+                    //return $Opo;
+                    $Oportunidad=$Opo[0]->Oportunidades+1;
                     $MateriasAprobadas+=1;
                     array_push($Aprobadas, $Materia->Clave_M);
+                    $Irre=new IrregularMateriaHistorico();
+                    $Irre->Clave_A=$Materia->Clave_A;
+                    $Irre->Clave_M=$Materia->Clave_M;
+                    $Irre->Calificacion1=$Materia->Calificacion1;
+                    $Irre->Oportunidades=$Oportunidad;
+                    $Irre->Fecha=$request->Fecha;
+                    $Irre->save();
+
                     IrregularMateria::where('Clave_M',$Materia->Clave_M)->delete();
                     /*
 
