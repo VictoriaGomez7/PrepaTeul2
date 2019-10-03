@@ -30,21 +30,18 @@
               <!--<option value="otro">Seleccione uno</option>-->
 
 
-               @foreach( $asis as $doc)
-              @foreach($arrayalumnos as $alumn)
-              @if($doc->id == $alumn->id)
-              @if($doc->Periodo ==1)
-
-                <option value="{{$doc->Periodo}}">Primer periodo</option>
+              @foreach( $asis as $doc)
+                @foreach($arrayalumnos as $alumn)
+                  @if($doc->id == $alumn->id)
+                    @if($doc->Periodo ==1)
+                      <option value="{{$doc->Periodo}}">Primer periodo</option>
                 
-               @endif
-               @if($doc->Periodo ==2)
-
-                <option value="{{$doc->Periodo}}">Segundo periodo</option>
-                
-               @endif
-               @endif
-              @endforeach
+                    @endif
+                    @if($doc->Periodo ==2)
+                      <option value="{{$doc->Periodo}}">Segundo periodo</option>
+                    @endif
+                  @endif
+                @endforeach
               @endforeach
                </select>
 
