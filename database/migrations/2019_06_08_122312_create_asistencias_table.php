@@ -16,10 +16,12 @@ class CreateAsistenciasTable extends Migration
         Schema::create('asistencias', function (Blueprint $table) {
             $table->string('Clave_A');
             $table->integer('Asistencias');
-            $table->integer('Retardos');
             $table->integer('Faltas');
             $table->string('Periodo');
             $table->string('Materia');
+            $table->string('Semestre');
+            $table->string('Grupo')->null();
+            $table->integer('PorcentajeAsistencias');
             $table->timestamps();
         });
     }

@@ -79,6 +79,8 @@ class CalificacionesController extends Controller
     
         } else if (($Periodo2ini[0]->fecha1<=$dia) && ($Periodo2fin[0]->fecha2>=$dia)){
             $PeriodoActivo=2;
+        } else if ($Periodo2fin[0]->fecha2<$dia) {
+            $PeriodoActivo=3;
         }
 
         $Materiasele=$request->MateriaSeleccionada;
@@ -119,7 +121,7 @@ class CalificacionesController extends Controller
         //return 'Hi1'.$DatosCalificaciones.count($DatosCalificaciones);
         //return $DatosCalificaciones;
         
-        if (count($DatosCalificaciones)=='0'){
+        if (count($DatosCalificaciones)==0){
             for ($i=0; $i < count($AlumnosEnMismoSemestre); $i++)
             {
                 //return $request->Clave_M;
@@ -129,6 +131,7 @@ class CalificacionesController extends Controller
                 $Calif->Grupo=$request->Grupo;
                 $Calif->Parcial1=0;
                 $Calif->Parcial2=0;
+                $Calif->Semestral=0;
                 $Calif->Semestre=$AlumnosEnMismoSemestre[$i][0]->Semestre;
                 $Calif->Año=$year_DATE;
                 $Calif->save();
@@ -161,6 +164,7 @@ class CalificacionesController extends Controller
                         $Calif->Grupo=$request->Grupo;
                         $Calif->Parcial1=0;
                         $Calif->Parcial2=0;
+                        $Calif->Semestral=0;
                         $Calif->Semestre=$AlumnosEnMismoSemestre[$i][0]->Semestre;
                         $Calif->Año=$year_DATE;
                         $Calif->save();
@@ -219,7 +223,7 @@ class CalificacionesController extends Controller
         //return $id;
         //return count($id->get('Calif1'));//->['Parcial1'];
         //return $id.'';
-
+        return $id;
         $year_date=date('o');
         $Cant_Calif=count($id->get('Calif1'));
         $Calificaciones_1=$id->get('Calif1');

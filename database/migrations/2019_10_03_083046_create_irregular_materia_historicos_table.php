@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCalificacionesParcialesTable extends Migration
+class CreateIrregularMateriaHistoricosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateCalificacionesParcialesTable extends Migration
      */
     public function up()
     {
-        Schema::create('calificaciones_parciales', function (Blueprint $table) {
+        Schema::create('irregular_materia_historicos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Clave_A');
-            $table->string('ClaveM');
-            $table->string('Grupo')->null();
-            $table->float('Parcial1');
-            $table->float('Parcial2');
-            $table->float('Semestral');
-            $table->string('Semestre');
-            $table->string('Año');
+            $table->string('Clave_M');
+            $table->float('Calificacion1');
+            $table->float('Oportunidades');
+            $table->string('Fecha')->null();
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ class CreateCalificacionesParcialesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calificaciones_parciales');
+        Schema::dropIfExists('irregular_materia_historicos');
     }
 }

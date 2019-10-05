@@ -52,12 +52,14 @@
 
 				<div class="card-header text-center" style="font-size:100%;width: 70%; height:51%; background: white; overflow-y: scroll; color: rgb(212, 172, 13); position:  absolute;top: 65%; left: 25%;" >
 					<table  id="alumn" class="table" style="width: 100%">
-				        <tr style="font-size:120%">
+				        <tr style="font-size:100%">
 				        	<th  align="center" style="width:2%">{{ ('Matrícula') }}</th>
 				        	<th  align="center">{{ ('Alumno') }}</th>
 				          	<th  align="center">{{ ('Parcial 1') }}</th>
 				          	<th  align="center">{{ ('Parcial 2') }}</th>
-				          	<th  align="center">{{ ('Promedio ') }}</th>
+				          	<th  align="center">{{ ('Semestral ') }}</th>
+				          	<th  align="center">{{ ('Número de Clases ') }}</th>
+				          	<th  align="center">{{ ('Faltas ') }}</th>
 
 				        </tr>
 			        
@@ -81,26 +83,44 @@
 
 						            	<td><input hidden="" type="number" step="0.1" name="Calif2[]" min="0"  max="10" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}">
 
+
 						            	<input disabled="" type="number" step="0.1" min="0"  max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
+						            	<td><input disabled="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}">
+						            	<input hidden="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}"></td>
 						            @elseif($PeriodoActivo==2)
 					            		<input hidden="" type="number" step="0.1" min="0"  max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}">
 					            		<td><input disabled type="number" min="0"  max="10" step="0.1" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
 					            		<td><input type="number" step="0.1" min="0"  max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
+					            		<td><input disabled="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}" >
+					            		<input hidden="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}" ></td>
+					            	@elseif($PeriodoActivo==3)
+					            		<input hidden="" type="number" step="0.1" min="0"  	max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}">
+							            <input hidden="" type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}">
+							            <td><input hidden="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" ></td>
+					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
+					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
+					            		<td><input type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}" >
+					            		<input hidden="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}" ></td>
 					            	@else
 							            <input hidden="" type="number" step="0.1" min="0"  max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}">
 							            <input hidden="" type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}">
+							            <td><input hidden="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" ></td>
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
+					            		<td><input disabled="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}" >
+					            		<input hidden="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}"></td>
 					            	@endif
 					            	<?php $Prome=($Calif_Extraidas[$Con_cal]->Parcial1+$Calif_Extraidas[$Con_cal]->Parcial2)/2; ?>
-					            	<td> {{$Prome}} </td>
+					            	<!--<td> {{$Prome}} </td>-->
+					            	<td><input required type="number"min="0"name="NumTotalAsis[]" style="width: 50%;" ></td>
+					            	<td><input required type="number"min="0"name="Faltas[]" style="width: 50%;" ></td>
 				          		</tr>
 				        		<?php $contador=$contador+0;
 				        		$Con_cal=$Con_cal+1; ?>
 				        	@endforeach
 
 			    	</table>
-			    	
+			    	<input hidden="" type="number" step="0.1" min="0"  max="10" name="Periodo" value="{{$PeriodoActivo}}" >
 				</div>
 				{!!Form::submit('Guardar',['class'=>'btn btn-primary','style'=>'position: absolute; top: 120%;left:75%;'])!!}
 			{!! Form::close()!!}
