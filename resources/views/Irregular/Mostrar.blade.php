@@ -27,55 +27,52 @@
   <div style="background-color:#aaa; position: absolute;top: 62%; left: 5%; width: 90%">
     
     <div class="container">
-      <table  id="alumn" class="table" >
-        <thead>
+    <table  id="alumn" class="table" >
+      <thead>
+        <tr>
+          <th  align="center">Matrícula</th>
+          <th  align="center">Alumno</th>
+          <th  align="center">Materias reprobadas</th>
+          <th></th>
+        </tr>
+      </thead>
+        <tbody>
+          <?php $Cont=0; ?>
+          @foreach($ObtenerIrregulares as $alumno)
           <tr>
-            <th  align="center">Matrícula</th>
-            <th  align="center">Alumno</th>
-            <th  align="center">Semestre</th>
-            <th  align="center">Grupo</th>
-            <th  align="center">Materias reprobadas</th>
-            <th></th>
+            {!!Form::open(['route' => ['Irregulares.store'],'method'=>'POST'])!!}
+            <td align="justify">{{ $alumno->Clave_A }}</td>
+            <input type="hidden" name="Clave_A" value="{{$alumno->Clave_A }}">
+            <td align="justify">{{ $Listado_Nombres_Alumnos[$Cont] }}</td>
+            <td align="justify">{{ $Cantidad_Materias_Reprobadas[$Cont]}}</td>
+
+            
+            <td>{!!Form::submit('Ver',['class'=>'btn btn-primary'])!!}</td>
+            {!! Form::close()!!}
+
           </tr>
-        </thead>
-          <tbody>
-            <?php $Cont=0; ?>
-            @foreach($Listado_Nombres_Alumnos as $alumno)
-            <tr>
-              {!!Form::open(['route' => ['Irregulares.store'],'method'=>'POST'])!!}
-                <td align="justify">{{ $Listado_Matriculas_Alumnos[$Cont] }}</td>
-                <input type="hidden" name="Clave_A" value="{{($Listado_Matriculas_Alumnos[$Cont]) }}">
-                <td align="justify">{{ $alumno }}</td>
-                <td align="justify">{{ $Listado_Semestres[$Cont] }}</td>
-                <td align="justify">{{ $Listado_Grupos[$Cont] }}</td>
-                <td align="justify">{{ $Cantidad_Materias_Reprobadas[$Cont]}}</td>
-                <td>{!!Form::submit('Ver',['class'=>'btn btn-primary'])!!}</td>
+          <?php $Cont+=1; ?>
+          @endforeach
+        </tbody>
 
-              {!! Form::close()!!}
-
-            </tr>
-            <?php $Cont+=1; ?>
-            @endforeach
-          </tbody>
-
-      </table>
+    </table>
 
 
 
-      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-      <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-      <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
-      <script>
-        $(document).ready(function() {
-          $('#alumn').DataTable({
-            "language": {
-              "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"}
-          });
+    <script>
+      $(document).ready(function() {
+        $('#alumn').DataTable({
+          "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"}
         });
-      </script>
+      });
+    </script>
 
-    </div>
+  </div>
   </div>
 </body>
 </html>

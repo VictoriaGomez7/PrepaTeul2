@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tutor extends Model
 {
-    protected $fillable = ['id', 'Nombre_D','Grado','Grupo'];
+    protected $fillable = ['id', 'Nombre_D','Grado','Grupo','Generacion'];
 }

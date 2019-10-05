@@ -81,66 +81,39 @@ class IrregularController extends Controller
      */
     public function create(Request $request)
     {
-        //return $request;
         $clave_A=$request->Clave_A;
         $materias=IrregularMateria::where('Clave_A',$clave_A)->get();
         $cuenta=count($materias);
         $MateriasAprobadas=0;
         $Aprobadas=[];
-
-        $now= Carbon::now();
-        $fecha="";
-        $fecha2="";
-        $fecha3="";
-        $f='';
-
+        //return $cuenta;
         foreach ($materias as $Materia) {
-            $verificado1=$Materia->Clave_M.'Cal1';
-            $verificado2=$Materia->Clave_M.'Cal2';
-            $verificado3=$Materia->Clave_M.'Cal3';
-            //return $request->$verificado1;
-            if ($request->$verificado1!=0 and $request->$verificado2==0 and $request->$verificado3==0){
-                $fecha=$now-> format('d-m-o');
-                $f='1';
-            }
-            if ($request->$verificado1!=0 and $request->$verificado2!=0 and $request->$verificado3==0){
-                $fecha=$now-> format('d-m-o');
-                $f='2';
-            }
-            if ($request->$verificado1!=0 and $request->$verificado2!=0 and $request->$verificado3!=0){
-                $fecha=$now-> format('d-m-o');
-                $f='3';
-            }
-            //return $fecha;
-            $Fech='Fecha'.$f;
-            //return $Fech;
-            $Materia->Calificacion1=$request->$verificado1;
-            $Materia->Calificacion2=$request->$verificado2;
-            $Materia->Calificacion3=$request->$verificado3;
-            $Materia->$Fech=$fecha;
-            $Materia->save();
-            if($request->$verificado1>=6){
-                $MateriasAprobadas+=1;
-                array_push($Aprobadas, $Materia->Clave_M);
-                IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->delete();
-            }
-            if($request->$verificado2>=6){
-                $MateriasAprobadas+=1;
-                array_push($Aprobadas, $Materia->Clave_M);
-                IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->delete();
+            $verificado=$Materia->Clave_M.'Cal1';
+            if($request->$verificado!=null and (in_array($Materia->Clave_M , $Aprobadas)==false)){
+
+                $Materia->Calificacion1=$request->$verificado;
+                $Materia->Fecha=$request->fecha;
+                $Materia->save();
+                if($request->$verificado>=7){
+
+                    $MateriasAprobadas+=1;
+                    array_push($Aprobadas, $Materia->Clave_M);
+                    IrregularMateria::where('Clave_M',$Materia->Clave_M)->delete();
+                    /*
+
+                    */
+                } else {
+                    $Opo=IrregularMateria::where('Clave_M',$Materia->Clave_M)->get();
+                    //return $Opo;
+                    $Oportunidad=$Opo[0]->Oportunidades+1;
+                    //return $Oportunidad;
+                    IrregularMateria::where('Clave_M',$Materia->Clave_M)->update(['Oportunidades'=>$Oportunidad]);
+                }
             }
             
-            if($request->$verificado3>=6){
-                $MateriasAprobadas+=1;
-                array_push($Aprobadas, $Materia->Clave_M);
-                IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->delete();
+                
             }
-
-        }
-
-
-        //return count($Aprobadas);
-
+        
         if(count($Aprobadas)==$cuenta){
 
             Alumno::where('Clave_A', $request->Clave_A)->update(['Estado'=>'REGULAR']);
@@ -148,8 +121,8 @@ class IrregularController extends Controller
         }
 
        return redirect('Irregulares')->with('msj','Calificación guardada correctamente');
-
-
+            
+             
         }
 
 

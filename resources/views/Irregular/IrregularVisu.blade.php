@@ -12,12 +12,9 @@
         <tr >
           <th  align="center">Clave</th>
           <th  align="center">Materia</th>
-          <th  align="center">Calificación 1</th>
+          <th  align="center">Calificación</th>
           <th  align="center">Fecha</th>
-          <th  align="center">Calificación 2</th>
-          <th  align="center">Fecha</th>
-          <th  align="center">Calificación 3</th>
-          <th  align="center">Fecha</th>
+          <th  align="center">Intentos Realizados</th>
         </tr>
       </thead>
           <?php $Cont=0; ?>
@@ -28,12 +25,8 @@
             <td align="center">{{ $Mate->Clave_M }}</td>
             <td align="center">{{ $Nombres_Mat[$Cont] }}</td>
             <td align="center" > <input type="number" min="0" max="10" name="{{ $Mate->Clave_M }}Cal1" value={{$Mate->Calificacion1}}> </td>
-            <td align="center" > <input type="text" style="width: 80%; background: #FFFFFF" value={{$Mate->Fecha1}}> </td>
-            <td align="center" > <input type="number" min="0" max="10" name="{{ $Mate->Clave_M }}Cal2" value={{$Mate->Calificacion2}}> </td>
-            <td align="center" > <input type="text" style="width: 80%; background: #FFFFFF" value={{$Mate->Fecha2}}> </td>
-            <td align="center" > <input type="number" min="0" max="10" name="{{ $Mate->Clave_M }}Cal3" value={{$Mate->Calificacion3}}> </td>
-            <td align="center" > <input type="text" style="width: 80%; background: #FFFFFF" value={{$Mate->Fecha3}}> </td>
-
+            <td align="center" > <input type="text" style="width: 80%" name="fecha" value={{$Mate->Fecha}}> </td>
+            <td align="center">{{$Mate->Oportunidades}}</td>
           </tr>
           <?php $Cont+=1; ?>
           @endforeach
