@@ -252,7 +252,14 @@ class CalificacionesController extends Controller
         //return $id;
         //return count($id->get('Calif1'));//->['Parcial1'];
         //return $id.'';
+        $ban=0;
+        $Faltas=$id->get('Faltas');
         //return $id;
+        for ($i=0; $i <count($Faltas) ; $i++) { 
+            if ($Faltas[$i]>$id->NumTotalAsis) {
+                $ban=1;
+            }
+        }
         $year_date=date('o');
         $Cant_Calif=count($id->get('Calif1'));
         $Calificaciones_1=$id->get('Calif1');
@@ -263,9 +270,12 @@ class CalificacionesController extends Controller
         $Claves_Alumnos=$id->get('ClaveA');
         $usua=$id->Usua;
         //return $id->Grupo_Selec;
+        if ($ban==1) {
+            return redirect('Calificaciones?valor='.$usua)->with('msj2','El número de faltas no puede ser mayor que el total de clases' );
+        } else {
         for ($i=0; $i < $Cant_Calif; $i++)
             {
-                $Asisten=$TotalClases[$i]-$Faltas[$i];
+                $Asisten=$TotalClases-$Faltas[$i];
                 //print_r($Claves_Alumnos[$i]);
                 CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial1'=>$Calificaciones_1[$i]]);
                 CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial2'=>$Calificaciones_2[$i]]);
@@ -273,13 +283,13 @@ class CalificacionesController extends Controller
                 Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Asistencias'=>$Asisten]);
                 Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Faltas'=>$Faltas[$i]]);
                 Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Periodo'=>$id->Periodo]);
-                Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['PorcentajeAsistencias'=>(($Asisten*100)/$TotalClases[$i])]);
+                Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['PorcentajeAsistencias'=>(($Asisten*100)/$TotalClases)]);
                 
             }
         //return $Claves_Alumnos;
         //return redirect('/DocenteInicios?valor='.$usua)->with('MsjC','Calificaciones guardadas con éxito');
 
-        return redirect('Calificaciones?valor='.$usua)->with('msj','Calificacines registradas exitosamente' );
+        return redirect('Calificaciones?valor='.$usua)->with('msj','Calificacines registradas exitosamente' );}
     }
 
     /**

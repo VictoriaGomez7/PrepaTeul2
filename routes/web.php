@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('EvaluacionConducta','conductaController');
 
 Route::get('materia/buscador','materiasBuscadorController@buscador');
 
