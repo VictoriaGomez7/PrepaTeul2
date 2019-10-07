@@ -13,6 +13,12 @@
 
 <body>
 	@include('interfazprincipal.image')
+	  @if (isset($MsjERR))
+        <div class="alert alert-danger" role="alert" style="width: 90%; position:  absolute;top: 45%; left: 5%;z-index: 1;">
+            <button class="close" data-dismiss="alert"><span>&times;</span></button>
+            <strong>¡ERROR! </strong>{{ $MsjERR }}
+        </div>
+    @endif
 
     @if (session()->has('MsjERR'))
         <div class="alert alert-danger" role="alert" style="width: 90%; position:  absolute;top: 45%; left: 5%;z-index: 1;">
@@ -39,12 +45,13 @@
 				<li><a href="#">Calificaciones</a>
 						<ul class="submenu">
 						<li><a href ="http://127.0.0.1:8000/AsignarCalificacion?valor={{ ($usua) }}">Capturar</a></li>
-
+						<li><a href ="http://127.0.0.1:8000/EvaluacionConducta?valor={{ ($usua) }}">Evaluacion de conducta</a></li>
 					</ul>
 				</li>
 				<li><a href="#">Asistencias</a>
 						<ul class="submenu">
 						<li><a href ="http://127.0.0.1:8000//Asistencias?valor={{ ($usua) }}">Capturar</a></li>
+						
 						</ul>
 
 				<li style="left: 40%;"><a  href="#" >Docente: {{$Docente[0]->Nombre}}</a>
