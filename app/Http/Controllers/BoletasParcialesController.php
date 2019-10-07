@@ -7,6 +7,7 @@ use App\Alumno;
 use App\Materia;
 use App\Tutor;
 use App\Grupo;
+use App\Nombrealumno;
 use App\CalificacionesParciales;
 use Carbon\Carbon;
 use DB;
@@ -106,13 +107,15 @@ class BoletasParcialesController extends Controller
         //SE OBTIENEN LOS NOMBRES DE LOS ALUMNOS
         if ($Alumnos_A!='' and $Alumnos_B!=''){
             foreach ($Alumnos_A as $Al_A) {
-            $N_A=Alumno::where('Clave_A',$Al_A)->get('Nombre_A');
-            array_push($Nombres_A,$N_A[0]);
+            $N_A=Nombrealumno::where('Clave_A',$Al_A)->get();
+            $nom=$N_A[0]->ApellidoP.' '.$N_A[0]->ApellidoM.' '.$N_A[0]->Nombre;
+            array_push($Nombres_A,$nom);
             }
 
             foreach ($Alumnos_B as $Al_B) {
-                $N_B=Alumno::where('Clave_A',$Al_B)->get('Nombre_A');
-                array_push($Nombres_B,$N_B[0]);
+                $N_B=Nombrealumno::where('Clave_A',$Al_B)->get();
+                $nom=$N_B[0]->ApellidoP.' '.$N_B[0]->ApellidoM.' '.$N_B[0]->Nombre;
+                array_push($Nombres_B,$nom);
             }
 
             //PARA OBTENER LAS CALIFICACIONES
@@ -186,15 +189,16 @@ class BoletasParcialesController extends Controller
                     }
                 }
             }
-            //return $Cal_Alu_A;
+            //return $Nombres_A;
             $Opcion=3;
             $pdf= PDF::loadView('IBoletasParciales.Boleta',compact('SEM','Year_1','Year_2','Nombres_A','Nombres_B','Docente_A','Docente_B','Materias','Cal_Alu_A','Cal_Alu_B','Materias_Clave','Opcion'));
             return $pdf->stream();
         }
         elseif ($Alumnos_A!='' and $Alumnos_B==''){
             foreach ($Alumnos_A as $Al_A) {
-            $N_A=Alumno::where('Clave_A',$Al_A)->get('Nombre_A');
-            array_push($Nombres_A,$N_A[0]);
+            $N_A=Nombrealumno::where('Clave_A',$Al_A)->get();
+            $nom=$N_A[0]->ApellidoP.' '.$N_A[0]->ApellidoM.' '.$N_A[0]->Nombre;
+            array_push($Nombres_A,$nom);
             }
 
             foreach ($Alumnos_A as $Al_A) {
@@ -245,8 +249,9 @@ class BoletasParcialesController extends Controller
         
         elseif ($Alumnos_B!='' and $Alumnos_A==''){
             foreach ($Alumnos_B as $Al_B) {
-                $N_B=Alumno::where('Clave_A',$Al_B)->get('Nombre_A');
-                array_push($Nombres_B,$N_B[0]);
+                $N_B=Nombrealumno::where('Clave_A',$Al_B)->get();
+                $nom=$N_B[0]->ApellidoP.' '.$N_B[0]->ApellidoM.' '.$N_B[0]->Nombre;
+                array_push($Nombres_B,$nom);
             }
             foreach ($Alumnos_B as $Al_B) {
                 $C_B=CalificacionesParciales::where('Clave_A',$Al_B)->get();
@@ -311,50 +316,67 @@ class BoletasParcialesController extends Controller
         $Nombres_Alumnos_Grupo_A=array();
         $Nombres_Alumnos_Grupo_B=array();
         $Matriculas_Alumnos=Alumno::where('Semestre',$request->SemestreSelect)->get('Clave_A');
+        $ban=false;
+        //return $Matriculas_Alumnos;
+       
         // PARA SACAR LOS ALUMNOS DEL GRUPO A Y B, SU CLAVE
         foreach ($Matriculas_Alumnos as $Mat_Alu) {
             $Clave=$Mat_Alu->Clave_A;
+            //sreturn $Clave;
             $M_A_Grupo=Grupo::where('Clave_A',$Clave)->get();
-            //return $M_A_Grupo[0];
-            array_push($Lista_Alumnos_Grupo,$M_A_Grupo[0] );
-        }
-
-        foreach ($Lista_Alumnos_Grupo as $Lis_Alum_Gru) {
-            if ($Lis_Alum_Gru->Grupo=='A'){
-                array_push($Matriculas_Alumnos_Grupo_A,$Lis_Alum_Gru->Clave_A);
+            //return count($M_A_Grupo);
+            if (count($M_A_Grupo)==0){
+                $ban=true;
             }
             else{
-                array_push($Matriculas_Alumnos_Grupo_B,$Lis_Alum_Gru->Clave_A);
+                array_push($Lista_Alumnos_Grupo,$M_A_Grupo[0] );
             }
         }
-
-        // PARA SACAR EL NOMBRE
-        foreach ($Matriculas_Alumnos_Grupo_A as $Alu_A) {
-            $Clave=$Alu_A;
-            $Nom_Alu=Alumno::where('Clave_A',$Clave)->get('Nombre_A');
-            array_push($Nombres_Alumnos_Grupo_A,$Nom_Alu[0] );
+        //return $M_A_Grupo;
+        if ($ban==true){
+            return back()->with('msjE','No hay grupos creados para el semestre seleccionado.' );
         }
+        else {
+            foreach ($Lista_Alumnos_Grupo as $Lis_Alum_Gru) {
+                if ($Lis_Alum_Gru->Grupo=='A'){
+                    array_push($Matriculas_Alumnos_Grupo_A,$Lis_Alum_Gru->Clave_A);
+                }
+                else{
+                    array_push($Matriculas_Alumnos_Grupo_B,$Lis_Alum_Gru->Clave_A);
+                }
+            }
 
-        foreach ($Matriculas_Alumnos_Grupo_B as $Alu_B) {
-            $Clave=$Alu_B;
-            $Nom_Alu=Alumno::where('Clave_A',$Clave)->get('Nombre_A');
-            array_push($Nombres_Alumnos_Grupo_B,$Nom_Alu[0] );
-        }
+            // PARA SACAR EL NOMBRE
+            foreach ($Matriculas_Alumnos_Grupo_A as $Alu_A) {
+                $Clave=$Alu_A;
+                $Nom_Alu=Nombrealumno::where('Clave_A',$Clave)->get();
+                $nom=$Nom_Alu[0]->ApellidoP.' '.$Nom_Alu[0]->ApellidoM.' '.$Nom_Alu[0]->Nombre;
+                array_push($Nombres_Alumnos_Grupo_A,$nom );
+            }
 
-        $now= Carbon::now();
-        $fecha=$now-> format('m');
-        $Sem_Activado=0;
+            foreach ($Matriculas_Alumnos_Grupo_B as $Alu_B) {
+                $Clave=$Alu_B;
+                $Nom_Alu=Nombrealumno::where('Clave_A',$Clave)->get();
+                $nom=$Nom_Alu[0]->ApellidoP.' '.$Nom_Alu[0]->ApellidoM.' '.$Nom_Alu[0]->Nombre;
+                array_push($Nombres_Alumnos_Grupo_B,$nom);
+            }
 
-        if ($fecha<07){
-            $Sem_Activado=1;
-        }
-        else{
-            $Sem_Activado=2;
+            $now= Carbon::now();
+            $fecha=$now-> format('m');
+            $Sem_Activado=0;
+
+            if ($fecha<07){
+                $Sem_Activado=1;
+            }
+            else{
+                $Sem_Activado=2;
+            }
+            
+            $visibility=1;
+            //return $Nombres_Alumnos_Grupo_A;
+            return view('IBoletasParciales.create',compact('visibility','Matriculas_Alumnos_Grupo_A','Matriculas_Alumnos_Grupo_B','Nombres_Alumnos_Grupo_A','Nombres_Alumnos_Grupo_B','Sem_Activado','Semestre_Seleccionado'));
         }
         
-        $visibility=1;
-        //return $Matriculas_Alumnos_Grupo_A;
-        return view('IBoletasParciales.create',compact('visibility','Matriculas_Alumnos_Grupo_A','Matriculas_Alumnos_Grupo_B','Nombres_Alumnos_Grupo_A','Nombres_Alumnos_Grupo_B','Sem_Activado','Semestre_Seleccionado'));
     }
 
     /**

@@ -50,7 +50,7 @@
         <br>
         <h1 style="font-size:130%;">Grado y Grupo: GRUPO {{ ($Docente_A[0]->Grado)}} {{ ($Docente_A[0]->Grupo) }}</h1>
         <h1 style="font-size:130%;">Tutor: {{ ($Docente_A[0]->Nombre_D)}}</h1>
-        <h1 style="font-size:130%;">Alumno: {{ ($Alum_A->Nombre_A) }}</h1>
+        <h1 style="font-size:130%;">Alumno: {{ ($Alum_A) }}</h1>
         <table cellspacing="0" align="center" style="width: 80%; font-size:110%" class="table">
           <tr>
             <td align="center" >Asignatura</td>
@@ -99,7 +99,7 @@
         <br>
         <h1 style="font-size:130%;">Grado y Grupo: GRUPO {{ ($Docente_B[0]->Grado)}} {{ ($Docente_B[0]->Grupo) }}</h1>
         <h1 style="font-size:130%;">Tutor: {{ ($Docente_B[0]->Nombre_D)}}</h1>
-        <h1 style="font-size:130%;">Alumno: {{ ($Alum_B->Nombre_A) }}</h1>
+        <h1 style="font-size:130%;">Alumno: {{ ($Alum_B) }}</h1>
         <table cellspacing="0" align="center" style="width: 80%; font-size:110%" class="table">
           <tr>
             <td align="center" >Asignatura</td>
@@ -148,7 +148,7 @@
         <br>
         <h1 style="font-size:130%;">Grado y Grupo: GRUPO {{ ($Docente_A[0]->Grado)}} {{ ($Docente_A[0]->Grupo) }}</h1>
         <h1 style="font-size:130%;">Tutor: {{ ($Docente_A[0]->Nombre_D)}}</h1>
-        <h1 style="font-size:130%;">Alumno: {{ ($Alum_A->Nombre_A) }}</h1>
+        <h1 style="font-size:130%;">Alumno: {{ ($Alum_A) }}</h1>
         <table cellspacing="0" align="center" style="width: 80%; font-size:110%" class="table">
           <tr>
             <td align="center" >Asignatura</td>
@@ -196,7 +196,7 @@
         <br>
         <h1 style="font-size:130%;">Grado y Grupo: GRUPO {{ ($Docente_B[0]->Grado)}} {{ ($Docente_B[0]->Grupo) }}</h1>
         <h1 style="font-size:130%;">Tutor: {{ ($Docente_B[0]->Nombre_D)}}</h1>
-        <h1 style="font-size:130%;">Alumno: {{ ($Alum_B->Nombre_A) }}</h1>
+        <h1 style="font-size:130%;">Alumno: {{ ($Alum_B) }}</h1>
         <table cellspacing="0" align="center" style="width: 80%; font-size:110%" class="table">
           <tr>
             <td align="center" >Asignatura</td>
