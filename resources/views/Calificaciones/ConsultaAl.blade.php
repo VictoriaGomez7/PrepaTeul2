@@ -3,7 +3,7 @@
 @section('title','Tabla Calificacio Alumno')
  @include('Alumnosinterfazprincipal.InterfazPrincipal')
 @section('content')
-<a href="http://127.0.0.1:8000/Alumnosinicio'">
+<a href="http://127.0.0.1:8000/Alumnosinicio">
             <button class="btn btn-success" style="position: absolute;top: 150%;left:75%">Cancelar</button></a>
     {{--@include('Reinscripciones.form',compact('CAlumno','bandera','FtOBache'))--}}
 <html>
@@ -46,12 +46,12 @@ tr:nth-child(even) {
 
       <td align="center">{{ $califi->Parcial1}} </td>
       <td align="center">{{ $califi->Parcial2}}</td>
-          
+
     </tr>
     @endif()
   @endforeach()
   @endforeach()
- 
+
 </table>
 
 </body>

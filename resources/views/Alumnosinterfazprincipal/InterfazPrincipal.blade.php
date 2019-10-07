@@ -31,7 +31,7 @@
 				</li>
 				<li><a href="#">Contraseña</a>
 						<ul class="submenu">
-						<li><a href ="http://127.0.0.1:8000/Cambiarcontra?valor={{$usua}}">Cambiar</a></li>
+						<li><a href ="http://127.0.0.1:8000/Modificarcontra?valor={{$usua}}">Cambiar</a></li>
 
 					</ul>
 					<li style="left: 40%;"><a  href="#" >Alumno: {{$Alumnos[0]->Nombre_A}}</a>

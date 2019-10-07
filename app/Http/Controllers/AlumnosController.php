@@ -221,10 +221,4 @@ class AlumnosController extends Controller
         //return  view('Alumnos.index',compact('alumnos'));
        return redirect('/alumnosconsulta')->with('msj2','Alumno eliminado correctamente');
     }
-
-    public function cambiarcontraseñaalumno($id)
-    {
-
-        return view('Alumnos.cambiarcontra');
-    }
 }

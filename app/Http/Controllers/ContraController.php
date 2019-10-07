@@ -2,23 +2,20 @@
 
 namespace App\Http\Controllers;
 
-//use App\LoginAlumno;
-use App\usuarioalumno;
-Use Session;
-Use Redirect;
-Use Alert;
 use Illuminate\Http\Request;
+use App\usuarioalumno;
 
-class LoginAController extends Controller
+class ContraController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('LoginA.index');
+      $usua=$request->valor;
+        return view('Alumnos.cambiarcontra',compact('usua'));
     }
 
     /**
@@ -28,7 +25,7 @@ class LoginAController extends Controller
      */
     public function create()
     {
-        //return "Hola LoginA";
+        //
     }
 
     /**
@@ -39,7 +36,18 @@ class LoginAController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        usuarioalumno::where('Usuario',$request->clave)->delete();
+        //return $original;
+        $usu=new usuarioalumno();
+
+          //return $original;
+
+            $usu->Usuario=$request['clave'];
+            $usu->Password=$request['contra'];
+            $usu->save();
+      
+        return redirect('LoginA.index')->with('msj','Contraseña modificada Correctamente');;
+        //return $request;
     }
 
     /**
@@ -48,35 +56,11 @@ class LoginAController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($request)
     {
-        $CE = usuarioalumno::where('Usuario', $request->Usuario)->get();
-        //$Ps=usuariomaestro::where('Usuario', $request->Usuario)->get('Password');
 
-        $Ps=usuarioalumno::where('Password', $request->Contraseña)->where('Usuario', $request->Usuario) ->get();
-        //return 'CE'.$CE.'/'.'PS'.$Ps;
-        //return $Ps;
-        $usua=$CE[0]->Usuario;
-        if (count($CE)==0)
-        {
-
-            return back()->with('msj',' Usuario o Contrseña incorrecta' );
-        }
-        else{
-            if ($CE==$Ps)
-            {
-                //return 'son igual';
-                //return $usua;
-                return view('Alumnosinterfazprincipal.InterfazPrincipal',compact('usua','CE'));
-                //return 'LoginM';//view('ControlEscolar.CEprincipal');
-            }
-            else{
-
-                //return 'no son igual '.$CE.'/'.$Ps;
-                return back()->with('msj',' Usuario o Contrseña incorrecta' );
-            }
-        }
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -85,7 +69,7 @@ class LoginAController extends Controller
      */
     public function edit($request)
     {
-      
+      ;
     }
 
     /**
@@ -97,7 +81,7 @@ class LoginAController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
