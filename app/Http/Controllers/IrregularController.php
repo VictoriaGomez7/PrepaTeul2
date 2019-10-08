@@ -8,6 +8,7 @@ use App\IrregularMateria;
 use App\Alumno;
 use App\Materia;
 use App\Grupo;
+use App\Kardex;
 use App\IrregularMateriaHistorico;
 use Carbon\Carbon;
 
@@ -129,6 +130,14 @@ class IrregularController extends Controller
         if(count($Aprobadas)==$cuenta){
 
             Alumno::where('Clave_A', $request->Clave_A)->update(['Estado'=>'REGULAR']);
+            $Opo=IrregularMateria::where('Clave_A',$request->Clave_A)->get();
+            $nK=new Kardex();
+            $nK->Clave_A=$Opo->Clave_A;
+            $nK->Clave_M=$Opo->ClaveM;
+            $nK->Fecha=$Opo->Fecha;
+            $nK->Oportunidades=$Opo->Oportunidades;
+            $nK->Calificacion=$Opo->Calificacion1;
+            $nK->save();
             Irregulares::where('Clave_A',$request->Clave_A)->delete();
         }
 

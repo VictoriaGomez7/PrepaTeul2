@@ -6,34 +6,31 @@
      <link rel="stylesheet" type="text/css" href="/css/estilos2.css">
       <link rel="stylesheet" type="text/css" href="/css/image.css">
      <link rel="icon" href="/images/escolarcono.ico">
-	@extends('layouts.app')
+	
 
 	<title>Control Escolar</title>
 </head>
 <body>
-	@include('interfazprincipal.image')
+	<?php echo $__env->make('interfazprincipal.image', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-	@if (session()->has('msj'))
+	<?php if(session()->has('msj')): ?>
         <div class="alert alert-success" role="alert" style="width: 90%; position:  absolute; top: 43%; left: 5%;z-index: 1;">
             <button class="close" data-dismiss="alert"><span>&times;</span></button>
-                <strong>¡Correcto! </strong>{{ session('msj') }}
-        </div>
-    @endif
+                <strong>¡Correcto! </strong><?php echo e(session('msj')); ?>
 
-    @if (session()->has('MsjERR'))
+        </div>
+    <?php endif; ?>
+
+    <?php if(session()->has('MsjERR')): ?>
         <div class="alert alert-danger" role="alert" style="width: 90%; position:  absolute;top: 43%; left: 5%;z-index: 1;">
             <button class="close" data-dismiss="alert"><span>&times;</span></button>
-            <strong>¡ERROR! </strong>{{ session('MsjERR') }}
+            <strong>¡ERROR! </strong><?php echo e(session('MsjERR')); ?>
+
         </div>
-    @endif
+    <?php endif; ?>
 
 	<header>
-		{{--@foreach($CE as $C)
-		<div class="alert alert-success" role="alert" style="width: 90%; position:  absolute;top: 43%; left: 5%;z-index: 1;">
-				<button class="close" data-dismiss="alert"><span>&times;</span></button>
-				<strong>Bienvenido </strong>{{$C->Usuario}}
-			</div>
-		@endforeach--}}
+		
 		<nav class="navegacion" style="width: 90%">
 			<ul class="menu">
 				<li><a href="#">Alumnos</a>
@@ -95,7 +92,7 @@
 			</ul>
 		</nav>
 
-		@include('interfazprincipal.imagenn')
+		<?php echo $__env->make('interfazprincipal.imagenn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 	</header>
 	<!--<img src="/images/img7.png" class="imagen">-->
 	    <p align="center" style="color: black; font-size: 1.3em;position: absolute;top: 110%;left:5%; background: #EEF0F3; width: 90%">
@@ -107,3 +104,5 @@
                  </p >
 </body>
 </html>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\PrepaTeul\resources\views/ControlEscolar/CEprincipal2.blade.php ENDPATH**/ ?>

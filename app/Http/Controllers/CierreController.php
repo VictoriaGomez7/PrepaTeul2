@@ -58,21 +58,35 @@ class CierreController extends Controller
         for ($i=0; $i <count($todo) ; $i++){
             //if ($todo[$i]->Parcial1<7 or $todo[$i]->Parcial2<7) {
             $suma=($todo[$i]->Parcial1+$todo[$i]->Parcial2)/2;
-            if ($suma<6) {
+            if ($suma<=6) {
                 $alumnoL=new Irregulares();
                 $alumnoL->Clave_A=$todo[$i]->Clave_A;
                 $alumnoL->save(); 
                 $mate=new IrregularMateria();
                 $mate->Clave_A=$todo[$i]->Clave_A;
                 $mate->Clave_M=$todo[$i]->ClaveM;
-                $mate->Calificacion1=0;
-                $mate->Fecha1=' ';
-                $mate->Calificacion2=0;
-                $mate->Fecha2=' ';
-                $mate->Calificacion3=0;
-                $mate->Fecha3=' ';
-
+                $mate->Calificacion1=0.0;
+                $mate->Fecha=null;
+                $mate->Oportunidades=0.0;
                 $mate->save();
+
+                $mate2=new IrregularMateriaHistorico();
+                $mate2->Clave_A=$todo[$i]->Clave_A;
+                $mate2->Clave_M=$todo[$i]->ClaveM;
+                $mate2->Calificacion1=0.0;
+                $mate2->Fecha=null;
+                $mate2->Oportunidades=0.0;
+                $mate2->save();
+            }
+            else
+            {
+                $nK=new Kardex();
+                $nK->Clave_A=$todo[$i]->Clave_A;
+                $nK->Clave_M=$todo[$i]->ClaveM;
+                $nK->Fecha=null;
+                $nK->Oportunidades=null;
+                $nK->Calificacion=$suma;
+                $nK->save();
             }
         }
         $bandera=true;

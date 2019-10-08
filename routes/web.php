@@ -106,6 +106,10 @@ Route::get('/CONSULTACALIFICACIONESDC', function () {
     return view('Calificaciones.ConsultaDC');
 });
 
+//consulta pra hacer el kardex
+Route::get('/kardex', function () {
+    return view('Alumnos.kardex');
+});
 Route::resource('Modificarcontra','ContraController');
 
 Route::get('Asistencias','AsistenciasController@Report');
@@ -161,3 +165,6 @@ Route::resource('Cerrar_Semestre', 'CierreController');
 Route::resource('RegistrarTutores', 'TutoresController');
 
 Route::resource('ImprimeBoletasParciales', 'BoletasParcialesController');
+
+//ruta para generar kardex
+Route::resource('ImprimirKardex', 'KaredexController');

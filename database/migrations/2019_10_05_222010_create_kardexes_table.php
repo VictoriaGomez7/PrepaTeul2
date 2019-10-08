@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIrregularMateriaHistoricosTable extends Migration
+class CreateKardexesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateIrregularMateriaHistoricosTable extends Migration
      */
     public function up()
     {
-        Schema::create('irregular_materia_historicos', function (Blueprint $table) {
+        Schema::create('kardexes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Clave_A');
             $table->string('Clave_M');
-            $table->float('Calificacion1');
-            $table->float('Oportunidades');
             $table->string('Fecha')->nullable();
+            $table->float('Oportunidades')->nullable();
+            $table->float('Calificacion');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateIrregularMateriaHistoricosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('irregular_materia_historicos');
+        Schema::dropIfExists('kardexes');
     }
 }

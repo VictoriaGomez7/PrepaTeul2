@@ -1,0 +1,6 @@
+[2019-09-28 19:12:26] local.ERROR: SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+ (SQL: select * from `alumnos` where `Clave_A` = 1900110001)  
+[2019-09-28 19:13:04] local.ERROR: SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+ (SQL: select * from information_schema.tables where table_schema = PrepaTeul and table_name = migrations)  
+[2019-09-28 19:13:29] local.ERROR: SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+ (SQL: select * from information_schema.tables where table_schema = PrepaTeul and table_name = migrations)  

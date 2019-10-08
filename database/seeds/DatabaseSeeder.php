@@ -24,5 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(Materiasseeder::class);
         $this->call(UsuarisMaestrossSeeder::class);
         $this->call(MateriaGruposSeeder::class);
+        $this->call(CalificacionSeeder::class);
+        $this->call(Calificaciones2Seeder::class);
     }
 }

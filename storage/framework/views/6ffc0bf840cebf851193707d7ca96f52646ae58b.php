@@ -10,10 +10,10 @@
 	<title>Control Escolar</title>
 </head>
 <body>
-	@include('interfazprincipal.image')
+	<?php echo $__env->make('interfazprincipal.image', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
-	{{--<section style="width: 100%; max-width: 90%; background: #FEEEEF"> --}}
+	
 		<header >
 			<nav class="navegacion" style="width: 90%">
 				<ul class="menu" >
@@ -79,8 +79,9 @@
 					</li>
 				</ul>
 			</nav>
-			{{--@include('interfazprincipal.imagenn')--}}
+			
 		</header>
-	{{-- </section> --}}
+	
 </body>
 </html>
+<?php /**PATH C:\xampp\htdocs\PrepaTeul\resources\views/ControlEscolar/CEprincipal.blade.php ENDPATH**/ ?>
