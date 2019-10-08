@@ -7,6 +7,8 @@ use App\periodo;
 use App\CalificacionesParciales;
 use App\Irregulares;
 use App\IrregularMateria;
+use App\IrregularMateriaHistorico;
+use App\Kardex;
 Use Session;
 Use Redirect;
 Use Alert;

@@ -18,7 +18,7 @@ class CreateIrregularMateriasTable extends Migration
             $table->string('Clave_A');
             $table->string('Clave_M');
             $table->float('Calificacion1');
-            $table->string('Fecha')nullable();
+            $table->string('Fecha')->nullable();
             $table->float('Oportunidades');
             $table->timestamps();
         });

@@ -4816,14 +4816,17 @@ th {
         <p style="position: absolute;left: 395px"><font size="1">APROBECHAMIENTO:</font></p>
         <?php $suma=0?>
         <?php $conta=0?>
+        <?php $Prome=0?>
 
         @foreach($kard as $kar)
+          
           <?php $suma=$suma+$kar->Calificacion?>
           <?php $conta=$conta+1?>
         @endforeach()
 
-        <?php $Prome=$suma/$conta?>
-
+        @if($suma>0)
+          <?php $Prome=$suma/$conta?>
+        @endif()
         <p style="position: absolute;left: 510px"><font size="1"><?php echo $Prome?></font></p>
 
 
