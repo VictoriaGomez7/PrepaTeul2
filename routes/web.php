@@ -14,10 +14,6 @@ Route::resource('EvaluacionConducta','conductaController');
 
 Route::get('materia/buscador','materiasBuscadorController@buscador');
 
-Route::get('/', function () {
-    return view('interfazprincipal.Interfaz');
-});
-
 Route::get('/interfazpri', function () {
     return view('interfazprincipal.Interfaz');
 });
