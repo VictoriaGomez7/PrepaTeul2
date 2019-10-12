@@ -68,7 +68,7 @@ class CierreController extends Controller
         else if ($Mes<=07){
             $Per='Enero-Junio ';
         }
-        
+
         $Alumno_Aprobado=array();
         $Alumno_Reprobado=array();
         $Materia_Nombre=array();
