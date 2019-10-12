@@ -11,6 +11,8 @@ use App\Grupo;
 use App\Materia_Grupo;
 use App\Periodo;
 use App\Asistencia;
+use App\EstadisticaPeriodo;
+use Carbon\Carbon;
 
 class CalificacionesController extends Controller
 {
@@ -74,12 +76,7 @@ class CalificacionesController extends Controller
         $Periodo2fin=Periodo::where('id','2')->get('fecha2');
         $dia=date('o-m-d');
         $year_DATE=date('o');
-        //print_r($Periodo2fin[0]->fecha2." ");
         $final2=date('o-m-d',strtotime($Periodo2fin[0]->fecha2."+ 2 week"));
-        //print_r($final2." ");
-        //$final2=date('o-m-d',strtotime($Periodo2fin[0]->fecha2."- 2 week"));
-        //print_r($final2." ");
-        //return $final2;
 
         if (($Periodo1ini[0]->fecha1<=$dia) && ($Periodo1fin[0]->fecha2>=$dia)){
         $PeriodoActivo=1;
@@ -102,9 +99,6 @@ class CalificacionesController extends Controller
 
 
         $AlumnoEnGrupo=Grupo::where('Grupo',$request->Grupo)->get();
-        //return $request->Grupo;
-        //$AlumnoEnGRupoSemestre=Materia_Grupo::where('Grupo',$request->Grupo)->where('Grupo',$request->Grupo)->get();
-        //return $AlumnoEnGRupoSemestre;
         $SemestreMateria=Materia_Grupo::where('Clave_M',$request->ClaveMateriaSelec)->where('Grupo',$request->Grupo)->get();
         $AlumnosEnMismoSemestre=array();
         $AlumnosAModificar=array();
@@ -113,27 +107,20 @@ class CalificacionesController extends Controller
             $SemestreAlumno=Alumno::where('Clave_A',$AlumnoEnGrupo[$i]->Clave_A)->get('Semestre');
             if (($SemestreAlumno[0]->Semestre)==($SemestreMateria[0]->Semestre)) {
                 $AlumnoParaTabla=Alumno::where('Clave_A',$AlumnoEnGrupo[$i]->Clave_A)->get();
-                //return $AlumnoParaTabla;
                 array_push($AlumnosEnMismoSemestre,$AlumnoParaTabla );
             }
         }
         if (count($AlumnosEnMismoSemestre)==0) {
-             $visibility=0;
+            $visibility=0;
         } else {
-             $visibility=1;
-
-
+            $visibility=1;
         }
 
-        //return $AlumnosEnMismoSemestre;
         $DatosCalificaciones=CalificacionesParciales::get('ClaveM',$request->ClaveMateriaSelec);
-        //return 'Hi1'.$DatosCalificaciones.count($DatosCalificaciones);
-        //return $DatosCalificaciones;
-        
+
         if (count($DatosCalificaciones)==0){
             for ($i=0; $i < count($AlumnosEnMismoSemestre); $i++)
             {
-                //return $request->Clave_M;
                 $Calif=new CalificacionesParciales();
                 $Calif->Clave_A=$AlumnosEnMismoSemestre[$i][0]->Clave_A;
                 $Calif->ClaveM=$request->ClaveMateriaSelec;
@@ -159,15 +146,12 @@ class CalificacionesController extends Controller
         
         else
         {
-            //return 'segundo';
             $Calif_Extraidas=CalificacionesParciales::where('ClaveM',$request->ClaveMateriaSelec)->where('Grupo',$request->Grupo)->get();
-            //return$Calif_Extraidas;
             if (count($AlumnosEnMismoSemestre)!=count($Calif_Extraidas)){
 
                 for ($i=0; $i < count($AlumnosEnMismoSemestre); $i++)
                 {
                     $Alumno1=$AlumnosEnMismoSemestre[$i][0]->id;
-                    //return $Alumno1;
                     $cont=0;
                     for ($j=0; $j < count($Calif_Extraidas); $j++)
                     {
@@ -203,10 +187,9 @@ class CalificacionesController extends Controller
                 }
             }
         }
-        //return 'hola';
+
         $Grupo_Seleccionado=$request->Grupo;
         $Calif_Extraidas=CalificacionesParciales::where('ClaveM',$request->ClaveMateriaSelec)->where('Grupo',$Grupo_Seleccionado)->get();
-        //return $Calif_Extraidas;
         view('DocenteInterfazPrincipal.InterfazPrincipal',compact('usua'));
         return view('Calificaciones.VisualizarCali',compact('MateriasDelDocente','AlumnosEnMismoSemestre','visibility','id','usua','Materiasele','PeriodoActivo','Calif_Extraidas','Grupo_Seleccionado'));
 
@@ -222,21 +205,13 @@ class CalificacionesController extends Controller
     public function show($g, Request $r)
     {
         //return $r;
-
-        //$docente = Docente::where('Clave', $docente1->clave1)->first();
-
-
         $calif=CalificacionesParciales::find($g);
 
         $usua=$calif->Clave_A;
         $calif->Parcial1 = $r->Parcial1;
         $calif->Parcial2 = $r->Parcial2;
-        //echo $docente->Domicilio;
-        //$docente->save();
         $calif->save();
 
-        //return $usua;
-            //return view('Docente.create')->with('msj1','Docente modificado exitosamente');
         return Redirect('/CONSULTACALIFICACIONESCE/show?id='.$usua)->with('msj1','Calificación modificada exitosamente' );
 
     }
@@ -249,12 +224,23 @@ class CalificacionesController extends Controller
      */
     public function edit(Request $id)
     {
-        //return $id;
-        //return count($id->get('Calif1'));//->['Parcial1'];
-        //return $id.'';
+        //return $id->Periodo;
+        $Reprobados=0;
+        $Aprobados=0;
+        $now= Carbon::now();
+        $Año=$now-> format('o');
+        $Mes=$now-> format('m');
+        $Per='';
+
+        if ($Mes>07){
+            $Per='Agosto-Diciembre ';
+        }
+        else if ($Mes<=07){
+            $Per='Enero-Junio ';
+        }
+
         $ban=0;
         $Faltas=$id->get('Faltas');
-        //return $id;
         for ($i=0; $i <count($Faltas) ; $i++) { 
             if ($Faltas[$i]>$id->NumTotalAsis) {
                 $ban=1;
@@ -269,14 +255,30 @@ class CalificacionesController extends Controller
         $Faltas=$id->get('Faltas');
         $Claves_Alumnos=$id->get('ClaveA');
         $usua=$id->Usua;
-        //return $id->Grupo_Selec;
         if ($ban==1) {
             return redirect('Calificaciones?valor='.$usua)->with('msj2','El número de faltas no puede ser mayor que el total de clases' );
         } else {
         for ($i=0; $i < $Cant_Calif; $i++)
             {
+                
+                if ($id->Periodo==1){
+                    if ($Calificaciones_1[$i]<6){
+                        $Reprobados+=1;
+                    }
+                    else{
+                        $Aprobados+=1;
+                    }
+                }
+                else{
+                    if ($Calificaciones_2[$i]<6){
+                        $Reprobados+=1;
+                    }
+                    else{
+                        $Aprobados+=1;
+                    }
+                }
+
                 $Asisten=$TotalClases-$Faltas[$i];
-                //print_r($Claves_Alumnos[$i]);
                 CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial1'=>$Calificaciones_1[$i]]);
                 CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial2'=>$Calificaciones_2[$i]]);
                 CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Semestral'=>$Semestral[$i]]);
@@ -286,9 +288,47 @@ class CalificacionesController extends Controller
                 Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['PorcentajeAsistencias'=>(($Asisten*100)/$TotalClases)]);
                 
             }
-        //return $Claves_Alumnos;
-        //return redirect('/DocenteInicios?valor='.$usua)->with('MsjC','Calificaciones guardadas con éxito');
 
+        $Estadistica=EstadisticaPeriodo::get();
+        
+        if (count($Estadistica)==0){
+            $mate=new EstadisticaPeriodo();
+            $mate->Aprobados1=$Aprobados;
+            $mate->Reprobados1=$Reprobados;
+            $mate->Aprobados2=null;
+            $mate->Reprobados2=null;
+            $mate->Semestre=$id->Semestre;
+            $mate->Materia=$id->ClaveM;
+            $mate->Grupo=$id->Grupo_Selec;
+            $mate->Periodo=$Per.$Año;
+            $mate->save();
+        }
+        else{
+            $Verificar_Estadistica=EstadisticaPeriodo::where('Materia',$id->ClaveM)->where('Periodo',$Per.$Año)->where('Grupo',$id->Grupo_Selec)->where('Semestre',$id->Semestre)->get();
+            if (count($Verificar_Estadistica)==0){
+                $mate=new EstadisticaPeriodo();
+                $mate->Aprobados1=$Aprobados;
+                $mate->Reprobados1=$Reprobados;
+                $mate->Aprobados2=null;
+                $mate->Reprobados2=null;
+                $mate->Semestre=$id->Semestre;
+                $mate->Materia=$id->ClaveM;
+                $mate->Grupo=$id->Grupo_Selec;
+                $mate->Periodo=$Per.$Año;
+                $mate->save();
+            }
+            else{
+                if ($id->Periodo==1){
+                    EstadisticaPeriodo::where('Materia',$id->ClaveM)->where('Periodo',$Per.$Año)->where('Grupo',$id->Grupo_Selec)->where('Semestre',$id->Semestre)->update(['Aprobados1'=>$Aprobados]);
+                    EstadisticaPeriodo::where('Materia',$id->ClaveM)->where('Periodo',$Per.$Año)->where('Grupo',$id->Grupo_Selec)->where('Semestre',$id->Semestre)->update(['Reprobados1'=>$Reprobados]);
+                }
+                else if ($id->Periodo==2){
+                    EstadisticaPeriodo::where('Materia',$id->ClaveM)->where('Periodo',$Per.$Año)->where('Grupo',$id->Grupo_Selec)->where('Semestre',$id->Semestre)->update(['Aprobados2'=>$Aprobados]);
+                    EstadisticaPeriodo::where('Materia',$id->ClaveM)->where('Periodo',$Per.$Año)->where('Grupo',$id->Grupo_Selec)->where('Semestre',$id->Semestre)->update(['Reprobados2'=>$Reprobados]);
+                }
+            }
+        }
+            
         return redirect('Calificaciones?valor='.$usua)->with('msj','Calificacines registradas exitosamente' );}
     }
 

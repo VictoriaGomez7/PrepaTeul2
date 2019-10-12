@@ -9,6 +9,8 @@ use App\Irregulares;
 use App\IrregularMateria;
 use App\IrregularMateriaHistorico;
 use App\Kardex;
+use App\EstadisticaSemestre;
+use Carbon\Carbon;
 Use Session;
 Use Redirect;
 Use Alert;
@@ -56,11 +58,42 @@ class CierreController extends Controller
     {
         //return "ya lo hice";
         $todo=CalificacionesParciales::all();
-
+        $now= Carbon::now();
+        $Año=$now-> format('o');
+        $Mes=$now-> format('m');
+        $Per='';
+        if ($Mes>07){
+            $Per='Agosto-Diciembre ';
+        }
+        else if ($Mes<=07){
+            $Per='Enero-Junio ';
+        }
+        
+        $Alumno_Aprobado=array();
+        $Alumno_Reprobado=array();
+        $Materia_Nombre=array();
         for ($i=0; $i <count($todo) ; $i++){
-            //if ($todo[$i]->Parcial1<7 or $todo[$i]->Parcial2<7) {
+            array_push($Alumno_Aprobado, $todo[$i]);
+            $b=false;
+
+            if (count($Materia_Nombre)!=0){
+                for ($j=0; $j < count($Materia_Nombre); $j++) { 
+                    if ($Materia_Nombre[$j]!=$todo[$i]->ClaveM){
+                        $b==true;
+                    }
+                }
+                if ($b==true){
+                    array_push($Materia_Nombre, $todo[$i]->ClaveM);
+                }
+            }
+            else {
+                array_push($Materia_Nombre, $todo[$i]->ClaveM);
+            }
+
             $suma=($todo[$i]->Parcial1+$todo[$i]->Parcial2)/2;
-            if ($suma<=6) {
+            $suma=$suma+$todo[$i]->Semestral/2;
+
+            if ($suma<6) {
                 $alumnoL=new Irregulares();
                 $alumnoL->Clave_A=$todo[$i]->Clave_A;
                 $alumnoL->save(); 
@@ -91,7 +124,34 @@ class CierreController extends Controller
                 $nK->save();
             }
         }
+
+        foreach ($Materia_Nombre as $value) {
+            $Cant_Reprobados=0;
+            $Cant_Aprobados=0;
+            for ($i=0; $i <count($Alumno_Aprobado) ; $i++) {
+                $M=$Alumno_Aprobado[$i]->ClaveM;
+                $S=$Alumno_Aprobado[$i]->Semestre;
+                if ($M==$value){
+                    $Cant_Aprobados+=1;
+                }
+            }
+            for ($i=0; $i <count($Alumno_Reprobado) ; $i++) {
+                $M=$Alumno_Reprobado[$i]->ClaveM;
+                if ($M==$value){
+                    $Cant_Reprobados+=1;
+                }
+            }
+            $mate=new EstadisticaSemestre();
+            $mate->Aprobados=$Cant_Aprobados;
+            $mate->Reprobados=$Cant_Reprobados;
+            $mate->Semestre=$S;
+            $mate->Materia=$value;
+            $mate->Periodo=$Per.$Año;
+            $mate->save();
+        }
+        
         $bandera=true;
+
         return view('CerrarCiclo.index',compact('bandera'))->with('msj','Ciclo cerrado con éxito.');
         //return back->with('msj','Ciclo cerrado con éxito.');
     }
