@@ -17,6 +17,9 @@ Route::get('materia/buscador','materiasBuscadorController@buscador');
 Route::get('/interfazpri', function () {
     return view('interfazprincipal.Interfaz');
 });
+Route::get('/', function () {
+    return view('interfazprincipal.Interfaz');
+});
 
 Route::get('/ControlEscolar', function () {
     return view('ControlEscolar.CEprincipal');
