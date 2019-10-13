@@ -604,7 +604,7 @@ class MateriaController extends Controller
               $materia->save();
               $matgrup=new materia_grupo();
               $matgrup->Clave_M=$Clavemat;
-              $matgrup->Grupo=$request['nombre'];
+              $matgrup->Grupo=$request['formacion'];
               $matgrup->Semestre=$request['semestre'];
               $matgrup->save();
               return redirect('/ControlEscolarInicio')->with('msj','Materia Registrada Correctamente');

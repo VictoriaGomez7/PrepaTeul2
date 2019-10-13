@@ -10,6 +10,7 @@ use App\Alumno;
 use App\Grupo;
 use App\Materia_Grupo;
 use App\Periodo;
+use App\ft_bach;
 use App\Asistencia;
 use App\EstadisticaPeriodo;
 
@@ -99,6 +100,10 @@ class CalificacionesController extends Controller
 
 
         $AlumnoEnGrupo=Grupo::where('Grupo',$request->Grupo)->get();
+         if(isset($AlumnoEnGrupo)){
+           
+           $AlumnoEnGrupo=ft_bach::where('Formación_Trabajo',$request->Grupo)->get();      
+        }
         $SemestreMateria=Materia_Grupo::where('Clave_M',$request->ClaveMateriaSelec)->where('Grupo',$request->Grupo)->get();
         $AlumnosEnMismoSemestre=array();
         $AlumnosAModificar=array();
