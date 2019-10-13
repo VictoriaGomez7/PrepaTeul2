@@ -3443,6 +3443,15 @@ th {
                     <?php $C2='EA-ECO1' ?>
                     <?php $C3='EA-MAF1' ?>
                     <?php $C4='EA-PRE1' ?>
+              @elseif($ba->Bachillerato=='')
+                    <?php $M1='--' ?>
+                    <?php $M2='--' ?>
+                    <?php $M3='--' ?>
+                    <?php $M4='--' ?>
+                    <?php $C1='--' ?>
+                    <?php $C2='--' ?>
+                    <?php $C3='--' ?>
+                    <?php $C4='--' ?>
               @endif()
           @endforeach()
           <?php
@@ -4302,6 +4311,15 @@ th {
                     <?php $C2='EA-ECO2' ?>
                     <?php $C3='EA-MAF2' ?>
                     <?php $C4='EA-PRE2' ?>
+              @elseif($ba->Bachillerato=='')
+                    <?php $M1='--' ?>
+                    <?php $M2='--' ?>
+                    <?php $M3='--' ?>
+                    <?php $M4='--' ?>
+                    <?php $C1='--' ?>
+                    <?php $C2='--' ?>
+                    <?php $C3='--' ?>
+                    <?php $C4='--' ?>
               @endif()
           @endforeach()
           <?php

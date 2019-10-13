@@ -109,6 +109,31 @@ Route::get('/CONSULTACALIFICACIONESDC', function () {
 Route::get('/kardex', function () {
     return view('Alumnos.kardex');
 });
+
+//Estadisticas
+Route::get('/Estadisticas', function () {
+    return view('Graficas.interfazGrafica');
+});
+
+//Genero
+Route::get('/E_Genero', function () {
+    return view('Graficas.Genero');
+});
+
+//Periodo
+Route::get('/E_Periodo', function () {
+    return view('Graficas.Periodo');
+});
+
+//Semestre
+Route::get('/E_Semestre', function () {
+    return view('Graficas.Semestre');
+});
+
+//Paginna d eespera
+Route::get('/E_Espera', function () {
+    return view('Graficas.Presentacio');
+});
 Route::resource('Modificarcontra','ContraController');
 
 Route::get('Asistencias','AsistenciasController@Report');

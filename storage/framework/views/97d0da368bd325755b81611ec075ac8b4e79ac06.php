@@ -3422,6 +3422,15 @@
                     <?php $C2='EA-ECO1' ?>
                     <?php $C3='EA-MAF1' ?>
                     <?php $C4='EA-PRE1' ?>
+              <?php elseif($ba->Bachillerato==''): ?>
+                    <?php $M1='--' ?>
+                    <?php $M2='--' ?>
+                    <?php $M3='--' ?>
+                    <?php $M4='--' ?>
+                    <?php $C1='--' ?>
+                    <?php $C2='--' ?>
+                    <?php $C3='--' ?>
+                    <?php $C4='--' ?>
               <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           <?php
@@ -4281,6 +4290,15 @@
                     <?php $C2='EA-ECO2' ?>
                     <?php $C3='EA-MAF2' ?>
                     <?php $C4='EA-PRE2' ?>
+              <?php elseif($ba->Bachillerato==''): ?>
+                    <?php $M1='--' ?>
+                    <?php $M2='--' ?>
+                    <?php $M3='--' ?>
+                    <?php $M4='--' ?>
+                    <?php $C1='--' ?>
+                    <?php $C2='--' ?>
+                    <?php $C3='--' ?>
+                    <?php $C4='--' ?>
               <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           <?php
@@ -4795,14 +4813,17 @@
         <p style="position: absolute;left: 395px"><font size="1">APROBECHAMIENTO:</font></p>
         <?php $suma=0?>
         <?php $conta=0?>
+        <?php $Prome=0?>
 
         <?php $__currentLoopData = $kard; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $kar): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          
           <?php $suma=$suma+$kar->Calificacion?>
           <?php $conta=$conta+1?>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-        <?php $Prome=$suma/$conta?>
-
+        <?php if($suma>0): ?>
+          <?php $Prome=$suma/$conta?>
+        <?php endif; ?>
         <p style="position: absolute;left: 510px"><font size="1"><?php echo $Prome?></font></p>
 
 
