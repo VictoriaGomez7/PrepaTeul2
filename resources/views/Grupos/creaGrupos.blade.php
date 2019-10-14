@@ -16,9 +16,7 @@
 
     
         @if (session()->has('msj2'))
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger" role="alert" style="width: 50%; position:  relative;text-align: center; left: 25%;">
       <button type="button" class="close" data-dismiss="alert" >&times;</button>
       <strong>¡Error! </strong>{{session('msj2')}}
     </div>

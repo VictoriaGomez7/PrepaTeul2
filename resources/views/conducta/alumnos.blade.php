@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
 
+@extends('layouts.app')
+
+@section('title','Carta buena conducta')
+
+@include('ControlEscolar.CEprincipal')
+
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-     <script src="http://code.jquery.com//jquery.js"></script>
-        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-
-          {{--@include('interfazprincipal.image')--}}
-          @include('DocenteInterfazPrincipal.InterfazPrincipal')
-    </head>
-<body>
+  <body>
 
      @if (session()->has('MsjERR'))
      <script type="text/javascript">
@@ -46,10 +49,6 @@
                $numero=0;
                $numero2=0;
             if(count($datos)>0){
-
-
-
-            
             foreach ($datos[0] as $alumno) {
 
                 ?>

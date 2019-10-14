@@ -192,3 +192,6 @@ Route::resource('ImprimeBoletasParciales', 'BoletasParcialesController');
 
 //ruta para generar kardex
 Route::resource('ImprimirKardex', 'KaredexController');
+
+Route::resource('ImprimeCarta','ImprimeCartaController');
+

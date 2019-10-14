@@ -89,7 +89,7 @@ class ImprimelistasController extends Controller
                  
             }
             if(count($listaA)>0){
-                $titulo=$semestre . " GRUPO B";
+                $titulo=$semestre . " GRUPO ".$r->Grupo;
                  $pdf= PDF::loadView('Listas.muestraGrupos',compact('listaA','semestre','titulo'));
              return $pdf->stream();
             }else{

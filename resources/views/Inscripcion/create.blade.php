@@ -68,7 +68,7 @@
 
             @csrf
 
-            <div style="position: absolute;top: 62%; left: 5%; width: 20%;height:53%; background-color:#aaa">
+            <div style="position: absolute;top: 62%; left: 5%; width: 20%;height:60%; background-color:#aaa">
                 <p style="font-size:130%">{{('Matrícula:')}}</p>
                 <p style="font-size:130%">{{('Nombre del alumno:')}}</p>
                 <p style="font-size:130%">{{('Apellido paterno:')}}</p>
@@ -77,10 +77,10 @@
                 <p style="font-size:130%">{{('Nombre del padre:')}}</p>
                 <p style="font-size:130%">{{('Teléfono del tutor:')}}</p>
                 <p style="font-size:130%">{{('Teléfono del alumno:')}}</p>
-                <p style="font-size:130%">{{('Domicilio:')}}</p>
+
             </div>
 
-            <div style="position: absolute;top: 62%; left: 25%; width: 26%;height:53%;  background-color:#aaa">
+            <div style="position: absolute;top: 62%; left: 25%; width: 26%;height:60%;  background-color:#aaa">
                 <p><input type="text" placeholder="1800110001" value="{{ old('Clave_A') }}" required pattern="[1-9]{2}[0]{2}[1]{2}[0-9]{4}" id="id" name="matricula" style="font-size:105%; width: 95%"/></p>
                 <p><input type="text" placeholder="Karla Ximena" value="{{ old('nombre') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="nombre" name="nombre" style="font-size:105%; width: 95%;" /></h1>
                 <p><input type="text" placeholder="Velazquez" value="{{ old('ApellidoP') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="ApellidoP" name="ApellidoP" style="font-size:105%; width: 95%;" /></h1>
@@ -89,10 +89,10 @@
                 <p><input type="text" placeholder="Velazquez Luna Abel" value="{{ old('nombrepadre') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="nombrepadre" name="nombrepadre" style="font-size:105%; width: 95%;"/></p>
                 <p><input type="tel" placeholder="4671001421" value="{{ old('telefonotutor') }}" required pattern="[0-9]{10}" id="telefonotutor" name="telefonotutor" style="font-size:105%; width: 95%;"/></p>
                 <p><input type="tel" placeholder="4671082547" value="{{ old('telefonoalumno') }}" required pattern="[0-9]{10}" id="telefonoalumno" name="telefonoalumno" style="font-size:105%; width:95%"/></p>
-                <p><input type="text" placeholder="Matamoros #35" value="{{ old('domicilio') }}" required id="domicilio" name="domicilio" style="font-size:105%; width: 95%"/></p>
             </div>
 
-            <div style="position: absolute;top: 62%; left: 50%; width: 20%;height:53%;background-color:#aaa">
+            <div style="position: absolute;top: 62%; left: 50%; width: 20%;height:60%;background-color:#aaa">
+                <p style="font-size:130%">{{('Domicilio:')}}</p>
                 <p style="font-size:130%">{{('Municipio:')}}</p>
                 <p style="font-size:130%">{{('Población:')}}</p>
                 <p style="font-size:130%">{{('Correo electrónico:')}}</p>
@@ -102,14 +102,15 @@
                 <p style="font-size:130%">{{('Edad:')}}</p>
             </div>
 
-            <div style="position: absolute;top: 62%; left: 70%; width:25%;height:53%;background-color:#aaa">
+            <div style="position: absolute;top: 62%; left: 70%; width:25%;height:60%;background-color:#aaa">
+                <p><input type="text" placeholder="Matamoros #35" value="{{ old('domicilio') }}" required id="domicilio" name="domicilio" style="font-size:105%; width: 95%"/></p>
                 <p><input type="text" placeholder="Teul de González Ortega, Zac." value="{{ old('municipio') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="municipio" name="municipio" style="font-size:105%; width:97%"/></p>
                 <p><input type="text" placeholder="Teul de González Ortega, Zac." value="{{ old('poblacion') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="poblacion" name="poblacion" style="font-size:105%; width:97%" /></p>
                 <p><input type="email" placeholder="ximena@gmail.com"  value="{{ old('correo') }}" pattern="^[a-z0-9_]+(?:\.[a-z0-9_]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" id="correo" name="correo" style="font-size:105%; width:97%;"/></p>
                 <p><input type="text" placeholder="VETC030913MZSLRMA6"  value="{{ old('curp') }}" required pattern="^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$" id="curp" name="curp" style="font-size:105%; width:97%;"/></p>
                 <p><input type="text" placeholder="23145678903" value="{{ old('nss') }}" pattern="[0-9]{11}" id="nss" name="nss" style="font-size:105%; width:97%;"/></p>
 
-                <p> <input type="date" value="{{ old('fecha') }}" min="1990-01-01" name="fecha" required style="position: absolute;top: 69%; left: 0%; width: 90%"></p>
+                <p> <input type="date" value="{{ old('fecha') }}" min="1990-01-01" name="fecha" required style="position: absolute;top: 74%; left: 0%; width: 93%"></p>
 
                 <p> <select name="edad" required style="position: absolute;top: 86%;left:0%; width: 20%">
                     <option value="{{ old('edad') }}">{{ old('edad') }}</option>
@@ -134,7 +135,7 @@
                 <input type="radio" name="sexo" required value="Hombre" style="width: 6%;height: 6%; position: absolute;top: 87%;left:75%;">
             </div>
 
-            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top: 115%;left:5%; background-color:#aaa  ">
+            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top: 138%;left:5%; background-color:#aaa  ">
                     <p style="position: absolute;top: 2%;left:14%; width: 80%">{{('Con todo respeto solicito a Usted Sr. Director, me acepte como alumno  de esta Escuela Preparatoria a su cargo para cursar el')}}</p>
                         <select name="semestres" id="semestres" required onchange="Grado(this.value); semes(this.options[this.selectedIndex].innerHTML);habilitar(this.value),habilitar2(this.value)" style="font-size:80%;width: 17%;/*posicion->*/position: absolute;top:54%; left:46%;">
                             <option value="{{ old('semestres') }}">{{ old('semestres') }}</option>
@@ -153,7 +154,7 @@
 
                     <p style="position: absolute; top:53%; left: 75.5%;font-size:90%"> {{('GRADO.')}}</p>
             </div>
-            <div style="position: absolute;top: 126%; left: 5%; width: 90%;height:16%;background-color:#aaa">
+            <div style="position: absolute;top: 122%; left: 5%; width: 90%;height:16%;background-color:#aaa">
                 <p style="font-size:138%">{{('Formación para el Trabajo:')}}</p>
                 <p style="font-size:138%">{{('Bachillerato:')}}</p>
                 <select name="ft1" id="ft1" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  disabled="true">
@@ -175,10 +176,10 @@
             </div>
 
 
-            <div class="card-header text-center" style="font-size:180%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 143%; left: 5%;" >{{ __('Requisitos') }}</div>
+            <div class="card-header text-center" style="font-size:180%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 150%; left: 5%;" >{{ __('Requisitos') }}</div>
 
             <!-- ********************** PARTE DE DONDE SE AGREGA PARA LOS REQUISITOS ********************************-->
-            <div style="position: absolute;top: 153%; left: 5%; width: 70%;height:65%;background-color:#aaa">
+            <div style="position: absolute;top: 160%; left: 5%; width: 70%;height:65%;background-color:#aaa">
                 <p style="font-size:138%">{{('A) Certificado de Secundaria.')}}</p>
                 <p style="font-size:138%">{{('B) Acta de Nacimiento.')}}</p>
                 <p style="font-size:138%">{{('C) Curp.')}}</p>
@@ -189,7 +190,7 @@
                 <p style="font-size:138%">{{('H) Firmar de conformidad padres y alumno  en la hoja de solicitud de inscripción.')}}</p>
             </div>
 
-            <div style="position: absolute;top: 153%; left: 75%; width: 20%; height:65%;background-color:#aaa">
+            <div style="position: absolute;top: 160%; left: 75%; width: 20%; height:65%;background-color:#aaa">
                 <p><select id="A" name="A" value="No" required style="width: 18%;height: 9%; position: absolute;top: 0%;left:10%">
                     <option value="{{ old('A') }}">{{ old('A') }}</option>
                     <option selected value="Si">SI</option>

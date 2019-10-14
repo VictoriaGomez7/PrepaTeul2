@@ -165,7 +165,8 @@ class conductaController extends Controller
                 return view('conducta.alumnos',compact('datos'),compact('usua'));   
             }else{
 
-                return "no hay alumnos";
+                view('DocenteInterfazPrincipal.InterfazPrincipal',compact('usua'));
+                return back()->with('msjERR','No hay alumnos registrados.');
             }
             }
             return $materia2;

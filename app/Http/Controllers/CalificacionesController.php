@@ -13,7 +13,7 @@ use App\Periodo;
 use App\ft_bach;
 use App\Asistencia;
 use App\EstadisticaPeriodo;
-
+use Carbon\Carbon;
 
 class CalificacionesController extends Controller
 {
@@ -68,7 +68,6 @@ class CalificacionesController extends Controller
      */
     public function store(Request $request)
     {
-
         $PeriodoActivo=0;
         $Periodo1ini=Periodo::where('id','1')->get('fecha1');
         $Periodo1fin=Periodo::where('id','1')->get('fecha2');
@@ -98,23 +97,35 @@ class CalificacionesController extends Controller
         $NombreDoc=Docentes::where('Clave_D',$id)->get();
         $MateriasDelDocente=RelacionDocenteMateriaGrupo::where('Clave_D',$NombreDoc[0]->Nombre)->get();
 
-
         $AlumnoEnGrupo=Grupo::where('Grupo',$request->Grupo)->get();
-         if(isset($AlumnoEnGrupo)){
-           
-           $AlumnoEnGrupo=ft_bach::where('Formación_Trabajo',$request->Grupo)->get();      
+        //return $request->Grupo;
+        
+        if(count($AlumnoEnGrupo)==0){
+           $AlumnoEnGrupo=ft_bach::where('Formación_Trabajo',$request->Grupo)->get();
+           //return $AlumnoEnGrupo;
+           if (count($AlumnoEnGrupo)==0){
+                $AlumnoEnGrupo=ft_bach::where('Bachillerato',$request->Grupo)->get();
+                //return $AlumnoEnGrupo;
+           }
+           //return 'entro';     
         }
+        //return $AlumnoEnGrupo;
+        //return $request->ClaveMateriaSelec;
         $SemestreMateria=Materia_Grupo::where('Clave_M',$request->ClaveMateriaSelec)->where('Grupo',$request->Grupo)->get();
         $AlumnosEnMismoSemestre=array();
         $AlumnosAModificar=array();
-
+        //return $AlumnoEnGrupo;
         for ($i=0; $i < count($AlumnoEnGrupo); $i++) {
+            //return $AlumnoEnGrupo[$i]->Clave_A;
             $SemestreAlumno=Alumno::where('Clave_A',$AlumnoEnGrupo[$i]->Clave_A)->get('Semestre');
+            //return $SemestreMateria;
             if (($SemestreAlumno[0]->Semestre)==($SemestreMateria[0]->Semestre)) {
                 $AlumnoParaTabla=Alumno::where('Clave_A',$AlumnoEnGrupo[$i]->Clave_A)->get();
+                //return $AlumnoParaTabla;
                 array_push($AlumnosEnMismoSemestre,$AlumnoParaTabla );
             }
         }
+        //return $AlumnosEnMismoSemestre;
         if (count($AlumnosEnMismoSemestre)==0) {
             $visibility=0;
         } else {

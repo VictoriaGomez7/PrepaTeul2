@@ -106,7 +106,7 @@
 		}
 		$conn->close();
 	?> 
-	<h1>Estadisticas de genero</h1>
+	<h1>Estadísticas de género</h1>
 		@for($i=0;$i<count($Grupo);$i++ )
 			<div id="graficos">
 				<h2>Grupo:{{$Grupo[$i]}}</h2>

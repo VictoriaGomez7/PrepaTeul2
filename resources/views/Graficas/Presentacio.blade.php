@@ -8,7 +8,7 @@
             <br>
             <br>
             <br>
-            <MARQUEE style="font-size: 3.5em" BGCOLOR="#FF7070" SCROLLAMOUNT=20> No ha seleccionado ninguna estadistica ahun </MARQUEE>
+            <MARQUEE style="font-size: 3.5em" BGCOLOR="#FF7070" SCROLLAMOUNT=20> No ha seleccionado ninguna estadística aún. </MARQUEE>
         </div>
     </center>
   

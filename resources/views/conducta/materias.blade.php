@@ -13,21 +13,18 @@
 <body>
 
     
-        @if (session()->has('msj2'))
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-    <div class="alert alert-danger" role="alert">
+  @if (session()->has('msjERR'))
+    <div class="alert alert-success" role="alert" style="width: 50%; position:  relative;text-align: center; left: 25%;">
       <button type="button" class="close" data-dismiss="alert" >&times;</button>
-      <strong>¡Error! </strong>{{session('msj2')}}
+      <strong>¡Error! </strong>{{session('msjERR')}}
     </div>
   @endif
 
-   @if (session()->has('msj'))
-        <div class="alert alert-success" role="alert" style="width: 50%; position:  relative;text-align: center; left: 25%;">
-            <button class="close" data-dismiss="alert"><span>&times;</span></button>
-            <strong>¡Correcto! </strong>{{ session('msj') }}
-       {{session('msj')}}
-        </div>
+  @if (session()->has('msj'))
+    <div class="alert alert-success" role="alert" style="width: 50%; position:  relative;text-align: center; left: 25%;">
+        <button class="close" data-dismiss="alert"><span>&times;</span></button>
+        <strong>¡Correcto! </strong>{{ session('msj') }}
+    </div>
     @endif
  <section style="width: 100%; max-width: 100%; height:100%;max-height: 100%; background: #FFFFFF">
 
