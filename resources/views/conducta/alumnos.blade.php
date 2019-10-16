@@ -4,6 +4,7 @@
 
 @section('title','Carta buena conducta')
 
+
 @include('DocenteInterfazPrincipal.InterfazPrincipal')
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">

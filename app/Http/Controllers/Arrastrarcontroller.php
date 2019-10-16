@@ -386,9 +386,7 @@ class Arrastrarcontroller extends Controller
                     //return $Materias_all;
                 }
                 
-                
-                //return $Materias_all;
-                
+               
                 }
         }
         //return 'Fin';

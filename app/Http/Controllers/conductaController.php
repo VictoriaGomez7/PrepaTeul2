@@ -166,8 +166,10 @@ class conductaController extends Controller
                     $Vmsj=0;
                     return view('conducta.alumnos',compact('datos','usua','msj','Vmsj'));   
             }else{
+
                 view('DocenteInterfazPrincipal.InterfazPrincipal',compact('usua'));
             return back()->with('MsjERR','No hay alumnos registrados.');
+
             }
             }
             return $materia2;
