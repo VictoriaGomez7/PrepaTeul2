@@ -56,9 +56,12 @@ class ImprimeCartaController extends Controller
         $Alumno=Alumno::where("Clave_A",$r->cajaAlumno)->get();
         $area=ft_bach::where("Clave_A",$r->cajaAlumno)->get();
         $bachillerato="";
-        //return $Alumno[0]->Semestre;
+        
 
-        if ($Alumno[0]->Semestre!='SEXTO SEMESTRE'){
+        if (count($Alumno)==0){
+            return back()->with('MsjERR','El alumno ingresado no existe.');
+        }
+        else if ($Alumno[0]->Semestre!='SEXTO SEMESTRE'){
             return back()->with('MsjERR','Sólo a alumnos de sexto semestre les puede imprimir carta');
         }
         else{
