@@ -30,7 +30,7 @@ class VisualizarMateriaGrupoController extends Controller
             return redirect('/DocenteInicios?valor='.$usua)->with('MsjERR','No tiene materias asignadas');
         }
         else{
-            //return $usua;
+            
             view('DocenteInterfazPrincipal.InterfazPrincipal',compact('usua'));
             return view('VisualizarMaGru.VisualizarMateGrupo',compact('MateriasDelDocente','visibility','id','usua'));
         }
@@ -55,6 +55,7 @@ class VisualizarMateriaGrupoController extends Controller
      */
     public function store(Request $request)
     {
+
         $Materiasele=$request->MateriaSeleccionada;
         //return $Materiasele;
         $id=$request->idDocente;
@@ -65,7 +66,8 @@ class VisualizarMateriaGrupoController extends Controller
 
         $AlumnoEnGrupo=Grupo::where('Grupo',$request->Grupo)->get();
         $AlumnoEnGRupoSemestre=Materia_Grupo::where('Grupo',$request->Grupo)->get();
-        $SemestreMateria=Materia_Grupo::where('Clave_M',$request->ClaveM)->where('Grupo',$request->Grupo)->get();
+        $SemestreMateria=Materia_Grupo::where('Clave_M',$request->ClaveMateriaSelec)->where('Grupo',$request->Grupo)->get();
+
         
         $AlumnosEnMismoSemestre=array();
         //return $AlumnoEnGrupo;

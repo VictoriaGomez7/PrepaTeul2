@@ -18,7 +18,6 @@ class VisualizaListasController extends Controller
      */
     public function index()
     { 
-        
         $id=$_GET['valor'];
         $usua=$_GET['valor'];
         $otro_id=$id;
@@ -36,7 +35,7 @@ class VisualizaListasController extends Controller
      */
     public function create(Request $request)
     {
-        return $request;
+        //return $request;
         //return 'En el create:'. $request;
         //return $request['NombreM'].$request['NomDocente'];
         $id=$request['NomDocente']; //ESTE ESTA
@@ -244,7 +243,6 @@ class VisualizaListasController extends Controller
      */
     public function show($id)
     {
-        return $id;
         $usu=$id;
         $usua=$id;
         $Nom_Do=Docentes::where('Clave_D',$usu)->get('Nombre');

@@ -48,12 +48,14 @@ class conductaController extends Controller
         }
         $materias=DB::select("SELECT materias.Nombre ,materias.Semestre,materias.Clave_M,relacion_docente_materia_grupos.Grupo FROM materias,relacion_docente_materia_grupos WHERE materias.Clave_M=relacion_docente_materia_grupos.Clave_M and relacion_docente_materia_grupos.Clave_D= :docente   order by Semestre  " ,['docente'=>$nombreDocente]);
         $usua=$usua->valor;
-        
-       return view('conducta.materias',compact('materias'),compact('usua'));
+    
+        $msj='Se realizo la evaluacion de forma correcta';
+        $Vmsj=0;
+       return view('conducta.materias',compact('materias'),compact('usua','msj','Vmsj'));
        }else {
           $usua=$usua->valor;
-          
-            return view("DocenteInterfazPrincipal.InterfazPrincipal2",compact('usua'))->with('MsjERR','No es posible evaluar conducta en este momento    ');
+          view('DocenteInterfazPrincipal.InterfazPrincipal',compact('usua'));
+            return back()->with('MsjERR','No es posible evaluar conducta en este momento.');
           }   
     }
 
@@ -65,7 +67,7 @@ class conductaController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
       
@@ -101,11 +103,9 @@ class conductaController extends Controller
         }
 
 
-
             $alumnosEvaluados=DB::select("SELECT Clave_A, evaluacion FROM evaluacion_conductas WHERE Clave_M=:Clave_M and
                 Clave_D=:Clave_D and grupo=:grupo",['Clave_M'=>$claveMat ,'Clave_D'=>$usua ,'grupo'=>$grupo]);
 
-//            return $alumnosEvaluados;
 
     
          $alumnos=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A
@@ -124,7 +124,9 @@ class conductaController extends Controller
             }
 
          if(count($alumnos)>0){
-            return view('conducta.alumnos',compact('datos'),compact('usua'));   
+            $msj='Se realizo la evaluacion de forma correcta';
+            $Vmsj=0;
+            return view('conducta.alumnos',compact('datos','usua','msj','Vmsj'));   
          }else{
 
             $alumnos=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A
@@ -143,16 +145,15 @@ class conductaController extends Controller
             }
             
             if(count($alumnos)>0){
-                return view('conducta.alumnos',compact('datos'),compact('usua'));   
+                $msj=' ';
+                $Vmsj=0;
+                return view('conducta.alumnos',compact('datos','usua','msj','Vmsj'));    
             }else{
 
-                 $alumnos=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A
-            from alumnos    WHERE  (EXISTS (SELECT 1 from ft_baches
-        WHERE ft_baches.Clave_A=alumnos.Clave_A and ft_baches.Bachillerato=:grupo))
-                          AND alumnos.Semestre= :sem" ,['sem'=>$semestre , 'grupo'=>$grupo]);
-                    $datos = array();
-         array_push($datos,$alumnos);
-           array_push($datos,$mat);
+                $alumnos=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A from alumnos WHERE (EXISTS (SELECT 1 from ft_baches WHERE ft_baches.Clave_A=alumnos.Clave_A and ft_baches.Bachillerato=:grupo)) AND alumnos.Semestre= :sem" ,['sem'=>$semestre , 'grupo'=>$grupo]);
+            $datos = array();
+            array_push($datos,$alumnos);
+            array_push($datos,$mat);
             array_push($datos,$claveMat);
             array_push($datos,$semestre);
             array_push($datos,$grupo);
@@ -160,12 +161,13 @@ class conductaController extends Controller
                 array_push($datos,$alumnosEvaluados);
 
             }            
-                 if(count($alumnos)>0){
-                   
-                return view('conducta.alumnos',compact('datos'),compact('usua'));   
+                if(count($alumnos)>0){
+                    $msj=' ';
+                    $Vmsj=0;
+                    return view('conducta.alumnos',compact('datos','usua','msj','Vmsj'));   
             }else{
-
-                return "no hay alumnos";
+                view('DocenteInterfazPrincipal.InterfazPrincipal',compact('usua'));
+            return back()->with('MsjERR','No hay alumnos registrados.');
             }
             }
             return $materia2;
@@ -242,13 +244,10 @@ class conductaController extends Controller
             $evaluacion->evaluacion=$evaluacion1;
             $evaluacion->grupo=$grupo;
 
-         
-               
-
-
             if(!$evaluacion->save()){
-            
-                     return view('conducta.materias',compact('materias'),compact('usua'))->with('msj2','No se realizo la evaluacion' );
+                    $msj='No se realizó la evaluación';
+                    $Vmsj=2;
+                    return view('conducta.materias',compact('materias','usua','msj','Vmsj'));
             }   
          }
              $nombreDocentes=Docente::WHERE('Clave_D',$usua)->get();
@@ -259,8 +258,9 @@ class conductaController extends Controller
         }
 
             $materias=DB::select("SELECT materias.Nombre ,materias.Semestre,materias.Clave_M,relacion_docente_materia_grupos.Grupo FROM materias,relacion_docente_materia_grupos WHERE materias.Clave_M=relacion_docente_materia_grupos.Clave_M and relacion_docente_materia_grupos.Clave_D= :docente  order by Semestre  " ,['docente'=>$nombreDocente]);
-        
-       return view('conducta.materias',compact('materias'),compact('usua'))->with('msj','Se realizo la evaluacion de forma correcta' );
+        $msj='Se realizó la evaluación de forma correcta';
+        $Vmsj=1;
+       return view('conducta.materias',compact('materias','usua','msj','Vmsj'));
 
 
           

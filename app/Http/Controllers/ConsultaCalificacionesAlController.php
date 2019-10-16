@@ -16,7 +16,11 @@ class ConsultaCalificacionesAlController extends Controller
      */
     public function index(Request $request)
     {
-        $usua=$request->valor;
+        //return 'Aqui';
+
+        $usua=$_GET['valor'];
+
+        //$usua=$request->valor;
         $mat=Materia::all();
         $NombreDoc=Alumno::where('Clave_A',$request->valor)->get();
         $cali=CalificacionesParciales::where('Clave_A',$request->valor)->get();

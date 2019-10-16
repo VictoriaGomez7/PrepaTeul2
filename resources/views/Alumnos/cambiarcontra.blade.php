@@ -1,8 +1,9 @@
 @extends('layouts.app')
- @include('Alumnosinterfazprincipal.InterfazPrincipal')
+@include('Alumnosinterfazprincipal.InterfazPrincipal2')
 @section('content')
-<a href="http://127.0.0.1:8000/Alumnosinicio">
-            <button class="btn btn-success" style="position: absolute;top: 100%;left:75%">Cancelar</button></a>
+
+<a href="/Alumnoinicio?valor={{ ($usua)}}">
+  <button class="btn btn-success" style="position: absolute;top: 100%;left:75%">Cancelar</button></a>
 <html>
 <head>
 </head>

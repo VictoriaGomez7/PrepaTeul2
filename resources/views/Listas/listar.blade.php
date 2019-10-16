@@ -26,22 +26,12 @@
 
  <section style="width: 100%; max-width: 100%; height:100%;max-height: 100%; background: #FFFFFF">
 
-  <div class="card-header text-center" style="font-size:200%;width: 50%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 54%; left: 25%;" >Listar
+  <div class="card-header text-center" style="font-size:200%;width: 50%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 54%; left: 25%;" >Listas
   </div> <div style="position: absolute;top: 64%; left: 25%; width: 50%;height:50%; background-color:#aaa">
 
 {!! Form::open(['route'=>['Imprimelistas.show','a'],'method'=>'GET','files'=>false]) !!}     {{ csrf_field() }}
   <script type="text/javascript">
       function verifica(){
-        var opciones1=document.getElementsByName('grupoAB');
-        var resultado="";
-        for (var i =0; i<opciones1.length; i++) {
-          if(opciones1[i].checked){
-            resultado=opciones1[i].value;
-          }
-
-        }
-
-
 
         var opciones2=document.getElementsByName('semestre');
         var resultado2="";
@@ -69,17 +59,14 @@
          // alert(resultado2);
       }
     </script>
-    <label style="font-size:130%; position:  absolute;top: 10%; left: 4%" >
-          <input type="radio" id="opcion" name="grupos" class="with-gap" value="crear" required="true" onclick="verifica()">
-      <span>Grupos</span>
-    </label>
+    
       <label style="font-size:130%; position:  absolute;top: 25%; left: 4%" >
-          <input type="radio" id="opcion" name="grupos" class="with-gap" value="formacion" required="true" onclick="verifica()">
+          <input type="radio" id="opcion" name="grupos" class="with-gap" value="formacion" onclick="verifica()">
       <span>Formación Para El Trabajo</span>
     </label>
 
       <label style="font-size:130%; position:  absolute;top: 40%; left: 4%" >
-          <input type="radio" id="opcion" name="grupos" class="with-gap" value="bachillerato" required="true" onclick="verifica()">
+          <input type="radio" id="opcion" name="grupos" class="with-gap" value="bachillerato" onclick="verifica()">
       <span>Área Propedéutica</span>
     </label>
 

@@ -114,7 +114,7 @@
         $conn->close();
     ?> 
 
-    <h1>Estadisticas por periodo</h1>
+    <h1>Estadísticas por periodo</h1>
         @for($i=0;$i<count($Grupo);$i++ )
 
             <div id="graficos">

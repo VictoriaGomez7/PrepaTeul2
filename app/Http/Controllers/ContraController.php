@@ -14,7 +14,7 @@ class ContraController extends Controller
      */
     public function index(Request $request)
     {
-      $usua=$request->valor;
+        $usua=$request->valor;
         return view('Alumnos.cambiarcontra',compact('usua'));
     }
 

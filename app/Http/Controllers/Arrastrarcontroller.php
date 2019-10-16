@@ -107,7 +107,6 @@ class Arrastrarcontroller extends Controller
                             array_push($Grupo_M,$datoG);
                         }
                     }
-
                     if (count($Materias)==0){
                         return redirect('/ControlEscolarInicio')->with('MsjERR','Todas las materias han sido asignadas');
                     }
@@ -192,7 +191,7 @@ class Arrastrarcontroller extends Controller
                             array_push($Grupo_M,$datoG);
                         }
                     }
-
+                    //return $Materias;
                     if (count($Materias)==0){
                         return redirect('/ControlEscolarInicio')->with('MsjERR','Todas las materias han sido asignadas');
                     }
@@ -224,7 +223,7 @@ class Arrastrarcontroller extends Controller
      */
     public function store(Request $request)
     {
-
+        //return $request;
         $arreglo1=array();
         $var=($request->Arreglo).",";
         $tam=strlen($var);
@@ -356,20 +355,43 @@ class Arrastrarcontroller extends Controller
                             }
                         }
                     }
-                //return $nueva_materiaasignada.$nuevo_grupo;
+                //return $nueva_materiaasignada;
                 $materiaasignada=$nueva_materiaasignada;
+                //return $nuevo_grupo;
+                if ($nuevo_grupo=='A' or $nuevo_grupo=='B'){
+                    $Materias_all= Materia::where('Nombre',$materiaasignada)->get('Clave_M');
+                }
+                else{
 
-                $Materias_all= Materia::where('Nombre',$materiaasignada)->get('Clave_M');
+                    $Materias_all= Materia::where('Nombre',$materiaasignada)->where('Bachillerato',$nuevo_grupo)->get('Clave_M');
+                    if (count($Materias_all)==0){
                 
-                //return 'aqui';
-                $Relacion=new RelacionDocenteMateriaGrupo();
-                $Relacion->Clave_M=$Materias_all[0]->Clave_M;
-                $Relacion->Materia=$materiaasignada;
-                $Relacion->Clave_D=$docenteselec;
-                $Relacion->Grupo=$nuevo_grupo;
-                $Relacion->save();
+                        $Materias_all= Materia::where('Nombre',$nuevo_grupo)->where('Tipo','Formación Para El Trabajo')->get('Clave_M');
+                        
+                        $Relacion=new RelacionDocenteMateriaGrupo();
+                        $Relacion->Clave_M=$Materias_all[0]->Clave_M;
+                        $Relacion->Materia='Formación Para El Trabajo';
+                        $Relacion->Clave_D=$docenteselec;
+                        $Relacion->Grupo=$nuevo_grupo;
+                        $Relacion->save();
+                    }
+                    else{
+                        $Relacion=new RelacionDocenteMateriaGrupo();
+                        $Relacion->Clave_M=$Materias_all[0]->Clave_M;
+                        $Relacion->Materia=$materiaasignada;
+                        $Relacion->Clave_D=$docenteselec;
+                        $Relacion->Grupo=$nuevo_grupo;
+                        $Relacion->save();
+                    }
+                    //return $Materias_all;
+                }
+                
+                
+                //return $Materias_all;
+                
                 }
         }
+        //return 'Fin';
         return Redirect('ControlEscolarInicio')->with('msj','Datos guardados con éxito.');
 
     }

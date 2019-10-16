@@ -1,35 +1,34 @@
 <!DOCTYPE html>
-<html>
 
+@extends('layouts.app')
+
+@section('title','Carta buena conducta')
+
+@include('DocenteInterfazPrincipal.InterfazPrincipal')
+
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-     <script src="http://code.jquery.com//jquery.js"></script>
-        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <body>
 
-          {{--@include('interfazprincipal.image')--}}
-          @include('DocenteInterfazPrincipal.InterfazPrincipal')
-    </head>
-<body>
-
-     @if (session()->has('MsjERR'))
-     <script type="text/javascript">
-       alert("¡ERROR");
-     </script>
-        <div class="alert alert-danger" role="alert" style="width: 90%; position:  absolute;top: 45%; left: 5%;z-index: 1;">
-            <button class="close" data-dismiss="alert"><span>&times;</span></button>
-            <strong>¡ERROR! </strong>{{ session('MsjERR') }}
-        </div>
-    @endif
-
+  @if ($Vmsj==1)
+    <div class="alert alert-danger" role="alert" style="width: 90%; position:  absolute;top: 45%; left: 5%;z-index: 1;">
+      <button class="close" data-dismiss="alert"><span>&times;</span></button>
+        <strong>¡ERROR! </strong>{{ ($msj) }}
+    </div>
+  @endif
 
  <section style="width: 100%; max-width: 100%; height:100%;max-height: 100%; background: #FFFFFF">
 
-        <div class="card-header text-center" style="font-size:120%;width: 60%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 42.5%; left: 25%;" > 
+        <div class="card-header text-center" style="font-size:120%;width: 60%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 25%;" > 
           {{ __($datos[3].' '.$datos[2].' '.$datos[1].' '.$datos[4]) }}
 
 
-           </div> <div style="position: absolute;top: 52%; left: 25%; width: 60%; background-color:#aaa">
+           </div> <div style="position: absolute;top: 62%; left: 25%; width: 60%; background-color:#aaa">
             
             <br><center>
                {!!Form::open(['route' => ['EvaluacionConducta.update'  ,$usua.'^'.$datos[2].'^'.$datos[3].'^'.$datos[4] ],'method'=>'PUT'])!!}
@@ -46,10 +45,6 @@
                $numero=0;
                $numero2=0;
             if(count($datos)>0){
-
-
-
-            
             foreach ($datos[0] as $alumno) {
 
                 ?>

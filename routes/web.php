@@ -86,6 +86,10 @@ Route::get('/Alumnosinicio', function () {
     return view('Alumnosinterfazprincipal.InterfazPrincipal');
 });
 
+Route::get('/Alumnoinicio', function () {
+    return view('Alumnosinterfazprincipal.InterfazPrincipal2');
+});
+
 Route::get('/periodos' ,function(){
     return view('Periodos.create');
 });
@@ -192,3 +196,6 @@ Route::resource('ImprimeBoletasParciales', 'BoletasParcialesController');
 
 //ruta para generar kardex
 Route::resource('ImprimirKardex', 'KaredexController');
+
+Route::resource('ImprimeCarta','ImprimeCartaController');
+

@@ -8,7 +8,7 @@
 
 		<div class="alert alert-danger" role="alert">
 			<button type="button" class="close" data-dismiss="alert" >&times;</button>
-			<strong>¡¡Error!!</strong>{{session('msj')}}
+			<strong>¡Error! </strong>{{session('msj')}}
 		</div>
 	@endif
 		<style>
