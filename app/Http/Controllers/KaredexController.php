@@ -25,20 +25,28 @@ class KaredexController extends Controller
         //return $CL_A;
         $NombreA=Nombrealumno::where('Clave_A', $CL_A)->get();
         //return $NombreA;
-        $infoA=Alumno::where('Clave_A', $request->id)->get();
-        //return $infoA;
-        $bachi=ft_bach::where('Clave_A', $request->id)->get();
-        //return $bachi;
+        if (count($NombreA)==0)
+        {
 
-        $kard=Kardex::where('Clave_A', $request->id)->get();
-        //return $kard;
-        
-        $Grup=Grupo::where('Clave_A', $request->id)->get();
-        
-        $pdf= PDF::loadView('Alumnos.PDFKARDEX',compact('NombreA','infoA','Grup','bachi','kard'));
-        return $pdf->stream();
-        
+            return back()->with('msj','EL estudiante no existe' );
+        }
+        else
+        {
+            $infoA=Alumno::where('Clave_A', $request->id)->get();
+            //return $infoA;
+            $bachi=ft_bach::where('Clave_A', $request->id)->get();
+            //return $bachi;
+
+            $kard=Kardex::where('Clave_A', $request->id)->get();
+            //return $kard;
+            
+            $Grup=Grupo::where('Clave_A', $request->id)->get();
+            
+            $pdf= PDF::loadView('Alumnos.PDFKARDEX',compact('NombreA','infoA','Grup','bachi','kard'));
+            return $pdf->stream();
+            
         //return view('Alumnos.PDFKARDEX',compact('NombreA','infoA','Grup','bachi','kard'));
+        }
     }
 
     /**

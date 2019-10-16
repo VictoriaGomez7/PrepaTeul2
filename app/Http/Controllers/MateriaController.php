@@ -590,7 +590,7 @@ class MateriaController extends Controller
               $matgrup->save();
 
               //return $materia;
-              return redirect('/ControlEscolarInicio')->with('msj','Materia Registrada Correctamente');
+              return redirect('/RegistraMateria')->with('msj','Materia Registrada Correctamente');
           }
           else{
             //return 'por aqui';
@@ -607,7 +607,7 @@ class MateriaController extends Controller
               $matgrup->Grupo=$request['formacion'];
               $matgrup->Semestre=$request['semestre'];
               $matgrup->save();
-              return redirect('/ControlEscolarInicio')->with('msj','Materia Registrada Correctamente');
+              return redirect('/RegistraMateria')->with('msj','Materia Registrada Correctamente');
           }
           else{
             return back()->with('msj','El semestre seleccionado no coincide para el tipo de materia.' );
@@ -626,7 +626,7 @@ class MateriaController extends Controller
           $matgrup->Grupo='B';
           $matgrup->Semestre=$request['semestre'];
           $matgrup->save();
-          return redirect('/ControlEscolarInicio')->with('msj','Materia Registrada Correctamente');
+          return redirect('/RegistraMateria')->with('msj','Materia Registrada Correctamente');
         }
       }
 

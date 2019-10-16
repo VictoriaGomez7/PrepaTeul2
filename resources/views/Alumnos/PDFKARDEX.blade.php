@@ -1,3 +1,10 @@
+@if (session()->has('msj'))
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <div class="alert alert-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert" >&times;</button>
+      <strong>¡Error!</strong>{{session('msj')}}
+    </div>
+@endif
 {{--<style media="screen">
 
 
@@ -38,7 +45,7 @@ th {
         <h3 style="position: absolute;top: 135px;left: 100px">KÁRDEX DEL ALUMNO DE EDUCACIÓN MEDIA SUPERIOR</h3>
         <br>
       </center>
-        <p style="position: absolute;top: 175px;left: 10px"><font size="2">ESCULEA PREPARATORIA ESTATAL "GONZÁLES ORTEGA"</font></p>
+        <p style="position: absolute;top: 175px;left: 10px"><font size="2">ESCULEA PREPARATORIA ESTATAL "GONZÁLEZ ORTEGA"</font></p>
         <p style="position: absolute;top: 160px;left: 550px"><font size="2">32EBH0011K</font></p>
 
         <p style="position: absolute;top: 160px;left: 10px">_____________________________________________________________________________________</p>

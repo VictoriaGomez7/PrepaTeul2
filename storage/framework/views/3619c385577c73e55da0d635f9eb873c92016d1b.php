@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <a href="ControlEscolarInicio">
-            <button class="btn btn-success" style="position: absolute;top: 115%;left:65%">Cancelar</button></a>
+            <button class="btn btn-success" style="position: absolute;top: 117%;left:65%">Cancelar</button></a>
 
 
 
@@ -18,13 +18,23 @@
 
                 document.getElementById("bachillerato").disabled = true;
             }
+
+             if (valor=="Formación Para El Trabajo"){
+                document.getElementById("formacion").disabled = false;
+            }
+
+
+            else{
+
+                document.getElementById("formacion").disabled = true;
+            }
            }
     </script>
 
 
         <?php if($errors->any()): ?>
             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <div class="alert alert-danger" role="alert" style="width: 50%; position:  absolute;top: 43%; left: 25%;z-index: 1;">
+                <div class="alert alert-danger" role="alert" style="width: 80%; position:  absolute;top: 43%; left: 10%;z-index: 1;">
                         <button class="close" data-dismiss="alert"><span>&times;</span></button>
                         <strong>¡Error! </strong><?php echo e($error); ?>
 
@@ -33,7 +43,7 @@
         <?php endif; ?>
 
         <?php if(session()->has('msj')): ?>
-            <div class="alert alert-success" role="alert" style="width: 50%; position:  absolute;top: 43%; left: 25%;z-index: 1;">
+            <div class="alert alert-success" role="alert" style="width: 80%; position:  absolute;top: 43%; left: 10%;z-index: 1;">
                 <button class="close" data-dismiss="alert"><span>&times;</span></button>
                 <strong>¡Correcto! </strong><?php echo e(session('msj')); ?>
 
@@ -41,7 +51,7 @@
         <?php endif; ?>
 
         <?php if(session()->has('msjERROR')): ?>
-            <div class="alert alert-danger" role="alert" style="width: 50%; position:  absolute;top: 43%; left: 25%;z-index: 1;">
+            <div class="alert alert-danger" role="alert" style="width: 80%; position:  absolute;top: 43%; left: 10%;z-index: 1;">
                 <button class="close" data-dismiss="alert"><span>&times;</span></button>
                 <strong>¡Error! </strong><?php echo e(session('msjERROR')); ?>
 
@@ -49,21 +59,22 @@
         <?php endif; ?>
 
 
-        <div class="card-header text-center" style="font-size:200%;width: 50%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 25%;" ><?php echo e(__('Registrar Materias')); ?></div> <!-- text-center ES PARA CENTRA EL TEXTO -->
+        <div class="card-header text-center" style="font-size:200%;width: 80%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 50%; left: 10%;" ><?php echo e(__('Registrar Materias')); ?></div> <!-- text-center ES PARA CENTRA EL TEXTO -->
          <?php echo Form::open(['route' => ['materia.create'],'method'=>'GET']); ?>
 
-        
+         
 
             <?php echo csrf_field(); ?>
 
-            <div style="position: absolute;top: 62%; left: 25%; width: 50%;height:50%; background-color:#aaa">
+            <div style="position: absolute;top: 60%; left: 10%; width: 80%;height:55%; background-color:#aaa">
 
                 <p style="font-size:130%; position:  absolute;top: 10%; left: 5%"><?php echo e(('Nombre:')); ?></p>
                 <p style="font-size:130%; position:  absolute;top: 25%; left: 5%"><?php echo e(('Tipo:')); ?></p>
-                <p style="font-size:130%; position:  absolute;top: 38%; left: 5%"><?php echo e(('Área')); ?></p>
-                <p style="font-size:130%; position:  absolute;top: 44%; left: 5%"><?php echo e(('Propedéutica:')); ?></p>
-                <p style="font-size:130%; position:  absolute;top: 57%; left: 5%"><?php echo e(('Semestre:')); ?></p>
-                <p style="font-size:130%; position:  absolute;top: 72%; left: 5%"><?php echo e(('Horas:')); ?></p>
+                <p style="font-size:130%; position:  absolute;top: 38%; left: 5%"><?php echo e(('Formación Para El Trabajo:')); ?></p>
+              
+                <p style="font-size:130%; position:  absolute;top: 57%; left: 5%"><?php echo e(('Área Propedéutica:')); ?></p>
+                <p style="font-size:130%; position:  absolute;top: 70%; left: 5%"><?php echo e(('Semestre:')); ?></p>
+                <p style="font-size:130%; position:  absolute;top: 88%; left: 5%"><?php echo e(('Horas:')); ?></p>
 
                 <p><input type="text" placeholder="Matemáticas I" value="<?php echo e(old('nombre')); ?>" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="nombre" name="nombre" style="font-size:105%; width:65%; position:  absolute;top: 10%; left: 30%"/></p>
 
@@ -74,7 +85,15 @@
                             <option value="Actividades Paraescolares">Actividades Paraescolares</option>
                             <option value="Formación Básica" selected>Formación Básica</option>
                       </select>
-                <select name="bachillerato" id="bachillerato" required style="font-size:110%;width: 65%; position:  absolute;top: 42%; left: 30%" disabled="true">
+                        <select name="formacion" id="formacion" required style="font-size:110%;width: 65%; position:  absolute;top: 42%; left: 30%" disabled="true">
+                            <option value="<?php echo e(old('formacion')); ?>"><?php echo e(old('formacion')); ?></option>
+                            <option value="Higiene y Salud Comunitaria">Higiene y Salud Comunitaria</option>
+                            <option value="Turismo">Turismo</option>
+                            <option value="Actividades Paraescolares">Informatica</option>
+                          
+                      </select>
+
+                <select name="bachillerato" id="bachillerato" required style="font-size:110%;width: 65%; position:  absolute;top: 59%; left: 30%" disabled="true">
                             <option value="<?php echo e(old('tipo')); ?>"><?php echo e(old('tipo')); ?></option>
                             <option value="Químico Biológica">Químico-Biológica</option>
                             <option value="Físico Matemática">Físico-Matemática</option>
@@ -82,7 +101,7 @@
                             <option value="Económico Administrativa">Económico-Administrativa</option>
                       </select>
 
-                <select name="semestre" required style="font-size:110%;width: 65%;;position: absolute;top:59%; left:30%;">
+                <select name="semestre" required style="font-size:110%;width: 65%;;position: absolute;    top:74%; left:30%;">
                             <option value="<?php echo e(old('semestre')); ?>"><?php echo e(old('semestre')); ?></option>
                             <option value="PRIMER SEMESTRE" selected>PRIMER SEMESTRE</option>
                             <option value="SEGUNDO SEMESTRE">SEGUNDO SEMESTRE</option>
@@ -91,13 +110,13 @@
                             <option value="QUINTO SEMESTRE">QUINTO SEMESTRE</option>
                             <option value="SEXTO SEMESTRE">SEXTO SEMESTRE</option>
                       </select>
-                <p><input type="number" placeholder="1" value="<?php echo e(old('horas')); ?>" required min="1" max="12" id="horas" name="horas" style="font-size:105%; width: 65%; position:  absolute;top: 74%; left: 30%"/></p>
+                <p><input type="number" placeholder="1" value="<?php echo e(old('horas')); ?>" required min="1" max="12" id="horas" name="horas" style="font-size:103%; width: 65%; position:  absolute;top:88%; left: 30%"/></p>
 
 
             </div>
 
 
-        <?php echo Form::submit('Registrar',['class'=>'btn btn-primary', 'style'=>'position: absolute;top: 115%;left:55%']); ?>
+        <?php echo Form::submit('Registrar',['class'=>'btn btn-primary', 'style'=>'position: absolute;top: 117%;left:55%']); ?>
 
         <?php echo Form::close(); ?>
 

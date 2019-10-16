@@ -83,6 +83,7 @@
 						<ul class="submenu">
 							<li><a href="http://127.0.0.1:8000/Imprimelistas">Listas</a></li>
 							<li><a href="http://127.0.0.1:8000/ImprimeBoletasParciales">Boletas Parciales</a></li>
+							<li><a href="http://127.0.0.1:8000/ImprimeCarta">Carta de Buena Conducta</a></li>
 						</ul>
 					</li>
                     <li><a href="#" >Control Escolar</a>

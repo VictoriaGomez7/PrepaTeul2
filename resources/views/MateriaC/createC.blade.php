@@ -9,11 +9,21 @@
 @section('frameTitulo')
 
    @if (session()->has('msj'))
-        <div class="alert alert-success" role="alert" style="width: 50%; position:  relative;text-align: center; left: 25%;">
+        <div class="alert alert-success" role="alert" style="width: 50%; position:  absolute;top:43%; left: 10%;z-index: 1;">
             <button class="close" data-dismiss="alert"><span>&times;</span></button>
             <strong>¡Correcto! </strong>{{ session('msj') }}
         </div>
     @endif
+
+    {{--
+    @if (session()->has('msj'))
+            <div class="alert alert-success" role="alert" style="width: 80%; position:  absolute;top: 43%; left: 10%;z-index: 1;">
+                <button class="close" data-dismiss="alert"><span>&times;</span></button>
+                <strong>¡Correcto! </strong>{{ session('msj') }}
+            </div>
+        @endif
+
+      --}}
 
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
