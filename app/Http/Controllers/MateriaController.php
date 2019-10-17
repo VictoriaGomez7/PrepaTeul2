@@ -652,11 +652,12 @@ class MateriaController extends Controller
             //Extraer el nombre se la materia en una variable($Nombremat)
             $Nombremat=utf8_decode($r['Nombre']);
             //Extraer el tipo de materia en una varible ($Tipomat)
-            $Tipomat=$r['tipo'];
+            $Tipomat=$r['Tipo'];
             $Clavemat='';
             //Separar por palabras el nombre
             $Nombrediv = explode(" ", $Nombremat);
             //Saber el tipo a guardar
+            
             switch ($Tipomat) {
               case 'Formación Básica':
                 $Clavemat=$Clavemat.'FB-';
@@ -680,6 +681,8 @@ class MateriaController extends Controller
                 break;
               case 'Formación Para El Trabajo':
                     $Clavemat=$Clavemat.'FT-';
+                     $Nombremat=utf8_decode($r['formacion']);
+                 $Nombrediv=explode(" ", $Nombremat) ;  
                 break;
 
               default:
@@ -712,6 +715,7 @@ class MateriaController extends Controller
                     break;
                 }
               }
+              return $Clavemat;
             }
 
             //Si son dos palabras
@@ -1219,7 +1223,7 @@ class MateriaController extends Controller
           if ($r->Semestre=="TERCER SEMESTRE" or $r->Semestre=="CUARTO SEMESTRE" or $r->Semestre=="QUINTO SEMESTRE" or $r->Semestre=="SEXTO SEMESTRE") {
                $materia->Clave_M=$Clavemat;
               $materia->Tipo=$r['Tipo'];
-              $materia->Nombre=$r['Nombre'];
+              $materia->Nombre=$r['formacion'];
               $materia->Semestre=$r['Semestre'];
               $materia->Bachillerato=$r['Bachillerato'];
               $materia->Horas=$r['Horas'];
@@ -1364,10 +1368,28 @@ class MateriaController extends Controller
                     }
             }
             //return $re;
-            $materias=Materia::where([['Clave_M',$re->claveOriginal]])->get();
+          $materias=Materia::where([['Clave_M',$re->claveOriginal]])->get();
+            $opcionesFormacion="";
             foreach ($materias as $materia) {
               # code...
-               return view('materias.modificar' ,compact('materia','opciones','opciones2'));
+                if($materia->Nombre=="Turismo"){
+                  $opcionesFormacion='<option value="Higiene y Salud Comunitaria">Higiene y Salud Comunitaria</option>
+                            <option value="Turismo" selected="true">Turismo</option>
+                            <option value="Informatica">Informatica</option>';
+
+                }else  if($materia->Nombre=="Higiene y Salud Comunitaria"){
+                  $opcionesFormacion='<option value="Higiene y Salud Comunitaria" selected="true">Higiene y Salud Comunitaria</option>
+                            <option value="Turismo" >Turismo</option>
+                            <option value="Informatica">Informatica</option>';
+
+                }else  if($materia->Nombre=="Informatica"){
+                  $opcionesFormacion='<option value="Higiene y Salud Comunitaria" selected="true">Higiene y Salud Comunitaria</option>
+                            <option value="Turismo" >Turismo</option>
+                            <option value="Informatica" selected="true">Informatica</option>';
+
+                }
+               
+               return view('materias.modificar' ,compact('materia','opciones','opciones2' ,'opcionesFormacion'));
             }
 
          }
