@@ -107,6 +107,7 @@ class ImprimeCartaController extends Controller
             }
             $pdf= PDF::loadView('conducta.vistaDocumento' ,compact('dato'));
             return $pdf->stream();
+           //return view('conducta.vistaDocumento' ,compact('dato'));
         }
             
     }   
