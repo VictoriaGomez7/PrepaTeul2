@@ -77,7 +77,7 @@
 							<li><a href="http://127.0.0.1:8000/grupos">Crear Grupos</a></li>
 							<li><a href="http://127.0.0.1:8000/Asigna">Materias a los Docentes</a></li>
 							<li><a href="http://127.0.0.1:8000/Periodos">Periodos</a></li>
-							<li><a href="http://127.0.0.1:8000/Estadisticas">Estadisticas</a></li>
+							<li><a href="http://127.0.0.1:8000/Estadisticas">Estadísticas</a></li>
 							<li><a href="http://127.0.0.1:8000/Cerrar_Semestre">Cerrar Ciclo</a></li>
 							
 						</ul>
@@ -92,7 +92,7 @@
 					</li>
                     <li><a href="#" >Control Escolar</a>
 						<ul class="submenu">
-							<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESION</a>
+							<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESIÓN</a>
 						</ul>
 					</li>
 			</ul>

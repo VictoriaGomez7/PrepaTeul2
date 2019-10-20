@@ -23,9 +23,7 @@
 	<section style="background: #aaa; width:20%; height: 42%; position: absolute; top: 58%; left: 5%; overflow-y: scroll; text-align:  center;">
 
 		@foreach($MateriasDelDocente as $MateriasDelDocent)
-			<!--<?php print_r($MateriasDelDocent->Materia); ?>-->
-
-
+			
 			{!!Form::open(['route' => ['VisualizaMaGr.store'],'method'=>'POST'])!!}
 			<input type="submit" value="{{$MateriasDelDocent->Materia." ".$MateriasDelDocent->Grupo}}" name="MateriaSeleccionada" class="NombreMateria" style="background-color: #85C1E9; border: 2px solid #0000000; width: 200px;height: 40px; margin: 5px;" readonly>
 			<input type="hidden" value="{{$MateriasDelDocent->Clave_M}}" name="ClaveMateriaSelec" >
@@ -47,15 +45,19 @@
 		<div class="card-header text-center" style="font-size:100%;width: 70%; height:50%; background: white; overflow-y: scroll; color: rgb(212, 172, 13); position:  absolute;top: 58%; left: 25%;" >
 			<table  id="alumn" class="table" style="width: 100%">
 		        <tr style="font-size:120%">
+		        	<th  align="center">Número</th>
 		          <th  align="center" style="width:2%">{{ ('Matrícula') }}</th>
 		          <th  align="center">{{ ('Alumno') }}</th>
 		        </tr>
-		        	<?php $contador=0;?>
+		        	<?php $contador=0;
+		        		$c=1;?>
 		        @foreach($AlumnosEnMismoSemestre as $AlumnosEnMismoSemestr)
 		          <tr>
+		          	<td>{{$c}}</td>
 		            <td>{{ $AlumnosEnMismoSemestr[$contador]->Clave_A }}</td>
 		            <td >{{ $AlumnosEnMismoSemestr[$contador]->Nombre_A}}</td>
 		          </tr>
+		          <?php $c+=1 ?>
 		         @endforeach
 		    </table>
 		</div>

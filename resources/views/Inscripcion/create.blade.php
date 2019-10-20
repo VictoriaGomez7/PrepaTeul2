@@ -157,14 +157,14 @@
             <div style="position: absolute;top: 122%; left: 5%; width: 90%;height:16%;background-color:#aaa">
                 <p style="font-size:138%">{{('Formación para el Trabajo:')}}</p>
                 <p style="font-size:138%">{{('Bachillerato:')}}</p>
-                <select name="ft1" id="ft1" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  disabled="true">
+                <select required name="ft1" id="ft1" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  disabled="true">
                             <option value="{{ old('Grado') }}">{{ old('Grado') }}</option>
                             <option value="Informática">Informática</option>
                             <option value="Turismo">Turismo</option>
                             <option value="Higiene y Salud Comunitaria">Higiene y Salud Comunitaria</option>
                       </select>
 
-                <select name="bach1" id="bach1" style="font-size:110%;width: 26.5%; position:  absolute;top: 53%; left: 22%" disabled="true">
+                <select name="bach1" id="bach1" style="font-size:110%;width: 26.5%; position:  absolute;top: 53%; left: 22%" disabled="true" required>
                             <option value="{{ old('Grado') }}">{{ old('Grado') }}</option>
                             <option value="Químico Biológica">Químico-Biológica</option>
                             <option value="Físico Matemática">Físico-Matemática</option>

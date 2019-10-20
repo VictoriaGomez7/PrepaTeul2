@@ -38,26 +38,23 @@
       </thead>
         <tbody>
           <?php $Cont=0; ?>
-          @foreach($ObtenerIrregulares as $alumno)
-          <tr>
-            {!!Form::open(['route' => ['Irregulares.store'],'method'=>'POST'])!!}
-            <td align="justify">{{ $alumno->Clave_A }}</td>
-            <input type="hidden" name="Clave_A" value="{{$alumno->Clave_A }}">
-            <td align="justify">{{ $Listado_Nombres_Alumnos[$Cont] }}</td>
-            <td align="justify">{{ $Cantidad_Materias_Reprobadas[$Cont]}}</td>
+          @foreach($Listado_Matriculas_Alumnos as $alumno)
+            <tr>
+              {!!Form::open(['route' => ['Irregulares.store'],'method'=>'POST'])!!}
+              <td align="justify">{{ $alumno}}</td>
+              <input type="hidden" name="Clave_A" value="{{$alumno}}">
+              <td align="justify">{{ $Listado_Nombres_Alumnos[$Cont] }}</td>
+              <td align="justify">{{ $Cantidad_Materias_Reprobadas[$Cont]}}</td>
 
-            
-            <td>{!!Form::submit('Ver',['class'=>'btn btn-primary'])!!}</td>
-            {!! Form::close()!!}
+              <td>{!!Form::submit('Ver',['class'=>'btn btn-primary'])!!}</td>
+              {!! Form::close()!!}
 
-          </tr>
+            </tr>
           <?php $Cont+=1; ?>
           @endforeach
         </tbody>
 
     </table>
-
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>

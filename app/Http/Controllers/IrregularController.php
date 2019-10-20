@@ -72,7 +72,7 @@ class IrregularController extends Controller
                 }
                 //return $Listado_Nombres_Alumnos;
             }
-            //return $Listado_Grupos;
+            //return count($ObtenerIrregulares) ;
             return view('Irregular.Mostrar',compact('ObtenerIrregulares','Listado_Nombres_Alumnos','Cantidad_Materias_Reprobadas','Listado_Semestres','Listado_Grupos','Listado_Matriculas_Alumnos'));
     }
 
@@ -97,7 +97,7 @@ class IrregularController extends Controller
                 $Materia->Fecha=$request->Fecha;
 
                 $Materia->save();
-                if($request->$verificado>=7){
+                if($request->$verificado>=6){
                     $Opo=IrregularMateria::where('Clave_M',$Materia->Clave_M)->get();
                     //return $Opo;
                     $Oportunidad=$Opo[0]->Oportunidades+1;

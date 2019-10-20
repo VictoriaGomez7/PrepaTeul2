@@ -28,16 +28,12 @@
 						<li><a href ="http://127.0.0.1:8000/EvaluacionConducta?valor={{ ($usua) }}">Evaluación de conducta</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Asistencias</a>
-						<ul class="submenu">
-						<li><a href ="http://127.0.0.1:8000/Asistencias?valor={{ ($usua) }}">Capturar</a></li>
-					</ul>
 				<?php use App\Docentes;
 					$Docente=Docentes::where('Clave_D',$usua)->get('Nombre');
 				?>
-				<li style="left: 40%;"><a  href="#" >Docente: {{$Docente[0]->Nombre}}</a>
+				<li style="left: 45%;"><a  href="#" >Docente: {{$Docente[0]->Nombre}}</a>
 					<ul class="submenu">
-						<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESION</a>
+						<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESIÓN</a>
 					</ul>
 				</li>
 
