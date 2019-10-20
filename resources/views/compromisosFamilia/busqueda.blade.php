@@ -2,7 +2,9 @@
 @extends('layouts.app')
  <meta name="viewport" content="width=divice-width,user-scalable=no,initial-scale=1, maximum-scale=1, minimum-scale=1">
   <center>
-    <h2> Nuestros Compromisos Como Familia</h2>
+  <div style="width: 80%; height: 50px; background: #000080; color: rgb(212, 172, 13);">  <h2> Nuestros Compromisos Como Familia</h2></div>
+  <div style=" width: 80%; background-color:#aaa">
+
   
    @include('compromisosFamilia.mostrar')
   {!! Form::open(['route'=>'compromisosFamilia.store','method'=>'POST','files'=>true]) !!}
@@ -25,6 +27,9 @@
             <input type="submit" name="editar" class="btn btn-primary" value="Editar">
   				<input type="submit" name="eliminar" class="btn btn-primary" value="Eliminar">
  		</td></div>
-    
+    <br>
   	{!! form::close() !!}
+    <br>
+    <div style=" width: 80%; background-color:#aaa">
+<br>
 </center>

@@ -12,9 +12,12 @@
 <body>
 
 	<center>
-		<h2> Mis compromisos como estudiante:</h2>
+		 <div style="width: 80%;  background: #000080; color: rgb(212, 172, 13);"> <label for="compromiso"  ><h2> Mis compromisos como estudiante:</h2></label>
+		 </div>
+	<div style=" width: 80%; background-color:#aaa">
 
 	@include('compromisos.mostrar')
+	<br>
 
 	@if(!session('status1'))
 		@include('compromisos.reinscripcionCompromisos')
@@ -25,6 +28,8 @@
 		@include('compromisos.busqueda')
 
 	@endif
+</div>
+<br>
 	</center>
 </body>
 
