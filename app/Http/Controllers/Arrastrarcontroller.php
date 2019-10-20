@@ -375,18 +375,17 @@ class Arrastrarcontroller extends Controller
                         $Relacion->Grupo=$nuevo_grupo;
                         $Relacion->save();
                     }
-                    else{
-                        $Relacion=new RelacionDocenteMateriaGrupo();
-                        $Relacion->Clave_M=$Materias_all[0]->Clave_M;
-                        $Relacion->Materia=$materiaasignada;
-                        $Relacion->Clave_D=$docenteselec;
-                        $Relacion->Grupo=$nuevo_grupo;
-                        $Relacion->save();
-                    }
                     //return $Materias_all;
                 }
                 
-               
+                
+                //return $Materias_all;
+                $Relacion=new RelacionDocenteMateriaGrupo();
+                $Relacion->Clave_M=$Materias_all[0]->Clave_M;
+                $Relacion->Materia=$materiaasignada;
+                $Relacion->Clave_D=$docenteselec;
+                $Relacion->Grupo=$nuevo_grupo;
+                $Relacion->save();
                 }
         }
         //return 'Fin';

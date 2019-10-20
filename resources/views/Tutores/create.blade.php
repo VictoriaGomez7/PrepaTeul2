@@ -23,6 +23,13 @@
             </div>
         @endif
 
+        @if (session()->has('msjE'))
+            <div class="alert alert-danger" role="alert" style="width: 90%; position:  absolute;top: 43%; left: 5%;z-index: 1;">
+                <button class="close" data-dismiss="alert"><span>&times;</span></button>
+                <strong>¡Error! </strong>{{ session('msjE') }}
+            </div>
+        @endif
+
 
         @if($visivility==1)
             <div class="card-header text-center" style="font-size:200%; width: 50%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 25%;" >{{ __('Registrar Tutores') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
@@ -104,7 +111,7 @@
         @elseif($visivility==2)
             <div class="card-header text-center" style="font-size:200%; width: 35%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 5%;" >{{ ('Tutores') }}</div>
 
-                <div style="position: absolute;top: 62%; left: 5%; width: 35%;height:65%; background-color:#aaa">
+                <div style="position: absolute;top: 62%; left: 5%; width: 35%;height:85%; background-color:#aaa">
 
                     <TABLE id="Tutores" class="table" style="width: 95%; height: 90%; position: absolute;left: 2%">
                         <tr style="font-size:150%; color: rgb(0, 128, 0)">

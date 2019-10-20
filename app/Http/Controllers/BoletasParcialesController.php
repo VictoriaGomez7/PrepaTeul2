@@ -308,7 +308,7 @@ class BoletasParcialesController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //return 'stote';
         $Semestre_Seleccionado=$request->SemestreSelect;
         $Lista_Alumnos_Grupo=array();
         $Matriculas_Alumnos_Grupo_A=array();
@@ -346,12 +346,15 @@ class BoletasParcialesController extends Controller
                 }
             }
 
+
             // PARA SACAR EL NOMBRE
             foreach ($Matriculas_Alumnos_Grupo_A as $Alu_A) {
                 $Clave=$Alu_A;
                 $Nom_Alu=Nombrealumno::where('Clave_A',$Clave)->get();
+
                 $nom=$Nom_Alu[0]->ApellidoP.' '.$Nom_Alu[0]->ApellidoM.' '.$Nom_Alu[0]->Nombre;
                 array_push($Nombres_Alumnos_Grupo_A,$nom );
+                //return $Nombres_Alumnos_Grupo_A;
             }
 
             foreach ($Matriculas_Alumnos_Grupo_B as $Alu_B) {
@@ -360,7 +363,7 @@ class BoletasParcialesController extends Controller
                 $nom=$Nom_Alu[0]->ApellidoP.' '.$Nom_Alu[0]->ApellidoM.' '.$Nom_Alu[0]->Nombre;
                 array_push($Nombres_Alumnos_Grupo_B,$nom);
             }
-
+            //return $Matriculas_Alumnos_Grupo_A;
             $now= Carbon::now();
             $fecha=$now-> format('m');
             $Sem_Activado=0;

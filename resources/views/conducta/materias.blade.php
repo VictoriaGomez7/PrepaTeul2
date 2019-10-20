@@ -24,7 +24,8 @@
     <div class="alert alert-danger" role="alert" style="width: 50%; position:  absolute;top: 44%; left: 25%;z-index: 1;">
       <button class="close" data-dismiss="alert"><span>&times;</span></button>
         <strong>¡Error! </strong>{{ ($msj) }}
-
+  @endif
+  
   @if (session()->has('msjERR'))
     <div class="alert alert-success" role="alert" style="width: 50%; position:  relative;text-align: center; left: 25%;">
       <button type="button" class="close" data-dismiss="alert" >&times;</button>

@@ -44,6 +44,10 @@ class Tutorescontroller extends Controller
             }
         }
 
+        //ver y registrar nuevos tutores
+        //$visivility=2;
+        //return view('Tutores.create',compact('Datos_tabla_Docentes','Generacion','visivility','Datos_tabla_tutor','Datos_tabla_Docentes_1'));
+
         if (count($Datos_tabla_Docentes)==0){
                 return redirect('/ControlEscolarInicio')->with('MsjERR','No hay docentes registrados');
         }
@@ -53,7 +57,6 @@ class Tutorescontroller extends Controller
                 $Dat=Tutor::where('Generacion',$Generacion)->get('Generacion');
                 if (count($Dat)==0){
                     $visivility=2; //ver y registrar nuevos tutores
-                   
                     return view('Tutores.create',compact('Datos_tabla_Docentes','Generacion','visivility','Datos_tabla_tutor','Datos_tabla_Docentes_1'));
                 }
                 else{
@@ -103,9 +106,17 @@ class Tutorescontroller extends Controller
             if ($request->nombre1==$request->nombre2 or $request->nombre1==$request->nombre3 or $request->nombre1==$request->nombre4 or $request->nombre1==$request->nombre5 or $request->nombre1==$request->nombre6 or $request->nombre2==$request->nombre3 or $request->nombre2==$request->nombre4 or $request->nombre2==$request->nombre5 or $request->nombre2==$request->nombre6 or $request->nombre3==$request->nombre4 or $request->nombre3==$request->nombre5 or $request->nombre3==$request->nombre6 or $request->nombre4==$request->nombre5 or $request->nombre4==$request->nombre6 or $request->nombre5==$request->nombre6){
                 $ba1=true;
             }
-
+            $ba2=false;
+            for ($i=0; $i < count($Datos_tabla_tutor); $i++) { 
+                if ($request->Generacion==$Datos_tabla_tutor[$i]->Generacion){
+                    $ba2=true;
+                }
+            }
             if ($ba1==true){
                 return back()->with('msjError','No se puede repetir el docente.' );
+            }
+            else if ($ba2==true){
+                return back()->with('msjError','Ya se registraron los turores de esta generación.' );
             }
             else{
                 $docente=new Tutor();
@@ -150,14 +161,26 @@ class Tutorescontroller extends Controller
             
         }
         else{
+
             $ba=false;
             for ($i=0; $i < count($Datos_tabla_tutor); $i++) { 
                 if ($request->nombre1==$Datos_tabla_tutor[$i]->Nombre_D or $request->nombre2==$Datos_tabla_tutor[$i]->Nombre_D){
-                    $ba==true;
+                    $ba=true;
                 }
             }
+
+            $ba2=false;
+            for ($i=0; $i < count($Datos_tabla_tutor); $i++) { 
+                if ($request->Generacion==$Datos_tabla_tutor[$i]->Generacion){
+                    $ba2=true;
+                }
+            }
+            
             if ($request->nombre1==$request->nombre2){
                 return back()->with('msjError','No se puede repetir el docente.' );
+            }
+            else if ($ba2==true){
+                return back()->with('msjE','Ya se registraron los turores de esta generación.' );
             }
             else{
                 if ($ba==true){

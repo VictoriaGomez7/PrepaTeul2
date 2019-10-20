@@ -15,8 +15,9 @@
 
 	<header>
 		<?php use App\Alumno;
-			$Alumnos=Alumno::where('Clave_A',$usua)->get('Nombre_A');
 			$usua=$_GET['valor'];
+			$Alumnos=Alumno::where('Clave_A',$usua)->get('Nombre_A');
+			
 		?>
 		<nav class="navegacion" style="width: 90%">
 			<ul class="menu">

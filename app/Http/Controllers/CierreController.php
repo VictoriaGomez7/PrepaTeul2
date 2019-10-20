@@ -151,7 +151,7 @@ class CierreController extends Controller
         }
         
         $bandera=true;
-
+        //return back(compact('bandera'))->with('msj','Ciclo cerrado con éxito.');
         return view('CerrarCiclo.index',compact('bandera'))->with('msj','Ciclo cerrado con éxito.');
         //return back->with('msj','Ciclo cerrado con éxito.');
     }

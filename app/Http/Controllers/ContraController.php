@@ -36,17 +36,14 @@ class ContraController extends Controller
      */
     public function store(Request $request)
     {
+        //return 'aqui';
         usuarioalumno::where('Usuario',$request->clave)->delete();
         //return $original;
         $usu=new usuarioalumno();
-
-          //return $original;
-
             $usu->Usuario=$request['clave'];
             $usu->Password=$request['contra'];
             $usu->save();
-      
-        return redirect('LoginA.index')->with('msj','Contraseña modificada Correctamente');;
+        return redirect('LoginAlumno')->with('msjC','Contraseña modificada correctamente');;
         //return $request;
     }
 

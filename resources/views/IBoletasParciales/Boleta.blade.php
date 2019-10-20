@@ -25,8 +25,6 @@
   <body>
     <?php
       $ContB=0;
-    ?>
-    <?php
       $Cont=0;
     ?>
     @if ($Opcion==1)
