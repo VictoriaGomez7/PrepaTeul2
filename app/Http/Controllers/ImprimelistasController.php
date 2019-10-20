@@ -79,7 +79,7 @@ class ImprimelistasController extends Controller
         WHERE grupos.Clave_A=alumnos.Clave_A and grupos.Grupo='A'))
                           AND alumnos.Semestre= :sem" ,['sem'=>$semestre]);
                  $titulo=$semestre . " GRUPO A";
-            }else{
+            }else if($r->Grupo=="B"){
 
 
                  $listaA=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A
@@ -87,6 +87,9 @@ class ImprimelistasController extends Controller
         WHERE grupos.Clave_A=alumnos.Clave_A and grupos.Grupo='B'))
                           AND alumnos.Semestre= :sem" ,['sem'=>$semestre]);
                  
+            }else{
+
+                return back()->with('msj2','No se selecciono ningun grupo');
             }
             if(count($listaA)>0){
                 $titulo=$semestre . " GRUPO ".$r->Grupo;

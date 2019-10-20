@@ -24,7 +24,7 @@
               <h2>{{$titulo}} </h2>
                <table width="100%" left="5px" align="left" border="1">
           <tr>
-           
+           <td><b>Número</b></td>
             <td width="15%" align="left"><b>Matrícula</b></td>
              <td width="85%" align="left"><b>Alumno</b></td>
           </tr>
@@ -33,10 +33,13 @@
            
           
           <?php
-            
+            $num=0;
             foreach ($listaA as $r) {
+                $num+=1;
                 ?>
-                <tr><td>
+                <tr>
+                  <td>{{$num}}</td>
+                  <td>
                <label > {{ $r->Clave_A }}</label> </td>
                   <td>
                <label > {{ $r->Nombre_A }}</label> </td></tr>

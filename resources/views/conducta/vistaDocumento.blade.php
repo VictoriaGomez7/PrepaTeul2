@@ -75,6 +75,7 @@
           $sexo2=" el mencionado alumno ";
           $sexo3="el interesado";
          } else{
+
           $sexo1 .=" la alumna ";
           $sexo2=" la mencionada alumna ";
           $sexo3="la interesada";
@@ -95,7 +96,7 @@
          
          <div style="width: 700px;position: absolute; top: 245px; text-align: center; left: 25px;">
           <p style="font-size: 13; font-family: Arial;text-align: justify; line-height: 2;">
-A petición de la interesada para los usos legales que más convengan, se extiende la presente constancia.
+A petición de {{' '.$sexo3.' '}} para los usos legales que más convengan, se extiende la presente constancia.
 </p></div>
         
      <div style="width: 700px;position: absolute; top: 350px; text-align: center; left: 25px;">

@@ -144,6 +144,7 @@ body{
  <script >
 			function busquedaInteligente(){
 				 if((document.getElementById("claveId").value.trim().length)>=1)
+				 	
                 fetch(`/materia/buscador?claveId=${document.getElementById("claveId").value}`,{ method:'get' })
                 .then(response  =>  response.text() )
                 .then(html      =>  {   document.getElementById("busq").innerHTML = html  })
@@ -160,7 +161,7 @@ body{
     });    
 		</script>
 		<center>
- <div class="col-8" id="busq" align="justify">
+ <div class="col-8" id="busq" style="left: -20%; text-align: left;">
         @include('materias.busqueda')
     </div>
 		 <a href="ControlEscolarInicio">
