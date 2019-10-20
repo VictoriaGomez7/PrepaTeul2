@@ -26,8 +26,12 @@
  <section style="width: 100%; max-width: 100%; height:100%;max-height: 100%; background: #FFFFFF">
 
         <div class="card-header text-center" style="font-size:120%;width: 60%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 25%;" > 
+            @if($datos[1]!=$datos[4])
           {{ __($datos[3].' '.$datos[2].' '.$datos[1].' '.$datos[4]) }}
-
+            @endif
+            @if($datos[1]==$datos[4])
+          {{ __($datos[3].' '.$datos[2].' '.' Formación Para El Trabajo '.' '.$datos[4]) }}
+            @endif
 
            </div> <div style="position: absolute;top: 62%; left: 25%; width: 60%; background-color:#aaa">
             

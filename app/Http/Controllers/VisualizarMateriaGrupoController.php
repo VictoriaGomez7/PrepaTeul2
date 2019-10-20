@@ -8,6 +8,7 @@ use App\RelacionDocenteMateriaGrupo;
 use App\Alumno;
 use App\Grupo;
 use App\Materia_Grupo;
+use App\ft_bach;
 
 class VisualizarMateriaGrupoController extends Controller
 {
@@ -55,7 +56,7 @@ class VisualizarMateriaGrupoController extends Controller
      */
     public function store(Request $request)
     {
-
+        //return $request;
         $Materiasele=$request->MateriaSeleccionada;
         //return $Materiasele;
         $id=$request->idDocente;
@@ -68,7 +69,14 @@ class VisualizarMateriaGrupoController extends Controller
         $AlumnoEnGRupoSemestre=Materia_Grupo::where('Grupo',$request->Grupo)->get();
         $SemestreMateria=Materia_Grupo::where('Clave_M',$request->ClaveMateriaSelec)->where('Grupo',$request->Grupo)->get();
 
-        
+        if(count($AlumnoEnGrupo)==0){
+            
+             $AlumnoEnGrupo=ft_bach::where('Formación_Trabajo',$request->Grupo)->get();
+        }
+        if(count($AlumnoEnGrupo)==0){
+            return $request->Grupo;
+             $AlumnoEnGrupo=ft_bach::where('Formación_Trabajo',$request->Grupo)->get();
+        }
         $AlumnosEnMismoSemestre=array();
         //return $AlumnoEnGrupo;
         for ($i=0; $i < count($AlumnoEnGrupo); $i++) {
