@@ -104,6 +104,9 @@ th {
         <p style="position: absolute;top: 320px;left: 10px"><font size="1">I PRIMER SEMESTRE</font></p>
 
         <p style="position: absolute;top: 320px;left: 180px"><font size="1">PERIODO ESCOLAR:</font></p>
+        @foreach($Peri as $Pe)
+        <p style="position: absolute;top: 318px;left: 574px"><font size="2">{{$Pe->PRIMERO}}</font></p>
+        @endforeach()
 
         <p style="position: absolute;top: 320px;left: 430px"><font size="1">GRUPO:</font></p>
 
@@ -862,6 +865,10 @@ th {
         <br>
         <p style="position: absolute;left: 10px"><font size="1">II SEGUNDO SEMESTRE</font></p>
         <p style="position: absolute;left: 180px"><font size="1">PERIODO ESCOLAR:</font></p>
+        @foreach($Peri as $Pe)
+        <p style="position: absolute;top: 318px;left: 574px"><font size="2">{{$Pe->SEGUNDO}}</font></p>
+        @endforeach()
+
         @foreach($Grup as $GR)
         <p style="position: absolute;left: 474px"><font size="2">{{$GR->Grupo}}</font></p>
         @endforeach()
@@ -1606,7 +1613,9 @@ th {
         <br>
         <p style="position: absolute;left: 10px"><font size="1">III TERCER SEMESTRE</font></p>
         <p style="position: absolute;left: 180px"><font size="1">PERIODO ESCOLAR:</font></p>
-
+        @foreach($Peri as $Pe)
+        <p style="position: absolute;top: 318px;left: 574px"><font size="2">{{$Pe->TERCERO}}</font></p>
+        @endforeach()
          @foreach($Grup as $GR)
           <p style="position: absolute;left: 474px"><font size="2">{{$GR->Grupo}}</font></p>
         @endforeach()
@@ -2354,6 +2363,9 @@ th {
         <br>
         <p style="position: absolute;left: 10px"><font size="1">IV CUARTO SEMESTRE</font></p>
         <p style="position: absolute;left: 180px"><font size="1">PERIODO ESCOLAR:</font></p>
+        @foreach($Peri as $Pe)
+        <p style="position: absolute;top: 318px;left: 574px"><font size="2">{{$Pe->CUARTO}}</font></p>
+        @endforeach()
          @foreach($Grup as $GR)
         <p style="position: absolute;left: 474px"><font size="2">{{$GR->Grupo}}</font></p>
         @endforeach()
@@ -3099,6 +3111,9 @@ th {
         <br>
         <p style="position: absolute;left: 10px"><font size="1">V QUINTO SEMESTRE</font></p>
         <p style="position: absolute;left: 180px"><font size="1">PERIODO ESCOLAR:</font></p>
+        @foreach($Peri as $Pe)
+        <p style="position: absolute;top: 318px;left: 574px"><font size="2">{{$Pe->QUINTO}}</font></p>
+        @endforeach()
          @foreach($Grup as $GR)
         <p style="position: absolute;left: 474px"><font size="2">{{$GR->Grupo}}</font></p>
         @endforeach()
@@ -3476,7 +3491,7 @@ th {
           <tr>
             @if($B==true)
                 @if($OP==null)
-                  <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M1?></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M1?></font></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $Ca ?></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -3498,7 +3513,7 @@ th {
                     <td align="left" style="border: 1px solid black;"><font size="1"></td> 
                   
                   @elseif($OP==2)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M1?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M1?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -3521,7 +3536,7 @@ th {
                   @endif()
                 @endif()
               @else
-                <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M1?></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M1?></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -3549,7 +3564,7 @@ th {
           <tr>
             @if($B==true)
                 @if($OP==null)
-                  <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M2?></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M2?></font></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $Ca ?></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -3560,7 +3575,7 @@ th {
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 @else
                   @if($OP==1)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M2?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M2?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $F ?></td>
@@ -3571,7 +3586,7 @@ th {
                     <td align="left" style="border: 1px solid black;"><font size="1"></td> 
                   
                   @elseif($OP==2)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M2?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M2?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -3581,7 +3596,7 @@ th {
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                   @elseif($OP>=3)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M2?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M2?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -3594,7 +3609,7 @@ th {
                   @endif()
                 @endif()
               @else
-                <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M2?></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M2?></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -3621,7 +3636,7 @@ th {
           <tr>
             @if($B==true)
                 @if($OP==null)
-                  <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M3?></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M3?></font></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $Ca ?></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -3632,7 +3647,7 @@ th {
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 @else
                   @if($OP==1)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M3?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M3?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $F ?></td>
@@ -3643,7 +3658,7 @@ th {
                     <td align="left" style="border: 1px solid black;"><font size="1"></td> 
                   
                   @elseif($OP==2)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M3?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M3?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -3653,7 +3668,7 @@ th {
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                   @elseif($OP>=3)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M3?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M3?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -3665,7 +3680,7 @@ th {
                   @endif()
                 @endif()
               @else
-                <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M3?></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M3?></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -3967,6 +3982,9 @@ th {
         <br><br><br><br>
         <p style="position: absolute;left: 10px"><font size="1">VI SEXTO SEMESTRE</font></p>
         <p style="position: absolute;left: 180px"><font size="1">PERIODO ESCOLAR:</font></p>
+        @foreach($Peri as $Pe)
+        <p style="position: absolute;top: 318px;left: 574px"><font size="2">{{$Pe->SEXTO}}</font></p>
+        @endforeach()
         @foreach($Grup as $GR)
         <p style="position: absolute;left: 474px"><font size="2">{{$GR->Grupo}}</font></p>
         @endforeach()
@@ -4344,7 +4362,7 @@ th {
           <tr>
             @if($B==true)
                 @if($OP==null)
-                  <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M1?></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M1?></font></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $Ca ?></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4366,7 +4384,7 @@ th {
                     <td align="left" style="border: 1px solid black;"><font size="1"></td> 
                   
                   @elseif($OP==2)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M1?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M1?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4376,7 +4394,7 @@ th {
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                   @elseif($OP>=3)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M1?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M1?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4389,7 +4407,7 @@ th {
                   @endif()
                 @endif()
               @else
-                <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M1?></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M1?></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4417,7 +4435,7 @@ th {
           <tr>
             @if($B==true)
                 @if($OP==null)
-                  <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M2?></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M2?></font></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $Ca ?></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4428,7 +4446,7 @@ th {
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 @else
                   @if($OP==1)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M2?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M2?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $F ?></td>
@@ -4439,7 +4457,7 @@ th {
                     <td align="left" style="border: 1px solid black;"><font size="1"></td> 
                   
                   @elseif($OP==2)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M2?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M2?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4449,7 +4467,7 @@ th {
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                   @elseif($OP>=3)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M2?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M2?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4462,7 +4480,7 @@ th {
                   @endif()
                 @endif()
               @else
-                <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M2?></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M2?></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4489,7 +4507,7 @@ th {
           <tr>
             @if($B==true)
                 @if($OP==null)
-                  <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M3?></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M3?></font></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $Ca ?></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4500,7 +4518,7 @@ th {
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 @else
                   @if($OP==1)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M3?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M3?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $F ?></td>
@@ -4511,7 +4529,7 @@ th {
                     <td align="left" style="border: 1px solid black;"><font size="1"></td> 
                   
                   @elseif($OP==2)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M3?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M3?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4521,7 +4539,7 @@ th {
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                   @elseif($OP>=3)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M3?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M3?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4533,7 +4551,7 @@ th {
                   @endif()
                 @endif()
               @else
-                <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M3?></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M3?></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4561,7 +4579,7 @@ th {
           <tr>
             @if($B==true)
                 @if($OP==null)
-                  <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M4?></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M4?></font></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $Ca ?></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4572,7 +4590,7 @@ th {
                   <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 @else
                   @if($OP==1)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M4?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M4?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $F ?></td>
@@ -4583,7 +4601,7 @@ th {
                     <td align="left" style="border: 1px solid black;"><font size="1"></td> 
                   
                   @elseif($OP==2)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M4?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M4?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4593,7 +4611,7 @@ th {
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                   @elseif($OP>=3)
-                    <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M4?></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M4?></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></td>
@@ -4605,7 +4623,7 @@ th {
                   @endif()
                 @endif()
               @else
-                <td align="left" style="border: 1px solid black;"><font size="2"><?php echo $M4?></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"><?php echo $M4?></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></td>

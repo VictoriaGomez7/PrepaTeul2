@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <a href="ControlEscolarInicio">
-            <button class="btn btn-success" style="font-size:120%; position: absolute;top: 112%;left:67%">Cancelar</button></a>
+            <button class="btn btn-success" style="font-size:120%; position: absolute;top: 116%;left:67%">Cancelar</button></a>
 <html>
 
     <head>
@@ -34,14 +34,9 @@
     <?php endif; ?>
  <section style="width: 100%; max-width: 100%; height:100%;max-height: 100%; background: #FFFFFF">
 
-        <div class="card-header text-center" style="font-size:200%;width: 50%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 50%; left: 25%;" ><?php echo e(__(' Asignar Grupos')); ?>
+        <div class="card-header text-center" style="font-size:200%;width: 50%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 54%; left: 25%;" ><?php echo e(__(' Asignar Grupos')); ?></div>
 
-
-
-
-
-
-        </div> <div style="position: absolute;top: 60%; left: 25%; width: 50%;height:50%; background-color:#aaa">
+        <div style="position: absolute;top: 64%; left: 25%; width: 50%;height:50%; background-color:#aaa">
 
 <?php echo Form::open(['route'=>['grupos.show','a'],'method'=>'GET','files'=>false]); ?>     <?php echo e(csrf_field()); ?>
 

@@ -3,7 +3,7 @@
 <?php $__env->startSection('content'); ?>
 
 <a href="http://127.0.0.1:8000/ControlEscolarInicio">
-            <button class="btn btn-success" style="position: absolute;top: 80%;left:35%">Cancelar</button></a>
+            <button class="btn btn-success" style="position: absolute;top: 70%;left:45%">Cancelar</button></a>
 
 <body>
 
@@ -22,7 +22,7 @@
         </div>
     <?php endif; ?>
         
-        <div class="" style="font-size:200%;width: 90%; height: 9.8%; color: black; position:  absolute;top: 52%; left: 5%;" ><?php echo e(__('Antes de dar clic en cerrar ciclo, debe estar completamente seguro de realizar dicha acción')); ?></div> <!-- text-center ES PARA CENTRA EL TEXTO -->
+        <div class="" style="font-size:200%;width: 75%; height: 9.8%; color: red; position:  absolute;top: 52%; left: 15%;" ><?php echo e(__('Antes de dar clic en cerrar ciclo, debe estar completamente seguro de realizar dicha acción.')); ?></div> <!-- text-center ES PARA CENTRA EL TEXTO -->
 
         
 

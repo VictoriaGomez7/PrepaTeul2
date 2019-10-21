@@ -11,6 +11,8 @@ use App\IrregularMateriaHistorico;
 use App\Kardex;
 use App\EstadisticaSemestre;
 use Carbon\Carbon;
+use App\PeriodoAlumno;
+use App\Alumno;
 Use Session;
 Use Redirect;
 Use Alert;
@@ -68,14 +70,13 @@ class CierreController extends Controller
         else if ($Mes<=07){
             $Per='Enero-Junio ';
         }
-
+        //return $todo;
         $Alumno_Aprobado=array();
         $Alumno_Reprobado=array();
         $Materia_Nombre=array();
         for ($i=0; $i <count($todo) ; $i++){
             array_push($Alumno_Aprobado, $todo[$i]);
             $b=false;
-
             if (count($Materia_Nombre)!=0){
                 for ($j=0; $j < count($Materia_Nombre); $j++) { 
                     if ($Materia_Nombre[$j]!=$todo[$i]->ClaveM){
@@ -92,8 +93,8 @@ class CierreController extends Controller
 
             $suma=($todo[$i]->Parcial1+$todo[$i]->Parcial2)/2;
             $suma=$suma+$todo[$i]->Semestral/2;
-
             if ($suma<6) {
+                //return "llegue aqui";
                 $alumnoL=new Irregulares();
                 $alumnoL->Clave_A=$todo[$i]->Clave_A;
                 $alumnoL->save(); 
@@ -115,12 +116,15 @@ class CierreController extends Controller
             }
             else
             {
+                //$PeriodoAlumno;
+                //return "llegue aqui Kardex";
                 $nK=new Kardex();
                 $nK->Clave_A=$todo[$i]->Clave_A;
                 $nK->Clave_M=$todo[$i]->ClaveM;
                 $nK->Fecha=null;
                 $nK->Oportunidades=null;
                 $nK->Calificacion=$suma;
+                $nK->Grupo=$todo[$i]->Grupo;
                 $nK->save();
             }
         }

@@ -8,6 +8,7 @@ use App\Nombrealumno;
 use App\Alumno;
 use App\ft_bach;
 use App\Grupo;
+use App\PeriodoAlumno;
 use DB;
 use PDF;
 use Session;
@@ -41,8 +42,8 @@ class KaredexController extends Controller
             //return $kard;
             
             $Grup=Grupo::where('Clave_A', $request->id)->get();
-            
-            $pdf= PDF::loadView('Alumnos.PDFKARDEX',compact('NombreA','infoA','Grup','bachi','kard'));
+            $Peri=PeriodoAlumno::where('Clave_A', $request->id)->get();
+            $pdf= PDF::loadView('Alumnos.PDFKARDEX',compact('NombreA','infoA','Grup','bachi','kard','Peri'));
             return $pdf->stream();
             
         //return view('Alumnos.PDFKARDEX',compact('NombreA','infoA','Grup','bachi','kard'));
