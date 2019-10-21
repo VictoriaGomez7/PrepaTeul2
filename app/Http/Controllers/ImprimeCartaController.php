@@ -77,6 +77,9 @@ class ImprimeCartaController extends Controller
             }
             $materiasEvaluadas = evaluacionConducta::where('Clave_A',$r->cajaAlumno)->get();
             $total=0;
+           if(count($materiasEvaluadas)==0){
+                 return back()->with('MsjERR','No cuenta  evaluacion de conducta');
+           }
             foreach ($materiasEvaluadas as $materias) {
                 if($materias->evaluacion=="EXCELENTE"){
                     $total+=10;
@@ -88,8 +91,9 @@ class ImprimeCartaController extends Controller
                     $total+=7;
                 }
             }
-            //$promedio=$total/count($materiasEvaluadas);
-            $promedio=9;
+
+            $promedio=$total/count($materiasEvaluadas);
+            //$promedio=9;
             $dato =[];
             array_push( $dato,$NombreAlumno);
             array_push( $dato,$sexo);
