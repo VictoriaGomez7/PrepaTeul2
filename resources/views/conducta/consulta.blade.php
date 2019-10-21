@@ -31,7 +31,7 @@
                   <p style="font-size:130%">{{('Matrícula:')}}</p> </div>
               <input type="input" class="form-control" placeholder="Matricula" name="cajaAlumno" style="width:50%;">
               <br>
-              <input type="submit" class="btn btn-primary" name="aceptar"  value="Generar carta" style="width:25%; position: absolute; top: 112%; left: 15%">
+              <input type="submit" class="btn btn-primary" name="aceptar"  value="Generar carta" style="width:25%; position: absolute; top: 145%; left: 15%">
               {!! Form::close() !!}
               </center>
               <br>
