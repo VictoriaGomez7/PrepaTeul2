@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
-<a href="ControlEscolarInicio">
-  <button class="btn btn-success" style="font-size:120%; position: absolute;top: 107%;left:62%">Cancelar</button></a>
+<a href="http://127.0.0.1:8000/Imprimelistas">
+            <button class="btn btn-success" style="font-size:120%; position: absolute;top: 107%;left:62%">Cancelar</button></a>
   
   @if (session()->has('msj'))
     <div class="alert alert-danger" role="alert" style="width: 40%; position:  relative;text-align: center; left: 30%;">

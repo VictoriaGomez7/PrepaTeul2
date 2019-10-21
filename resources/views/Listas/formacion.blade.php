@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<a href="ControlEscolarInicio">
+<a href="http://127.0.0.1:8000/Imprimelistas">
             <button class="btn btn-success" style="font-size:120%; position: absolute;top: 115%;left:67%">Cancelar</button></a>
 <html>
 
