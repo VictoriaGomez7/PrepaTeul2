@@ -72,7 +72,7 @@ class IrregularController extends Controller
                 }
                 //return $Listado_Nombres_Alumnos;
             }
-            //return count($ObtenerIrregulares) ;
+            //return $Listado_Grupos;
             return view('Irregular.Mostrar',compact('ObtenerIrregulares','Listado_Nombres_Alumnos','Cantidad_Materias_Reprobadas','Listado_Semestres','Listado_Grupos','Listado_Matriculas_Alumnos'));
     }
 
@@ -97,8 +97,8 @@ class IrregularController extends Controller
                 $Materia->Fecha=$request->Fecha;
 
                 $Materia->save();
-                if($request->$verificado>=6){
-                    $Opo=IrregularMateria::where('Clave_M',$Materia->Clave_M)->get();
+                if($request->$verificado>=7){
+                    $Opo=IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->get();
                     //return $Opo;
                     $Oportunidad=$Opo[0]->Oportunidades+1;
                     $MateriasAprobadas+=1;
@@ -110,17 +110,17 @@ class IrregularController extends Controller
                     $Irre->Oportunidades=$Oportunidad;
                     $Irre->Fecha=$request->Fecha;
                     $Irre->save();
-
-                    IrregularMateria::where('Clave_M',$Materia->Clave_M)->delete();
+                    $Opo=IrregularMateria::where('Clave_A',$request->Clave_A)->get();
+                    IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->delete();
                     /*
 
                     */
                 } else {
-                    $Opo=IrregularMateria::where('Clave_M',$Materia->Clave_M)->get();
+                    $Opo=IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->get();
                     //return $Opo;
                     $Oportunidad=$Opo[0]->Oportunidades+1;
                     //return $Oportunidad;
-                    IrregularMateria::where('Clave_M',$Materia->Clave_M)->update(['Oportunidades'=>$Oportunidad]);
+                    IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->update(['Oportunidades'=>$Oportunidad]);
                 }
             }
             
@@ -130,13 +130,13 @@ class IrregularController extends Controller
         if(count($Aprobadas)==$cuenta){
 
             Alumno::where('Clave_A', $request->Clave_A)->update(['Estado'=>'REGULAR']);
-            $Opo=IrregularMateria::where('Clave_A',$request->Clave_A)->get();
+            //return $Opo[0]->ClaveM;
             $nK=new Kardex();
-            $nK->Clave_A=$Opo->Clave_A;
-            $nK->Clave_M=$Opo->ClaveM;
-            $nK->Fecha=$Opo->Fecha;
-            $nK->Oportunidades=$Opo->Oportunidades;
-            $nK->Calificacion=$Opo->Calificacion1;
+            $nK->Clave_A=$Opo[0]->Clave_A;
+            $nK->Clave_M=$Opo[0]->Clave_M;
+            $nK->Fecha=$Opo[0]->Fecha;
+            $nK->Oportunidades=$Opo[0]->Oportunidades;
+            $nK->Calificacion=$Opo[0]->Calificacion1;
             $nK->save();
             Irregulares::where('Clave_A',$request->Clave_A)->delete();
         }
