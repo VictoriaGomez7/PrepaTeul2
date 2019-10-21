@@ -107,7 +107,56 @@ A petición de {{' '.$sexo3.' '}} para los usos legales que más convengan, se e
     
      <p style="font-size: 13; font-family: Arial;text-align: center; line-height: 2;"> A t e n t a m e n t e.<br>
 Teul de González Ortega, Zac.,  <?php 
-    $fechaActual=date(" j  F y");
+    $diaActual=date("d");
+    $mesActual=date("m");
+    $yearActual=date("o");
+    $mes="";
+    switch ($mesActual) {
+      case 1:
+        # code...
+        $mes="ENERO";
+        break;
+        case 2:
+          $mes="FEBRERO";
+        break;
+        case 3:
+        # code...
+        $mes="MARZO";
+        break;
+        case 4:
+          $mes="ABRIL";
+        break;
+        case 5:
+        # code...
+        $mes="MAYO";
+        break;
+        case 6:
+          $mes="JUNIO";
+        break;
+        case 7:
+        # code...
+        $mes="JULIO";
+        break;
+        case 8:
+          $mes="AGOSTO";
+        break;
+        case 9:
+        # code...
+        $mes="SEPTIEMBRE";
+        break;
+        case 10:
+          $mes="OCTUBRE";
+        break;
+        case 11:
+        # code...
+        $mes="NOVIEMBRE";
+        break;
+        case 12:
+          $mes="DICIEMBRE";
+        break;
+    
+    }
+    $fechaActual=' '.$diaActual.' de '.$mes.' de '.$yearActual;
     echo $fechaActual;
     ?>
 </p>
