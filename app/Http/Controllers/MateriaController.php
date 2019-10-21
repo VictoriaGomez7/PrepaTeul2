@@ -568,6 +568,27 @@ class MateriaController extends Controller
             }
             else{
 
+              if ($request->tipo=="Formación Para El Trabajo"){
+                  //return $request['semestre'];
+                  switch ($request['semestre']) {
+                    case "TERCER SEMESTRE":
+                      $Clavemat=$Clavemat.'_3';
+                      //return $Clavemat;
+                      break;
+                    case 'CUARTO SEMESTRE':
+                    $Clavemat=$Clavemat.'_4';
+                      break;
+
+                    case 'QUINTO SEMESTRE':
+                      $Clavemat=$Clavemat.'_5';
+                      break;
+                    case 'SEXTO SEMESTRE':
+                      $Clavemat=$Clavemat.'_6';
+                      break;
+                  }
+                }
+
+
               $materia=new Materia();
               $materia->Clave_M=$Clavemat;
               $materia->Tipo=$request['tipo'];
@@ -599,8 +620,10 @@ class MateriaController extends Controller
         }
         if ($request->tipo=="Formación Para El Trabajo"){
           if ($request->semestre=="TERCER SEMESTRE" or $request->semestre=="CUARTO SEMESTRE" or $request->semestre=="QUINTO SEMESTRE" or $request->semestre=="SEXTO SEMESTRE") {
-            //return "aqui";
-              $materia->fill($request->all());
+            //return $request['semestre'];
+
+            //return $Clavemat;
+              //$materia->fill($request->all());
               $materia->save();
               $matgrup=new materia_grupo();
               $matgrup->Clave_M=$Clavemat;
@@ -657,7 +680,7 @@ class MateriaController extends Controller
             //Separar por palabras el nombre
             $Nombrediv = explode(" ", $Nombremat);
             //Saber el tipo a guardar
-            
+
             switch ($Tipomat) {
               case 'Formación Básica':
                 $Clavemat=$Clavemat.'FB-';
@@ -682,7 +705,7 @@ class MateriaController extends Controller
               case 'Formación Para El Trabajo':
                     $Clavemat=$Clavemat.'FT-';
                      $Nombremat=utf8_decode($r['formacion']);
-                 $Nombrediv=explode(" ", $Nombremat) ;  
+                 $Nombrediv=explode(" ", $Nombremat) ;
                 break;
 
               default:
@@ -1388,7 +1411,7 @@ class MateriaController extends Controller
                             <option value="Informatica" selected="true">Informatica</option>';
 
                 }
-               
+
                return view('materias.modificar' ,compact('materia','opciones','opciones2' ,'opcionesFormacion'));
             }
 
