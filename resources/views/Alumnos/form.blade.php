@@ -1,6 +1,6 @@
 <!doctype html>
 <a href="http://127.0.0.1:8000/alumnosconsulta">
-            <button class="btn btn-success" style="position: absolute;top: 210%;left:75%">Cancelar</button></a>
+            <button class="btn btn-success" style="position: absolute;top: 220%;left:75%">Cancelar</button></a>
 @extends('layouts.app')
 
 {{-- @section('title','Modifica Alumno') --}}
@@ -9,8 +9,31 @@
 
 <body>
     {{-- @section('ModificarAlumnos') --}}
+    <script type="text/javascript">
+           function habilitar(valor){
+            if (valor=="SEGUNDO"){
+                document.getElementById("Formación_Trabajo").disabled = false;
+            }else{
+
+                document.getElementById("Formación_Trabajo").disabled = true;
+            }
+           }
+    </script>
+    <script type="text/javascript">
+           function habilitar2(valor){
+            if (valor=="TERCER"){
+                document.getElementById("Bachillerato").disabled = false;
+            }else{
+
+                document.getElementById("Bachillerato").disabled = true;
+            }
+           }
+    </script>
         @foreach($CAlumno as $alumno)
         @foreach($Requisitos as $requi)
+        @foreach($bachis as $bachil)
+            
+
 
 
             <script type="text/javascript">
@@ -110,17 +133,19 @@
 
             </div>
 
-            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top:115%;left:5%; background-color:#aaa">
+            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top:130%;left:5%; background-color:#aaa">
                     <p style="position: absolute;top: 3px;left:170px; width: 900px">{{('Con todo respeto solicito a Usted Sr. Director, me acepte como alumno  de esta Escuela Preparatoria a su cargo para cursar el')}}</p>
-                        <select name="Grado" onchange="Grados(this.value); semes(this.options[this.selectedIndex].innerHTML);" required="true" style="font-size:80%;width: 17%;/*posicion->*/position: absolute;top:54%; left:46%;">
-                          <option value="{{ $alumno->Grado }}">{{ $alumno->Semestre }}</option>
-                            <option value="PRIMER ">PRIMER SEMESTRE</option>
-                            <option value="PRIMER ">SEGUNDO SEMESTRE</option>
-                            <option value="SEGUNDO ">TERCER SEMESTRE</option>
-                            <option value="SEGUNDO ">CUARTO SEMESTRE</option>
-                            <option value="TERCER ">QUINTO SEMESTRE</option>
-                            <option value="TERCER ">SEXTO SEMESTRE</option>
+                        <select name="Grado"  onchange="Grados(this.value); semes(this.options[this.selectedIndex].innerHTML);habilitar(this.value),habilitar2(this.value)" required="true" style="font-size:80%;width: 17%;/*posicion->*/position: absolute;top:54%; left:46%;">
+
+                            <option  value="{{ $alumno->Grado }}">{{ $alumno->Semestre }}</option>
+                            <option value="PRIMER">PRIMER SEMESTRE</option>
+                            <option value="PRIMER">SEGUNDO SEMESTRE</option>
+                            <option value="SEGUNDO">TERCER SEMESTRE</option>
+                            <option value="SEGUNDO">CUARTO SEMESTRE</option>
+                            <option value="TERCER">QUINTO SEMESTRE</option>
+                            <option value="TERCER">SEXTO SEMESTRE</option>
                       </select>
+
                     <p style="position: absolute;top: 50%;left:64%">{{('del')}}</p>
                     <!--Caja del grado-->
                     <input type="text" id="grado"  value="{{$alumno->Grado}}" name="Gradoo" disabled style="background-color:#aaa; position: absolute; top:51%; left: 67%; width: 8%;border: 0px;font-size:90%;text-align: center; color:black">
@@ -129,10 +154,33 @@
                     <p style="position: absolute; top:53%; left: 75.5%;font-size:90%"> {{('GRADO.')}}</p>
 
             </div>
-            <div class="card-header text-center" style="font-size:180%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 126%; left: 5%;" >{{ __('Requisitos') }}</div>
+
+            </div>
+            <div style="position: absolute;top: 115%; left: 5%; width: 90%;height:16%;background-color:#aaa">
+                <p style="font-size:138%">{{('Formación para el Trabajo:')}}</p>
+                <p style="font-size:138%">{{('Bachillerato:')}}</p>
+                <select required name="Formación_Trabajo" id="Formación_Trabajo" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  disabled="true">
+                            <option value="{{$bachil->Formación_Trabajo}}" >{{$bachil->Formación_Trabajo}}</option>
+                            <option value="Informática">Informática</option>
+                            <option value="Turismo">Turismo</option>
+                            <option value="Higiene y Salud Comunitaria">Higiene y Salud Comunitaria</option>
+                      </select>
+
+                <select name="Bachillerato" id="Bachillerato" style="font-size:110%;width: 26.5%; position:  absolute;top: 53%; left: 22%" disabled="true" required>
+                            <option value="{{$bachil->Bachillerato}}">{{$bachil->Bachillerato}}</option>
+                            <option value="Químico Biológica">Químico-Biológica</option>
+                            <option value="Físico Matemática">Físico-Matemática</option>
+                            <option value="Humanidades y Ciencias Sociales">Humanidades y Ciencias Sociales</option>
+                            <option value="Económico Administrativa">Económico-Administrativa</option>
+                      </select>
+
+
+            </div>
+
+            <div class="card-header text-center" style="font-size:180%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 142%; left: 5%;" >{{ __('Requisitos') }}</div>
 
             <!-- ********************** PARTE DE DONDE SE AGREGA PARA LOS REQUISITOS ********************************-->
-            <div style="position: absolute;top: 135%; left: 5%; width: 70%;height:65%;background-color:#aaa">
+            <div style="position: absolute;top: 152%; left: 5%; width: 70%;height:65%;background-color:#aaa">
                 <p style="font-size:138%">{{('A) Certificado de Secundaria.')}}</p>
                 <p style="font-size:138%">{{('B) Acta de Nacimiento.')}}</p>
                 <p style="font-size:138%">{{('C) Curp.')}}</p>
@@ -143,7 +191,7 @@
                 <p style="font-size:138%">{{('H) Firmar de conformidad padres y alumno  en la hoja de solicitud de inscripción.')}}</p>
             </div>
 
-            <div style="position: absolute;top: 135%; left: 75%; width: 20%; height:65%;background-color:#aaa">
+            <div style="position: absolute;top: 152%; left: 75%; width: 20%; height:65%;background-color:#aaa">
                 <p><select id="A" name="Requisito_A" required style="width: 18%;height: 9%; position: absolute;top: 0%;left:10%">
                     <option  value="{{$requi->Requisito_A}}"> {{$requi->Requisito_A}} </option>
                     <option value="Si">SI</option>
@@ -189,7 +237,7 @@
             </div>
 
 
-            <button type="submit" class="btn btn-primary" style="position: absolute;top: 210%;left:65%">Modificar</button>
+            <button type="submit" class="btn btn-primary" style="position: absolute;top: 220%;left:65%">Modificar</button>
         </form>
 
     {!!Form::open(['route' => ['Alumnos.store'],'method'=>'POST'])!!}
@@ -198,6 +246,7 @@
 
     {{-- @endsection() --}}
 
+@endforeach()
 @endforeach()
 @endforeach()
 </body>

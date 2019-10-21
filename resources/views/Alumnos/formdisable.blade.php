@@ -1,6 +1,6 @@
 <!doctype html>
 <a href="http://127.0.0.1:8000/alumnosconsulta">
-            <button class="btn btn-success" style="position: absolute;top: 210%;left:85%">Cancelar</button></a>
+            <button class="btn btn-success" style="position: absolute;top: 220%;left:85%">Cancelar</button></a>
 @extends('layouts.app')
 
 @section('title','Modificar Alumno')
@@ -11,6 +11,7 @@
     @section('ModificarAlumnosD')
         @foreach($CAlumno as $alumno)
         @foreach($Requisitos as $requi)
+        @foreach($bachis as $bachil)
 
 
           <script type="text/javascript">
@@ -100,7 +101,7 @@
 
             </div>
 
-            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top:115%;left:5%; background-color:#aaa">
+            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top:130%;left:5%; background-color:#aaa">
                     <p style="position: absolute;top: 3px;left:170px; width: 900px">{{('Con todo respeto solicito a Usted Sr. Director, me acepte como alumno  de esta Escuela Preparatoria a su cargo para cursar el')}}</p>
                         <select name="Grado" disabled onchange="Grados(this.value); semes(this.options[this.selectedIndex].innerHTML);" required="true" style="font-size:80%;width: 17%;/*posicion->*/position: absolute;top:54%; left:46%;">
                           <option value="{{ $alumno->Grado }}">{{ $alumno->Semestre }}</option>
@@ -119,10 +120,29 @@
                     <p style="position: absolute; top:53%; left: 75.5%;font-size:90%"> {{('GRADO.')}}</p>
 
             </div>
-            <div class="card-header text-center" style="font-size:180%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 126%; left: 5%;" >{{ __('Requisitos') }}</div>
+
+
+
+            <div style="position: absolute;top: 115%; left: 5%; width: 90%;height:16%;background-color:#aaa">
+                <p style="font-size:138%">{{('Formación para el Trabajo:')}}</p>
+                <p style="font-size:138%">{{('Bachillerato:')}}</p>
+                <select required name="ft1" id="ft1" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  disabled="true">
+                            
+                            <option >{{$bachil->Formación_Trabajo}}</option>
+                           
+                      </select>
+
+                <select name="bach1" id="bach1" style="font-size:110%;width: 26.5%; position:  absolute;top: 53%; left: 22%" disabled="true" required>
+                            <option >{{$bachil->Bachillerato}}</option>
+                      </select>
+
+
+            </div>
+
+            <div class="card-header text-center" style="font-size:180%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 142%; left: 5%;" >{{ __('Requisitos') }}</div>
 
             <!-- ********************** PARTE DE DONDE SE AGREGA PARA LOS REQUISITOS ********************************-->
-            <div style="position: absolute;top: 135%; left: 5%; width: 70%;height:65%;background-color:#aaa">
+            <div style="position: absolute;top: 152%; left: 5%; width: 70%;height:65%;background-color:#aaa">
                 <p style="font-size:138%">{{('A) Certificado de Secundaria.')}}</p>
                 <p style="font-size:138%">{{('B) Acta de Nacimiento.')}}</p>
                 <p style="font-size:138%">{{('C) Curp.')}}</p>
@@ -133,7 +153,7 @@
                 <p style="font-size:138%">{{('H) Firmar de conformidad padres y alumno  en la hoja de solicitud de inscripción.')}}</p>
             </div>
 
-            <div style="position: absolute;top: 135%; left: 75%; width: 20%; height:65%;background-color:#aaa">
+            <div style="position: absolute;top: 152%; left: 75%; width: 20%; height:65%;background-color:#aaa">
                 <p><select id="A" name="Requisito_A" required disabled style="width: 18%;height: 9%; position: absolute;top: 0%;left:10%">
                     <option  value="{{$requi->Requisito_A}}"> {{$requi->Requisito_A}} </option>
                     <option value="Si">SI</option>
@@ -182,16 +202,17 @@
         </form>
 
     {!!Form::open(['route' => ['Alumnos.update',$alumno->Clave_A],'method'=>'PUT'])!!}
-    {!!Form::submit('Modificar',['class'=>'btn btn-primary','style'=>'position: absolute;top:210%;left:5%;'])!!}
+    {!!Form::submit('Modificar',['class'=>'btn btn-primary','style'=>'position: absolute;top:220%;left:5%;'])!!}
     {!! Form::close()!!}
 
     {!!Form::open(['route' => ['Alumnos.destroy',$alumno->Clave_A],'method'=>'DELETE'])!!}
-    {!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'position: absolute;top:210%;left:15%;'])!!}
+    {!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'position: absolute;top:220%;left:15%;'])!!}
     {!! Form::close()!!}
 
 
 @endsection()
 
+@endforeach()
 @endforeach()
 @endforeach()
 </body>

@@ -34,9 +34,9 @@ class AlumnosController extends Controller
         else {
           foreach ($CAlumno as $campo) {
             if ($campo->Nombre_A==$nombre) {
-              //return $CAlumno;
+              $bachis=ft_bach::where('Clave_A',$CAlumno[0]->Clave_A)->get();
               $Requisitos= Requisito::where('Clave_A',$CAlumno[0]->Clave_A)->get();
-              return view('Alumnos.formdisable',compact('CAlumno','Requisitos'));
+              return view('Alumnos.formdisable',compact('CAlumno','Requisitos','bachis'));
             }
             else {
                 return back()->with('msj',' Datos no encontrados' );
@@ -55,8 +55,8 @@ class AlumnosController extends Controller
           }
           else{
             $Requisitos= Requisito::where('Clave_A',$alumno1->id)->get();
-
-            return view('Alumnos.formdisable',compact('CAlumno','Requisitos'));
+            $bachis=ft_bach::where('Clave_A',$alumno1->id)->get();
+            return view('Alumnos.formdisable',compact('CAlumno','Requisitos','bachis'));
           }
         }
 
@@ -69,7 +69,8 @@ class AlumnosController extends Controller
           }
           else if(count($CAlumno)==1){
             $Requisitos= Requisito::where('Clave_A',$CAlumno[0]->Clave_A)->get();
-            return view('Alumnos.formdisable',compact('CAlumno','alumno1','Requisitos'));
+            $bachis=ft_bach::where('Clave_A',$CAlumno[0]->Clave_A)->get();
+            return view('Alumnos.formdisable',compact('CAlumno','alumno1','Requisitos','bachis'));
           }
           else {
             //return 'aqui';
@@ -183,6 +184,15 @@ class AlumnosController extends Controller
         }
         $req->save();
 
+        $bach="";
+        $bachi=ft_bach::where([['Clave_A',$alumno1->Clave_A]])->get();
+        foreach ($bachi as $row){
+            $bach=$row;
+            $bach->fill($alumno1->all());
+        }
+        $bach->save();
+        
+
        return redirect('alumnosconsulta')->with('msj2','Alumno modificado correctamente');
 
         //return 'actualizado';
@@ -203,7 +213,8 @@ class AlumnosController extends Controller
     {
         $CAlumno = Alumno::where('Clave_A', $id)->get();
         $Requisitos = Requisito::where('Clave_A', $id)->get();
-        return view('Alumnos.show',compact('CAlumno','Requisitos'));
+        $bachis=ft_bach::where('Clave_A',$id)->get();
+        return view('Alumnos.show',compact('CAlumno','Requisitos','bachis'));
     }
 
     /**
@@ -217,6 +228,7 @@ class AlumnosController extends Controller
       Alumno::where('Clave_A',$id)->delete();
       usuarioalumno::where('Usuario',$id)->delete();
         Requisito::where('Clave_A',$id)->delete();
+        ft_bach::where('Clave_A',$id)->delete();
        $alumnos=Alumno::get();
         //return  view('Alumnos.index',compact('alumnos'));
        return redirect('/alumnosconsulta')->with('msj2','Alumno eliminado correctamente');

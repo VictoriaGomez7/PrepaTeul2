@@ -14,6 +14,7 @@ class CreateFtBachesTable extends Migration
     public function up()
     {
         Schema::create('ft_baches', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('Clave_A')->unique();
             $table->string('Formación_Trabajo')->nullable();
             $table->string('Bachillerato')->nullable();
