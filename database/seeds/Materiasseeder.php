@@ -125,8 +125,8 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Ética II',
 	        'Semestre'=>'SEGUNDO SEMESTRE',
-	        'Horas'=>3	
-        ]);   
+	        'Horas'=>3
+        ]);
         DB::table('materias')->insert([
 	        'Clave_M'=>'FB-ILCS',
 	        'Tipo'=>'Formación Básica',
@@ -134,8 +134,8 @@ class Materiasseeder extends Seeder
 	        'Nombre'=>'Introducción a las Ciencias Sociales',
 	        'Semestre'=>'SEGUNDO SEMESTRE',
 	        'Horas'=>3
-	     ]);	
-	  
+	     ]);
+
         DB::table('materias')->insert([
 	        'Clave_M'=>'FB-TLR2',
 	        'Tipo'=>'Formación Básica',
@@ -169,7 +169,7 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Orientación Educativa II',
 	        'Semestre'=>'SEGUNDO SEMESTRE',
-	        'Horas'=>2	
+	        'Horas'=>2
         ]);
 
         DB::table('materias')->insert([
@@ -187,7 +187,7 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Actividades Artísticas y Culturales II',
 	        'Semestre'=>'SEGUNDO SEMESTRE',
-	        'Horas'=>1	
+	        'Horas'=>1
         ]);
         //Tercer semestre
         DB::table('materias')->insert([
@@ -204,7 +204,7 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Biología I',
 	        'Semestre'=>'TERCER SEMESTRE',
-	        'Horas'=>4	
+	        'Horas'=>4
         ]);
         DB::table('materias')->insert([
         	'Clave_M'=>'FB-FIS1',
@@ -220,7 +220,7 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Historia de México I',
 	        'Semestre'=>'TERCER SEMESTRE',
-	        'Horas'=>3	
+	        'Horas'=>3
         ]);
         DB::table('materias')->insert([
         	'Clave_M'=>'FB-LIT1',
@@ -236,13 +236,13 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Ingles III',
 	        'Semestre'=>'TERCER SEMESTRE',
-	        'Horas'=>3	
+	        'Horas'=>3
         ]);
         DB::table('materias')->insert([
-        	'Clave_M'=>'FT-FPT',
+        	'Clave_M'=>'FT-TUR_3',
 	        'Tipo'=>'Formación Para El Trabajo',
 	        'Bachillerato'=>null,
-	        'Nombre'=>'Formación Para el Trabajo',
+	        'Nombre'=>'Turismo',
 	        'Semestre'=>'TERCER SEMESTRE',
 	        'Horas'=>7
         ]);
@@ -260,7 +260,7 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Actividades Deportivas y Recreativas III',
 	        'Semestre'=>'TERCER SEMESTRE',
-	        'Horas'=>1	
+	        'Horas'=>1
         ]);
         DB::table('materias')->insert([
         	'Clave_M'=>'AP-AAC3',
@@ -268,7 +268,7 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Actividades Artísticas y Culturales III',
 	        'Semestre'=>'TERCER SEMESTRE',
-	        'Horas'=>1	
+	        'Horas'=>1
         ]);
         //Cuarto semestre
         DB::table('materias')->insert([
@@ -277,7 +277,7 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Matemáticas IV',
 	        'Semestre'=>'CUARTO SEMESTRE',
-	        'Horas'=>5	
+	        'Horas'=>5
         ]);
         DB::table('materias')->insert([
         	'Clave_M'=>'FB-BIO2',
@@ -302,7 +302,7 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Historia de México II',
 	        'Semestre'=>'CUARTO SEMESTRE',
-	        'Horas'=>3	
+	        'Horas'=>3
         ]);
         DB::table('materias')->insert([
         	'Clave_M'=>'FB-LIT2',
@@ -321,12 +321,12 @@ class Materiasseeder extends Seeder
 	        'Horas'=>3
         ]);
         DB::table('materias')->insert([
-	        'Clave_M'=>'FT-FPT2',
+	        'Clave_M'=>'FT-TUR_4',
 	        'Tipo'=>'Formación Para El Trabajo',
 	        'Bachillerato'=>null,
-	        'Nombre'=>'Formación Para el Trabajo II',
+	        'Nombre'=>'Turismo',
 	        'Semestre'=>'CUARTO SEMESTRE',
-	        'Horas'=>7	
+	        'Horas'=>7
         ]);
 
         DB::table('materias')->insert([
@@ -351,7 +351,7 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Actividades Artísticas y Culturales IV',
 	        'Semestre'=>'CUARTO SEMESTRE',
-	        'Horas'=>1	
+	        'Horas'=>1
         ]);
         //Quinto semestre
         DB::table('materias')->insert([
@@ -360,7 +360,7 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Etimologías Grecolatinas',
 	        'Semestre'=>'QUINTO SEMESTRE',
-	        'Horas'=>3	
+	        'Horas'=>3
         ]);
         DB::table('materias')->insert([
         	'Clave_M'=>'FB-GEO',
@@ -376,7 +376,7 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Estructura Socioeconomica de México',
 	        'Semestre'=>'QUINTO SEMESTRE',
-	        'Horas'=>3	
+	        'Horas'=>3
         ]);
 
 
@@ -509,10 +509,10 @@ class Materiasseeder extends Seeder
 	        'Horas'=>3
         ]);
         DB::table('materias')->insert([
-	        'Clave_M'=>'FT-FPT3',
+	        'Clave_M'=>'FT-TUR_5',
 	        'Tipo'=>'Formación Para El Trabajo',
 	        'Bachillerato'=>null,
-	        'Nombre'=>'Formación Para el Trabajo III',
+	        'Nombre'=>'Turismo',
 	        'Semestre'=>'QUINTO SEMESTRE',
 	        'Horas'=>7
         ]);
@@ -539,7 +539,7 @@ class Materiasseeder extends Seeder
 	        'Nombre'=>'Actividades Artísticas y Culturales V',
 	        'Semestre'=>'QUINTO SEMESTRE',
 	        'Horas'=>1
-        ]);   
+        ]);
         //Sexto Semestre
         DB::table('materias')->insert([
         	'Clave_M'=>'FB-FIL',
@@ -547,7 +547,7 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Filosofia',
 	        'Semestre'=>'SEXTO SEMESTRE',
-	        'Horas'=>3	
+	        'Horas'=>3
         ]);
         DB::table('materias')->insert([
         	'Clave_M'=>'FB-EMA',
@@ -563,7 +563,7 @@ class Materiasseeder extends Seeder
 	        'Bachillerato'=>null,
 	        'Nombre'=>'Historia Universal Contemporanea',
 	        'Semestre'=>'SEXTO SEMESTRE',
-	        'Horas'=>3	
+	        'Horas'=>3
         ]);
 
 
@@ -696,10 +696,10 @@ class Materiasseeder extends Seeder
 	        'Horas'=>3
         ]);
         DB::table('materias')->insert([
-	        'Clave_M'=>'FT-FPT4',
+	        'Clave_M'=>'FT-TUR_6',
 	        'Tipo'=>'Formación Para El Trabajo',
 	        'Bachillerato'=>null,
-	        'Nombre'=>'Formación Para el Trabajo IIII',
+	        'Nombre'=>'Turismo',
 	        'Semestre'=>'SEXTO SEMESTRE',
 	        'Horas'=>7
         ]);
@@ -727,5 +727,79 @@ class Materiasseeder extends Seeder
 	        'Semestre'=>'SEXTO SEMESTRE',
 	        'Horas'=>1
         ]);
+
+        DB::table('materias')->insert([
+	        'Clave_M'=>'FT-INF_3',
+	        'Tipo'=>'Formación Para El Trabajo',
+	        'Bachillerato'=>null,
+	        'Nombre'=>'Informatíca',
+	        'Semestre'=>'TERCER SEMESTRE',
+	        'Horas'=>1
+        ]);
+
+        DB::table('materias')->insert([
+          'Clave_M'=>'FT-HSC_3',
+          'Tipo'=>'Formación Para El Trabajo',
+          'Bachillerato'=>null,
+          'Nombre'=>'Higiene y Salud Comunitaria',
+          'Semestre'=>'TERCER SEMESTRE',
+          'Horas'=>1
+        ]);
+
+        DB::table('materias')->insert([
+          'Clave_M'=>'FT-INF_4',
+          'Tipo'=>'Formación Para El Trabajo',
+          'Bachillerato'=>null,
+          'Nombre'=>'Informatíca',
+          'Semestre'=>'CUARTO SEMESTRE',
+          'Horas'=>1
+        ]);
+
+        DB::table('materias')->insert([
+          'Clave_M'=>'FT-HSC_4',
+          'Tipo'=>'Formación Para El Trabajo',
+          'Bachillerato'=>null,
+          'Nombre'=>'Higiene y Salud Comunitaria',
+          'Semestre'=>'CUARTO SEMESTRE',
+          'Horas'=>1
+        ]);
+
+
+        DB::table('materias')->insert([
+          'Clave_M'=>'FT-INF_5',
+          'Tipo'=>'Formación Para El Trabajo',
+          'Bachillerato'=>null,
+          'Nombre'=>'Informatíca',
+          'Semestre'=>'QUINTO SEMESTRE',
+          'Horas'=>1
+        ]);
+
+        DB::table('materias')->insert([
+          'Clave_M'=>'FT-HSC_5',
+          'Tipo'=>'Formación Para El Trabajo',
+          'Bachillerato'=>null,
+          'Nombre'=>'Higiene y Salud Comunitaria',
+          'Semestre'=>'QUINTO SEMESTRE',
+          'Horas'=>1
+        ]);
+
+
+          DB::table('materias')->insert([
+            'Clave_M'=>'FT-INF_6',
+            'Tipo'=>'Formación Para El Trabajo',
+            'Bachillerato'=>null,
+            'Nombre'=>'Informatíca',
+            'Semestre'=>'SEXTO SEMESTRE',
+            'Horas'=>1
+          ]);
+
+          DB::table('materias')->insert([
+            'Clave_M'=>'FT-HSC_6',
+            'Tipo'=>'Formación Para El Trabajo',
+            'Bachillerato'=>null,
+            'Nombre'=>'Higiene y Salud Comunitaria',
+            'Semestre'=>'SEXTO SEMESTRE',
+            'Horas'=>1
+          ]);
     }
 }

@@ -272,7 +272,7 @@ class MateriaGruposSeeder extends Seeder
 	        'Semestre'=>'TERCER SEMESTRE'
         ]);
         DB::table('materia__grupos')->insert([
-	        'Clave_M'=>'FT-FPT',
+	        'Clave_M'=>'FT-TUR_3',
 	        'Grupo'=>'Formación Para el Trabajo',
 	        'Semestre'=>'TERCER SEMESTRE'
         ]);
@@ -367,7 +367,7 @@ class MateriaGruposSeeder extends Seeder
 	        'Semestre'=>'CUARTO SEMESTRE'
         ]);
         DB::table('materia__grupos')->insert([
-	        'Clave_M'=>'FT-FPT2',
+	        'Clave_M'=>'FT-TUR_4',
 	        'Grupo'=>'Formación Para el Trabajo II',
 	        'Semestre'=>'CUARTO SEMESTRE'
         ]);
@@ -516,8 +516,8 @@ class MateriaGruposSeeder extends Seeder
 	        'Semestre'=>'QUINTO SEMESTRE'
         ]);
 	    DB::table('materia__grupos')->insert([
-	        'Clave_M'=>'FT-FPT3',
-	        'Grupo'=>'Formación Para el Trabajo III',
+	        'Clave_M'=>'FT-TUR_5',
+	        'Grupo'=>'Turismo',
 	        'Semestre'=>'QUINTO SEMESTRE'
         ]);
 	    DB::table('materia__grupos')->insert([
@@ -668,8 +668,8 @@ class MateriaGruposSeeder extends Seeder
 	        'Semestre'=>'SEXTO SEMESTRE'
         ]);
 	    DB::table('materia__grupos')->insert([
-	        'Clave_M'=>'FT-FPT4',
-	        'Grupo'=>'Formación Para el Trabajo IIII',
+	        'Clave_M'=>'FT-TUR_6',
+	        'Grupo'=>'Turismo',
 	        'Semestre'=>'SEXTO SEMESTRE'
         ]);
 	    DB::table('materia__grupos')->insert([
@@ -702,5 +702,53 @@ class MateriaGruposSeeder extends Seeder
 	        'Grupo'=>'B',
 	        'Semestre'=>'SEXTO SEMESTRE'
         ]);
+
+        DB::table('materia__grupos')->insert([
+  	        'Clave_M'=>'FT-INF_3',
+  	        'Grupo'=>'Informatíca',
+  	        'Semestre'=>'TERCER SEMESTRE'
+          ]);
+
+          DB::table('materia__grupos')->insert([
+    	        'Clave_M'=>'FT-HSC_3',
+    	        'Grupo'=>'Higiene y Salud Comunitaria',
+    	        'Semestre'=>'TERCER SEMESTRE'
+            ]);
+
+          DB::table('materia__grupos')->insert([
+    	        'Clave_M'=>'FT-INF_4',
+    	        'Grupo'=>'Informatíca',
+    	        'Semestre'=>'CUARTO SEMESTRE'
+            ]);
+
+          DB::table('materia__grupos')->insert([
+    	        'Clave_M'=>'FT-HSC_4',
+    	        'Grupo'=>'Higiene y Salud Comunitaria',
+    	        'Semestre'=>'CUARTO SEMESTRE'
+            ]);
+
+          DB::table('materia__grupos')->insert([
+              'Clave_M'=>'FT-INF_5',
+              'Grupo'=>'Informatíca',
+              'Semestre'=>'QUINTO SEMESTRE'
+            ]);
+
+          DB::table('materia__grupos')->insert([
+              'Clave_M'=>'FT-HSC_5',
+              'Grupo'=>'Higiene y Salud Comunitaria',
+              'Semestre'=>'QUINTO SEMESTRE'
+            ]);
+
+          DB::table('materia__grupos')->insert([
+    	        'Clave_M'=>'FT-INF_6',
+    	        'Grupo'=>'Informatíca',
+    	        'Semestre'=>'SEXTO SEMESTRE'
+            ]);
+
+          DB::table('materia__grupos')->insert([
+    	        'Clave_M'=>'FT-HSC_6',
+    	        'Grupo'=>'Higiene y Salud Comunitaria',
+    	        'Semestre'=>'SEXTO SEMESTRE'
+            ]);
     }
 }
