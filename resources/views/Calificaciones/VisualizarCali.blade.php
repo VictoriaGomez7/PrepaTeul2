@@ -64,7 +64,7 @@
 				          	<th  align="center">{{ ('Parcial 1') }}</th>
 				          	<th  align="center">{{ ('Parcial 2') }}</th>
 				          	<th  align="center">{{ ('Semestral ') }}</th>
-				          	<th  align="center">{{ ('Faltas ') }}</th>
+				          	<th  align="center">{{ ('Faltas') }}</th>
 				          	<th  align="center">{{ ('Número de Clases') }}</th>
 
 				        </tr>
@@ -100,7 +100,7 @@
 
 					            	<?php if ($contador_Clases==0){ ?>
 
-						 			<td><input required type="number"min="0"name="NumTotalAsis" style="width: 50%;" ></td>
+						 			<td><input required type="number" min="1"name="NumTotalAsis" style="width: 50%;" ></td>
 
 						 			<?php $contador_Clases=$contador_Clases+1; } ?>
 						            @elseif($PeriodoActivo==2)
@@ -116,13 +116,13 @@
 
 					            	<?php if ($contador_Clases==0){ ?>
 
-						 			<td><input required type="number"min="0" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+						 			<td><input required type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
 
 						 			<?php $contador_Clases=$contador_Clases+1; } ?>
 					            	@elseif($PeriodoActivo==3)
 					            		<input hidden="" type="number" step="0.1" min="0"  	max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}">
 							            <input hidden="" type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}">
-							            <input hidden="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}">
+							            
 							            
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
@@ -135,7 +135,7 @@
 
 					            	<?php if ($contador_Clases==0){ ?>
 
-						 			<td><input disabled="" type="number"min="0" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+						 			<td><input disabled="" type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
 
 						 			<?php $contador_Clases=$contador_Clases+1; } ?>
 					            	@else
@@ -152,7 +152,7 @@
 
 					            	<?php if ($contador_Clases==0){ ?>
 
-						 			<td><input required type="number"min="0" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+						 			<td><input required type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
 
 						 			<?php $contador_Clases=$contador_Clases+1; } ?>
 					            	@endif

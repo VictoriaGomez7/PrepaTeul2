@@ -43,7 +43,7 @@
                 <p style="font-size:130%; position:  absolute;top: 70%; left: 10%">{{('Email:')}}</p>
                 <p style="font-size:130%; position:  absolute;top: 85%; left: 10%">{{('CURP:')}}</p>
 
-                <p><input type="text" placeholder="31145" value="{{ old('Clave_D') }}" required id="Clave_D" name="Clave" style="font-size:105%; width: 65%; position:  absolute;top: 10%; left: 30%"/></p>
+                <p><input type="number" placeholder="31145" value="{{ old('Clave_D') }}" required id="Clave_D" name="Clave" min="1" style="font-size:105%; width: 65%; position:  absolute;top: 10%; left: 30%"/></p>
                 <p><input type="text" placeholder="Angélica Luna" value="{{ old('nombre') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="nombre" name="nombre" style="font-size:105%; width: 65%; position:  absolute;top: 25%; left: 30%" /></h1>
                 <p><input type="text" placeholder="Lomas #24" value="{{ old('direccion') }}" required id="direccion" name="direccion" style="font-size:105%; width: 65%; position:  absolute;top: 40%; left: 30%"/></p>
                 <p><input type="tel" placeholder="4673562817" value="{{ old('telefono') }}" required pattern="[0-9]{10}" id="telefono" name="telefono" style="font-size:105%; width: 65%; position:  absolute;top: 55%; left: 30%"/></p>

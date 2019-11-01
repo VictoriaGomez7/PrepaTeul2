@@ -257,11 +257,19 @@ class CalificacionesController extends Controller
 
         $ban=0;
         $Faltas=$id->get('Faltas');
-        for ($i=0; $i <count($Faltas) ; $i++) { 
-            if ($Faltas[$i]>$id->NumTotalAsis) {
-                $ban=1;
+        
+        $banFaltas=False;
+        if ($Faltas==''){
+            $banFaltas=True;
+        }
+        else{
+            for ($i=0; $i <count($Faltas) ; $i++) { 
+                if ($Faltas[$i]>$id->NumTotalAsis) {
+                    $ban=1;
+                }
             }
         }
+        
         $year_date=date('o');
         $Cant_Calif=count($id->get('Calif1'));
         $Calificaciones_1=$id->get('Calif1');
@@ -273,9 +281,11 @@ class CalificacionesController extends Controller
         $usua=$id->Usua;
         if ($ban==1) {
             return redirect('Calificaciones?valor='.$usua)->with('msj2','El número de faltas no puede ser mayor que el total de clases' );
-        } else {
-        for ($i=0; $i < $Cant_Calif; $i++)
-            {
+        } 
+
+        else {
+            for ($i=0; $i < $Cant_Calif; $i++)
+                {
                 
                 if ($id->Periodo==1){
                     if ($Calificaciones_1[$i]<6){
@@ -294,14 +304,23 @@ class CalificacionesController extends Controller
                     }
                 }
 
-                $Asisten=$TotalClases-$Faltas[$i];
-                CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial1'=>$Calificaciones_1[$i]]);
-                CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial2'=>$Calificaciones_2[$i]]);
-                CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Semestral'=>$Semestral[$i]]);
-                Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Asistencias'=>$Asisten]);
-                Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Faltas'=>$Faltas[$i]]);
-                Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Periodo'=>$id->Periodo]);
-                Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['PorcentajeAsistencias'=>(($Asisten*100)/$TotalClases)]);
+                if ($banFaltas==False){
+                    $Asisten=$TotalClases-$Faltas[$i];
+                    CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial1'=>$Calificaciones_1[$i]]);
+                    CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial2'=>$Calificaciones_2[$i]]);
+                    CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Semestral'=>$Semestral[$i]]);
+                    Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Asistencias'=>$Asisten]);
+                    Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Faltas'=>$Faltas[$i]]);
+                    Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Periodo'=>$id->Periodo]);
+                    Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['PorcentajeAsistencias'=>(($Asisten*100)/$TotalClases)]);
+                }
+                else{
+                    $Asisten=$TotalClases-$Faltas[$i];
+                    CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial1'=>$Calificaciones_1[$i]]);
+                    CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial2'=>$Calificaciones_2[$i]]);
+                    CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Semestral'=>$Semestral[$i]]);
+                }
+                
                 
             }
 

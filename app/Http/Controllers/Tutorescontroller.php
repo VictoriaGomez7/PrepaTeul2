@@ -45,8 +45,8 @@ class Tutorescontroller extends Controller
         }
 
         //ver y registrar nuevos tutores
-        //$visivility=2;
-        //return view('Tutores.create',compact('Datos_tabla_Docentes','Generacion','visivility','Datos_tabla_tutor','Datos_tabla_Docentes_1'));
+        $visivility=2;
+        return view('Tutores.create',compact('Datos_tabla_Docentes','Generacion','visivility','Datos_tabla_tutor','Datos_tabla_Docentes_1'));
 
         if (count($Datos_tabla_Docentes)==0){
                 return redirect('/ControlEscolarInicio')->with('MsjERR','No hay docentes registrados');

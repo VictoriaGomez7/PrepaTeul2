@@ -33,7 +33,10 @@ class CierreController extends Controller
 
         if (count($Fecha)==0 or $Fecha[0]->fecha2==null) {
             //return "entra";
-            return view('CerrarCiclo.index',compact('bandera'))->with('msj1','Favor de asignar fechas a periodos');        }
+            $msj='No hay periodos registrados.';
+            $BanMSJ=2;
+            return view('CerrarCiclo.index',compact('bandera','msj','BanMSJ'));       
+        }
         else{
         $fechasis=$Fecha[0]->fecha2;
         $fechaact=date('Y-m-d');
@@ -42,11 +45,15 @@ class CierreController extends Controller
             $bandera=True;
         
         //return "entra2";
-        return view('CerrarCiclo.index',compact('bandera'));
+        $msj='';
+        $BanMSJ=0;
+        return view('CerrarCiclo.index',compact('bandera','BanMSJ','msj'));
     }
     else{
         $bandera=False;
-        return view('CerrarCiclo.index',compact('bandera'));        }
+        $msj='';
+        $BanMSJ=0;
+        return view('CerrarCiclo.index',compact('bandera','BanMSJ','msj'));        }
     }
     
 }
@@ -154,10 +161,10 @@ class CierreController extends Controller
             $mate->save();
         }
         
-        $bandera=true;
-        //return back(compact('bandera'))->with('msj','Ciclo cerrado con éxito.');
-        return view('CerrarCiclo.index',compact('bandera'))->with('msj','Ciclo cerrado con éxito.');
-        //return back->with('msj','Ciclo cerrado con éxito.');
+        $bandera=False;
+        $msj='Ciclo cerrado con éxito.';
+        $BanMSJ=1;
+        return view('CerrarCiclo.index',compact('bandera','msj','BanMSJ'));
     }
 
     /**

@@ -97,7 +97,7 @@ class IrregularController extends Controller
                 $Materia->Fecha=$request->Fecha;
 
                 $Materia->save();
-                if($request->$verificado>=7){
+                if($request->$verificado>=6){
                     $Opo=IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->get();
                     //return $Opo;
                     $Oportunidad=$Opo[0]->Oportunidades+1;
