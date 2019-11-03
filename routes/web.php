@@ -199,3 +199,7 @@ Route::resource('ImprimirKardex', 'KaredexController');
 
 Route::resource('ImprimeCarta','ImprimeCartaController');
 
+Route::resource('Bachillerato','BachilleratoController');
+
+Route::resource('Formaciones','FormacionesController');
+
