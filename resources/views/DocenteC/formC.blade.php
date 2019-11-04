@@ -25,10 +25,10 @@
 
                 <p style="font-size:140%;position: absolute;top:6%;left: 10%">{{('Clave:')}}</p>
                 <p style="font-size:140%;position: absolute;top:20%;left: 10%">{{('Nombre:')}}</p>
-                <p style="font-size:140%;position: absolute;top:34%;left: 10%">{{('Domicilio:')}}</p>
+                <p style="font-size:140%;position: absolute;top:34%;left: 10%">{{('Dirección:')}}</p>
                 <p style="font-size:140%;position: absolute;top:48%;left: 10%">{{('Teléfono:')}}</p>
                 <p style="font-size:140%;position: absolute;top:63%;left: 10%">{{('Email:')}}</p>
-                <p style="font-size:140%;position: absolute;top:78%;left: 10%">{{('Clave CURP:')}}</p>
+                <p style="font-size:140%;position: absolute;top:78%;left: 10%">{{('CURP:')}}</p>
 
             </div>
 

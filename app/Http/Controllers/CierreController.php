@@ -33,7 +33,10 @@ class CierreController extends Controller
 
         if (count($Fecha)==0 or $Fecha[0]->fecha2==null) {
             //return "entra";
-            return view('CerrarCiclo.index',compact('bandera'))->with('msj1','Favor de asignar fechas a periodos');        }
+            $msj='No hay periodos registrados.';
+            $BanMSJ=2;
+            return view('CerrarCiclo.index',compact('bandera','msj','BanMSJ'));       
+        }
         else{
         $fechasis=$Fecha[0]->fecha2;
         $fechaact=date('Y-m-d');
@@ -42,11 +45,15 @@ class CierreController extends Controller
             $bandera=True;
         
         //return "entra2";
-        return view('CerrarCiclo.index',compact('bandera'));
+        $msj='';
+        $BanMSJ=0;
+        return view('CerrarCiclo.index',compact('bandera','BanMSJ','msj'));
     }
     else{
         $bandera=False;
-        return view('CerrarCiclo.index',compact('bandera'));        }
+        $msj='';
+        $BanMSJ=0;
+        return view('CerrarCiclo.index',compact('bandera','BanMSJ','msj'));        }
     }
     
 }
@@ -95,24 +102,48 @@ class CierreController extends Controller
             $suma=$suma+$todo[$i]->Semestral/2;
             if ($suma<6) {
                 //return "llegue aqui";
-                $alumnoL=new Irregulares();
-                $alumnoL->Clave_A=$todo[$i]->Clave_A;
-                $alumnoL->save(); 
-                $mate=new IrregularMateria();
-                $mate->Clave_A=$todo[$i]->Clave_A;
-                $mate->Clave_M=$todo[$i]->ClaveM;
-                $mate->Calificacion1=0.0;
-                $mate->Fecha=null;
-                $mate->Oportunidades=0.0;
-                $mate->save();
+                $P_Verificar_I=Irregulares::where('Clave_A',$todo[$i]->Clave_A)->get();
+                if (count($P_Verificar_I)==0){
+                    $alumnoL=new Irregulares();
+                    $alumnoL->Clave_A=$todo[$i]->Clave_A;
+                    $alumnoL->save(); 
+                    $mate=new IrregularMateria();
+                    $mate->Clave_A=$todo[$i]->Clave_A;
+                    $mate->Clave_M=$todo[$i]->ClaveM;
+                    $mate->Calificacion1=0.0;
+                    $mate->Fecha=null;
+                    $mate->Oportunidades=0.0;
+                    $mate->save();
 
-                $mate2=new IrregularMateriaHistorico();
-                $mate2->Clave_A=$todo[$i]->Clave_A;
-                $mate2->Clave_M=$todo[$i]->ClaveM;
-                $mate2->Calificacion1=0.0;
-                $mate2->Fecha=null;
-                $mate2->Oportunidades=0.0;
-                $mate2->save();
+                    $mate2=new IrregularMateriaHistorico();
+                    $mate2->Clave_A=$todo[$i]->Clave_A;
+                    $mate2->Clave_M=$todo[$i]->ClaveM;
+                    $mate2->Calificacion1=0.0;
+                    $mate2->Fecha=null;
+                    $mate2->Oportunidades=0.0;
+                    $mate2->save();
+                }
+                else{
+                    $P_Verificar_M=IrregularMateria::where('Clave_A',$todo[$i]->Clave_A)->where('Clave_M',$todo[$i]->ClaveM)->get();
+                    if (count($P_Verificar_M)==0){
+                        $mate=new IrregularMateria();
+                        $mate->Clave_A=$todo[$i]->Clave_A;
+                        $mate->Clave_M=$todo[$i]->ClaveM;
+                        $mate->Calificacion1=0.0;
+                        $mate->Fecha=null;
+                        $mate->Oportunidades=0.0;
+                        $mate->save();
+
+                        $mate2=new IrregularMateriaHistorico();
+                        $mate2->Clave_A=$todo[$i]->Clave_A;
+                        $mate2->Clave_M=$todo[$i]->ClaveM;
+                        $mate2->Calificacion1=0.0;
+                        $mate2->Fecha=null;
+                        $mate2->Oportunidades=0.0;
+                        $mate2->save();
+                    }
+                }
+                
             }
             else
             {
@@ -154,10 +185,10 @@ class CierreController extends Controller
             $mate->save();
         }
         
-        $bandera=true;
-        //return back(compact('bandera'))->with('msj','Ciclo cerrado con éxito.');
-        return view('CerrarCiclo.index',compact('bandera'))->with('msj','Ciclo cerrado con éxito.');
-        //return back->with('msj','Ciclo cerrado con éxito.');
+        $bandera=False;
+        $msj='Ciclo cerrado con éxito.';
+        $BanMSJ=1;
+        return view('CerrarCiclo.index',compact('bandera','msj','BanMSJ'));
     }
 
     /**

@@ -8,7 +8,7 @@
      <link rel="icon" href="/images/escolarcono.ico">
 	@extends('layouts.app')
 
-	<title>Control Escolar</title>
+	<title>Servicios Escolares</title>
 </head>
 <body>
 	@include('interfazprincipal.image')
@@ -76,7 +76,7 @@
 							<li><a href="http://127.0.0.1:8000/kardex">Kardex</a></li>
 						</ul>
 					</li>
-                    <li><a href="#" >Control Escolar</a>
+                    <li><a href="#" >Servicios Escolares</a>
 						<ul class="submenu">
 							<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESIÓN</a>
 						</ul>

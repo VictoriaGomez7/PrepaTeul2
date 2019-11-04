@@ -47,7 +47,7 @@
        <a  href="LoginControlEscolar">
           <div class="Contenedor" id="tres">
             <img class="icon" src="/images/icon22.png">
-            <p class="texto3">Control Escolar</p>
+            <p class="texto3">Servicios Escolares</p>
           </div>
        </a>
 

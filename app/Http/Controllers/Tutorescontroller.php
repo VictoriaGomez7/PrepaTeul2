@@ -27,55 +27,45 @@ class Tutorescontroller extends Controller
         if (count($Datos_tabla_tutor)!=0){
             $Datos_tabla_Docentes_1=array();
 
-            for ($i=0; $i < count($Datos_tabla_Docentes); $i++) { 
-                $D=$Datos_tabla_Docentes[$i]->Nombre;
-                $ban=false;
-
-                for ($j=0; $j < count($Datos_tabla_tutor); $j++) {
-
-                    if ($D==$Datos_tabla_tutor[$j]->Nombre_D){
-
-                        $ban=true;
-                    }
-                }
-                if ($ban==false){
-                    array_push($Datos_tabla_Docentes_1, $Datos_tabla_Docentes[$i]);
-                }
+            for ($i=0; $i < count($Datos_tabla_Docentes); $i++) {
+                array_push($Datos_tabla_Docentes_1, $Datos_tabla_Docentes[$i]);
             }
         }
-
-        //ver y registrar nuevos tutores
-        //$visivility=2;
-        //return view('Tutores.create',compact('Datos_tabla_Docentes','Generacion','visivility','Datos_tabla_tutor','Datos_tabla_Docentes_1'));
 
         if (count($Datos_tabla_Docentes)==0){
-                return redirect('/ControlEscolarInicio')->with('MsjERR','No hay docentes registrados');
+            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay docentes registrados');
         }
         else {
-            //return $fecha;
+            $f2=$fecha_generacion-2;
+            $f4=$fecha_generacion-4;
+            $Generacion2=$f2.' - '.($fecha_generacion-1);
+            $Generacion3=$f4.' - '.($fecha_generacion-3);
+
             if ((count($Datos_tabla_tutor)!=0) and ($fecha>=07 or $fecha<=07)) {
+                
+                $Listado=array();
+                $visivility=2;
                 $Dat=Tutor::where('Generacion',$Generacion)->get('Generacion');
                 if (count($Dat)==0){
-                    $visivility=2; //ver y registrar nuevos tutores
-                    return view('Tutores.create',compact('Datos_tabla_Docentes','Generacion','visivility','Datos_tabla_tutor','Datos_tabla_Docentes_1'));
-                }
-                else{
-                    $visivility=3; //Solo es para ver los tutores
-                    //return 'ver';
-                    return view('Tutores.create',compact('Datos_tabla_Docentes','Generacion','visivility','Datos_tabla_tutor'));
+
+                    Tutor::where('Grado','PRIMERO')->where('Grupo','A')->update(['Nombre_D'=>'']);
+                    Tutor::where('Grado','PRIMERO')->where('Grupo','B')->update(['Nombre_D'=>'']);
+                    $Datos_tabla_tutor=Tutor::get();
+
+                    array_push($Listado, $Datos_tabla_tutor[0]);
+                    array_push($Listado, $Datos_tabla_tutor[1]);
+                    array_push($Listado, $Datos_tabla_tutor[2]);
+                    array_push($Listado, $Datos_tabla_tutor[3]);
+                    array_push($Listado, $Datos_tabla_tutor[4]);
+                    array_push($Listado, $Datos_tabla_tutor[5]);
+                    $Datos_tabla_tutor=$Listado;
                 }
             }
-            if (count($Datos_tabla_tutor)==0 and $fecha>=07){
+            else if (count($Datos_tabla_tutor)==0 and $fecha>=07){
                 $visivility=1;
-                $f2=$fecha_generacion-2;
-                $f4=$fecha_generacion-4;
-                $Generacion2=$f2.' - '.($fecha_generacion-1);
-                $Generacion3=$f4.' - '.($fecha_generacion-3);
-                return view('Tutores.create',compact('Datos_tabla_Docentes','Generacion','visivility','Datos_tabla_tutor','Generacion2','Generacion3'));
             }
-            else {
-                return redirect('/ControlEscolarInicio')->with('MsjERR','Sólo se pueden registrar tutores en semestre impar.');
-            }
+            //return $Datos_tabla_tutor;
+            return view('Tutores.create',compact('Datos_tabla_Docentes','Generacion','visivility','Datos_tabla_tutor','Generacion2','Generacion3'));
             
         }
         
@@ -100,110 +90,68 @@ class Tutorescontroller extends Controller
     public function store(Request $request)
     {
         $Datos_tabla_tutor=Tutor::get();
+        
+        $ba2=false;
+        if (count($Datos_tabla_tutor)!=0){
+            $ba2=true;
+        }
+        if ($ba2==true){
+            Tutor::where('Grado','PRIMERO')->where('Grupo','A')->update(['Nombre_D'=>$request->nombre1]);
+            Tutor::where('Grado','PRIMERO')->where('Grupo','A')->update(['Generacion'=>$request->Generacion]);
+            Tutor::where('Grado','PRIMERO')->where('Grupo','B')->update(['Nombre_D'=>$request->nombre2]);
+            Tutor::where('Grado','PRIMERO')->where('Grupo','B')->update(['Generacion'=>$request->Generacion]);
 
-        if ($request->visivility==1){
-            $ba1=false;
-            if ($request->nombre1==$request->nombre2 or $request->nombre1==$request->nombre3 or $request->nombre1==$request->nombre4 or $request->nombre1==$request->nombre5 or $request->nombre1==$request->nombre6 or $request->nombre2==$request->nombre3 or $request->nombre2==$request->nombre4 or $request->nombre2==$request->nombre5 or $request->nombre2==$request->nombre6 or $request->nombre3==$request->nombre4 or $request->nombre3==$request->nombre5 or $request->nombre3==$request->nombre6 or $request->nombre4==$request->nombre5 or $request->nombre4==$request->nombre6 or $request->nombre5==$request->nombre6){
-                $ba1=true;
-            }
-            $ba2=false;
-            for ($i=0; $i < count($Datos_tabla_tutor); $i++) { 
-                if ($request->Generacion==$Datos_tabla_tutor[$i]->Generacion){
-                    $ba2=true;
-                }
-            }
-            if ($ba1==true){
-                return back()->with('msjError','No se puede repetir el docente.' );
-            }
-            else if ($ba2==true){
-                return back()->with('msjError','Ya se registraron los turores de esta generación.' );
-            }
-            else{
-                $docente=new Tutor();
-                $docente->Nombre_D=$request->nombre1;
-                $docente->Grado='PRIMERO';
-                $docente->Grupo='A';
-                $docente->Generacion=$request->Generacion;
-                $docente->save();
-                $docente=new Tutor();
-                $docente->Nombre_D=$request->nombre2;
-                $docente->Grado='PRIMERO';
-                $docente->Grupo='B';
-                $docente->Generacion=$request->Generacion;
-                $docente->save();
+            Tutor::where('Grado','SEGUNDO')->where('Grupo','A')->update(['Nombre_D'=>$request->nombre3]);
+            Tutor::where('Grado','SEGUNDO')->where('Grupo','A')->update(['Generacion'=>$request->Generacion2]);
+            Tutor::where('Grado','SEGUNDO')->where('Grupo','B')->update(['Nombre_D'=>$request->nombre4]);
+            Tutor::where('Grado','SEGUNDO')->where('Grupo','B')->update(['Generacion'=>$request->Generacion2]);
 
-                $docente=new Tutor();
-                $docente->Nombre_D=$request->nombre3;
-                $docente->Grado='SEGUNDO';
-                $docente->Grupo='A';
-                $docente->Generacion=$request->Generacion2;
-                $docente->save();
-                $docente=new Tutor();
-                $docente->Nombre_D=$request->nombre4;
-                $docente->Grado='SEGUNDO';
-                $docente->Grupo='B';
-                $docente->Generacion=$request->Generacion2;
-                $docente->save();
-
-                $docente=new Tutor();
-                $docente->Nombre_D=$request->nombre5;
-                $docente->Grado='TERCERO';
-                $docente->Grupo='A';
-                $docente->Generacion=$request->Generacion3;
-                $docente->save();
-                $docente=new Tutor();
-                $docente->Nombre_D=$request->nombre6;
-                $docente->Grado='TERCERO';
-                $docente->Grupo='B';
-                $docente->Generacion=$request->Generacion3;
-                $docente->save();
-            }
-            
+            Tutor::where('Grado','TERCERO')->where('Grupo','A')->update(['Nombre_D'=>$request->nombre5]);
+            Tutor::where('Grado','TERCERO')->where('Grupo','A')->update(['Generacion'=>$request->Generacion3]);
+            Tutor::where('Grado','TERCERO')->where('Grupo','B')->update(['Nombre_D'=>$request->nombre6]);
+            Tutor::where('Grado','TERCERO')->where('Grupo','B')->update(['Generacion'=>$request->Generacion3]);
         }
         else{
+            $docente=new Tutor();
+            $docente->Nombre_D=$request->nombre1;
+            $docente->Grado='PRIMERO';
+            $docente->Grupo='A';
+            $docente->Generacion=$request->Generacion;
+            $docente->save();
+            $docente=new Tutor();
+            $docente->Nombre_D=$request->nombre2;
+            $docente->Grado='PRIMERO';
+            $docente->Grupo='B';
+            $docente->Generacion=$request->Generacion;
+            $docente->save();
 
-            $ba=false;
-            for ($i=0; $i < count($Datos_tabla_tutor); $i++) { 
-                if ($request->nombre1==$Datos_tabla_tutor[$i]->Nombre_D or $request->nombre2==$Datos_tabla_tutor[$i]->Nombre_D){
-                    $ba=true;
-                }
-            }
+            $docente=new Tutor();
+            $docente->Nombre_D=$request->nombre3;
+            $docente->Grado='SEGUNDO';
+            $docente->Grupo='A';
+            $docente->Generacion=$request->Generacion2;
+            $docente->save();
+            $docente=new Tutor();
+            $docente->Nombre_D=$request->nombre4;
+            $docente->Grado='SEGUNDO';
+            $docente->Grupo='B';
+            $docente->Generacion=$request->Generacion2;
+            $docente->save();
 
-            $ba2=false;
-            for ($i=0; $i < count($Datos_tabla_tutor); $i++) { 
-                if ($request->Generacion==$Datos_tabla_tutor[$i]->Generacion){
-                    $ba2=true;
-                }
-            }
-            
-            if ($request->nombre1==$request->nombre2){
-                return back()->with('msjError','No se puede repetir el docente.' );
-            }
-            else if ($ba2==true){
-                return back()->with('msjE','Ya se registraron los turores de esta generación.' );
-            }
-            else{
-                if ($ba==true){
-                    return back()->with('msjError','Algún docente seleccionado ya fue registrado.' );
-                }
-                else{
-                    $docente=new Tutor();
-                    $docente->Nombre_D=$request->nombre1;
-                    $docente->Grado='PRIMERO';
-                    $docente->Grupo='A';
-                    $docente->Generacion=$request->Generacion;
-                    $docente->save();
-                    $docente=new Tutor();
-                    $docente->Nombre_D=$request->nombre2;
-                    $docente->Grado='PRIMERO';
-                    $docente->Grupo='B';
-                    $docente->Generacion=$request->Generacion;
-                    $docente->save();
-                }
-            } 
+            $docente=new Tutor();
+            $docente->Nombre_D=$request->nombre5;
+            $docente->Grado='TERCERO';
+            $docente->Grupo='A';
+            $docente->Generacion=$request->Generacion3;
+            $docente->save();
+            $docente=new Tutor();
+            $docente->Nombre_D=$request->nombre6;
+            $docente->Grado='TERCERO';
+            $docente->Grupo='B';
+            $docente->Generacion=$request->Generacion3;
+            $docente->save();
         }
-
-        return redirect('RegistrarTutores')->with('msj','Tutores registrados con éxito.');
+        return redirect('/ControlEscolarInicio')->with('msj','Tutores registrados con éxito.');
         
     }
 

@@ -45,6 +45,7 @@
               <input type="hidden" name="Clave_A" value="{{$alumno}}">
               <td align="justify">{{ $Listado_Nombres_Alumnos[$Cont] }}</td>
               <td align="justify">{{ $Cantidad_Materias_Reprobadas[$Cont]}}</td>
+              <input type="hidden" name="Grupo_A" value="{{$Listado_Grupos[$Cont]}}">
 
               <td>{!!Form::submit('Ver',['class'=>'btn btn-primary'])!!}</td>
               {!! Form::close()!!}

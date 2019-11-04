@@ -74,7 +74,7 @@
                         <td align="left">{{ ('No.') }}</th>
                         <td align="left">{{ ('Matrícula') }}</th>
                         <td align="left">{{ ('Alumno') }}</th>
-                        <td align="left">{{ ('Imprimir') }}</th>
+                        <td align="left">{{ ('Generar') }}</th>
                     </tr>
                     <tr style="font-size:120%" >
                         <td align="center" style="background:#F0F8FF; color: rgb(0, 128, 0)" colspan="4">{{ ('Grupo A') }}</th>
@@ -107,7 +107,7 @@
                 </table>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="position: absolute;top: 134%;left:75%">Imprimir</button>
+            <button type="submit" class="btn btn-primary" style="position: absolute;top: 134%;left:75%">Generar</button>
 
         {!! Form::Close() !!}
         
