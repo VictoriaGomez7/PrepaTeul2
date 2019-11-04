@@ -79,26 +79,9 @@
     </script>
    
 
-    <label style="font-size:130%; position:  absolute;top: 15%; left: 15%" >
-          <input type="radio" name="bachilleratoT"  class="with-gap" value="Químico Biológica" required="true" >
-      <span>Químico-Biológica</span>
-    </label>
-
-    <label style="font-size:130%; position:  absolute;top: 35%; left: 15%">
-          <input type="radio" name="bachilleratoT"  class="with-gap"  value="Físico Matemática" >
-      <span>Físico-Matemática</span>
-    </label>
-
-
-    <label style="font-size:130%; position:  absolute;top: 55%; left: 15%">
-          <input type="radio" name="bachilleratoT"  class="with-gap" value="Humanidades y Ciencias Sociales" >
-      <span>Humanidades y Ciencias Sociales</span>
-    </label>
-
-       <label style="font-size:130%; position:  absolute;top: 75%; left: 15%" >
-          <input type="radio" name="bachilleratoT"  class="with-gap" value="Económico Administrativa" required="true" >
-      <span>Económico-Administrativa</span>
-    </label>
+    <?php 
+      echo $radios;
+     ?>
 
      <input type="submit"  name="bachillerato" value="Aceptar" class="btn btn-primary" style="font-size:100%; position :absolute;top: 108%; left: 60%" >
 

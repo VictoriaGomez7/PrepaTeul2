@@ -90,6 +90,11 @@
 							<li><a href="http://127.0.0.1:8000/kardex">Kardex</a></li>
 						</ul>
 					</li>
+					<li><a href="#">Contrasena</a>
+						<ul class="submenu">
+							<li><a href="http://127.0.0.1:8000/contrasena">Recuperacion</a></li> 
+						</ul>
+					</li>
                     <li><a href="#" >Control Escolar</a>
 						<ul class="submenu">
 							<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESIÓN</a>

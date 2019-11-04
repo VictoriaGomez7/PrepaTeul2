@@ -69,21 +69,10 @@
     </script>
 
 
-    <label style="font-size:130%; position:  absolute;top: 10%; left: 40%" >
-          <input type="radio" name="formacionT"  class="with-gap" value="Turismo" required="true" >
-      <span>Turismo</span>
-    </label>
+    <?php 
+      echo $radios;
 
-    <label style="font-size:130%; position:  absolute;top: 25%; left: 40%">
-          <input type="radio" name="formacionT"  class="with-gap"  value="Informatica" >
-      <span>Informática</span>
-    </label>
-
-
-    <label style="font-size:130%; position:  absolute;top: 40%; left: 40%">
-          <input type="radio" name="formacionT"  class="with-gap" value="Higiene y Salud Comunitaria" >
-      <span>Higiene y Salud Comunitaria</span>
-    </label>
+     ?>
      <input type="submit"  name="formacion" value="Aceptar" class="btn btn-primary" style="font-size:120%; position :absolute;top: 110%; left: 65%" >
 
      {!! form::close() !!}

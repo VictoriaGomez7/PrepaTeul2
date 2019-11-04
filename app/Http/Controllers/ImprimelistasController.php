@@ -6,6 +6,8 @@ use App\Alumno;
 use App\Grupo;
 use App\GrupoTemporal;
 use App\ft_bach;
+use App\formaciones;
+use App\Bachilleratos;
 use Illuminate\Support\Facades\DB;
 
 
@@ -52,19 +54,43 @@ class ImprimelistasController extends Controller
      */
     public function show(Request $r )
     {
-
+        //  return "hola";
         $semestre=$r->semestre;
         $titulo='';
+        $top=10;
         if(($r->grupos =='formacion' && $r->semestre =='PRIMER SEMESTRE') || ($r->grupos =='formacion' && $r->semestre =='SEGUNDO SEMESTRE')){
        
             return back()->with('msj2','Sólo Tercer y Cuarto Semestre tienen asignado Formación Para el Trabajo');
             }else if($r->grupos =='formacion'){
-                return view('Listas.formacion',compact('semestre'));
+                $formaciones=formaciones::take(100)->get();
+                $radios="";
+                
+                foreach ($formaciones as $formacion) {
+                        $radios.='<label style="font-size:130%; position:  absolute;top:'.$top.'%; left: 40%" >
+          <input type="radio" name="formacionT"  class="with-gap" value="'.$formacion->Nombre_FT.'" required="true" >
+      <span>'.$formacion->Nombre_FT.'</span>
+    </label>';
+    $top+=15;
+                }
+                return view('Listas.formacion',compact('semestre','radios'));
 
             }else if($r->grupos =='bachillerato'){
-                
+                $bachilleratos=Bachilleratos::take(100)->get();
+               
+
+                $radios="";
+                $top=10;
+                foreach ($bachilleratos as $bachillerato) {
+                        $radios.=' <label style="font-size:130%; position:  absolute;top:'.$top .'%; left: 40%" >
+          <input type="radio" name="bachilleratoT"  class="with-gap" value="'.$bachillerato->Nombre_B.'" required="true" >
+      <span>'.$bachillerato->Nombre_B.'</span>
+    </label>';
+    $top+=15;
+                }
+
+
                 if ($r->semestre =='QUINTO SEMESTRE' || $r->semestre =='SEXTO SEMESTRE'){
-                    return view('Listas.bachillerato',compact('semestre'));
+                    return view('Listas.bachillerato',compact('semestre','radios'));
                 }
                 else{
                     return back()->with('msj2','Sólo Quinto y Sexto Semestre tienen Área Propedéutica');

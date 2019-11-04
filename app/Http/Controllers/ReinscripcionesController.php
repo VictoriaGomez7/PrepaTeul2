@@ -9,7 +9,8 @@ Use Alert;
 use App\ft_bach;
 use App\Http\Requests\TagStoreRequestFTyBACH;
 use Illuminate\Http\Request;
-
+use App\Formaciones;
+use App\Bachilleratos;
 class ReinscripcionesController extends Controller
 {
     /**
@@ -57,6 +58,24 @@ class ReinscripcionesController extends Controller
      */
     public function show(Request $alumno1)//show($id)
     {
+
+
+             $dbFormaciones=Formaciones::get();
+        $opcionesFormacion='';
+        foreach ($dbFormaciones as $formacion) {
+            # code... 
+                         $opcionesFormacion.='<option value="'.$formacion->Nombre_FT.' ">
+                         '.$formacion->Nombre_FT.'</option>';
+              }
+
+        $dbBachillertatos=Bachilleratos::get();
+        $opcionesBachillerato='';
+        foreach ($dbBachillertatos as $bachillerato) {
+            # code... 
+                         $opcionesBachillerato.='<option value="'.$bachillerato->Nombre_B.' ">
+                         '.$bachillerato->Nombre_B.'</option>';
+              }      
+
         //return $alumno1;
         $CAlumno = Alumno::where('Clave_A', $alumno1->PMatri)->get();
         //return $CAlumno;
@@ -108,7 +127,7 @@ class ReinscripcionesController extends Controller
                     }
             }
 
-        return view('Reinscripciones.show',compact('CAlumno','alumno1','opciones2','bandera','FtOBache','Gra'));
+        return view('Reinscripciones.show',compact('CAlumno','alumno1','opciones2','bandera','FtOBache','Gra','opcionesFormacion','opcionesBachillerato'));
         }
     }
 

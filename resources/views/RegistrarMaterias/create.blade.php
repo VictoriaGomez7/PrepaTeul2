@@ -83,18 +83,17 @@
                       </select>
                         <select name="formacion" id="formacion" required style="font-size:110%;width: 65%; position:  absolute;top: 42%; left: 30%" disabled="true">
                             <option value="{{ old('formacion') }}">{{ old('formacion') }}</option>
-                            <option value="Higiene y Salud Comunitaria">Higiene y Salud Comunitaria</option>
-                            <option value="Turismo">Turismo</option>
-                            <option value="Actividades Paraescolares">Informatica</option>
+                           <?php
+                            echo $opcionesFormacion;
+                           ?>
                           
                       </select>
 
                 <select name="bachillerato" id="bachillerato" required style="font-size:110%;width: 65%; position:  absolute;top: 59%; left: 30%" disabled="true">
                             <option value="{{ old('tipo') }}">{{ old('tipo') }}</option>
-                            <option value="Químico Biológica">Químico-Biológica</option>
-                            <option value="Físico Matemática">Físico-Matemática</option>
-                            <option value="Humanidades y Ciencias Sociales">Humanidades y Ciencias Sociales</option>
-                            <option value="Económico Administrativa">Económico-Administrativa</option>
+                            <?php 
+                            echo $opcionesBachillerato;
+                            ?>
                       </select>
 
                 <select name="semestre" required style="font-size:110%;width: 65%;;position: absolute;    top:74%; left:30%;">

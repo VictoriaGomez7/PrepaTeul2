@@ -12,8 +12,8 @@ use App\Nombrealumno;
 use App\Http\Requests\TagStoreRequestFTyBACH;
 use App\Http\Requests\TagStoreRequest;
 
-
-
+use App\Formaciones;
+use App\Bachilleratos;
 
 class AlumnosController extends Controller
 {
@@ -24,6 +24,7 @@ class AlumnosController extends Controller
      */
     public function index(Request $alumno1)
     {
+    
       $clave=$alumno1->id;
       $nombre=$alumno1->nombre;
       if (isset($clave)&&isset($nombre)) {
@@ -214,7 +215,27 @@ class AlumnosController extends Controller
         $CAlumno = Alumno::where('Clave_A', $id)->get();
         $Requisitos = Requisito::where('Clave_A', $id)->get();
         $bachis=ft_bach::where('Clave_A',$id)->get();
-        return view('Alumnos.show',compact('CAlumno','Requisitos','bachis'));
+
+
+
+        $dbFormaciones=Formaciones::get();
+        $opcionesFormacion='';
+        foreach ($dbFormaciones as $formacion) {
+            # code... 
+                         $opcionesFormacion.='<option value="'.$formacion->Nombre_FT.' ">
+                         '.$formacion->Nombre_FT.'</option>';
+              }
+
+        $dbBachillertatos=Bachilleratos::get();
+        $opcionesBachillerato='';
+        foreach ($dbBachillertatos as $bachillerato) {
+            # code... 
+                         $opcionesBachillerato.='<option value="'.$bachillerato->Nombre_B.' ">
+                         '.$bachillerato->Nombre_B.'</option>';
+              }      
+              
+        return view('Alumnos.show',compact('CAlumno','Requisitos','bachis' ,'opcionesFormacion',
+          'opcionesBachillerato'));
     }
 
     /**

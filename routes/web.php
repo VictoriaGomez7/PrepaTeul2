@@ -10,6 +10,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/*
+
+Route::get('/RegistraMateria', function () {
+    return view('RegistrarMaterias.create');
+});
+*/
+
+ Route::get('RegistraMateria','combos@formaciones');
+
+ Route::get('inscripcion','combos@incripcion');
+
+Route::resource('/contrasena','contrasenaController');
+
+
 Route::resource('EvaluacionConducta','conductaController');
 
 Route::get('materia/buscador','materiasBuscadorController@buscador');
@@ -29,9 +44,7 @@ Route::get('/ControlEscolarInicio', function () {
     return view('ControlEscolar.CEprincipal2');
 });
 
-Route::get('/inscripcion', function () {
-    return view('Inscripcion.create');
-});
+
 
 Route::get('/reinscripcion', function () {
     return view('Reinscripciones.create');
@@ -57,10 +70,10 @@ Route::get('/RegistraDocente', function () {
     return view('RegistrarDocentes.create');
 });
 // ESTA PARTE AGREGUE YO PARA REGISTRAR MATERIAS
-Route::get('/RegistraMateria', function () {
+/*Route::get('/RegistraMateria', function () {
     return view('RegistrarMaterias.create');
 });
-
+*/
 Route::get('/alumnosconsulta',function(){
     return view('Alumnos.consulta');
 });

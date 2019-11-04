@@ -160,18 +160,13 @@
                 <p style="font-size:138%">{{('Formación para el Trabajo:')}}</p>
                 <p style="font-size:138%">{{('Bachillerato:')}}</p>
                 <select required name="Formación_Trabajo" id="Formación_Trabajo" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  disabled="true">
-                            <option value="{{$bachil->Formación_Trabajo}}" >{{$bachil->Formación_Trabajo}}</option>
-                            <option value="Informática">Informática</option>
-                            <option value="Turismo">Turismo</option>
-                            <option value="Higiene y Salud Comunitaria">Higiene y Salud Comunitaria</option>
+                            <option></option>
+                           <?php echo $opcionesFormacion; ?>
                       </select>
 
                 <select name="Bachillerato" id="Bachillerato" style="font-size:110%;width: 26.5%; position:  absolute;top: 53%; left: 22%" disabled="true" required>
                             <option value="{{$bachil->Bachillerato}}">{{$bachil->Bachillerato}}</option>
-                            <option value="Químico Biológica">Químico-Biológica</option>
-                            <option value="Físico Matemática">Físico-Matemática</option>
-                            <option value="Humanidades y Ciencias Sociales">Humanidades y Ciencias Sociales</option>
-                            <option value="Económico Administrativa">Económico-Administrativa</option>
+                            <?php echo $opcionesBachillerato; ?>
                       </select>
 
 

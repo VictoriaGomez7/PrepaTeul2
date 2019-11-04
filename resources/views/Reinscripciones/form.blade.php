@@ -115,17 +115,13 @@
                 <p style="font-size:138%">{{('Bachillerato:')}}</p>
                 @if($bandera==1)
                 <select  name="ft2" id="ft2" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  >
-                            <option value="{{ old('Grado') }}">{{ old('Grado') }}</option>
-
-                            <option value="Informática">Informática</option>
-                            <option value="Turismo">Turismo</option>
-                            <option value="Higiene y Salud Comunitaria">Higiene y Salud Comunitaria</option>
+                            <?php echo $opcionesFormacion; ?>
 
                       </select>
 
                <input readonly value=""  name="bach1" id="bach1" style="font-size:110%;width: 26.5%; position:  absolute;top: 53%; left: 22%" >
                 @elseif($bandera==11)
-                <input readonly value="{{ $FTBH->Formación_Trabajo }}" name="ft2" id="ft2" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  >
+                <input readonly value="1{{ $FTBH->Formación_Trabajo }}" name="ft2" id="ft2" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  >
 
                 <input readonly value="{{ $FTBH->Bachillerato }}"  name="bach1" id="bach1" style="font-size:110%;width: 26.5%; position:  absolute;top: 53%; left: 22%" >
                 @elseif($bandera==2)
@@ -133,10 +129,7 @@
 
                 <select name="bach1" id="bach1" style="font-size:110%;width: 26.5%; position:  absolute;top: 53%; left: 22%" >
                             <option value="{{ old('Grado') }}">{{ old('Grado') }}</option>
-                            <option value="Químico Biológica">Químico Biológica</option>
-                            <option value="Físico Matemática">Físico Matemática</option>
-                            <option value="Ciencias sociales y humanidades">Ciencias sociales y humanidades</option>
-                            <option value="Económico Administrativa">Económico Administrativa</option>
+                            <?php echo $opcionesBachillerato; ?>
                       </select>
                 @elseif($bandera==22)
                     <input readonly value="" name="ft2" id="ft2" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  >
