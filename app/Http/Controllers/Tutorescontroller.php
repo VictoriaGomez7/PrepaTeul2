@@ -32,6 +32,7 @@ class Tutorescontroller extends Controller
             }
         }
 
+
         if (count($Datos_tabla_Docentes)==0){
             return redirect('/ControlEscolarInicio')->with('MsjERR','No hay docentes registrados');
         }
