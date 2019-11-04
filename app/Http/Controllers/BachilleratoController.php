@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Bachilleratos;
 
 class BachilleratoController extends Controller
 {
@@ -13,7 +14,10 @@ class BachilleratoController extends Controller
      */
     public function index()
     {
-        //
+        $bach=Bachilleratos::all();
+        //return $bach;
+        //return 'entra a bachilleratos';
+        return view('Modalidades.RegistroBach',compact('bach'));
     }
 
     /**
@@ -21,9 +25,29 @@ class BachilleratoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $bach=Bachilleratos::all();
+        $band=false;
+        foreach ($bach as $campo) {
+            if ($campo->Nombre_B==$request['Nombre_B']) {
+                $band=true;
+        }
+    }
+        if ($band==false) {
+            
+        $bachi=new Bachilleratos();
+        $bachi->Nombre_B=$request['Nombre_B'];
+        $bachi->save();
+        $bach=Bachilleratos::all();
+        //return $bach;
+        //return 'entra a bachilleratos';
+        //return view('Modalidades.RegistroBach',compact('bach'));
+        return back()->with('msj1','Bachillerato guardado correctamente');
+    }
+    else{
+        return back()->with('msj','Bachillerato anteriormente registrado');
+    }
     }
 
     /**
@@ -34,7 +58,7 @@ class BachilleratoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
@@ -45,7 +69,7 @@ class BachilleratoController extends Controller
      */
     public function show($id)
     {
-        //
+        return "show";
     }
 
     /**
@@ -54,9 +78,28 @@ class BachilleratoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $id)
     {
-        //
+        $bach=Bachilleratos::all();
+        $band=false;
+        foreach ($bach as $campo) {
+            if ($campo->Nombre_B==$id['Nombre_B'] and $campo->id!=$id->id) {
+                $band=true;
+        }
+    }
+
+        if ($band==false){
+            $bach="";
+                $bachi=Bachilleratos::where([['id',$id->id]])->get();
+                foreach ($bachi as $row){
+                    $bach=$row;
+                    $bach->fill($id->all());
+                }
+                $bach->save();
+                return back()->with('msj1','Bachillerato modificado correctamente');
+            }else{
+        return back()->with('msj','Bachillerato anteriormente registrado');
+    }
     }
 
     /**
@@ -68,7 +111,7 @@ class BachilleratoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return "update";
     }
 
     /**

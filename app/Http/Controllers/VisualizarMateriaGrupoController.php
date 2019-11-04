@@ -74,7 +74,7 @@ class VisualizarMateriaGrupoController extends Controller
              $AlumnoEnGrupo=ft_bach::where('Formación_Trabajo',$request->Grupo)->get();
         }
         if(count($AlumnoEnGrupo)==0){
-            $AlumnoEnGrupo=ft_bach::where('Formación_Trabajo',$request->Grupo)->get();
+            $AlumnoEnGrupo=ft_bach::where('Bachillerato',$request->Grupo)->get();
         }
         $AlumnosEnMismoSemestre=array();
         //return $AlumnoEnGrupo;

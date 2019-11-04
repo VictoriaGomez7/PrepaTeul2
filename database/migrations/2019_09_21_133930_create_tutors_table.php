@@ -15,7 +15,7 @@ class CreateTutorsTable extends Migration
     {
         Schema::create('tutors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String('Nombre_D')->unique();
+            $table->String('Nombre_D');
             $table->String('Grado');
             $table->String('Grupo');
             $table->String('Generacion');

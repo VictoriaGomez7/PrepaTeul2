@@ -102,24 +102,48 @@ class CierreController extends Controller
             $suma=$suma+$todo[$i]->Semestral/2;
             if ($suma<6) {
                 //return "llegue aqui";
-                $alumnoL=new Irregulares();
-                $alumnoL->Clave_A=$todo[$i]->Clave_A;
-                $alumnoL->save(); 
-                $mate=new IrregularMateria();
-                $mate->Clave_A=$todo[$i]->Clave_A;
-                $mate->Clave_M=$todo[$i]->ClaveM;
-                $mate->Calificacion1=0.0;
-                $mate->Fecha=null;
-                $mate->Oportunidades=0.0;
-                $mate->save();
+                $P_Verificar_I=Irregulares::where('Clave_A',$todo[$i]->Clave_A)->get();
+                if (count($P_Verificar_I)==0){
+                    $alumnoL=new Irregulares();
+                    $alumnoL->Clave_A=$todo[$i]->Clave_A;
+                    $alumnoL->save(); 
+                    $mate=new IrregularMateria();
+                    $mate->Clave_A=$todo[$i]->Clave_A;
+                    $mate->Clave_M=$todo[$i]->ClaveM;
+                    $mate->Calificacion1=0.0;
+                    $mate->Fecha=null;
+                    $mate->Oportunidades=0.0;
+                    $mate->save();
 
-                $mate2=new IrregularMateriaHistorico();
-                $mate2->Clave_A=$todo[$i]->Clave_A;
-                $mate2->Clave_M=$todo[$i]->ClaveM;
-                $mate2->Calificacion1=0.0;
-                $mate2->Fecha=null;
-                $mate2->Oportunidades=0.0;
-                $mate2->save();
+                    $mate2=new IrregularMateriaHistorico();
+                    $mate2->Clave_A=$todo[$i]->Clave_A;
+                    $mate2->Clave_M=$todo[$i]->ClaveM;
+                    $mate2->Calificacion1=0.0;
+                    $mate2->Fecha=null;
+                    $mate2->Oportunidades=0.0;
+                    $mate2->save();
+                }
+                else{
+                    $P_Verificar_M=IrregularMateria::where('Clave_A',$todo[$i]->Clave_A)->where('Clave_M',$todo[$i]->ClaveM)->get();
+                    if (count($P_Verificar_M)==0){
+                        $mate=new IrregularMateria();
+                        $mate->Clave_A=$todo[$i]->Clave_A;
+                        $mate->Clave_M=$todo[$i]->ClaveM;
+                        $mate->Calificacion1=0.0;
+                        $mate->Fecha=null;
+                        $mate->Oportunidades=0.0;
+                        $mate->save();
+
+                        $mate2=new IrregularMateriaHistorico();
+                        $mate2->Clave_A=$todo[$i]->Clave_A;
+                        $mate2->Clave_M=$todo[$i]->ClaveM;
+                        $mate2->Calificacion1=0.0;
+                        $mate2->Fecha=null;
+                        $mate2->Oportunidades=0.0;
+                        $mate2->save();
+                    }
+                }
+                
             }
             else
             {

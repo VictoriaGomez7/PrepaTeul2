@@ -35,7 +35,7 @@
           @endforeach
       </thead>
     </table>
-    
+    <input type="hidden" name="Grupo_A" value="{{$Listado_Grupos}}">
      {!!Form::submit('Guardar',['class'=>'btn btn-primary'])!!}
   {!! Form::close()!!}</div></section>
   </div>

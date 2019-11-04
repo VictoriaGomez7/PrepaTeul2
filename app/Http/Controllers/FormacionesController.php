@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Formaciones;
 
 class FormacionesController extends Controller
 {
@@ -13,7 +14,10 @@ class FormacionesController extends Controller
      */
     public function index()
     {
-        //
+        $bach=Formaciones::all();
+        //return $bach;
+        //return 'entra a bachilleratos';
+        return view('Modalidades.RegistroFT',compact('bach'));
     }
 
     /**
@@ -21,9 +25,29 @@ class FormacionesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $bach=Formaciones::all();
+        $band=false;
+        foreach ($bach as $campo) {
+            if ($campo->Nombre_FT==$request['Nombre_FT']) {
+                $band=true;
+        }
+    }
+        if ($band==false) {
+            
+        $bachi=new Formaciones();
+        $bachi->Nombre_FT=$request['Nombre_FT'];
+        $bachi->save();
+        $bach=Formaciones::all();
+        //return $bach;
+        //return 'entra a bachilleratos';
+        //return view('Modalidades.RegistroBach',compact('bach'));
+        return back()->with('msj1','Formación guardada correctamente');
+    }
+    else{
+        return back()->with('msj','Formación anteriormente registrada');
+    }
     }
 
     /**
@@ -34,7 +58,7 @@ class FormacionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
@@ -45,7 +69,7 @@ class FormacionesController extends Controller
      */
     public function show($id)
     {
-        //
+        return "show";
     }
 
     /**
@@ -54,9 +78,28 @@ class FormacionesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $id)
     {
-        //
+        $bach=Formaciones::all();
+        $band=false;
+        foreach ($bach as $campo) {
+            if ($campo->Nombre_FT==$id['Nombre_FT'] and $campo->id!=$id->id) {
+                $band=true;
+        }
+    }
+
+        if ($band==false){
+            $bach="";
+                $bachi=Formaciones::where([['id',$id->id]])->get();
+                foreach ($bachi as $row){
+                    $bach=$row;
+                    $bach->fill($id->all());
+                }
+                $bach->save();
+                return back()->with('msj1','Formación para el trabajo modificada correctamente');
+            }else{
+        return back()->with('msj','Formación para el trabajo anteriormente registrada');
+    }
     }
 
     /**
@@ -68,7 +111,7 @@ class FormacionesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return "update";
     }
 
     /**

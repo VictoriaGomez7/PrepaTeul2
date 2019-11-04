@@ -102,11 +102,10 @@ class gruposController extends Controller
                     $alumnosGrupo->save();
                     
                     $Califpar=CalificacionesParciales::where('Clave_A', $numero)->get();
-                    //return $Califpar;
-                         $alumnosGrupo->Clave_A=$numero;
-                        $alumnosGrupo->Grupo=$grupo;    
-                        $alumnosGrupo->save();
-                        //return $alum;
+                    $alumnosGrupo->Clave_A=$numero;
+                    $alumnosGrupo->Grupo=$grupo;    
+                    $alumnosGrupo->save();
+                    
                         if (count($Califpar)==0){
                             
                             foreach ($matgrup as $mater ) {
@@ -126,29 +125,25 @@ class gruposController extends Controller
                             }
                         }
                         else {
-                        //return $Califpar;
-                        foreach ($Califpar as $key) {
-                            
-                        
-                            foreach ($matgrup as $mater ) {
-                                if ($mater->Grupo==$grupo and $mater->Semestre==$semestre) {
-                                    //$Calif=new CalificacionesParciales();
-                                    //$Califpar=CalificacionesParciales::where('Clave_A', $numero)->get();
-                                    $key->Clave_A=$numero;
-                                    $key->ClaveM=$mater->Clave_M;
-                                    $key->Grupo=$grupo;
-                                    $key->Parcial1=0;
-                                    $key->Parcial2=0;
-                                    $key->Semestral=0;
-                                    $year_DATE=date('o');
-                                    $key->Semestre=$semestre;
-                                    $key->Año=$year_DATE;
-                                    $key->save();
+                            foreach ($Califpar as $key) {
+                                
+                                foreach ($matgrup as $mater ) {
+                                    if ($mater->Grupo==$grupo and $mater->Semestre==$semestre) {
+                                        $key->Clave_A=$numero;
+                                        $key->ClaveM=$mater->Clave_M;
+                                        $key->Grupo=$grupo;
+                                        $key->Parcial1=0;
+                                        $key->Parcial2=0;
+                                        $key->Semestral=0;
+                                        $year_DATE=date('o');
+                                        $key->Semestre=$semestre;
+                                        $key->Año=$year_DATE;
+                                        $key->save();
+                                    }
                                 }
                             }
-                        }
-                    }   
-                $alum->delete();
+                        }   
+                    $alum->delete();
                 }
                
                 $H_M_Grupos_A=Grupo::where('Grupo','A')->get('Clave_A');

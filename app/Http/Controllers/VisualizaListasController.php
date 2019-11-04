@@ -23,9 +23,6 @@ class VisualizaListasController extends Controller
         $otro_id=$id;
         return $this->show($id);
         
-
-        
-        //return view('DocenteInterfazPrincipal.InterfazPrincipal',compact('usua'));
     }
 
     /**

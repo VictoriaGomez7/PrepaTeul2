@@ -88,9 +88,10 @@ class IrregularController extends Controller
         $cuenta=count($materias);
         $MateriasAprobadas=0;
         $Aprobadas=[];
-        //return $cuenta;
+
         foreach ($materias as $Materia) {
             $verificado=$Materia->Clave_M.'Cal1';
+            
             if($request->$verificado!=null and (in_array($Materia->Clave_M , $Aprobadas)==false)){
 
                 $Materia->Calificacion1=$request->$verificado;
@@ -112,31 +113,28 @@ class IrregularController extends Controller
                     $Irre->save();
                     $Opo=IrregularMateria::where('Clave_A',$request->Clave_A)->get();
                     IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->delete();
-                    /*
-
-                    */
+                    
                 } else {
                     $Opo=IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->get();
                     //return $Opo;
                     $Oportunidad=$Opo[0]->Oportunidades+1;
                     //return $Oportunidad;
                     IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->update(['Oportunidades'=>$Oportunidad]);
+
                 }
             }
-            
                 
-            }
-        
-        if(count($Aprobadas)==$cuenta){
+        }
 
-            Alumno::where('Clave_A', $request->Clave_A)->update(['Estado'=>'REGULAR']);
-            //return $Opo[0]->ClaveM;
+        if(count($Aprobadas)==$cuenta){
+            Alumno::where('Clave_A', $request->Clave_A)->update(['Estado'=>'Regular']);
             $nK=new Kardex();
             $nK->Clave_A=$Opo[0]->Clave_A;
             $nK->Clave_M=$Opo[0]->Clave_M;
             $nK->Fecha=$Opo[0]->Fecha;
             $nK->Oportunidades=$Opo[0]->Oportunidades;
             $nK->Calificacion=$Opo[0]->Calificacion1;
+            $nK->Grupo=$request->Grupo_A;
             $nK->save();
             Irregulares::where('Clave_A',$request->Clave_A)->delete();
         }
@@ -156,6 +154,7 @@ class IrregularController extends Controller
      */
     public function store(Request $request)
     {
+
         $clave_A= $request->Clave_A;
         $Nombres_Mat=array();
         $NombreAlumno=Alumno::where('Clave_A',$request->Clave_A)->get('Nombre_A');
@@ -168,7 +167,8 @@ class IrregularController extends Controller
             array_push($Nombres_Mat,$Mat[0]->Nombre);
         }
         //return $AlumnoMateriasRepro;
-        return view('Irregular.IrregularVisu',compact('AlumnoMateriasRepro','Nombres_Mat','NombreAlumno','clave_A'));
+        $Listado_Grupos=$request->Grupo_A;
+        return view('Irregular.IrregularVisu',compact('AlumnoMateriasRepro','Nombres_Mat','NombreAlumno','clave_A','Listado_Grupos'));
         //return $AlumnoMateriasRepro;
     }
 
