@@ -22,7 +22,13 @@ Route::get('/RegistraMateria', function () {
 
  Route::get('inscripcion','combos@incripcion');
 
-Route::resource('/contrasena','contrasenaController');
+Route::get('contrasena/buscador','contrasenaController@buscador');
+
+Route::get('contrasena/buscadorDocente','contrasenaController@buscadorDocente');
+
+Route::get('contrasenaDocente','contrasenaController@create');
+
+Route::resource('contrasena','contrasenaController');
 
 
 Route::resource('EvaluacionConducta','conductaController');

@@ -77,9 +77,10 @@
 						</ul>
 					</li>
 
-					<li><a href="#">Contrasena</a>
+					<li><a href="#">Recuperacion de conraseña</a>
 						<ul class="submenu">
-							<li><a href="http://127.0.0.1:8000/contrasena">Recuperacion</a></li> 
+							<li><a href="http://127.0.0.1:8000/contrasena">Alumnos</a></li>
+							<li><a href="http://127.0.0.1:8000/contrasenaDocente">Docentes</a></li>  
 						</ul>
 					</li>
                    

@@ -147,7 +147,7 @@ body{
 			function busquedaInteligente(){
 				 if((document.getElementById("claveId").value.trim().length)>=1)
 				 	
-                fetch(`/contrasena/buscador?claveId=${document.getElementById("claveId").value}`,{ method:'get' })
+                fetch(`/contrasena/buscadorDocente?claveId=${document.getElementById("claveId").value}`,{ method:'get' })
                 .then(response  =>  response.text() )
                 .then(html      =>  {   document.getElementById("busq").innerHTML = html  })
             else
@@ -165,7 +165,7 @@ body{
 		<center>
 			<br>
  <div class="col-8" id="busq" style="left: -20%; text-align: left;">
-        @include('Contrasena.busqueda')
+        @include('Contrasena.busquedaDocente')
 
 
 </div>
