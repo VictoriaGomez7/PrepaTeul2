@@ -62,16 +62,21 @@
 				        	<th  align="center" style="width:2%">{{ ('Matrícula') }}</th>
 				        	<th  align="center">{{ ('Alumno') }}</th>
 				          	<th  align="center">{{ ('Parcial 1') }}</th>
-				          	<th  align="center">{{ ('Parcial 2') }}</th>
-				          	<th  align="center">{{ ('Semestral ') }}</th>
 				          	<th  align="center">{{ ('Faltas') }}</th>
 				          	<th  align="center">{{ ('Número de Clases') }}</th>
+				          	<th  align="center">{{ ('Parcial 2') }}</th>
+				          	<th  align="center">{{ ('Faltas') }}</th>
+				          	<th  align="center">{{ ('Número de Clases') }}</th>
+				          	<th  align="center">{{ 'Promedio' }}
+				          	<th  align="center">{{ ('Semestral ') }}</th>
+				          	<th  align="center">{{ 'Promedio' }}
 
 				        </tr>
 			        
 			        	<?php $contador=0;
 			        		$Con_cal=0;
-			        		$contador_Clases=0; ?>
+			        		$contador_Clases=0;
+			        		$contador_Clases2=0; ?>
 				        	
 					        @foreach($AlumnosEnMismoSemestre as $AlumnosEnMismoSemestr)
 
@@ -86,75 +91,203 @@
 						            <td>{{ $AlumnosEnMismoSemestr[$contador]->Clave_A }}</td>
 						            <td >{{ $AlumnosEnMismoSemestr[$contador]->Nombre_A}}</td>
 						            @if($PeriodoActivo==1)
-						            	<td><input type="number" step="0.1" name="Calif1[]" min="0" max="10" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
+						            	<td><input type="number" id="Cal1{{$Con_cal}}" onkeyup="calificacionesp1()" step="0.1" name="Calif1[]" min="0" max="10" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
+
+						            	<td><input required type="number"min="0"name="Faltas[]" style="width: 50%;" ></td>
+
+						            	<?php if ($contador_Clases==0){ ?>
+
+							 			<td><input required type="number" min="1"name="NumTotalAsis" style="width: 50%;" ></td>
+
+							 			<?php $contador_Clases=$contador_Clases+1; }else { ?>
+
+							 			<td><input required disabled type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+
+							 			<?php }  ?>
 
 						            	<td><input hidden="" type="number" step="0.1" name="Calif2[]" min="0"  max="10" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}">
 
 
-						            	<input disabled="" type="number" step="0.1" min="0"  max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
+						            	<input disabled="" id="Cal2{{$Con_cal}}" type="number" step="0.1" min="0"  max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
+
+						            	<td><input required disabled="" type="number"min="0"name="Faltas2[]" style="width: 90%;" ></td>
+
+						            	<?php if ($contador_Clases2==0){ ?>
+
+							 			<td><input required disabled="" type="number" min="1"name="NumTotalAsis2" style="width: 90%;" ></td>
+
+							 			<?php $contador_Clases2=$contador_Clases2+1; }else { ?>
+
+							 			<td><input required disabled type="number"min="1" max="25" name="NumTotalAsis2" style="width: 90%;" ></td>
+
+							 			<?php }  ?>
+
+							 			<td><input required disabled type="number"min="0" id="Promedo1{{$Con_cal}}" name="Promedo1" value="{{($Calif_Extraidas[$Con_cal]->Parcial1+$Calif_Extraidas[$Con_cal]->Parcial2)/2}}" style="width: 50%;" ></td>
+
 						            	<td><input disabled="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}">
 						            	<input hidden="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}"></td>
-						 		
+						 				
+						 				<?php $promedi=((($Calif_Extraidas[$Con_cal]->Parcial1+$Calif_Extraidas[$Con_cal]->Parcial2)/2)+$Calif_Extraidas[$Con_cal]->Semestral)/2;
+					            		if ($promedi<6){
+					            			$promedi=5;
+					            		} else {
+					            			$promedi=round($promedi);
+					            		} ?>
+						 				<td><input required disabled id="Promedofinal{{$Con_cal}}" value="{{$promedi}}" type="number"min="0"name="Promedofinal" style="width: 50%;" ></td>
 
-					            	<td><input required type="number"min="0"name="Faltas[]" style="width: 50%;" ></td>
+					            	
 
-					            	<?php if ($contador_Clases==0){ ?>
-
-						 			<td><input required type="number" min="1"name="NumTotalAsis" style="width: 50%;" ></td>
-
-						 			<?php $contador_Clases=$contador_Clases+1; } ?>
+						 			
 						            @elseif($PeriodoActivo==2)
-					            		<input hidden="" type="number" step="0.1" min="0"  max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}">
-					            		<td><input disabled type="number" min="0"  max="10" step="0.1" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
-					            		<td><input type="number" step="0.1" min="0"  max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
+					            		<input hidden=""  type="number" step="0.1" min="0"  max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}">
+					            		<td><input disabled id="Cali1{{$Con_cal}}" type="number" min="0"  max="10" step="0.1" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
+
+					            		<td><input required disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" ></td>
+
+						            	<?php if ($contador_Clases==0){ ?>
+
+							 			<td><input required disabled="" type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" ></td>
+
+							 			<?php $contador_Clases=$contador_Clases+1; }else { ?>
+
+							 			<td><input required disabled  type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" ></td>
+
+							 			<?php }  ?>
+
+					            		<td><input type="number" id="Cali2{{$Con_cal}}" step="0.1" min="0"  max="10" onkeyup="calificacionesp2()" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
+
+					            		<td><input required type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" ></td>
+
+						            	<?php if ($contador_Clases2==0){ ?>
+
+							 			<td><input required type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" ></td>
+
+							 			<?php $contador_Clases2=$contador_Clases2+1; } else { ?>
+
+							 			<td><input required disabled  type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" ></td>
+
+							 			<?php } ?>
+
+							 			<td><input required disabled type="number"min="0" id="Promedo1{{$Con_cal}}" name="Promedo1" value="{{($Calif_Extraidas[$Con_cal]->Parcial1+$Calif_Extraidas[$Con_cal]->Parcial2)/2}}" style="width: 50%;" ></td>
+
 					            		<td><input disabled="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}" >
 					            		<input hidden="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}" ></td>
+
+
+					            		<?php $promedi=((($Calif_Extraidas[$Con_cal]->Parcial1+$Calif_Extraidas[$Con_cal]->Parcial2)/2)+$Calif_Extraidas[$Con_cal]->Semestral)/2;
+					            		if ($promedi<6){
+					            			$promedi=5;
+					            		} else {
+					            			$promedi=round($promedi);
+					            		} ?>
+					            		<td><input required id="Promedofinal{{$Con_cal}}" disabled value="{{$promedi}}" type="number"min="0"name="Promedofinal" style="width: 50%;" ></td>
 					            		
 					            		
 
-					            	<td><input required type="number"min="0" max="25" name="Faltas[]" style="width: 50%;" ></td>
+					            	
 
-					            	<?php if ($contador_Clases==0){ ?>
-
-						 			<td><input required type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
-
-						 			<?php $contador_Clases=$contador_Clases+1; } ?>
+						 			
 					            	@elseif($PeriodoActivo==3)
-					            		<input hidden="" type="number" step="0.1" min="0"  	max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}">
-							            <input hidden="" type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}">
-							            
-							            
+					            		<input hidden="" id="Calif1{{$Con_cal}}" type="number" step="0.1" min="0"  	max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}">
+
+
+							            <input hidden="" id="Calif2{{$Con_cal}}" type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}">							            						            
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
-					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
-					            		<td><input type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}" >
-					            		 </td>
+
+					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 50%;" ></td>
+
+						            	<?php if ($contador_Clases==0){ ?>
+
+							 			<td><input disabled="" type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+
+							 			<?php $contador_Clases=$contador_Clases+1; }else { ?>
+
+							 			<td><input required disabled  type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+
+							 			<?php }  ?>
 					            		
-					       
 
-					            	<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 50%;" ></td>
+					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
 
-					            	<?php if ($contador_Clases==0){ ?>
+					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 50%;" ></td>
 
-						 			<td><input disabled="" type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+						            	<?php if ($contador_Clases2==0){ ?>
 
-						 			<?php $contador_Clases=$contador_Clases+1; } ?>
+							 			<td><input disabled="" type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+					            		
+					            		<?php $contador_Clases2=$contador_Clases2+1; } else { ?>
+
+							 			<td><input required disabled  type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+
+							 			<?php } ?>
+
+							 			<td><input required disabled type="number"min="0"name="Promedo1" value="{{($Calif_Extraidas[$Con_cal]->Parcial1+$Calif_Extraidas[$Con_cal]->Parcial2)/2}}" style="width: 50%;" ></td>
+
+					            		<td><input required type="number" id="Semestral{{$Con_cal}}" onkeyup="metodo()" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}" >
+					            		 </td>
+					            		<?php $promedi=((($Calif_Extraidas[$Con_cal]->Parcial1+$Calif_Extraidas[$Con_cal]->Parcial2)/2)+$Calif_Extraidas[$Con_cal]->Semestral)/2;
+					            		if ($promedi<6){
+					            			$promedi=5;
+					            		} else {
+					            			$promedi=round($promedi);
+					            		} ?>
+					            		<td><input required disabled id="Promedofinal{{$Con_cal}}" value="{{$promedi}}" type="number"min="0"name="Promedofinal" style="width: 50%;" ></td>
+
+					            	
+
+						 			
 					            	@else
 							            <input hidden="" type="number" step="0.1" min="0"  max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}">
+
+
+
 							            <input hidden="" type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}">
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
+
+					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 50%;" ></td>
+
+						            	<?php if ($contador_Clases==0){ ?>
+
+							 			<td><input required disabled  type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+
+							 			<?php $contador_Clases=$contador_Clases+1; } else { ?>
+
+							 			<td><input required type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+
+							 			<?php } ?> 
+
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
+
+					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 50%;" ></td>
+
+						            	<?php if ($contador_Clases2==0){ ?>
+
+							 			<td><input required type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+
+							 			<?php $contador_Clases2=$contador_Clases2+1; } else { ?>
+
+							 			<td><input required disabled  type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+
+							 			<?php } ?>
+
+							 			<td><input required disabled value="{{($Calif_Extraidas[$Con_cal]->Parcial1+$Calif_Extraidas[$Con_cal]->Parcial2)/2}}" type="number"min="0"name="Promedo1" style="width: 50%;" ></td>
+
 					            		<td><input disabled="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}" >
 					            		<input hidden="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}"></td>
+
+					            		<?php $promedi=((($Calif_Extraidas[$Con_cal]->Parcial1+$Calif_Extraidas[$Con_cal]->Parcial2)/2)+$Calif_Extraidas[$Con_cal]->Semestral)/2;
+					            		if ($promedi<6){
+					            			$promedi=5;
+					            		} else {
+					            			$promedi=round($promedi);
+					            		} ?>
+					            		<td><input required disabled id="Promedofinal{{$Con_cal}}" value="{{$promedi}}" type="number"min="0"name="Promedofinal" style="width: 50%;" ></td>
 					            		
 
 
-					            	<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 50%;" ></td>
+					            	
 
-					            	<?php if ($contador_Clases==0){ ?>
-
-						 			<td><input required type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
-
-						 			<?php $contador_Clases=$contador_Clases+1; } ?>
+						 			
 					            	@endif
 					            	<?php $Prome=($Calif_Extraidas[$Con_cal]->Parcial1+$Calif_Extraidas[$Con_cal]->Parcial2)/2; ?>
 					            	<!--<td> {{$Prome}} </td>-->
@@ -167,6 +300,106 @@
 
 			    	</table>
 			    	<input hidden="" type="number" step="0.1" min="0"  max="10" name="Periodo" value="{{$PeriodoActivo}}" >
+			    	<script type="text/javascript">
+			    		function calificacionesp1(){
+			    			var cantidadcal  = '<?php echo $Con_cal; ?>';
+			    			for (var i = 0; i < cantidadcal; i++) {
+			    				var Cali1=document.getElementById("Cal1"+i).value;
+			    				var Cali2=document.getElementById("Cal2"+i).value;
+			    				Cali1=parseFloat(Cali1);
+			    				Cali2=parseFloat(Cali2);
+			    				var prom=0.0;
+			    				prom=(Cali1+Cali2)/2;
+			    				if (prom>6 && prom<10) {
+			    					document.getElementById('Promedo1'+i).value=prom;
+			    				} else if (prom>10) {
+			    					prom=10
+			    					document.getElementById('Promedo1'+i).value=prom;
+			    				} else {
+			    					prom=5;
+			    					document.getElementById('Promedo1'+i).value=prom;
+			    				}
+			    				if (Cali1!=""){
+			    					if (Cali1>10){
+			    					alert("La Calificación no puede ser mayor a 10");
+			    					
+				    				}
+			    				} 
+			    			}
+			    		}
+			    		function calificacionesp2(){
+			    			var cantidadcal  = '<?php echo $Con_cal; ?>';
+			    			for (var i = 0; i < cantidadcal; i++) {
+			    				var Cali1=document.getElementById("Cali1"+i).value;
+			    				var Cali2=document.getElementById("Cali2"+i).value;
+			    				Cali1=parseFloat(Cali1);
+			    				Cali2=parseFloat(Cali2);
+			    				var prom=0.0;
+			    				prom=(Cali1+Cali2)/2;
+			    				if (prom>6 && prom<10) {
+			    					document.getElementById('Promedo1'+i).value=prom;
+			    				} else if (prom>10) {
+			    					prom=10
+			    					document.getElementById('Promedo1'+i).value=prom;
+			    				} else {
+			    					prom=5;
+			    					document.getElementById('Promedo1'+i).value=prom;
+			    				}
+			    				if (Cali1!=""){
+			    					if (Cali1>10){
+			    					alert("La Calificación no puede ser mayor a 10");
+			    					
+				    				}
+			    				} 
+			    			}
+			    		}
+			    		function metodo(){
+			    			//Mensajes en JavaScript son alert,confirm y prompt: alert para mandar un mensaje, confirm para usar un aceptar y un cancelar de opción, y prompt es para que pueda guardar un mesaje, jeje xD nomas dejo esta nota por si la ocupan. ATTE: toño xD
+			    			var cantidadcal  = '<?php echo $Con_cal; ?>';
+			    			for (var i = 0; i < cantidadcal; i++) {
+			    				var Cali=document.getElementById("Semestral"+i).value;
+			    				var Cali1=document.getElementById("Calif1"+i).value;
+			    				var Cali2=document.getElementById("Calif2"+i).value;
+			    				Cali=parseFloat(Cali);
+			    				Cali1=parseFloat(Cali1);
+			    				Cali2=parseFloat(Cali2);
+			    				var prom=0.0;
+			    				prom=(Cali1+Cali2)/2;
+			    				//alert(prom);
+			    				prom=(Cali+prom)/2;
+			    				//alert(prom);
+			    				//prom=parseInt(prom);
+			    				if (prom>6 && prom<10) {
+			    					prom=Math.round(prom);
+			    					document.getElementById('Promedofinal'+i).value=prom;
+			    				} else if (prom>10) {
+			    					prom=10
+			    					document.getElementById('Promedofinal'+i).value=prom;
+			    				}else{
+			    					prom=5;
+			    					document.getElementById('Promedofinal'+i).value=prom;
+			    				}
+			    				
+
+			    				if (Cali!=""){
+			    					if (Cali>10){
+			    					alert("La Calificación no puede ser mayor a 10");
+			    					
+				    				}
+			    				} 
+			    				
+			    				
+			    			}
+			    			//alert(jsvar);
+			    			//var letra=document.getElementById("Semestral6").value;
+			    			//alert(arreglo1);
+			    			//alert(arreglocal1);
+			    			//alert(arreglocal2);
+			    			//alert(arreglopromediofinal);
+
+			    		}
+
+			    	</script>
 				</div>
 				@if($PeriodoActivo<=3)
 				{!!Form::submit('Guardar',['class'=>'btn btn-primary','style'=>'position: absolute; top: 120%;left:75%;'])!!}
