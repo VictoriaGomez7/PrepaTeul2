@@ -24,17 +24,22 @@ class CalificacionesController extends Controller
      */
     public function index()
     {
+
         $id=$_GET['valor'];
         $usua=$id;
         //return $id;
         $NombreDoc=Docentes::where('Clave_D',$id)->get();
         $MateriasDelDocente=RelacionDocenteMateriaGrupo::where('Clave_D',$NombreDoc[0]->Nombre)->get();
+
+
+           
+
         $Periodo1ini=Periodo::where('id','1')->get('fecha1');
         $Periodo1fin=Periodo::where('id','1')->get('fecha2');
         $Periodo2ini=Periodo::where('id','2')->get('fecha1');
         $Periodo2fin=Periodo::where('id','2')->get('fecha2');
         $visibility=2;
-        //return $Periodo1ini;
+        
         
         if (count($MateriasDelDocente)==0){
             return redirect('/DocenteInicios?valor='.$usua)->with('MsjERR','No tiene materias asignadas');
@@ -57,7 +62,7 @@ class CalificacionesController extends Controller
      */
     public function create()
     {
-        return 'hola1';
+        
     }
 
     /**
@@ -68,6 +73,7 @@ class CalificacionesController extends Controller
      */
     public function store(Request $request)
     {
+
         $PeriodoActivo=0;
         $Periodo1ini=Periodo::where('id','1')->get('fecha1');
         $Periodo1fin=Periodo::where('id','1')->get('fecha2');
@@ -220,7 +226,7 @@ class CalificacionesController extends Controller
      */
     public function show($g, Request $r)
     {
-        //return $r;
+        
         $calif=CalificacionesParciales::find($g);
 
         $usua=$calif->Clave_A;

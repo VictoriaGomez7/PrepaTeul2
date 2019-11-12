@@ -223,6 +223,7 @@ class Arrastrarcontroller extends Controller
      */
     public function store(Request $request)
     {
+
         //return $request;
         $arreglo1=array();
         $var=($request->Arreglo).",";
@@ -300,7 +301,7 @@ class Arrastrarcontroller extends Controller
 
         $tamArreglo1=count($arregloSinRepetidos);
         //print_r($tamArreglo1);
-        for ($i=0; $i < $tamArreglo1; $i++) {//Este For cuadra las materias con el docente de el segundo arreglo
+        for ($i=0; $i < $tamArreglo1; $i++) { //Este For cuadra las materias con el docente de el segundo arreglo
             if ($i%2==0){
             //print "Hola soy un par";
             //print $i;
@@ -358,14 +359,16 @@ class Arrastrarcontroller extends Controller
                 //return $nueva_materiaasignada;
                 $materiaasignada=$nueva_materiaasignada;
                 //return $nuevo_grupo;
+
                 if ($nuevo_grupo=='A' or $nuevo_grupo=='B'){
                     $Materias_all= Materia::where('Nombre',$materiaasignada)->get('Clave_M');
                 }
                 else{
 
                     $Materias_all= Materia::where('Nombre',$materiaasignada)->where('Bachillerato',$nuevo_grupo)->get('Clave_M');
+                   // return $materiaasignada;
                     if (count($Materias_all)==0){
-                
+                        
                         $Materias_all= Materia::where('Nombre',$nuevo_grupo)->where('Tipo','Formación Para El Trabajo')->get('Clave_M');
                         
                         $Relacion=new RelacionDocenteMateriaGrupo();
@@ -374,6 +377,7 @@ class Arrastrarcontroller extends Controller
                         $Relacion->Clave_D=$docenteselec;
                         $Relacion->Grupo=$nuevo_grupo;
                         $Relacion->save();
+                         return Redirect('ControlEscolarInicio')->with('msj','Datos guardados con éxito.');
                     }
                     //return $Materias_all;
                 }

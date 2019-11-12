@@ -622,16 +622,15 @@ class MateriaController extends Controller
         }
         if ($request->tipo=="Formación Para El Trabajo"){
           if ($request->semestre=="TERCER SEMESTRE" or $request->semestre=="CUARTO SEMESTRE" or $request->semestre=="QUINTO SEMESTRE" or $request->semestre=="SEXTO SEMESTRE") {
-            //return $request['semestre'];
-
-            //return $Clavemat;
-              //$materia->fill($request->all());
+            
               $materia->save();
               $matgrup=new materia_grupo();
               $matgrup->Clave_M=$Clavemat;
-              $matgrup->Grupo=$request['formacion'];
+              $matgrup->Grupo=$request['nombre'];
               $matgrup->Semestre=$request['semestre'];
+             
               $matgrup->save();
+
               return redirect('/RegistraMateria')->with('msj','Materia Registrada Correctamente');
           }
           else{

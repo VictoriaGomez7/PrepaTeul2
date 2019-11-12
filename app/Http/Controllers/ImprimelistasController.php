@@ -200,6 +200,6 @@ class ImprimelistasController extends Controller
     public function destroy($id)
     {
         //
-        return "sadasdas";
+        
     }
 }
