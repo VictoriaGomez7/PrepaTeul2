@@ -49,8 +49,8 @@
                    
 
 
-                <div style="width: 700px; text-align:justify-all; position: absolute; ;left: 10px">   
-             <p style="font-size: 14; font-family: Arial;text-align: justify; line-height: 2;">
+                <div style="width: 665px; text-align:justify-all; position: absolute; ;left: 10px">   
+             <p style="font-size: 13; font-family: Arial;text-align: justify; line-height: 2; word-spacing: 1;">
            El que suscribe Mtro. Hugo Ávila Gómez Director  de  la  Escuela  Preparatoria
           
            “González Ortega” clave: 32EBH0011K ubicada en el Teul de González Ortega,
@@ -60,7 +60,7 @@
           
           <div style="position: absolute; top: 310px; text-align: center;">
 
-        <p style="font-size: 14; font-family: Arial;text-align: center; word-spacing: 3;" > <b>HACE    CONSTAR </b></p>
+        <p style="font-size: 14; font-family: Arial;text-align: center; word-spacing: 1;" > <b>HACE    CONSTAR </b></p>
             </div>
             <div style="position: absolute; top:360px; width: 550px">
          <?php
@@ -84,22 +84,22 @@
          
          ?>
         <div style="position: absolute; top: 18px; text-align: center; left: 200px;">
-           <p style="font-size: 14; font-family: Arial;text-align: center;" >{{$sexo1.' '}}<b>{{$dato[0]}}</b></p>
+           <p style="font-size: 13; font-family: Arial;text-align: center;" >{{$sexo1.' '}}<b>{{$dato[0]}}</b></p>
          </div> 
          
       
-     <div style="width: 700px;position: absolute; top: 32px; text-align: center; left: 25px; word-spacing: 10; ">
+     <div style="width: 665px;position: absolute; top: 32px; text-align: center; left: 25px; word-spacing: 1; ">
       <br><p style="font-size: 13; font-family: Arial;text-align: justify; line-height: 2;">Cursó en esta Institución, su Educación Media Superior en los periodos lectivos
         2016-2017, 2017-2018 y 2018-2019 en el área propedéutica de: <b>{{$dato[2]}}</b> asimismo, se hace constar, que{{$sexo2}} 
         durante su permanencia en esta Escuela, observó <b>{{$dato[3]}} CONDUCTA.</b> </p>
         </div>
          
-         <div style="width: 700px;position: absolute; top: 245px; text-align: center; left: 25px;">
+         <div style="width: 665px;position: absolute; top: 245px; text-align: center; left: 25px;">
           <p style="font-size: 13; font-family: Arial;text-align: justify; line-height: 2;">
 A petición de {{' '.$sexo3.' '}} para los usos legales que más convengan, se extiende la presente constancia.
 </p></div>
         
-     <div style="width: 700px;position: absolute; top: 350px; text-align: center; left: 25px;">
+     <div style="width: 665px;position: absolute; top: 350px; text-align: center; left: 25px;">
        
     
     
@@ -161,7 +161,7 @@ Teul de González Ortega, Zac.,  <?php
     ?>
 </p>
  </div>
-  <div style="width: 700px;position: absolute; top: 450px; text-align: center; left: 25px;">
+  <div style="width: 665px;position: absolute; top: 450px; text-align: center; left: 25px;">
 <p style="font-size: 13; font-family: Arial;text-align: center; line-height: 1.5;"><br> A t e n t a m e n t e .<br>
 
 
