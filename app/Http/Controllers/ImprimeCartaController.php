@@ -53,6 +53,7 @@ class ImprimeCartaController extends Controller
     public function show(Request $r )
     {
 
+
         $Alumno=Alumno::where("Clave_A",$r->cajaAlumno)->get();
         $area=ft_bach::where("Clave_A",$r->cajaAlumno)->get();
         $bachillerato="";
@@ -65,6 +66,7 @@ class ImprimeCartaController extends Controller
             return back()->with('MsjERR','Sólo a alumnos de sexto semestre les puede imprimir carta');
         }
         else{
+
             foreach ($area as $areaPropedeutica ) {
                 $bachillerato=$areaPropedeutica->Bachillerato;
             }
@@ -76,6 +78,7 @@ class ImprimeCartaController extends Controller
                 $sexo=$nombreAlum->Sexo;            
             }
             $materiasEvaluadas = evaluacionConducta::where('Clave_A',$r->cajaAlumno)->get();
+            //return $materiasEvaluadas[0]->updated_at;
             $total=0;
            if(count($materiasEvaluadas)==0){
                  return back()->with('MsjERR','No cuenta  evaluacion de conducta');
@@ -110,6 +113,7 @@ class ImprimeCartaController extends Controller
             else if($promedio==10){
                 array_push($dato, "EXCELENTE"); 
             }
+
             $pdf= PDF::loadView('conducta.vistaDocumento' ,compact('dato'));
             return $pdf->stream();
            //return view('conducta.vistaDocumento' ,compact('dato'));
