@@ -20,6 +20,7 @@ class ImprimeCartaController extends Controller
      */
     public function index()
     {
+        
         return view('conducta.consulta');
         
     }
