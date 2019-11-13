@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <a href="http://127.0.0.1:8000/Alumnosinicio">
-  <button class="btn btn-success" style="position: absolute;top: 83%;left:50%; width:10%">Cancelar</button></a>
+  <button class="btn btn-success" style="position: absolute;top: 78%;left:50%; width:10%">Cancelar</button></a>
 
 <html>
 

@@ -78,7 +78,10 @@ class ImprimeCartaController extends Controller
                 $sexo=$nombreAlum->Sexo;            
             }
             $materiasEvaluadas = evaluacionConducta::where('Clave_A',$r->cajaAlumno)->get();
-            //return $materiasEvaluadas[0]->updated_at;
+            $ultimaFecha=date("o",strtotime($materiasEvaluadas[count($materiasEvaluadas)-1]->updated_at.""));
+           
+            $fecha3= ($ultimaFecha-3)."-".($ultimaFecha-2)." , ".($ultimaFecha-2) ."-".
+            ($ultimaFecha-1)." y ".($ultimaFecha-1)."-".($ultimaFecha);
             $total=0;
            if(count($materiasEvaluadas)==0){
                  return back()->with('MsjERR','No cuenta  evaluacion de conducta');
@@ -114,7 +117,7 @@ class ImprimeCartaController extends Controller
                 array_push($dato, "EXCELENTE"); 
             }
 
-            $pdf= PDF::loadView('conducta.vistaDocumento' ,compact('dato'));
+            $pdf= PDF::loadView('conducta.vistaDocumento' ,compact('dato','fecha3'));
             return $pdf->stream();
            //return view('conducta.vistaDocumento' ,compact('dato'));
         }

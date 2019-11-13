@@ -90,7 +90,7 @@
       
      <div style="width: 665px;position: absolute; top: 32px; text-align: center; left: 25px; word-spacing: 1; ">
       <br><p style="font-size: 13; font-family: Arial;text-align: justify; line-height: 2;">Cursó en esta Institución, su Educación Media Superior en los periodos lectivos
-        2016-2017, 2017-2018 y 2018-2019 en el área propedéutica de: <b>{{$dato[2]}}</b> asimismo, se hace constar, que{{$sexo2}} 
+        {{' '.$fecha3.' '}} en el área propedéutica de: <b>{{$dato[2]}}</b> asimismo, se hace constar, que{{$sexo2}} 
         durante su permanencia en esta Escuela, observó <b>{{$dato[3]}} CONDUCTA.</b> </p>
         </div>
          
