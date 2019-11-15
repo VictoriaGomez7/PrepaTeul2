@@ -123,10 +123,10 @@
                 <h2>Periodo:{{$Periodo[$i]}}</h2>
                 <h2>Materia:<?php echo $Materia[$i] ?></h2>
             <div id="vertical">
-                <figure class="torre">{{$Aprobados1[$i]}}%</figure>
-                <figure class="torre">{{$Reprobados1[$i]}}%</figure>
-                <figure class="torre">{{$Aprobados2[$i]}}%</figure>
-                <figure class="torre">{{$Reprobados2[$i]}}%</figure>
+                <figure class="torre">{{$Aprobados1[$i]}}</figure>
+                <figure class="torre">{{$Reprobados1[$i]}}</figure>
+                <figure class="torre">{{$Aprobados2[$i]}}</figure>
+                <figure class="torre">{{$Reprobados2[$i]}}</figure>
             </div>
             <h2 style="font-size:.4em">___Aprobados1____Repobrados1____Aprobados2____Reprobados2__</h2>
         </div>

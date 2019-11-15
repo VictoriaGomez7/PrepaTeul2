@@ -8,7 +8,7 @@
      <link rel="icon" href="/images/escolarcono.ico">
 	
 
-	<title>Control Escolar</title>
+	<title>Servicios Escolares</title>
 </head>
 <body>
 	<?php echo $__env->make('interfazprincipal.image', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -71,7 +71,24 @@
 							<li><a href="http://127.0.0.1:8000/kardex">Kardex</a></li>
 						</ul>
 					</li>
-                    <li><a href="#" >Control Escolar</a>
+
+					<li><a href="#">Recuperacion de conraseña</a>
+						<ul class="submenu">
+							<li><a href="http://127.0.0.1:8000/contrasena">Alumnos</a></li>
+							<li><a href="http://127.0.0.1:8000/contrasenaDocente">Docentes</a></li>  
+						</ul>
+					</li>
+                   
+
+
+					<li><a href="#">Modalidades</a>
+						<ul class="submenu">
+							<li><a href="http://127.0.0.1:8000/Bachillerato">Bachilleratos</a></li>
+							<li><a href="http://127.0.0.1:8000/Formaciones">Formaciones para el trabajo</a></li>
+						</ul>
+					
+                    <li><a href="#" >Servicios Escolares</a>
+
 						<ul class="submenu">
 							<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESIÓN</a>
 						</ul>

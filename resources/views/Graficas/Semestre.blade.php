@@ -123,8 +123,8 @@
                 <h2>Periodo:{{$Periodo[$i]}}</h2>
                 <h2>Materia:<?php echo $Materia[$i] ?></h2>
             <div id="vertical">
-                <figure class="torre">{{$Aprobados[$i]}}%</figure>
-                <figure class="torre">{{$Reprobados[$i]}}%</figure>
+                <figure class="torre">{{$Aprobados[$i]}}</figure>
+                <figure class="torre">{{$Reprobados[$i]}}</figure>
             </div>
             <h2 style="font-size:.4em">___Aprobados_____Repobrados____</h2>
         </div>

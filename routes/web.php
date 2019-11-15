@@ -153,6 +153,12 @@ Route::get('/E_Semestre', function () {
     return view('Graficas.Semestre');
 });
 
+//911
+Route::get('/E_911', function () {
+    return view('Graficas.Estadistica911');
+});
+
+
 //Paginna d eespera
 Route::get('/E_Espera', function () {
     return view('Graficas.Presentacio');

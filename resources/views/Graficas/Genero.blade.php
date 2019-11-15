@@ -113,8 +113,8 @@
 				<h2>Semestre:{{$Semestre[$i]}}</h2>
 				<h2>Periodo:{{$Periodo[$i]}}</h2>
 			<div id="vertical">
-				<figure class="torre">{{$Hombres[$i]}}%</figure>
-				<figure class="torre">{{$Mujeres[$i]}}%</figure>
+				<figure class="torre">{{$Hombres[$i]}}</figure>
+				<figure class="torre">{{$Mujeres[$i]}}</figure>
 			</div>
 			<h2 style="font-size:.4em">_Hombres_______Mujeres_</h2>
 		</div>
