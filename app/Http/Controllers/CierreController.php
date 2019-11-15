@@ -83,6 +83,7 @@ class CierreController extends Controller
         $Materia_Nombre=array();
         for ($i=0; $i <count($todo) ; $i++){
             array_push($Alumno_Aprobado, $todo[$i]);
+
             $b=false;
             if (count($Materia_Nombre)!=0){
                 for ($j=0; $j < count($Materia_Nombre); $j++) { 
@@ -90,16 +91,17 @@ class CierreController extends Controller
                         $b==true;
                     }
                 }
-                if ($b==true){
+                if ($b==false){
                     array_push($Materia_Nombre, $todo[$i]->ClaveM);
                 }
             }
             else {
                 array_push($Materia_Nombre, $todo[$i]->ClaveM);
             }
-
+            
             $suma=($todo[$i]->Parcial1+$todo[$i]->Parcial2)/2;
             $suma=$suma+$todo[$i]->Semestral/2;
+            $S=$todo[$i]->Semestre;
             if ($suma<6) {
                 //return "llegue aqui";
                 $P_Verificar_I=Irregulares::where('Clave_A',$todo[$i]->Clave_A)->get();
@@ -143,6 +145,33 @@ class CierreController extends Controller
                         $mate2->save();
                     }
                 }
+                $Obtener_Estadistico=EstadisticaSemestre::all();
+                //return $Obtener_Estadistico;
+                if (count($Obtener_Estadistico)==0){
+                    $mate=new EstadisticaSemestre();
+                    $mate->Aprobados=0;
+                    $mate->Reprobados=0;
+                    $mate->Semestre=$S;
+                    $mate->Materia=$todo[$i]->ClaveM;
+                    $mate->Periodo=$Per.$Año;
+                    $mate->save();
+                }
+                else{
+                    $Obtiene_Materias_Ya_registradas=EstadisticaSemestre::where('Materia',$todo[$i]->ClaveM)->where('Semestre',$S)->get();
+                   
+                    if (count($Obtiene_Materias_Ya_registradas)==0){
+                        $mate=new EstadisticaSemestre();
+                        $mate->Aprobados=0;
+                        $mate->Reprobados=0;
+                        $mate->Semestre=$S;
+                        $mate->Materia=$todo[$i]->ClaveM;
+                        $mate->Periodo=$Per.$Año;
+                        $mate->save();
+                    }
+                }
+                $mod=EstadisticaSemestre::where('Materia',$todo[$i]->ClaveM)->where('Semestre',$S)->get('Reprobados');
+                $Cambia=$mod[0]->Reprobados+1;
+                EstadisticaSemestre::where('Materia',$todo[$i]->ClaveM)->where('Semestre',$S)->update(['Reprobados'=>$Cambia]);
                 
             }
             else
@@ -158,31 +187,6 @@ class CierreController extends Controller
                 $nK->Grupo=$todo[$i]->Grupo;
                 $nK->save();
             }
-        }
-
-        foreach ($Materia_Nombre as $value) {
-            $Cant_Reprobados=0;
-            $Cant_Aprobados=0;
-            for ($i=0; $i <count($Alumno_Aprobado) ; $i++) {
-                $M=$Alumno_Aprobado[$i]->ClaveM;
-                $S=$Alumno_Aprobado[$i]->Semestre;
-                if ($M==$value){
-                    $Cant_Aprobados+=1;
-                }
-            }
-            for ($i=0; $i <count($Alumno_Reprobado) ; $i++) {
-                $M=$Alumno_Reprobado[$i]->ClaveM;
-                if ($M==$value){
-                    $Cant_Reprobados+=1;
-                }
-            }
-            $mate=new EstadisticaSemestre();
-            $mate->Aprobados=$Cant_Aprobados;
-            $mate->Reprobados=$Cant_Reprobados;
-            $mate->Semestre=$S;
-            $mate->Materia=$value;
-            $mate->Periodo=$Per.$Año;
-            $mate->save();
         }
         
         $bandera=False;
