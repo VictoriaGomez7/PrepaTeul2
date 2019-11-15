@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\usuarioalumno;
+use App\usuariomaestro;
 
 class ContraController extends Controller
 {
@@ -15,7 +16,17 @@ class ContraController extends Controller
     public function index(Request $request)
     {
         $usua=$request->valor;
-        return view('Alumnos.cambiarcontra',compact('usua'));
+
+        $alumns=usuarioalumno::where([['Usuario',$usua]])->get();
+        if (count($alumns)!=0) {
+            return view('Alumnos.cambiarcontra',compact('usua'));
+        }
+        $maestros=usuariomaestro::where([['Usuario',$usua]])->get();
+
+        if (count($maestros)==1) {
+            return view('DocenteC.cambiarcontra',compact('usua'));
+        }
+        
     }
 
     /**
@@ -37,14 +48,32 @@ class ContraController extends Controller
     public function store(Request $request)
     {
         //return 'aqui';
-        usuarioalumno::where('Usuario',$request->clave)->delete();
+        $usua=$request->clave;
+
+        $alumns=usuarioalumno::where([['Usuario',$usua]])->get();
+        if (count($alumns)!=0) {
+            usuarioalumno::where('Usuario',$request->clave)->delete();
         //return $original;
         $usu=new usuarioalumno();
             $usu->Usuario=$request['clave'];
             $usu->Password=$request['contra'];
             $usu->save();
-        return redirect('LoginAlumno')->with('msjC','Contraseña modificada correctamente');;
-        //return $request;
+        return redirect('LoginAlumno')->with('msjC','Contraseña modificada correctamente');
+
+        }
+        $maestros=usuariomaestro::where([['Usuario',$usua]])->get();
+
+        if (count($maestros)==1) {
+            usuariomaestro::where('Usuario',$request->clave)->delete();
+        //return $original;
+        $usu=new usuariomaestro();
+            $usu->Usuario=$request['clave'];
+            $usu->Password=$request['contra'];
+            $usu->save();
+        return redirect('LoginDocente')->with('msjC','Contraseña modificada correctamente');
+
+        }
+        
     }
 
     /**

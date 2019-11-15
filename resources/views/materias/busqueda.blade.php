@@ -20,7 +20,7 @@
 @if (count($materias1A)>0)
     @foreach ($materias1A as $materia)          
        
-        <input type="submit"style="width:175%; left: -20%; background-color: gray" class="btn btn-secondary " name="{{$materia->Clave_M }}" value="{{$materia->Clave_M }} {{$materia->Nombre}}" "></input ><br><br>
+        <input type="submit"style="width:175%; left: -20%; background-color: gray" class="btn btn-secondary " name="{{$materia->Clave_M }}" value="{{$materia->Clave_M }} {{$materia->Nombre}}" ></input ><br><br>
     @endforeach             
 @endif
 @endif
@@ -30,7 +30,7 @@
 @if (count($materias2A)>0)
     @foreach ($materias2A as $materia)          
        
-        <input type="submit"style="width:175%;" class="btn btn-secondary " name="{{$materia->Clave_M }}" value="{{$materia->Clave_M }} {{$materia->Nombre}}" "></input ><br>
+        <input type="submit"style="width:175%;" class="btn btn-secondary " name="{{$materia->Clave_M }}" value="{{$materia->Clave_M }} {{$materia->Nombre}}" ></input ><br>
         <br>
     @endforeach             
 @endif

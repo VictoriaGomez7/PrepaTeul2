@@ -28,6 +28,11 @@
 						<li><a href ="http://127.0.0.1:8000/EvaluacionConducta?valor={{ ($usua) }}">Evaluación de conducta</a></li>
 					</ul>
 				</li>
+				<li><a href="#">Contraseña</a>
+						<ul class="submenu">
+						<li><a href ="http://127.0.0.1:8000/Modificarcontra?valor={{$usua}}">Cambiar</a></li>
+						</ul>
+			</li>
 				<?php use App\Docentes;
 					$Docente=Docentes::where('Clave_D',$usua)->get('Nombre');
 				?>
