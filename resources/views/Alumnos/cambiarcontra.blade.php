@@ -2,14 +2,13 @@
 @include('Alumnosinterfazprincipal.InterfazPrincipal2')
 @section('content')
 
-<a href="/Alumnoinicio?valor={{ ($usua)}}">
+<a href="/Alumnoinicio?valor={{($usua)}}">
   <button class="btn btn-success" style="position: absolute;top: 100%;left:75%">Cancelar</button></a>
 <html>
 <head>
 </head>
 <body>
-
-  {!!Form::open(['route' => ['Modificarcontra.store',],'method'=>'POST'])!!}
+  {!!Form::open(['route' => ['Modificarcontra.update','$usua'],'method'=>'PUT'])!!}
 
   <div style="position: absolute;top: 60%; left: 40%; width: 20%;height:30%;background-color:#aaa">
       <p style="font-size:130%">{{('Contraseña nueva: ')}}</p>

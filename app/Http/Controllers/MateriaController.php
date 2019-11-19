@@ -52,22 +52,39 @@ class MateriaController extends Controller
                 $Clavemat=$Clavemat.'FB-';
                 break;
               case 'Formación Propedéutica':
-                  switch ($request['bachillerato']) {
-                    case "Químico Biológica":
-                      $Clavemat=$Clavemat.'QB-';
-                      break;
-                    case "Físico Matemática":
-                      $Clavemat=$Clavemat.'FM-';
-                      break;
-                    case "Humanidades y Ciencias Sociales":
-                      $Clavemat=$Clavemat.'CSH-';
-                      break;
-
-                    default:
-                      $Clavemat=$Clavemat.'EA-';
-                      break;
+                  $variableauxiliar=$request['bachillerato'];
+                  if (strpos($variableauxiliar, '-') !== false) {
+                    $auxiliarson=explode('-',$variableauxiliar);
+                                                        }
+                  else {
+                      $auxiliarson=explode(' ',$variableauxiliar);
                   }
-                break;
+                  //return $auxiliarson;
+                  for ($i=0; $i <count($auxiliarson) ; $i++) {
+                    $variab=$auxiliarson[$i];
+                    switch ($variab) {
+                      case 'del':
+                        $a=0;
+                        break;
+                      case 'y':
+                        $a=0;
+                        break;
+                      case 'para':
+                        $a=0;
+                        break;
+                      case 'la':
+                        $a=0;
+                        break;
+
+                      default:
+                        $Clavemat=$Clavemat.$variab[0];
+                        break;
+                    }
+                  }
+                  $Clavemat=$Clavemat.'-';
+                  //return $Clavemat;
+                  //$auxiliarson=explode(' ',$variableauxiliar);
+
               case 'Formación Para El Trabajo':
                     $Clavemat=$Clavemat.'FT-';
                 break;
@@ -622,13 +639,13 @@ class MateriaController extends Controller
         }
         if ($request->tipo=="Formación Para El Trabajo"){
           if ($request->semestre=="TERCER SEMESTRE" or $request->semestre=="CUARTO SEMESTRE" or $request->semestre=="QUINTO SEMESTRE" or $request->semestre=="SEXTO SEMESTRE") {
-            
+
               $materia->save();
               $matgrup=new materia_grupo();
               $matgrup->Clave_M=$Clavemat;
               $matgrup->Grupo=$request['nombre'];
               $matgrup->Semestre=$request['semestre'];
-             
+
               $matgrup->save();
 
               return redirect('/RegistraMateria')->with('msj','Materia Registrada Correctamente');
@@ -1184,7 +1201,7 @@ class MateriaController extends Controller
 }
 }
 }
-       
+
 
         elseif (count($Nombrediv>2)) {
           //print'Aqui voy';
@@ -1195,11 +1212,11 @@ class MateriaController extends Controller
               //return $Mat_CH->Clave;
               array_push($CLAVES,$Mat_CH->Clave_M);
             }
-            
+
             if (in_array($Clavemat,$CLAVES)){
              // return redirect('/RegistraMateria')->with('msjERROR','Materia ya registrada (Elija otra).');
-           
-            
+
+
       $materias=materia::where([['Clave_M',$r->claveOriginal]])->get();
       foreach ($materias as $row ) {
         $materia=$row;
@@ -1250,7 +1267,7 @@ class MateriaController extends Controller
           return redirect('materia')->with('msj','Materia Modificada Correctamente');
         }
       }
-      
+
      // return redirect('materia')->with('msj2','Materia Modificada Correctamente');
             }
 
@@ -1277,10 +1294,10 @@ class MateriaController extends Controller
       $materias=materia::where([['Clave_M',$r]])->get();
 
       $dbFormaciones=Formaciones::get();
-    
+
       $opcionesFormacion='';
       foreach ($dbFormaciones as $formacion) {
-        # code... 
+        # code...
                          $opcionesFormacion.='<option value="'.$formacion->Nombre_FT.' ">
                          '.$formacion->Nombre_FT.'</option>';
               }
@@ -1289,13 +1306,13 @@ class MateriaController extends Controller
       $dbBachillertatos=Bachilleratos::get();
      $opcionesBachillerato='';
                     foreach ($dbBachillertatos as $bachillerato) {
-                          # code... 
-                       
+                          # code...
+
                            $opcionesBachillerato.='<option value="'.$bachillerato->Nombre_B.' ">
                          '.$bachillerato->Nombre_B.'</option>';
-                        
-                        
-                       } 
+
+
+                       }
 
       foreach($materias as $row )          {
         $materia=$row;
@@ -1305,10 +1322,10 @@ class MateriaController extends Controller
                       <option value="Actividades Paraescolares">Actividades Paraescolares</option>
                       <option value="Formación Básica">Formación Básica</option>';
 
-                       
+
                        $opcionesBachillerato='';
                       foreach ($dbBachillertatos as $bachillerato) {
-                          # code... 
+                          # code...
                         if($materia->Bachillerato==$bachillerato->Nombre_B){
                              $opcionesBachillerato.='<option value="'.$bachillerato->Nombre_B.' " selected="'.'true'.'">
                          '.$bachillerato->Nombre_B.'</option>';
@@ -1316,36 +1333,36 @@ class MateriaController extends Controller
                            $opcionesBachillerato.='<option value="'.$bachillerato->Nombre_B.' ">
                          '.$bachillerato->Nombre_B.'</option>';
                         }
-                        
-                       }      
+
+                       }
 
                 }else if($materia->Tipo=='Formación Para El Trabajo'){
-                      
+
                     $opcionesFormacion='';
                        $formMat='';
       foreach ($dbFormaciones as $formaciones) {
-        # code... 
+        # code...
                        $formacionMateria=materia_grupo::where([['Clave_M' ,$materia->Clave_M]])->get();
-                      
-                   
+
+
                       foreach($formacionMateria  as $formaciones1){
 
                         $formMat=$formaciones1->Grupo;
-                     
+
                           if($formMat==$formaciones->Nombre_FT){
                            ///return $formaciones->Nombre_FT;
                          $opcionesFormacion.='<option value="'.$formaciones->Nombre_FT.'" selected="'.'true'.'">
                          '.$formaciones->Nombre_FT.'</option>';
                           ///return $opcionesFormacion;
                       }else{
-                       
+
                         $opcionesFormacion.='<option value="'.$formaciones->Nombre_FT.' ">
                          '.$formaciones->Nombre_FT.'</option>';
                       }
                       }
-                                               
+
               }
-        
+
                 $opciones=' <option value="Formación Propedéutica" >Formación Propedéutica</option>
                       <option value="Formación Para El Trabajo" selected="true">Formación Para El Trabajo</option>
                       <option value="Actividades Paraescolares" >Actividades Paraescolares</option>
@@ -1409,7 +1426,7 @@ class MateriaController extends Controller
                 }
            }
            if(isset($r->Clave_M)){
-            
+
            return view('materias.modificar' ,compact('materia','opciones','opciones2','opcionesBachillerato','opcionesFormacion'));
          }else{
 
@@ -1422,13 +1439,13 @@ class MateriaController extends Controller
                              return view('materias.vista' ,compact('materia','opciones','opciones2','opcionesBachillerato'));
                     }
             }
-        
+
           $materias=Materia::where([['Clave_M',$re->claveOriginal]])->get();
-          
+
             foreach ($materias as $materia) {
               # code...
-                
-               
+
+
                return view('materias.modificar' ,compact('materia','opciones','opciones2' ,'opcionesFormacion','opcionesBachillerato'));
             }
 
