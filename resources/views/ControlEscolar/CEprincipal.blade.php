@@ -91,6 +91,10 @@
 							<li><a href="http://127.0.0.1:8000/Bachillerato">Bachilleratos</a></li>
 							<li><a href="http://127.0.0.1:8000/Formaciones">Formaciones para el trabajo</a></li>
 						</ul>
+					<li><a href="#">Logos</a>
+						<ul class="submenu">
+							<li><a href="http://127.0.0.1:8000/Logotipos">Cambiar</a></li>
+						</ul>
 					
                     <li><a href="#" >Servicios Escolares</a>
 

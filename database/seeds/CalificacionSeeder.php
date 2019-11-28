@@ -436,6 +436,5 @@ class CalificacionSeeder extends Seeder
 	        'Semestre'=>'CUARTO SEMESTRE',
 	        'Año'=>'2019'	
         ]);
-        
     }
 }
