@@ -80,6 +80,11 @@
 							<li><a href="http://127.0.0.1:8000/kardex">Kardex</a></li>
 						</ul>
 					</li>
+
+					<li><a href="#">Logos</a>
+						<ul class="submenu">
+							<li><a href="http://127.0.0.1:8000/Logotipos">Cambiar</a></li>
+						</ul>
 					
                     <li><a href="#" >Servicios Escolares</a>
 						<ul class="submenu">
