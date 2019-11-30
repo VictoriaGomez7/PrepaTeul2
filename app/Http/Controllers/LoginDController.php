@@ -50,15 +50,16 @@ class LoginDController extends Controller
     public function show(Request $request)
     {
         $CE = usuariodirector::where('Usuario', $request->Usuario)->get();
-        //return $CE;
+        return $CE;
         if (count($CE)==0)
         {
 
             return back()->with('msj',' Usuario o Contrseña incorrecta' );
         }
         else{
-            $con= usuariodirector::where('Password', $request->Contraseña)->get();
-            //return $con;
+            //$contraFinal=Crypt::decrypt($cont); //DESENCRIPTAR DATOS
+            $con= usuariodirector::where('Password', Crypt::decrypt($request->Contraseña))->get();
+            return $con;
             if (count($con)==0)
             {
 

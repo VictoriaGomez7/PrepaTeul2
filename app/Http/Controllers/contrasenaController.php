@@ -7,6 +7,8 @@ use App\Alumno;
 use App\usuarioalumno;
 use App\Docente;
 use App\usuariomaestro;
+use Illuminate\Support\Facades\Crypt;
+
 class contrasenaController extends Controller
 {
     //
@@ -28,7 +30,7 @@ class contrasenaController extends Controller
      */
     public function create()
     {
-             return view('contrasena.contrasenaDocente');
+        return view('contrasena.contrasenaDocente');
     }
 
     /**
@@ -39,7 +41,7 @@ class contrasenaController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
@@ -50,6 +52,7 @@ class contrasenaController extends Controller
      */
     public function show(Request $request)
     {
+        //
     }
 
     /**
@@ -62,13 +65,15 @@ class contrasenaController extends Controller
     {
         //
         $contrasena=usuariomaestro::where('Usuario',$id)->get('Password');
-        $contraFinal="";
+        $cont="";
         
         foreach ($contrasena as $contra) {
             # code...
            
-            $contraFinal=$contra->Password;
+            $cont=$contra->Password;
         }
+        //return $cont;
+        $contraFinal=Crypt::decrypt($cont); //DESENCRIPTAR DATOS
         return Redirect('contrasenaDocente')->with('contraFinal',$contraFinal);
     }
 
@@ -83,13 +88,14 @@ class contrasenaController extends Controller
     {
         //
         $contrasena=usuarioalumno::where('Usuario',$id)->get('Password');
-        $contraFinal="";
+        $contl="";
         
         foreach ($contrasena as $contra) {
             # code...
            
-            $contraFinal=$contra->Password;
+            $cont=$contra->Password;
         }
+        $contraFinal=Crypt::decrypt($cont); //DESENCRIPTAR DATOS
         return Redirect('contrasena')->with('contraFinal',$contraFinal);
     }
 
@@ -105,10 +111,10 @@ class contrasenaController extends Controller
         
     }
     public function buscador(Request $request){
-        $alumnos1A    =   Alumno::where("Nombre_A",'like',   "%".$request->claveId."%")
-        ->orWhere("Clave_A",'like',  $request->claveId."%")
-        ->orWhere("Nombre_M",'like',   "%".$request->claveId."%")
-        ->orWhere("Nombre_P",'like',  "%".$request->claveId."%")->get()->unique();
+        $alumnos1A =Alumno::where("Nombre_A",'like',"%".$request->claveId."%")
+        ->orWhere("Clave_A",'like',$request->claveId."%")
+        ->orWhere("Nombre_M",'like',"%".$request->claveId."%")
+        ->orWhere("Nombre_P",'like',"%".$request->claveId."%")->get()->unique();
       
         
          if(count($alumnos1A)>0){
@@ -118,9 +124,9 @@ class contrasenaController extends Controller
 
             return "No hay coincidencias en los datos de alumnos registrados.";           
          }
-           }
+    }
 
-            public function buscadorDocente(Request $request){
+    public function buscadorDocente(Request $request){
         $docente1A    =   Docente::where("Clave_D",'like',   "%".$request->claveId."%")
         ->orWhere("Nombre",'like',  $request->claveId."%")
         ->orWhere("Telefono",'like',   "%".$request->claveId."%")->get()->unique();
@@ -133,7 +139,7 @@ class contrasenaController extends Controller
 
             return "No hay coincidencias en los datos de alumnos registrados.";           
          }
-           }
+    }
 
 
 }

@@ -8,6 +8,8 @@ Use Session;
 Use Redirect;
 Use Alert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+
 
 class LoginAController extends Controller
 {
@@ -52,19 +54,18 @@ class LoginAController extends Controller
     {
         //return 'Aqui';
         $CE = usuarioalumno::where('Usuario', $request->Usuario)->get();
-        //$Ps=usuariomaestro::where('Usuario', $request->Usuario)->get('Password');
-
-        $Ps=usuarioalumno::where('Password', $request->Contraseña)->where('Usuario', $request->Usuario) ->get();
-        //return 'CE'.$CE.'/'.'PS'.$Ps;
-        //return $Ps;
-        $usua=$CE[0]->Usuario;
+        
         if (count($CE)==0)
         {
-
             return back()->with('msj',' Usuario o Contrseña incorrecta' );
         }
         else{
-            if ($CE==$Ps)
+            $usua=$CE[0]->Usuario;
+            $Ps=usuarioalumno::where('Usuario', $request->Usuario)->get('Password');
+            $usua=$CE[0]->Usuario;
+            $var=Crypt::decrypt($Ps[0]->Password);
+            
+            if ($var==$request->Contraseña)
             {
                 return view('Alumnosinterfazprincipal.InterfazPrincipal',compact('usua','CE'));
             }

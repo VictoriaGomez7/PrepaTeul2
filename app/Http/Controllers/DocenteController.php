@@ -10,6 +10,7 @@ Use Alert;
 use Illuminate\Http\Request;
 use App\Http\Requests\TagStoreRequestDocentes;
 use App\usuariomaestro;
+use Illuminate\Support\Facades\Crypt;
 
 class DocenteController extends Controller
 {
@@ -99,7 +100,7 @@ class DocenteController extends Controller
 
         $docenteL=new usuariomaestro();
         $docenteL->Usuario=$request['Clave'];
-        $docenteL->Password='12345';
+        $docenteL->Password=Crypt::encrypt('1234'); //ESTO PARA ENCRIPTAR DATOS
         $docenteL->save();
 
         return back()->with('msj','Docente registrado con éxito.');
