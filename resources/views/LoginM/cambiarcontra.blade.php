@@ -1,14 +1,16 @@
-@extends('layouts.app')
-@include('Alumnosinterfazprincipal.InterfazPrincipal2')
-@section('content')
+<!DOCTYPE html>
 
-<a href="/Alumnoinicio?valor={{($usua)}}">
-  <button class="btn btn-success" style="position: absolute;top: 100%;left:75%">Cancelar</button></a>
-<html>
-<head>
-</head>
+<a href="/VisualizaListas?valor={{ ($usua) }}">
+            <button class="btn btn-success" style="position: absolute;top: 100%;left:90%">Cancelar</button></a>
+
+@extends('layouts.app')
+
+@section('title','Lista')
+
+@include('DocenteInterfazPrincipal.InterfazPrincipal')
+
 <body>
-  {!!Form::open(['route' => ['ModificarcontraA.update','$usua'],'method'=>'PUT'])!!}
+  {!!Form::open(['route' => ['ModificarcontraM.update','$usua'],'method'=>'PUT'])!!}
 
   <div style="position: absolute;top: 60%; left: 40%; width: 20%;height:30%;background-color:#aaa">
       <p style="font-size:130%">{{('Contraseña nueva: ')}}</p>
@@ -21,7 +23,6 @@
 
 
 
-{!! Form::close()!!}
+  {!! Form::close()!!}
+
 </body>
-</html>
-@endsection()

@@ -51,7 +51,7 @@ class LoginMController extends Controller
      */
     public function show(Request $request)
     {
-        
+
         $CE = usuariomaestro::where('Usuario', $request->Usuario)->get();
         if (count($CE)==0)
         {
@@ -78,9 +78,10 @@ class LoginMController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+      $usua = $request['valor'];
+      return view('LoginM.cambiarcontra',compact('usua'));
     }
 
     /**
@@ -90,9 +91,12 @@ class LoginMController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+      
+
+      usuariomaestro::where('Usuario',$request->clave)->update(['Password'=>$request['contra']]);
+      return view('LoginM.index');
     }
 
     /**

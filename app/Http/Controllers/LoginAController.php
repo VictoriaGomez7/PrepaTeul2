@@ -80,9 +80,11 @@ class LoginAController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($request)
+    public function edit(Request $request)
     {
-      
+      //return $request['valor'];
+      $usua = $request['valor'];
+      return view('Alumnos.cambiarcontra',compact('usua'));
     }
 
     /**
@@ -92,9 +94,11 @@ class LoginAController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        //return $request['clave'];
+        usuarioalumno::where('Usuario',$request->clave)->update(['Password'=>$request['contra']]);
+        return view('LoginA.index');
     }
 
     /**

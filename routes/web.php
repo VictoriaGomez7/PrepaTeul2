@@ -117,9 +117,23 @@ Route::get('/Asistencias' ,function(){
     return view('Periodos.show');
 });
 
-Route::get('/ContraseñaAlumn' ,function(){
-    return view('Alumnos.cambiarcontra');
+
+
+Route::get('ContraseñaAlumn','LoginAController@edit');
+
+Route::resource('ModificarcontraA','LoginAController');
+
+Route::get('ContraseñaDocen','LoginMController@edit');
+
+Route::resource('ModificarcontraM','LoginMController');
+Route::get('/ContraseñaCE' ,function(){
+    return view('ControlEscolar.cambiarcontra');
 });
+Route::resource('ModificarcontraCe','LoginCEController');
+
+
+
+
 
 //Ruta para vista de calificaciones de Control Escolar
 Route::resource('CONSULTACALIFICACIONESCE','ConsultarCalificacionesCEController');
