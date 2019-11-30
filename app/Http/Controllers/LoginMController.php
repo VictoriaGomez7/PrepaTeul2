@@ -8,6 +8,7 @@ Use Redirect;
 Use Alert;
 //use mysql_connect ("localhost", "root","");
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class LoginMController extends Controller
 {
@@ -51,7 +52,11 @@ class LoginMController extends Controller
      */
     public function show(Request $request)
     {
+<<<<<<< HEAD
 
+=======
+        //return $request;
+>>>>>>> 8fb4bef3f83dce6fd4ba9b33f85b9e4aa2a6d0c8
         $CE = usuariomaestro::where('Usuario', $request->Usuario)->get();
         if (count($CE)==0)
         {
@@ -59,9 +64,10 @@ class LoginMController extends Controller
             return back()->with('msj',' Usuario o Contrseña incorrecta');
         }
         else{
-            $Ps=usuariomaestro::where('Password', $request->Contraseña)->where('Usuario', $request->Usuario) ->get();
+            $Ps=usuariomaestro::where('Usuario', $request->Usuario)->get('Password');
             $usua=$CE[0]->Usuario;
-            if ($CE==$Ps)
+            $var=Crypt::decrypt($Ps[0]->Password);
+            if ($var==$request->Contraseña)
             {
                 view('DocenteInterfazPrincipal.InterfazPrincipal',compact('usua'));
                 return view('DocenteInterfazPrincipal.InterfazPrincipal2',compact('usua','CE'));

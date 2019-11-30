@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-//use App\LoginAlumno;
-use App\usuarioalumno;
+use App\usuariodirector;
 Use Session;
 Use Redirect;
 Use Alert;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
 
-
-class LoginAController extends Controller
+class LoginDController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +17,7 @@ class LoginAController extends Controller
      */
     public function index()
     {
-        return view('LoginA.index');
+        return view('LoginD.index');
     }
 
     /**
@@ -30,7 +27,7 @@ class LoginAController extends Controller
      */
     public function create()
     {
-        //return "Hola LoginA";
+        //
     }
 
     /**
@@ -52,40 +49,38 @@ class LoginAController extends Controller
      */
     public function show(Request $request)
     {
-        //return 'Aqui';
-        $CE = usuarioalumno::where('Usuario', $request->Usuario)->get();
-        
+        $CE = usuariodirector::where('Usuario', $request->Usuario)->get();
+        return $CE;
         if (count($CE)==0)
         {
+
             return back()->with('msj',' Usuario o Contrseña incorrecta' );
         }
         else{
-            $usua=$CE[0]->Usuario;
-            $Ps=usuarioalumno::where('Usuario', $request->Usuario)->get('Password');
-            $usua=$CE[0]->Usuario;
-            $var=Crypt::decrypt($Ps[0]->Password);
-            
-            if ($var==$request->Contraseña)
+            //$contraFinal=Crypt::decrypt($cont); //DESENCRIPTAR DATOS
+            $con= usuariodirector::where('Password', Crypt::decrypt($request->Contraseña))->get();
+            return $con;
+            if (count($con)==0)
             {
-                return view('Alumnosinterfazprincipal.InterfazPrincipal',compact('usua','CE'));
-            }
-            else{
 
                 return back()->with('msj',' Usuario o Contrseña incorrecta' );
             }
+            else{
+
+             return 'LoginD';//view('ControlEscolar.CEprincipal');
+            }
         }
     }
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit($id)
     {
-      //return $request['valor'];
-      $usua = $request['valor'];
-      return view('Alumnos.cambiarcontra',compact('usua'));
+        //
     }
 
     /**
@@ -95,11 +90,9 @@ class LoginAController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        //return $request['clave'];
-        usuarioalumno::where('Usuario',$request->clave)->update(['Password'=>$request['contra']]);
-        return view('LoginA.index');
+        //
     }
 
     /**

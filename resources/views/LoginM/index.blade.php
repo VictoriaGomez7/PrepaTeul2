@@ -7,12 +7,11 @@
 
 @section('content')
 	@if (session()->has('msj'))
-
-		<div class="alert alert-danger" role="alert">
-			<button type="button" class="close" data-dismiss="alert" >&times;</button>
-			<strong>¡Error!</strong>{{session('msj')}}
-		</div>
-	@endif
+			<div class="alert alert-danger" role="alert" style="width: 30%; position:  absolute;top: 28%; left: 35%;z-index: 1;">
+				<button type="button" class="close" data-dismiss="alert" >&times;</button>
+				<strong>¡Error! </strong>{{session('msj')}}
+			</div>
+		@endif
 
 	<style>
 /*Al cuerpo de la

@@ -243,3 +243,7 @@ Route::resource('ImprimeCarta','ImprimeCartaController');
 Route::resource('Bachillerato','BachilleratoController');
 
 Route::resource('Formaciones','FormacionesController');
+
+// Cambiar Logos
+
+Route::resource('Logotipos','LogosController');

@@ -11,7 +11,7 @@ use App\Grupo;
 use App\Nombrealumno;
 use App\Http\Requests\TagStoreRequestFTyBACH;
 use App\Http\Requests\TagStoreRequest;
-
+use Illuminate\Support\Facades\Crypt;
 use App\Formaciones;
 use App\Bachilleratos;
 
@@ -146,6 +146,7 @@ class AlumnosController extends Controller
 
         $alumnoL=new usuarioalumno();
         $alumnoL->Usuario=$request['matricula'];
+        $alumnoL->Password=Crypt::encrypt('1234'); //ESTO PARA ENCRIPTAR DATOS
         $alumnoL->save();
 
         $campo=new ft_bach();

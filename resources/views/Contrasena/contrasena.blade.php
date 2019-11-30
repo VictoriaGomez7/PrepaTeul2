@@ -126,7 +126,7 @@ body{
 		<div class="input-group input-group-lg" style="padding:10px; text-align: center; ">
 			{{--<span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-user"></i></span>
 			<input type="text" class="form-control" name="Usuario"   placeholder="Usuario" id="Usuario" aria-describedby="sizing-addon1" required>--}}
-			<label for="Materia" style="margin: 0px; padding: 0px;color: #4B5E7B; font-size:20px;">Recuperacion de contraseñas</label>
+			<label for="Materia" style="margin: 0px; padding: 0px;color: #4B5E7B; font-size:20px;">Recuperar contraseña alumno</label>
 
 		</div>
 		<div class="input-group input-group-lg">
