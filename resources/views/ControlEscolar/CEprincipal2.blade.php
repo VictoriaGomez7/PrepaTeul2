@@ -51,7 +51,7 @@
 						<li><a href="http://127.0.0.1:8000/docenteconsulta">Consultar</a></li>
 						<li><a href="http://127.0.0.1:8000/VisualizarDocentes">Materias</a></li>
 						<li><a href="http://127.0.0.1:8000/RegistrarTutores">Tutores</a></li>
-						<li><a href="http://127.0.0.1:8000/contrasenaDocente">Recuperar contraseña</a></li>  
+						<li><a href="http://127.0.0.1:8000/contrasenaDocente">Recuperar contraseña</a></li>
 					</ul>
 				</li>
 				<li><a href="#">Materias</a>
@@ -97,21 +97,7 @@
 
 					<li><a href="#">Logos</a>
 						<ul class="submenu">
-<<<<<<< HEAD
-							<li><a href="http://127.0.0.1:8000/contrasena">Alumnos</a></li>
-							<li><a href="http://127.0.0.1:8000/contrasenaDocente">Docentes</a></li>
-						</ul>
-					</li>
-
-
-
-					<li><a href="#">Modalidades</a>
-						<ul class="submenu">
-							<li><a href="http://127.0.0.1:8000/Bachillerato">Bachilleratos</a></li>
-							<li><a href="http://127.0.0.1:8000/Formaciones">Formaciones para el trabajo</a></li>
-=======
 							<li><a href="http://127.0.0.1:8000/Logotipos">Cambiar</a></li>
->>>>>>> 8fb4bef3f83dce6fd4ba9b33f85b9e4aa2a6d0c8
 						</ul>
 
                     <li><a href="#" >Servicios Escolares</a>

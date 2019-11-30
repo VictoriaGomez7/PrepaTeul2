@@ -52,11 +52,7 @@ class LoginMController extends Controller
      */
     public function show(Request $request)
     {
-<<<<<<< HEAD
 
-=======
-        //return $request;
->>>>>>> 8fb4bef3f83dce6fd4ba9b33f85b9e4aa2a6d0c8
         $CE = usuariomaestro::where('Usuario', $request->Usuario)->get();
         if (count($CE)==0)
         {
@@ -99,7 +95,7 @@ class LoginMController extends Controller
      */
     public function update(Request $request)
     {
-      
+
 
       usuariomaestro::where('Usuario',$request->clave)->update(['Password'=>$request['contra']]);
       return view('LoginM.index');
