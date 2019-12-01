@@ -13,6 +13,7 @@ use App\EstadisticaSemestre;
 use Carbon\Carbon;
 use App\PeriodoAlumno;
 use App\Alumno;
+use App\Materia;
 Use Session;
 Use Redirect;
 Use Alert;
@@ -100,7 +101,12 @@ class CierreController extends Controller
             }
             
             $suma=($todo[$i]->Parcial1+$todo[$i]->Parcial2)/2;
-            $suma=$suma+$todo[$i]->Semestral/2;
+            //return $suma;
+            $suma=($suma+$todo[$i]->Semestral)/2;
+            //return $suma;
+            
+            //return $NS[2]."-".$todo[$i]->ClaveM;
+
             $S=$todo[$i]->Semestre;
             if ($suma<6) {
                 //return "llegue aqui";
@@ -120,6 +126,7 @@ class CierreController extends Controller
                     $mate2=new IrregularMateriaHistorico();
                     $mate2->Clave_A=$todo[$i]->Clave_A;
                     $mate2->Clave_M=$todo[$i]->ClaveM;
+
                     $mate2->Calificacion1=0.0;
                     $mate2->Fecha=null;
                     $mate2->Oportunidades=0.0;
@@ -173,22 +180,56 @@ class CierreController extends Controller
                 $Cambia=$mod[0]->Reprobados+1;
                 EstadisticaSemestre::where('Materia',$todo[$i]->ClaveM)->where('Semestre',$S)->update(['Reprobados'=>$Cambia]);
                 
+                $nomM=Materia::where('Clave_M',$todo[$i]->ClaveM)->get('Nombre');
+                //return $nomM[0]->Nombre;
+                $nK=new Kardex();
+                $nK->Clave_A=$todo[$i]->Clave_A;
+                $nK->Clave_M=$todo[$i]->ClaveM;
+                $nK->NombreM=$nomM[0]->Nombre;
+                $nK->Fecha=null;
+                $nK->Oportunidades=null;
+                $nK->Calificacion=0;
+                $nK->Grupo=$todo[$i]->Grupo;
+                $nK->Semestre=$todo[$i]->Semestre;
+                $nK->save();
+                CalificacionesParciales::where('ClaveM',$todo[$i]->ClaveM)->where('Clave_A',$todo[$i]->Clave_A)->delete();
             }
             else
             {
                 //$PeriodoAlumno;
                 //return "llegue aqui Kardex";
+                $NS="$suma";
+                $ss=0;
+                if (strlen($NS)>2)
+                {
+                    if ($NS[2]=='5' or $NS[2]=='6' or $NS[2]=='7' or $NS[2]=='8' or $NS[2]=='9')
+                    {
+                        $ss=round($suma, 0, PHP_ROUND_HALF_UP);
+                    }
+                    else
+                    {
+                        $ss=round($suma, 0, PHP_ROUND_HALF_DOWN);   
+                    }
+                }
+                else
+                {
+                    $ss=$suma;
+                }
+                $nomM=Materia::where('Clave_M',$todo[$i]->ClaveM)->get('Nombre');
+                //return $nomM[0]->Nombre;
                 $nK=new Kardex();
                 $nK->Clave_A=$todo[$i]->Clave_A;
                 $nK->Clave_M=$todo[$i]->ClaveM;
+                $nK->NombreM=$nomM[0]->Nombre;
                 $nK->Fecha=null;
                 $nK->Oportunidades=null;
-                $nK->Calificacion=$suma;
+                $nK->Calificacion=$ss;
                 $nK->Grupo=$todo[$i]->Grupo;
+                $nK->Semestre=$todo[$i]->Semestre;
                 $nK->save();
+                CalificacionesParciales::where('ClaveM',$todo[$i]->ClaveM)->where('Clave_A',$todo[$i]->Clave_A)->delete();
             }
         }
-        
         $bandera=False;
         $msj='Ciclo cerrado con éxito.';
         $BanMSJ=1;

@@ -39,6 +39,7 @@
 						<li><a href="http://127.0.0.1:8000/reinscripcion">Reinscripión</a></li>
 						<li><a href="http://127.0.0.1:8000/alumnosconsulta">Consultar</a></li>
 						<li><a href="http://127.0.0.1:8000/Irregulares">Irregulares</a></li>
+						<li><a href="http://127.0.0.1:8000/contrasena">Recuperar contraseña</a></li>
 					</ul>
 				</li>
 				<li><a href="#">Docentes</a>
@@ -47,11 +48,14 @@
 						<li><a href="http://127.0.0.1:8000/docenteconsulta">Consultar</a></li>
 						<li><a href="http://127.0.0.1:8000/VisualizarDocentes">Materias</a></li>
 						<li><a href="http://127.0.0.1:8000/RegistrarTutores">Tutores</a></li>
+						<li><a href="http://127.0.0.1:8000/contrasenaDocente">Recuperar contraseña</a></li>
 					</ul>
 				</li>
 				<li><a href="#">Materias</a>
 					<ul class="submenu">
 						<li><a href="http://127.0.0.1:8000/RegistraMateria">Registrar</a></li>
+						<li><a href="http://127.0.0.1:8000/Bachillerato">Bachilleratos</a></li>
+						<li><a href="http://127.0.0.1:8000/Formaciones">Formaciones para el Trabajo</a></li>
 						<li><a href="http://127.0.0.1:8000/materia">Consultar</a></li>
 					</ul>
 				</li>
@@ -76,7 +80,7 @@
 							<li><a href="http://127.0.0.1:8000/Periodos">Periodos</a></li>
 							<li><a href="http://127.0.0.1:8000/Estadisticas">Estadísticas</a></li>
 							<li><a href="http://127.0.0.1:8000/Cerrar_Semestre">Cerrar Ciclo</a></li>
-							
+
 						</ul>
 					</li>
 					<li><a href="#">Imprimir</a>
@@ -88,24 +92,14 @@
 						</ul>
 					</li>
 
-					<li><a href="#">Recuperacion de conraseña</a>
+					<li><a href="#">Logos</a>
 						<ul class="submenu">
-							<li><a href="http://127.0.0.1:8000/contrasena">Alumnos</a></li>
-							<li><a href="http://127.0.0.1:8000/contrasenaDocente">Docentes</a></li>  
-						</ul>
-					</li>
-              
-
-
-					<li><a href="#">Modalidades</a>
-						<ul class="submenu">
-							<li><a href="http://127.0.0.1:8000/Bachillerato">Bachilleratos</a></li>
-							<li><a href="http://127.0.0.1:8000/Formaciones">Formaciones para el trabajo</a></li>
+							<li><a href="http://127.0.0.1:8000/Logotipos">Cambiar</a></li>
 						</ul>
 
                     <li><a href="#" >Servicios Escolares</a>
-
 						<ul class="submenu">
+							<li><a href="http://127.0.0.1:8000/ContraseñaCE">Cambiar Contraseña</a>
 							<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESIÓN</a>
 						</ul>
 					</li>
@@ -115,7 +109,7 @@
 		<?php echo $__env->make('interfazprincipal.imagenn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 	</header>
 	<!--<img src="/images/img7.png" class="imagen">-->
-	   
+
 </body>
 </html>
 

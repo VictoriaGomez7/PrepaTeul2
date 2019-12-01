@@ -296,7 +296,7 @@ class Calificaciones2Seeder extends Seeder
         ]);
         DB::table('calificaciones_parciales')->insert([
         	'Clave_A'=>'1900110039',
-        	'ClaveM'=>'FT-FPT',
+        	'ClaveM'=>'FT-TUR_3',
 			'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
@@ -398,7 +398,7 @@ class Calificaciones2Seeder extends Seeder
         ]);
         DB::table('calificaciones_parciales')->insert([
 	        'Clave_A'=>'1900110039',
-	        'ClaveM'=>'FT-FPT2',
+	        'ClaveM'=>'FT-TUR_3',
 	        'Grupo'=>'B',
         	'Parcial1'=>9.00,
         	'Parcial2'=>9.00,
@@ -514,7 +514,7 @@ class Calificaciones2Seeder extends Seeder
         
         DB::table('calificaciones_parciales')->insert([
 	        'Clave_A'=>'1900110039',
-	        'ClaveM'=>'FT-FPT3',
+	        'ClaveM'=>'FT-TUR_3',
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
