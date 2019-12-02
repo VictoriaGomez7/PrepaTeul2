@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Alumno;
 use App\usuarioalumno;
-use App\Docente;
+use App\Docentes;
 use App\usuariomaestro;
 use Illuminate\Support\Facades\Crypt;
 
@@ -127,7 +127,7 @@ class contrasenaController extends Controller
     }
 
     public function buscadorDocente(Request $request){
-        $docente1A    =   Docente::where("Clave_D",'like',   "%".$request->claveId."%")
+        $docente1A    =   Docentes::where("Clave_D",'like',   "%".$request->claveId."%")
         ->orWhere("Nombre",'like',  $request->claveId."%")
         ->orWhere("Telefono",'like',   "%".$request->claveId."%")->get()->unique();
       
