@@ -79,9 +79,8 @@ class LoginCEController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
     }
 
     /**
@@ -91,9 +90,19 @@ class LoginCEController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+      usuarioalumno::where('Usuario',$request->clave)->update(['Password'=>$request['contra']]);
+      return view('LoginA.index');
+      $usuario= usuarioCE::get();
+      //return $usuario;
+
+
+      $usuario->Password=$request['contra'];
+
+      return $usuario;
+      $usu->Update();
+      return view('LoginCE.index');
     }
 
     /**

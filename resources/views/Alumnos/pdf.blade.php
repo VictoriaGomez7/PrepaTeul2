@@ -127,7 +127,7 @@
           @foreach($Primer as $Pr)
             <tr>
               @if($Pr->Oportunidades==null and $Pr->Calificacion>0)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Calificacion}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -137,7 +137,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
               @elseif($Pr->Oportunidades==1)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Fecha}}</font></td>
@@ -147,7 +147,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td> 
                   @elseif($Pr->Oportunidades==2)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -157,7 +157,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                   @elseif($Pr->Oportunidades>=3)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -167,7 +167,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Fecha}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Calificacion}}</font></td>
               @else
-                <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Clave_M}}</font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->NombreM}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -239,7 +239,7 @@
           @foreach($Segund as $Sg)
             <tr>
               @if($Sg->Oportunidades==null and $Sg->Calificacion>0)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Calificacion}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -249,7 +249,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
               @elseif($Sg->Oportunidades==1)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Fecha}}</font></td>
@@ -259,7 +259,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td> 
                   @elseif($Sg->Oportunidades==2)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -269,7 +269,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                   @elseif($Sg->Oportunidades>=3)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -279,7 +279,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Fecha}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Calificacion}}</font></td>
               @else
-                <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Clave_M}}</font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->NombreM}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -354,7 +354,7 @@
           @foreach($Terce as $Tr)
             <tr>
               @if($Tr->Oportunidades==null and $Tr->Calificacion>0)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Calificacion}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -364,7 +364,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
               @elseif($Tr->Oportunidades==1)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Fecha}}</font></td>
@@ -374,7 +374,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td> 
                   @elseif($Tr->Oportunidades==2)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -384,7 +384,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                   @elseif($Tr->Oportunidades>=3)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -394,7 +394,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Fecha}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Calificacion}}</font></td>
               @else
-                <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Clave_M}}</font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->NombreM}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -407,19 +407,59 @@
             </tr>
           @endforeach()
         @else
-          @foreach($MATTerce as $MATTr)
-           <tr>
-              <td align="left" style="border: 1px solid black;"><font size="1">{{$MATTr->Nombre}}</font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-            </tr>
-          @endforeach()
+          @if($semeft==1)
+              @foreach($MATTerce as $MATTr)
+               <tr>
+                  <td align="left" style="border: 1px solid black;"><font size="1">{{$MATTr->Nombre}}</font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                </tr>
+              @endforeach()
+              @foreach($MATTerceft as $MATTrft)
+               <tr>
+                  <td align="left" style="border: 1px solid black;"><font size="1">{{$MATTrft->Nombre}}</font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                </tr>
+              @endforeach()
+            @else
+              @foreach($MATTerce as $MATTr)
+               <tr>
+                  <td align="left" style="border: 1px solid black;"><font size="1">{{$MATTr->Nombre}}</font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                </tr>
+              @endforeach()
+               <tr>
+                  <td align="left" style="border: 1px solid black;"><font size="1">--</font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                </tr>
+          @endif()
         @endif()
       </table>
     </form>
@@ -469,7 +509,7 @@
           @foreach($Cuart as $Cu)
             <tr>
               @if($Cu->Oportunidades==null and $Cu->Calificacion>0)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Calificacion}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -479,7 +519,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
               @elseif($Cu->Oportunidades==1)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Fecha}}</font></td>
@@ -489,7 +529,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td> 
                   @elseif($Cu->Oportunidades==2)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -499,7 +539,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                   @elseif($Cu->Oportunidades>=3)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -509,7 +549,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Fecha}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Calificacion}}</font></td>
               @else
-                <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Clave_M}}</font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->NombreM}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -522,19 +562,59 @@
             </tr>
           @endforeach()
         @else
-          @foreach($MATCuart as $MATCu)
-           <tr>
-              <td align="left" style="border: 1px solid black;"><font size="1">{{$MATCu->Nombre}}</font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-              <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-            </tr>
-          @endforeach()
+          @if($semeft==1)
+              @foreach($MATCuart as $MATCr)
+               <tr>
+                  <td align="left" style="border: 1px solid black;"><font size="1">{{$MATCr->Nombre}}</font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                </tr>
+              @endforeach()
+              @foreach($MATCuartft as $MATCrft)
+               <tr>
+                  <td align="left" style="border: 1px solid black;"><font size="1">{{$MATCrft->Nombre}}</font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                </tr>
+              @endforeach()
+            @else
+              @foreach($MATCuart as $MATCr)
+               <tr>
+                  <td align="left" style="border: 1px solid black;"><font size="1">{{$MATCr->Nombre}}</font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                </tr>
+              @endforeach()
+               <tr>
+                  <td align="left" style="border: 1px solid black;"><font size="1">--</font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                  <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                </tr>
+          @endif()
         @endif()
       </table>
     </form>
@@ -584,7 +664,7 @@
           @foreach($Quint as $Qi)
             <tr>
               @if($Qi->Oportunidades==null and $Qi->Calificacion>0)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Calificacion}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -594,7 +674,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
               @elseif($Qi->Oportunidades==1)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Fecha}}</font></td>
@@ -604,7 +684,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td> 
                   @elseif($Qi->Oportunidades==2)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -614,7 +694,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                   @elseif($Qi->Oportunidades>=3)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -624,7 +704,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Fecha}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Calificacion}}</font></td>
               @else
-                <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Clave_M}}</font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->NombreM}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -676,8 +756,7 @@
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
               </tr>
-            @endforeach()
-            
+            @endforeach()  
           @else()
             @foreach($MATQuint as $MATQi)
              <tr>
@@ -718,9 +797,36 @@
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
               </tr>
             @endforeach()
-            
+          @endif()
+          @if($semeft==1)
+            @foreach($MATQuintft as $MATQift)
+             <tr>
+                <td align="left" style="border: 1px solid black;"><font size="1">{{$MATQift->Nombre}}</font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+              </tr>
+            @endforeach()
+          @else
+            <tr>
+                <td align="left" style="border: 1px solid black;"><font size="1">--</font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+              </tr>
           @endif()
         @endif()
+
       </table>
     </form>
     <br>
@@ -769,7 +875,7 @@
           @foreach($Sex as $Sx)
             <tr>
               @if($Sx->Oportunidades==null and $Sx->Calificacion>0)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Calificacion}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -779,7 +885,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
               @elseif($Sx->Oportunidades==1)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Fecha}}</font></td>
@@ -789,7 +895,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td> 
                   @elseif($Sx->Oportunidades==2)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -799,7 +905,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                   @elseif($Sx->Oportunidades>=3)
-                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Clave_M}}</font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -809,7 +915,7 @@
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Fecha}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Calificacion}}</font></td>
               @else
-                <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Clave_M}}</font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->NombreM}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -904,6 +1010,33 @@
               </tr>
             @endforeach()
           @endif()
+          @if($semeft==1)
+            @foreach($MATSexft as $MATSxft)
+             <tr>
+                <td align="left" style="border: 1px solid black;"><font size="1">{{$MATSxft->Nombre}}</font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+              </tr>
+            @endforeach()
+          @else
+            <tr>
+                <td align="left" style="border: 1px solid black;"><font size="1">--</font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+              </tr>
+          @endif(
         @endif()
       </table>
     </form>

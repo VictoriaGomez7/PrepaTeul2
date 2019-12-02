@@ -31,7 +31,6 @@ class IrregularController extends Controller
         $DatosAlumnos=array();
         $Cantidad_Materias_Reprobadas=array();
 
-
         if (count($ObtenerIrregulares)==0){
             return redirect('/ControlEscolarInicio')->with('MsjERR','No hay alumnos irregulares');
         }
@@ -112,7 +111,27 @@ class IrregularController extends Controller
                     $Irre->Fecha=$request->Fecha;
                     $Irre->save();
                     $Opo=IrregularMateria::where('Clave_A',$request->Clave_A)->get();
+                    
+
+                    $SS=Kardex::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->get();
+
+                    $Ir= IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->get();
+
+                    //return "Kardex=".$SS."Irregulares=".$Ir;
+                    $fecha=$Ir[0]->Fecha;
+                    $Cal=$Ir[0]->Calificacion1;
+                    $OP=$Ir[0]->Oportunidades;
+
+
+                    Kardex::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->update(['Fecha'=>$fecha]);
+
+                    //return "fecha=".$fecha." Cal".$Cal." OP".$OP;
+                    Kardex::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->update(['Calificacion'=>$Cal]);
+
+                    Kardex::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->update(['Oportunidades'=>$OP]);
+
                     IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->delete();
+
                     
                 } else {
                     $Opo=IrregularMateria::where('Clave_M',$Materia->Clave_M)->where('Clave_A',$clave_A)->get();
@@ -127,15 +146,8 @@ class IrregularController extends Controller
         }
 
         if(count($Aprobadas)==$cuenta){
+            //return "Hola";
             Alumno::where('Clave_A', $request->Clave_A)->update(['Estado'=>'Regular']);
-            $nK=new Kardex();
-            $nK->Clave_A=$Opo[0]->Clave_A;
-            $nK->Clave_M=$Opo[0]->Clave_M;
-            $nK->Fecha=$Opo[0]->Fecha;
-            $nK->Oportunidades=$Opo[0]->Oportunidades;
-            $nK->Calificacion=$Opo[0]->Calificacion1;
-            $nK->Grupo=$request->Grupo_A;
-            $nK->save();
             Irregulares::where('Clave_A',$request->Clave_A)->delete();
         }
 

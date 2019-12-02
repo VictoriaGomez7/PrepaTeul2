@@ -48,13 +48,11 @@
 						<li><a href ="http://127.0.0.1:8000/EvaluacionConducta?valor={{ ($usua) }}">Evaluación de conducta</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Contraseña</a>
-						<ul class="submenu">
-						<li><a href ="http://127.0.0.1:8000/Modificarcontra?valor={{$usua}}">Cambiar</a></li>
-						</ul>
+				
 			</li>
 				<li style="left: 45%;"><a  href="#" >Docente: {{$Docente[0]->Nombre}}</a>
 					<ul class="submenu">
+						<li><a href="http://127.0.0.1:8000/ContraseñaDocen?valor={{$usua}}">Cambiar Contraseña</a>
 						<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESIÓN</a>
 					</ul>
 				</li>

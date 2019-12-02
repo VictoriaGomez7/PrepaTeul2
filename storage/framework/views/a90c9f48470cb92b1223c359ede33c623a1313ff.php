@@ -14,7 +14,20 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 <title>Alumnos</title>
 <body>
-  <div class="container">
+
+  <?php if(Session()->has('msj')): ?>
+    <div class="alert alert-success" role="alert" style="width: 90%; position:  absolute; top: 43%; left: 5%;z-index: 1;">
+    <button class="close" data-dismiss="alert"><span>&times;</span></button>
+    <strong>¡Correcto! </strong><?php echo e(Session('msj')); ?>
+
+    </div>
+  <?php endif; ?>
+
+  <div class="card-header text-center" style="font-size:200%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 5%; " ><?php echo e(__('Alumnos Irregulares')); ?></div> <!-- text-center ES PARA CENTRA EL TEXTO -->
+
+  <div style="background-color:#aaa; position: absolute;top: 62%; left: 5%; width: 90%">
+    
+    <div class="container">
     <table  id="alumn" class="table" >
       <thead>
         <tr>
@@ -26,28 +39,26 @@
       </thead>
         <tbody>
           <?php $Cont=0; ?>
-          <?php $__currentLoopData = $ObtenerIrregulares; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $alumno): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-          <tr>
-            <?php echo Form::open(['route' => ['Irregulares.store'],'method'=>'POST']); ?>
+          <?php $__currentLoopData = $Listado_Matriculas_Alumnos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $alumno): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <tr>
+              <?php echo Form::open(['route' => ['Irregulares.store'],'method'=>'POST']); ?>
 
-            <td align="justify"><?php echo e($alumno->Clave_A); ?></td>
-            <input type="hidden" name="Clave_A" value="<?php echo e($alumno->Clave_A); ?>">
-            <td align="justify"><?php echo e($Listado_Nombres_Alumnos[$Cont]); ?></td>
-            <td align="justify"><?php echo e($Cantidad_Materias_Reprobadas[$Cont]); ?></td>
+              <td align="justify"><?php echo e($alumno); ?></td>
+              <input type="hidden" name="Clave_A" value="<?php echo e($alumno); ?>">
+              <td align="justify"><?php echo e($Listado_Nombres_Alumnos[$Cont]); ?></td>
+              <td align="justify"><?php echo e($Cantidad_Materias_Reprobadas[$Cont]); ?></td>
+              <input type="hidden" name="Grupo_A" value="<?php echo e($Listado_Grupos[$Cont]); ?>">
 
-            
-            <td><?php echo Form::submit('Ver',['class'=>'btn btn-primary']); ?></td>
-            <?php echo Form::close(); ?>
+              <td><?php echo Form::submit('Ver',['class'=>'btn btn-primary']); ?></td>
+              <?php echo Form::close(); ?>
 
 
-          </tr>
+            </tr>
           <?php $Cont+=1; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
 
     </table>
-
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -63,7 +74,7 @@
     </script>
 
   </div>
-
+  </div>
 </body>
 </html>
 <?php $__env->stopSection(); ?>

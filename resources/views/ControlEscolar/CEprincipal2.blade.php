@@ -51,7 +51,7 @@
 						<li><a href="http://127.0.0.1:8000/docenteconsulta">Consultar</a></li>
 						<li><a href="http://127.0.0.1:8000/VisualizarDocentes">Materias</a></li>
 						<li><a href="http://127.0.0.1:8000/RegistrarTutores">Tutores</a></li>
-						<li><a href="http://127.0.0.1:8000/contrasenaDocente">Recuperar contraseña</a></li>  
+						<li><a href="http://127.0.0.1:8000/contrasenaDocente">Recuperar contraseña</a></li>
 					</ul>
 				</li>
 				<li><a href="#">Materias</a>
@@ -83,7 +83,7 @@
 							<li><a href="http://127.0.0.1:8000/Periodos">Periodos</a></li>
 							<li><a href="http://127.0.0.1:8000/Estadisticas">Estadísticas</a></li>
 							<li><a href="http://127.0.0.1:8000/Cerrar_Semestre">Cerrar Ciclo</a></li>
-							
+
 						</ul>
 					</li>
 					<li><a href="#">Imprimir</a>
@@ -102,6 +102,7 @@
 
                     <li><a href="#" >Servicios Escolares</a>
 						<ul class="submenu">
+							<li><a href="http://127.0.0.1:8000/ContraseñaCE">Cambiar Contraseña</a>
 							<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESIÓN</a>
 						</ul>
 					</li>
@@ -111,6 +112,6 @@
 		@include('interfazprincipal.imagenn')
 	</header>
 	<!--<img src="/images/img7.png" class="imagen">-->
-	   
+
 </body>
 </html>

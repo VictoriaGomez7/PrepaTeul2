@@ -7,17 +7,17 @@
 
 <body>
 
-    <?php if(Session()->has('msj')): ?>
-        <div class="alert alert-success" role="alert" style="width: 90%; position:  absolute; top: 43%; left: 5%;z-index: 1;">
+    <?php if($BanMSJ==1): ?>
+        <div class="alert alert-success" role="alert" style="width: 75%; position:  absolute; top: 43%; left: 15%;z-index: 1;">
         <button class="close" data-dismiss="alert"><span>&times;</span></button>
-        <strong>¡Correcto! </strong><?php echo e(Session('msj')); ?>
+        <strong>¡Correcto! </strong><?php echo e(($msj)); ?>
 
         </div>
     <?php endif; ?>
-    <?php if(session()->has('msj1')): ?>
-        <div class="alert alert-danger" role="alert" style="width: 30%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
+    <?php if($BanMSJ==2): ?>
+        <div class="alert alert-danger" role="alert" style="width: 75%; position:  absolute;top: 43%; left: 15%;z-index: 1;">
         <button type="button" class="close" data-dismiss="alert" >&times;</button>
-        <strong>¡Error! </strong><?php echo e(session('msj1')); ?>
+        <strong>¡Error! </strong><?php echo e(($msj)); ?>
 
         </div>
     <?php endif; ?>
@@ -38,7 +38,7 @@
                 
             <?php endif; ?>
             <?php if($bandera==False): ?>
-                <div href="#"style="position: absolute;top: 70%;left:35%">Aún no ha culminado el segundo periodo</div>
+                <div href="#" style="position: absolute;top: 70%;left:33%; width: 10%; background: #237FF4;color: rgb(255, 255, 255)">Aún no termina el segundo parcial.</div>
             <?php endif; ?>
 
 
