@@ -639,11 +639,11 @@ class MateriaController extends Controller
         }
         if ($request->tipo=="Formación Para El Trabajo"){
           if ($request->semestre=="TERCER SEMESTRE" or $request->semestre=="CUARTO SEMESTRE" or $request->semestre=="QUINTO SEMESTRE" or $request->semestre=="SEXTO SEMESTRE") {
-
+            
               $materia->save();
               $matgrup=new materia_grupo();
               $matgrup->Clave_M=$Clavemat;
-              $matgrup->Grupo=$request['nombre'];
+              $matgrup->Grupo=$request['formacion'];
               $matgrup->Semestre=$request['semestre'];
 
               $matgrup->save();
@@ -681,19 +681,21 @@ class MateriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $r)
+    public function store(Request $request)
     {
 
-       $bandera1=0;
+         //return $request;
+            //Arreglo de numero romanos
+            $bandera1=0;
             $bandera4=0;
             $Romanos=array('I','II','III',"IV",'V','VI' );
             $Romanosara=array('1','2','3',"4",'5','6' );
             $Quitar=array('a','del','la',"para",'de','y','el' );
             $Auxiliar=array();
             //Extraer el nombre se la materia en una variable($Nombremat)
-            $Nombremat=utf8_decode($r['Nombre']);
+            $Nombremat=utf8_decode($request['Nombre']);
             //Extraer el tipo de materia en una varible ($Tipomat)
-            $Tipomat=$r['tipo'];
+            $Tipomat=$request['Tipo'];
             $Clavemat='';
             //Separar por palabras el nombre
             $Nombrediv = explode(" ", $Nombremat);
@@ -703,22 +705,39 @@ class MateriaController extends Controller
                 $Clavemat=$Clavemat.'FB-';
                 break;
               case 'Formación Propedéutica':
-                  switch ($r['Bachillerato']) {
-                    case "Químico Biológica":
-                      $Clavemat=$Clavemat.'QB-';
-                      break;
-                    case "Físico Matemática":
-                      $Clavemat=$Clavemat.'FM-';
-                      break;
-                    case "Humanidades y Ciencias Sociales":
-                      $Clavemat=$Clavemat.'CSH-';
-                      break;
-
-                    default:
-                      $Clavemat=$Clavemat.'EA-';
-                      break;
+                  $variableauxiliar=$request['Bachillerato'];
+                  if (strpos($variableauxiliar, '-') !== false) {
+                    $auxiliarson=explode('-',$variableauxiliar);
+                                                        }
+                  else {
+                      $auxiliarson=explode(' ',$variableauxiliar);
                   }
-                break;
+                 
+                  for ($i=0; $i <count($auxiliarson) ; $i++) {
+                    $variab=$auxiliarson[$i];
+                    switch ($variab) {
+                      case 'del':
+                        $a=0;
+                        break;
+                      case 'y':
+                        $a=0;
+                        break;
+                      case 'para':
+                        $a=0;
+                        break;
+                      case 'la':
+                        $a=0;
+                        break;
+
+                      default:
+                        $Clavemat=$Clavemat.$variab[0];
+                        break;
+                    }
+                  }
+                  $Clavemat=$Clavemat.'-';
+                  //return $Clavemat;
+                  //$auxiliarson=explode(' ',$variableauxiliar);
+
               case 'Formación Para El Trabajo':
                     $Clavemat=$Clavemat.'FT-';
                 break;
@@ -958,7 +977,7 @@ class MateriaController extends Controller
                     $Clavemat=$Clavemat.utf8_encode(strtoupper($prim[$i]));
                     break;
                 }
-              }
+              } 
               switch (utf8_encode(strtolower($seg[0]))) {
                 case 'á':
                   $Clavemat=$Clavemat.'A';
@@ -994,7 +1013,7 @@ class MateriaController extends Controller
                 $prim=$Auxiliar[0];
                 $seg=$Auxiliar[1];
                 $ter=$Auxiliar[2];
-                switch (utf8_encode(strtolower($prim[0]))) {
+                switch (utf8_encode(strtolowner($prim[0]))) {
                   case 'á':
                     $Clavemat=$Clavemat.'A';
                     break;
@@ -1201,56 +1220,99 @@ class MateriaController extends Controller
 }
 }
 }
+          $materiaActualizada="";
 
-
-        elseif (count($Nombrediv>2)) {
-          //print'Aqui voy';
-        }
-            $Checa_Mate=Materia::get('Clave_M');
+           $Checa_Mate=Materia::get('Clave_M');
             $CLAVES=array();
             foreach ($Checa_Mate as $Mat_CH) {
               //return $Mat_CH->Clave;
               array_push($CLAVES,$Mat_CH->Clave_M);
+              $materiaActualizada=$Mat_CH;
             }
-
+            //return $CLAVES;
+            //return $Clavemat;
+            
             if (in_array($Clavemat,$CLAVES)){
-             // return redirect('/RegistraMateria')->with('msjERROR','Materia ya registrada (Elija otra).');
+
+              if ($request->tipo=="Formación Para El Trabajo"){
+                  //return $request['semestre'];
+                  switch ($request['semestre']) {
+                    case "TERCER SEMESTRE":
+                      $Clavemat=$Clavemat.'_3';
+                      //return $Clavemat;
+                      break;
+                    case 'CUARTO SEMESTRE':
+                    $Clavemat=$Clavemat.'_4';
+                      break;
+
+                    case 'QUINTO SEMESTRE':
+                      $Clavemat=$Clavemat.'_5';
+                      break;
+                    case 'SEXTO SEMESTRE':
+                      $Clavemat=$Clavemat.'_6';
+                      break;
+                  }
+                }
 
 
-      $materias=materia::where([['Clave_M',$r->claveOriginal]])->get();
-      foreach ($materias as $row ) {
-        $materia=$row;
+              
+              
+            
+            }
+      
 
-     }
-      if(strlen($materia)){
+$materia1= Materia::where('Clave_M',$request->Clave_M)->get();
+foreach ($materia1 as $mates ) {
+  # code...
+  $materia=$mates;
+}
+
+if(strlen($materia)){
         //return 'Aqui';
-        if(($r->Tipo=="Formación Propedéutica")){
-          if ($r->Semestre=="QUINTO SEMESTRE" or $r->Semestre=="SEXTO SEMESTRE") {
+        if(($request->Tipo=="Formación Propedéutica")){
+          if ($request->Semestre=="QUINTO SEMESTRE" or $request->Semestre=="SEXTO SEMESTRE") {
                $materia->Clave_M=$Clavemat;
-              $materia->Tipo=$r['Tipo'];
-              $materia->Nombre=$r['Nombre'];
-              $materia->Semestre=$r['Semestre'];
-              $materia->Bachillerato=$r['Bachillerato'];
-              $materia->Horas=$r['Horas'];
-              $materia->save();
+              $materia->Tipo=$request['Tipo'];
+              $materia->Nombre=$request['Nombre'];
+              $materia->Semestre=$request['Semestre'];
+              $materia->Bachillerato=$request['Bachillerato'];
+              $materia->Horas=$request['Horas'];
+              $materia->save(); 
               //return $materia;
-              return redirect('materia')->with('msj','Materia Modificada Correctamente');
+              return redirect('materia')->with('msj','Materia Modificada Correctamente1');
           }
           else{
             //return 'por aqui';
             return back()->with('msjERROR','El semestre seleccionado no coincide para el tipo de materia.' );
             }
         }
-        if ($r->Tipo=="Formación Para El Trabajo"){
-          if ($r->Semestre=="TERCER SEMESTRE" or $r->Semestre=="CUARTO SEMESTRE" or $r->Semestre=="QUINTO SEMESTRE" or $r->Semestre=="SEXTO SEMESTRE") {
+        if ($request->Tipo=="Formación Para El Trabajo"){
+          if ($request->Semestre=="TERCER SEMESTRE" or $request->Semestre=="CUARTO SEMESTRE" or $request->Semestre=="QUINTO SEMESTRE" or $request->Semestre=="SEXTO SEMESTRE") {
+            //return $request;
                $materia->Clave_M=$Clavemat;
-              $materia->Tipo=$r['Tipo'];
-              $materia->Nombre=$r['formacion'];
-              $materia->Semestre=$r['Semestre'];
-              $materia->Bachillerato=$r['Bachillerato'];
-              $materia->Horas=$r['Horas'];
-              $materia->save();
-              return redirect('materia')->with('msj','Materia Modificada Correctamente');
+               $materia->Nombre=$request['Nombre'];
+              $materia->Tipo=$request['Tipo'];
+              //$materia->Formación=$request['formacion'];
+              $materia->Semestre=$request['Semestre'];
+             
+              $materia->Horas=$request['Horas'];
+             $materia->save();
+             //return $materia;
+
+              $matgrup1=materia_grupo::where('Clave_M',$request->Clave_M)->get();
+              foreach ($matgrup1 as $mat ) {
+                # code...
+                $matgrup=$mat;
+              }
+
+              $matgrup->Clave_M=$Clavemat;
+              $matgrup->Grupo=$request['formacion'];
+              $matgrup->Semestre=$request['Semestre'];
+
+              $matgrup->save();
+
+
+              return redirect('materia')->with('msj','Materia Modificada Correctamente2');
           }
           else{
             return back()->with('msj','El semestre seleccionado no coincide para el tipo de materia.' );
@@ -1258,20 +1320,15 @@ class MateriaController extends Controller
         }
         else{
             $materia->Clave_M=$Clavemat;
-              $materia->Tipo=$r['Tipo'];
-              $materia->Nombre=$r['Nombre'];
-              $materia->Semestre=$r['Semestre'];
-              $materia->Bachillerato=$r['Bachillerato'];
-              $materia->Horas=$r['Horas'];
+              $materia->Tipo=$request['Tipo'];
+              $materia->Nombre=$request['Nombre'];
+              $materia->Semestre=$request['Semestre'];
+              $materia->Bachillerato=$request['Bachillerato'];
+              $materia->Horas=$request['Horas'];
           $materia->save();
-          return redirect('materia')->with('msj','Materia Modificada Correctamente');
+          return redirect('materia')->with('msj','Materia Modificada Correctamente3');
         }
       }
-
-     // return redirect('materia')->with('msj2','Materia Modificada Correctamente');
-            }
-
-
 
 
      }

@@ -135,6 +135,7 @@ Route::resource('ModificarcontraCe','LoginCEController');
 
 
 
+
 //Ruta para vista de calificaciones de Control Escolar
 Route::resource('CONSULTACALIFICACIONESCE','ConsultarCalificacionesCEController');
 

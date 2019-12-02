@@ -10,8 +10,8 @@
 @section('frameTitulo')
 	</header>
 
+<form  action="ModificarcontraCe" method="PUT">
 
-{!!Form::open(['route' => ['ModificarcontraCe.update'],'method'=>'PUT'])!!}
   <div style="position: absolute;top: 60%; left: 40%; width: 20%;height:30%;background-color:#aaa">
       <p style="font-size:130%">{{('Contraseña nueva: ')}}</p>
       <div style="position: absolute;top: 50%; left: 24.9%; width: 50%;height:40%;background-color:#aaa">
@@ -19,7 +19,8 @@
       </div>
   </div>
     <button type="submit" class="btn btn-primary" style="position: absolute;top:100%;left:65%">Modificar</button>
-{!! Form::close()!!}
+	</form>
+
 </body>
 
 </html>
