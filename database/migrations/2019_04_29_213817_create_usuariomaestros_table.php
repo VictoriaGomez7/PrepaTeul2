@@ -16,7 +16,7 @@ class CreateUsuariomaestrosTable extends Migration
         Schema::create('usuariomaestros', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Usuario')->unique();
-            $table->string('Password')->nullable();
+            $table->string('Password',3500)->nullable();
             $table->timestamps();
         });
     }

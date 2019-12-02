@@ -96,8 +96,9 @@ class LoginMController extends Controller
     public function update(Request $request)
     {
 
-
-      usuariomaestro::where('Usuario',$request->clave)->update(['Password'=>$request['contra']]);
+      $var=Crypt::encrypt($request['contra']);
+      //return $var;
+      usuariomaestro::where('Usuario',$request->clave)->update(['Password'=>$var]);
       return view('LoginM.index');
     }
 

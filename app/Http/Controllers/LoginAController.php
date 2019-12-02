@@ -54,7 +54,7 @@ class LoginAController extends Controller
     {
         //return 'Aqui';
         $CE = usuarioalumno::where('Usuario', $request->Usuario)->get();
-        
+
         if (count($CE)==0)
         {
             return back()->with('msj',' Usuario o Contrseña incorrecta' );
@@ -64,7 +64,7 @@ class LoginAController extends Controller
             $Ps=usuarioalumno::where('Usuario', $request->Usuario)->get('Password');
             $usua=$CE[0]->Usuario;
             $var=Crypt::decrypt($Ps[0]->Password);
-            
+
             if ($var==$request->Contraseña)
             {
                 return view('Alumnosinterfazprincipal.InterfazPrincipal',compact('usua','CE'));
@@ -97,8 +97,9 @@ class LoginAController extends Controller
      */
     public function update(Request $request)
     {
+      $var=Crypt::encrypt($request['contra']);
         //return $request['clave'];
-        usuarioalumno::where('Usuario',$request->clave)->update(['Password'=>$request['contra']]);
+        usuarioalumno::where('Usuario',$request->clave)->update(['Password'=>$var]);
         return view('LoginA.index');
     }
 

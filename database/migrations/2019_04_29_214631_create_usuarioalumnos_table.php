@@ -16,7 +16,7 @@ class CreateUsuarioalumnosTable extends Migration
         Schema::create('usuarioalumnos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Usuario')->unique();
-            $table->string('Password')->nullable();
+            $table->string('Password',3500)->nullable();
             $table->timestamps();
         });
     }
