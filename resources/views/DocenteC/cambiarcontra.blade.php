@@ -1,14 +1,13 @@
+
 @extends('layouts.app')
 @include('DocenteInterfazPrincipal.InterfazPrincipal')
 @section('content')
 
-<a href="/DocenteInicio?valor={{ ($usua)}}">
-  <button class="btn btn-success" style="position: absolute;top: 100%;left:75%">Cancelar</button></a>
-<html>
-<head>
-</head>
 
-<style>
+
+
+  <head>
+    <style>
 /*Al cuerpo de la
 pagina se aplica el tamaño de fuente
  */
@@ -24,27 +23,13 @@ body{
   width: 400px;
   margin: 50px auto;
   background-color: #EEF0F3;
-        border: 1px solid #C9D0D9;
+  border: 1px solid #C9D0D9;
   height: 170px;
   border-radius:8px;
-  padding: 0px 9px 0px 9px;
+  padding: 0px 5px 0px 5px;
 }
 
-/**
- * Aplicando al icono de usuario el color de fondo,
- * rellenado de 20px y un redondeado de 120px en forma
- * de un circulo
- */
 
-/**
- * Se aplica al contenedor madre un margen de tamaño 10px hacia la cabecera y pie,
- * color de fuente blanco,un tamaño de fuente 50px y texto centrado.
- */
-
-/**
- * Se aplica al contenedor donde muestra en el pie
- * la opción de olvidaste tu contraseña?
- */
 .opcioncontra{
   text-align: center;
   margin-top: 20px;
@@ -77,26 +62,43 @@ body{
 
 </style>
 
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <!-- vinculo a bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="Contenedor" style="position: absolute; top: 40%; left: 35%">
+  <div class="ContentForm" style="text-align: center;" >
 
-  {!!Form::open(['route' => ['Modificarcontra.store',],'method'=>'POST'])!!}
+     {!!Form::open(['route' => ['Modificarcontra.store',],'method'=>'POST'])!!}
 
-  <div style="position: absolute;top: 60%; left: 40%; width: 20%;height:30%;background-color:#aaa">
-      <p style="font-size:130%">{{('Contraseña nueva: ')}}</p>
-      <div style="position: absolute;top: 50%; left: 24.9%; width: 50%;height:40%;background-color:#aaa">
-          <p><input type="text" required  id="contra" name="contra" style="font-size:105%; width: 95%"/></p>
-          <input id="clave" name="clave" type="hidden" value={{$usua}}>
-      </div>
+  <div style="position: absolute;top: 15%; left: 05%; width: 90%;height:10%;">
+      <div class="input-group input-group-lg" style="padding:05px;  ">
+        <label   style="margin: 0px; padding: 0px;color: #4B5E7B; font-size:25px;">Cambiar Contraseña</label>
+
+        <p></p>
+        <h1></h1>
+        <input type="text" class="form-control" name="contra" placeholder="Contraseña" id="contra" aria-describedby="sizing-addon1" style="z-index: 0;">
+<input id="clave" name="clave" type="hidden" value={{$usua}}>
+      
+          </div>
+
+
   </div>
-    <button type="submit" class="btn btn-primary" style="position: absolute;top:100%;left:65%">Modificar</button>
+  
+    <button  class="btn btn-lg btn-primary btn-block btn-signin" type="submit" style="position: absolute;top:105%;left:0%">Modificar</button>
 
 
 
 {!! Form::close()!!}
-</body>
+<a href="/DocenteInicios?valor={{ ($usua) }}">
+    <button class="btn btn-lg btn-success btn-block btn-signin" style="position: absolute;top: 135%;left:0%;z-index: 0;">Cancelar</button></a>
+</div>
+</div>
+  </body>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
  <!-- Libreria java scritp de bootstrap -->
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-</html>
 @endsection()
