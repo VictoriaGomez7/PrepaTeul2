@@ -97,7 +97,8 @@ class LoginMController extends Controller
     {
 
       $var=Crypt::encrypt($request['contra']);
-      //return $var;
+
+      return $var;
       usuariomaestro::where('Usuario',$request->clave)->update(['Password'=>$var]);
       return view('LoginM.index');
     }

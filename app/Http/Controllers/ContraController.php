@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\usuarioalumno;
 use App\usuariomaestro;
+use Illuminate\Support\Facades\Crypt;
 
 class ContraController extends Controller
 {
@@ -26,7 +27,7 @@ class ContraController extends Controller
         if (count($maestros)==1) {
             return view('DocenteC.cambiarcontra',compact('usua'));
         }
-        
+
     }
 
     /**
@@ -53,10 +54,9 @@ class ContraController extends Controller
         $alumns=usuarioalumno::where([['Usuario',$usua]])->get();
         if (count($alumns)!=0) {
             usuarioalumno::where('Usuario',$request->clave)->delete();
-        //return $original;
         $usu=new usuarioalumno();
             $usu->Usuario=$request['clave'];
-            $usu->Password=$request['contra'];
+            $usu->Password=Crypt::encrypt($request['contra']);
             $usu->save();
         return redirect('LoginAlumno')->with('msjC','Contraseña modificada correctamente');
 
@@ -65,15 +65,15 @@ class ContraController extends Controller
 
         if (count($maestros)==1) {
             usuariomaestro::where('Usuario',$request->clave)->delete();
-        //return $original;
+
         $usu=new usuariomaestro();
             $usu->Usuario=$request['clave'];
-            $usu->Password=$request['contra'];
+            $usu->Password=Crypt::encrypt($request['contra']);
             $usu->save();
         return redirect('LoginDocente')->with('msjC','Contraseña modificada correctamente');
 
         }
-        
+
     }
 
     /**

@@ -98,7 +98,7 @@ class LoginAController extends Controller
     public function update(Request $request)
     {
       $var=Crypt::encrypt($request['contra']);
-        //return $request['clave'];
+      return $var;
         usuarioalumno::where('Usuario',$request->clave)->update(['Password'=>$var]);
         return view('LoginA.index');
     }

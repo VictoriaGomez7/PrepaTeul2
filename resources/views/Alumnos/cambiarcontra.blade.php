@@ -68,7 +68,7 @@ body{
       <div id="Contenedor" style="position: absolute; top: 40%; left: 35%">
   <div class="ContentForm" style="text-align: center;" >
 
-  {!!Form::open(['route' => ['Modificarcontra.update','$usua'],'method'=>'PUT'])!!}
+  {!!Form::open(['route' => ['Modificarcontra.store','$usua'],'method'=>'POST'])!!}
 <div style="position: absolute;top: 15%; left: 05%; width: 90%;height:10%;">
       <div class="input-group input-group-lg" style="padding:05px;  ">
         <label   style="margin: 0px; padding: 0px;color: #4B5E7B; font-size:25px;">Cambiar Contraseña</label>
@@ -77,12 +77,12 @@ body{
         <h1></h1>
         <input type="text" class="form-control" name="contra" placeholder="Contraseña" id="contra" aria-describedby="sizing-addon1" style="z-index: 0;">
 <input id="clave" name="clave" type="hidden" value={{$usua}}>
-      
+
           </div>
 
 
   </div>
-  
+
     <button  class="btn btn-lg btn-primary btn-block btn-signin" type="submit" style="position: absolute;top:105%;left:0%">Modificar</button>
 
 
