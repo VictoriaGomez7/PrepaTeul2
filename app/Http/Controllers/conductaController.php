@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\RelacionDocenteMateriaGrupo;
 use Illuminate\Support\Facades\DB;
-use App\Docente;
+use App\Docentes;
 use App\Materia;
 use App\evaluacionConducta;
 use App\ft_bach;
@@ -40,7 +40,7 @@ class conductaController extends Controller
            // return "si se pudo";
 
           
-        $nombreDocentes=Docente::WHERE('Clave_D','=',$usua->valor)->get();
+        $nombreDocentes=Docentes::WHERE('Clave_D','=',$usua->valor)->get();
         $nombreDocente="";
         foreach ($nombreDocentes as $docentes) {
             # code...
@@ -84,7 +84,7 @@ class conductaController extends Controller
 
         $materia2=explode(">", $materia->boton);
        
-        $nombreDocentes=Docente::WHERE('Clave_D',$materia->caja)->get();
+        $nombreDocentes=Docentes::WHERE('Clave_D',$materia->caja)->get();
         $nombreDocente="";
         foreach ($nombreDocentes as $docentes) {
             # code...
@@ -252,7 +252,7 @@ class conductaController extends Controller
                     return view('conducta.materias',compact('materias','usua','msj','Vmsj'));
             }   
          }
-             $nombreDocentes=Docente::WHERE('Clave_D',$usua)->get();
+             $nombreDocentes=Docentes::WHERE('Clave_D',$usua)->get();
         $nombreDocente="";
         foreach ($nombreDocentes as $docentes) {
             # code...
