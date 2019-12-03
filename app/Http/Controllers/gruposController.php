@@ -60,7 +60,9 @@ class gruposController extends Controller
     public function show(Request $r ,$semestre)
     {
         if(isset($r->aceptar)){
- 
+            
+
+
             $alumnosHombres=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Semestre ,alumnos.Sexo,alumnos.Nombre_A
                 from alumnos WHERE not EXISTS (SELECT 1 from grupos WHERE grupos.Clave_A=alumnos.Clave_A) and not EXISTS (SELECT 1 from grupo_temporals WHERE grupo_temporals.Clave_A=alumnos.Clave_A) and alumnos.Sexo='HOMBRE' AND alumnos.Semestre= :sem" ,['sem'=>$r->semestre]);
 
@@ -73,11 +75,25 @@ class gruposController extends Controller
             $listaB=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A from alumnos WHERE (EXISTS (SELECT 1 from grupos WHERE grupos.Clave_A=alumnos.Clave_A and grupos.Grupo='B') or EXISTS ((SELECT 1 from grupo_temporals WHERE grupo_temporals.Clave_A=alumnos.Clave_A and grupo_temporals.Grupo='B'))) AND alumnos.Semestre= :sem" ,['sem'=>$r->semestre]);
 
             if(count($alumnosHombres)>0 or count($alumnosMujeres)>0 or count($listaA)>0 or count($listaB)>0){
-                return view('grupos.creaGrupos',compact('alumnosHombres','alumnosMujeres' ,'semestre','listaA','listaB'));
+                 $primerParcial=CalificacionesParciales::get('Parcial1');
+                 $bandera=0;
+                 foreach ($primerParcial as $parcial ) {
+                     # code...
+                    if($parcial->Parcial1 > 0){
+                        $bandera=1;
+                    }
+
+                 }
+
+                
+                return view('grupos.creaGrupos',compact('alumnosHombres','alumnosMujeres' ,'semestre','listaA','listaB') ,compact('bandera'));
+                
                 }
                 else{
                     return redirect('/grupos')->with('msj2','No hay alumnos registrados.' );
                 }
+                $primerParcial=CalificacionesParciales::all()->get('Parcial1');
+                return $primerParcial;
             return view('grupos.creaGrupos',compact('alumnosHombres','alumnosMujeres' ,'semestre','listaA','listaB'));
         }
         if(isset($r->A)){
