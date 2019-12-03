@@ -10,22 +10,19 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 </head>
-{{--@include('interfazprincipal.image')--}}
 @include('ControlEscolar.CEprincipal')
 <body>
 	  @if (session()->has('msj2'))
-    <div class="alert alert-danger" role="alert" style="width: 30%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
+    <div class="alert alert-danger" role="alert" style="width: 27%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
       <button type="button" class="close" data-dismiss="alert" >&times;</button>
       <strong>¡Error! </strong>{{session('msj2')}}
     </div>
   @endif
 
-
-
     @if (session()->has('contraFinal'))
-    <div class="alert alert-success" role="alert" style="width: 23%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
+    <div class="alert alert-info" role="alert" style="width: 27%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
       <button type="button" class="close" data-dismiss="alert" >&times;</button>
-      <strong>¡Conraseña! </strong>{{session('contraFinal')}}
+      <strong>¡Conraseña:! </strong>{{session('contraFinal')}}
     </div>
   @endif
 

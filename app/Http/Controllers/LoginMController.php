@@ -57,7 +57,7 @@ class LoginMController extends Controller
         if (count($CE)==0)
         {
 
-            return back()->with('msj',' Usuario o Contrseña incorrecta');
+            return back()->with('msj',' Usuario o Contraseña incorrecta');
         }
         else{
             $Ps=usuariomaestro::where('Usuario', $request->Usuario)->get('Password');
@@ -69,7 +69,7 @@ class LoginMController extends Controller
                 return view('DocenteInterfazPrincipal.InterfazPrincipal2',compact('usua','CE'));
             }
             else{
-                return back()->with('msj',' Usuario o Contrseña incorrecta' );
+                return back()->with('msj',' Usuario o Contraseña incorrecta' );
             }
         }
     }
