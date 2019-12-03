@@ -29,7 +29,7 @@
 	
 		<img class="card-img-top" src="images/{{$ImagenesEnDB[3]->Imagen}}"  style="width: 15%;">
 		<input type="file" name="Imagen4" class="btn btn-success"></div>
-		{!!Form::submit('Cambiar Imagenes',['class'=>'btn btn-primary','style'=>'position: absolute; right: 10%; top: 100%;'])!!}
+		{!!Form::submit('Cambiar Imagenes',['class'=>'btn btn-primary','style'=>'position: absolute; right: 1.2%; top: 80%;'])!!}
 	{!! Form::close()!!}
 	</div>
 

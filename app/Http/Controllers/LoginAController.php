@@ -57,7 +57,7 @@ class LoginAController extends Controller
 
         if (count($CE)==0)
         {
-            return back()->with('msj',' Usuario o Contrseña incorrecta' );
+            return back()->with('msj',' Usuario o Contraseña incorrecta' );
         }
         else{
             $usua=$CE[0]->Usuario;
@@ -71,7 +71,7 @@ class LoginAController extends Controller
             }
             else{
 
-                return back()->with('msj',' Usuario o Contrseña incorrecta' );
+                return back()->with('msj',' Usuario o Contraseña incorrecta' );
             }
         }
     }

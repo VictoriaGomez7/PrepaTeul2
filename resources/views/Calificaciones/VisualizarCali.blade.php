@@ -93,7 +93,7 @@
 						            @if($PeriodoActivo==1)
 						            	<td><input type="number" id="Cal1{{$Con_cal}}" onkeyup="calificacionesp1()" step="0.1" name="Calif1[]" min="0" max="10" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
 
-						            	<td><input required type="number"min="0"name="Faltas[]" style="width: 50%;" ></td>
+						            	<td><input required type="number"min="0"name="Faltas[]" style="width: 100%;" ></td>
 
 						            	<?php if ($contador_Clases==0){ ?>
 
@@ -194,7 +194,7 @@
 							            <input hidden="" id="Calif2{{$Con_cal}}" type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}">							            						            
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
 
-					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 50%;" ></td>
+					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" ></td>
 
 						            	<?php if ($contador_Clases==0){ ?>
 
@@ -209,7 +209,7 @@
 
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
 
-					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 50%;" ></td>
+					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" ></td>
 
 						            	<?php if ($contador_Clases2==0){ ?>
 
@@ -244,7 +244,7 @@
 							            <input hidden="" type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}">
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
 
-					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 50%;" ></td>
+					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" ></td>
 
 						            	<?php if ($contador_Clases==0){ ?>
 
@@ -258,7 +258,7 @@
 
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
 
-					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 50%;" ></td>
+					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" ></td>
 
 						            	<?php if ($contador_Clases2==0){ ?>
 

@@ -55,7 +55,7 @@ class LoginCEController extends Controller
         if (count($CE)==0)
         {
 
-            return back()->with('msj',' Usuario o Contrseña incorrecta' );
+            return back()->with('msj',' Usuario o Contraseña incorrecta' );
         }
         else{
             $con= usuarioCE::where('Password', $request->Contraseña)->get();
@@ -63,7 +63,7 @@ class LoginCEController extends Controller
             if (count($con)==0)
             {
 
-                return back()->with('msj',' Usuario o Contrseña incorrecta' );
+                return back()->with('msj',' Usuario o Contraseña incorrecta' );
             }
             else{
 

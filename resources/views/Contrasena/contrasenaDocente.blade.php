@@ -14,7 +14,7 @@
 @include('ControlEscolar.CEprincipal')
 <body>
 	  @if (session()->has('msj2'))
-    <div class="alert alert-danger" role="alert" style="width: 30%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
+    <div class="alert alert-danger" role="alert" style="width: 27%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
       <button type="button" class="close" data-dismiss="alert" >&times;</button>
       <strong>¡Error! </strong>{{session('msj2')}}
     </div>
@@ -23,9 +23,9 @@
 
 
     @if (session()->has('contraFinal'))
-    <div class="alert alert-success" role="alert" style="width: 23%; position:  absolute;top: 43%; left: 38%;z-index: 1;">
+    <div class="alert alert-info" role="alert" style="width: 27%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
       <button type="button" class="close" data-dismiss="alert" >&times;</button>
-      <strong>¡Contraseña! </strong>{{session('contraFinal')}}
+      <strong>¡Contraseña:! </strong>{{session('contraFinal')}}
     </div>
   @endif
 

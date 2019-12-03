@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\RelacionDocenteMateriaGrupo;
 use Illuminate\Support\Facades\DB;
-use App\Docente;
+use App\Docentes;
 use App\Materia;
 use App\evaluacionConducta;
 use App\ft_bach;
 use App\Periodo;
+
 class conductaController extends Controller
 {
     /**
@@ -19,44 +20,41 @@ class conductaController extends Controller
      */
     public function index( Request $usua)
     {
-
-            $fechaActual=DB::select("SELECT NOW() as fecha; ");
-           /// return $fechaActual;
-          $hoy=[];
-          foreach ($fechaActual as $fecha) {
-              # code...
-            $hoy=explode(' ',$fecha->fecha);;
-          }
-           $fechaHoy=date("y-m-d",strtotime($hoy[0].""));
-            $fechaFin=Periodo::where('id',2)->get();
-            $ffecha="";
-            foreach ($fechaFin as $fecha ) {
-                # code...
-                $ffecha=date("y-m-d",strtotime($fecha->fecha2.""));
-            }
-
-            $ffecha1=date("y-m-d",strtotime($ffecha."+ 2 week"));
-          if($fechaHoy>$ffecha && $fechaHoy <= $ffecha1){
-           // return "si se pudo";
-
-          
-        $nombreDocentes=Docente::WHERE('Clave_D','=',$usua->valor)->get();
-        $nombreDocente="";
-        foreach ($nombreDocentes as $docentes) {
+        $fechaActual=DB::select("SELECT NOW() as fecha; ");
+        /// return $fechaActual;
+        $hoy=[];
+        foreach ($fechaActual as $fecha) {
             # code...
-            $nombreDocente=$docentes->Nombre;
+            $hoy=explode(' ',$fecha->fecha);;
         }
-        $materias=DB::select("SELECT DISTINCT materias.Nombre ,materias.Semestre,materias.Clave_M,relacion_docente_materia_grupos.Grupo FROM materias,relacion_docente_materia_grupos WHERE materias.Clave_M=relacion_docente_materia_grupos.Clave_M and relacion_docente_materia_grupos.Clave_D= :docente   order by Semestre  " ,['docente'=>$nombreDocente]);
-        $usua=$usua->valor;
-    
-        $msj='Se realizo la evaluacion de forma correcta';
-        $Vmsj=0;
-       return view('conducta.materias',compact('materias'),compact('usua','msj','Vmsj'));
-       }else {
-          $usua=$usua->valor;
-           return view('DocenteInterfazPrincipal.InterfazPrincipal2',compact('usua'))->with('MsjERR','No es posible evaluar conducta en este momento.');
-          //  return back()
-          }   
+        $fechaHoy=date("y-m-d",strtotime($hoy[0].""));
+        $fechaFin=Periodo::where('id',2)->get();
+        $ffecha="";
+        foreach ($fechaFin as $fecha ) {
+            # code...
+            $ffecha=date("y-m-d",strtotime($fecha->fecha2.""));
+        }
+
+        $ffecha1=date("y-m-d",strtotime($ffecha."+ 2 week"));
+        if($fechaHoy>$ffecha && $fechaHoy <= $ffecha1){
+            $nombreDocentes=Docentes::WHERE('Clave_D','=',$usua->valor)->get();
+            $nombreDocente="";
+            foreach ($nombreDocentes as $docentes) {
+                # code...
+                $nombreDocente=$docentes->Nombre;
+            }
+            $materias=DB::select("SELECT DISTINCT materias.Nombre ,materias.Semestre,materias.Clave_M,relacion_docente_materia_grupos.Grupo FROM materias,relacion_docente_materia_grupos WHERE materias.Clave_M=relacion_docente_materia_grupos.Clave_M and relacion_docente_materia_grupos.Clave_D= :docente   order by Semestre  " ,['docente'=>$nombreDocente]);
+            $usua=$usua->valor;
+        
+            $msj='Se realizó la evaluación de forma correcta';
+            $Vmsj=0;
+            return view('conducta.materias',compact('materias'),compact('usua','msj','Vmsj'));
+        }
+        else {
+            $usua=$usua->valor;
+            $Vmsj=1;
+            return view('DocenteInterfazPrincipal.InterfazPrincipal4',compact('usua','Vmsj'));
+        }   
     }
 
 
@@ -80,11 +78,9 @@ class conductaController extends Controller
      */
     public function store(Request $materia)
     {   
-         
-
         $materia2=explode(">", $materia->boton);
        
-        $nombreDocentes=Docente::WHERE('Clave_D',$materia->caja)->get();
+        $nombreDocentes=Docentes::WHERE('Clave_D',$materia->caja)->get();
         $nombreDocente="";
         foreach ($nombreDocentes as $docentes) {
             # code...
@@ -124,7 +120,7 @@ class conductaController extends Controller
             }
 
          if(count($alumnos)>0){
-            $msj='Se realizo la evaluacion de forma correcta';
+            $msj='Se realizó la evaluación de forma correcta';
             $Vmsj=0;
             return view('conducta.alumnos',compact('datos','usua','msj','Vmsj'));   
          }else{
@@ -166,8 +162,8 @@ class conductaController extends Controller
                     $Vmsj=0;
                     return view('conducta.alumnos',compact('datos','usua','msj','Vmsj'));   
             }else{
-
-               return view('DocenteInterfazPrincipal.InterfazPrincipal2',compact('usua'))->with('MsjERR','No hay alumnos registrados.');
+                $Vmsj=2;
+                return view('DocenteInterfazPrincipal.InterfazPrincipal4',compact('usua','Vmsj'));
              
 
             }
@@ -252,7 +248,7 @@ class conductaController extends Controller
                     return view('conducta.materias',compact('materias','usua','msj','Vmsj'));
             }   
          }
-             $nombreDocentes=Docente::WHERE('Clave_D',$usua)->get();
+             $nombreDocentes=Docentes::WHERE('Clave_D',$usua)->get();
         $nombreDocente="";
         foreach ($nombreDocentes as $docentes) {
             # code...
