@@ -12,10 +12,12 @@
 		<?php use App\Logos;
 					$ImagenesEnDB=Logos::all();
 				?>
+
 		<div class="ContenImages" id="unouno"><img class="card-img-top" src="/images/<?php echo e($ImagenesEnDB[0]->Imagen); ?>" style="height: 150px;" ></div>
 		<div class="ContenImages" id="dosdos"><img class="card-img-top" src="/images/<?php echo e($ImagenesEnDB[1]->Imagen); ?>" style="height: 150px;" ></div>
 		<div class="ContenImages" id="trestres"><img class="card-img-top" src="/images/<?php echo e($ImagenesEnDB[2]->Imagen); ?>"  style="height: 150px;" ></div>
 		<div class="ContenImages" id="cuatrocuatro"><img class="card-img-top" src="/images/<?php echo e($ImagenesEnDB[3]->Imagen); ?>" style="height: 150px;"></div>
+
 		
 		
 		

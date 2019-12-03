@@ -2,10 +2,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
-   <link rel="stylesheet" type="text/css" href="/css/style.css">
-     <link rel="stylesheet" type="text/css" href="/css/estilos2.css">
-      <link rel="stylesheet" type="text/css" href="/css/image.css">
-     <link rel="icon" href="/images/escolarcono.ico">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/estilos2.css">
+    <link rel="stylesheet" type="text/css" href="/css/image.css">
+    <link rel="icon" href="/images/escolarcono.ico">
 	@extends('layouts.app')
 
 	<title>Servicios Escolares</title>
@@ -20,7 +20,7 @@
 				<strong>Bienvenido </strong>{{$C->Usuario}}
 			</div>
 		@endforeach--}}
-		<nav class="navegacion" style="width: 90%">
+		<nav class="navegacion" style="width: 90%; position:  absolute; top: 30%; left: 5%;">
 			<ul class="menu">
 				<li><a href="#">Alumnos</a>
 						<ul class="submenu">
