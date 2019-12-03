@@ -5,6 +5,7 @@
 
 {{-- @section('title','Modifica Alumno') --}}
 
+
 @include('ControlEscolar.CEprincipal')
 
 <body>
