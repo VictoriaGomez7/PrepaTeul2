@@ -54,7 +54,9 @@
                 ?>
                 <tr><td>
                <label for="eliminar{{ $r->Clave_A }}"> {{$r->Nombre_A}}</label>
+               @if($bandera==0)
                 <input type="submit" name="eliminar{{$r->Clave_A}}" value="Mover" > 
+                @endif
               </td></tr>
                 <?php
               }  
@@ -71,7 +73,9 @@
                 ?>
                 <tr><td>
                <label for="eliminar{{ $r->Clave_A }}"> {{$r->Nombre_A}}</label>
+               @if($bandera==0)
                 <input type="submit" name="eliminar{{$r->Clave_A}}" value="Mover" > 
+                @endif
                 </td></tr>
                 <?php
               }  
