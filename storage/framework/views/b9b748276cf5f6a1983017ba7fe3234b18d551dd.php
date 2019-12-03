@@ -28,6 +28,8 @@
 </script>
 <body   onload="rotar_imagen();" >
         <?php echo $__env->make('interfazprincipal.image', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <br>
+        <br>
         <header>
       
         <a href="LoginAlumno">

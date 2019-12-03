@@ -107,7 +107,7 @@ body{
 <link rel="stylesheet" type="text/css" href="estilo.css"-->
 		</head>
 		<body>
-		 <div id="Contenedor">
+		 <div id="Contenedor" style="position: absolute;top: 25%; left: 37%">
 		 <div class="Icon">
                     <!--Icono de usuario-->
                    <span class="glyphicon glyphicon-user"></span>
@@ -138,7 +138,7 @@ body{
     <button class="btn  btn-lg btn-success btn-block btn-signin">Cancelar</button></a>
 		 </div>
      <br><br><br><br><br>
-      <p align="center" style="color: black; font-size: 1.3em;"> Constitución #100 Teul de González Ortega.<br/>
+      <p align="center" style="color: black; font-size: 1.3em; position: absolute;top: 90%; left: 38%"> Constitución #100 Teul de González Ortega.<br/>
      Zac. C.P. 99800 <br/>
     Teléfono: (467)-952-71-83 <br/>
       Correo-e: prepateul@yahoo.com.mx
