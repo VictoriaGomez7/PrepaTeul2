@@ -28,6 +28,8 @@
 </script>
 <body   onload="rotar_imagen();" >
         @include('interfazprincipal.image')
+        <br>
+        <br>
         <header>
       {{--<a href="interfazprinci">--}}
         <a href="LoginAlumno">

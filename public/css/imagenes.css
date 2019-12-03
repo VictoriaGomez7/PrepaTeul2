@@ -1,0 +1,10 @@
+header{
+	margin:00px auto;
+	width: 100%;
+	background-color: white;
+}
+div.ContenImages img{
+	width: 25%;
+	height: 5%;
+	float: left;
+}
