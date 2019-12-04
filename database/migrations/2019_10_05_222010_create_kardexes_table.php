@@ -21,6 +21,7 @@ class CreateKardexesTable extends Migration
             $table->string('Fecha')->nullable();
             $table->float('Oportunidades')->nullable();
             $table->float('Calificacion');
+            $table->string('Faltas');
             $table->string('Grupo');
             $table->string('Semestre');
             $table->timestamps();
