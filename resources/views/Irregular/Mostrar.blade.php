@@ -16,7 +16,7 @@
 <body>
 
   @if (Session()->has('msj'))
-    <div class="alert alert-success" role="alert" style="width: 90%; position:  absolute; top: 43%; left: 5%;z-index: 1;">
+    <div class="alert alert-success" role="alert" style="width: 90%; position:  absolute; top: 44%; left: 5%;z-index: 1;">
     <button class="close" data-dismiss="alert"><span>&times;</span></button>
     <strong>¡Correcto! </strong>{{Session('msj')}}
     </div>

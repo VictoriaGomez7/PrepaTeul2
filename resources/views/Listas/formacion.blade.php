@@ -16,7 +16,7 @@
     </head>
 <body>
   @if (session()->has('msj2'))
-    <div class="alert alert-danger" role="alert" style="width: 40%; position:  relative;text-align: center; left: 30%;">
+    <div class="alert alert-danger" role="alert" style="width: 40%; position:  absolute;top: 44%; left: 30%;">
       <button type="button" class="close" data-dismiss="alert" >&times;</button>
       <strong>¡Error! </strong>{{session('msj2')}}
     </div>
@@ -24,8 +24,8 @@
 
  <section style="width: 100%; max-width: 100%; height:100%;max-height: 100%; background: #FFFFFF">
 
-        <div class="card-header text-center" style="font-size:200%;width: 50%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 50%; left: 25%;" >Formación Para El Trabajo
-        </div> <div style="position: absolute;top: 60%; left: 25%; width: 50%;height:50%; background-color:#aaa">
+        <div class="card-header text-center" style="font-size:200%;width: 50%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 25%;" >Formación Para El Trabajo
+        </div> <div style="position: absolute;top: 62%; left: 25%; width: 50%;height:50%; background-color:#aaa">
 
 {!! Form::open(['route'=>['Imprimelistas.edit', $semestre],'method'=>'GET','files'=>false]) !!}     {{ csrf_field() }}
   <script type="text/javascript">
@@ -73,7 +73,7 @@
       echo $radios;
 
      ?>
-     <input type="submit"  name="formacion" value="Aceptar" class="btn btn-primary" style="font-size:120%; position :absolute;top: 110%; left: 65%" >
+     <input type="submit"  name="formacion" value="Aceptar" class="btn btn-primary" style="font-size:120%; position :absolute;top: 106%; left: 65%" >
 
      {!! form::close() !!}
     </div>

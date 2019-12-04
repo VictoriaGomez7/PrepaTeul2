@@ -1,5 +1,4 @@
-{{--<a href="interfazprinci">
-    <button class="btn btn-success" style="position: absolute;top: 110%;left:5%"><--Atrás</button></a>--}}
+
 @extends('layouts.app')
 
 @section('title','Reinscripción Alumno')
@@ -94,29 +93,29 @@ body{
 
 <body>
 	@if (session()->has('msjCorrecto'))
-        <div class="alert alert-success" role="alert" style="width: 30%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
+        <div class="alert alert-success" role="alert" style="width: 25%; position:  absolute;top: 44%; left: 35%;z-index: 1;">
             <button class="close" data-dismiss="alert"><span>&times;</span></button>
             <strong>¡Correcto! </strong>{{ session('msjCorrecto') }}
         </div>
     @endif
 
 	@if (session()->has('msj'))
-	<div class="alert alert-danger" role="alert" style="width: 30%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
+	<div class="alert alert-danger" role="alert" style="width: 25%; position:  absolute;top: 44%; left: 35%;z-index: 1;">
 		<button type="button" class="close" data-dismiss="alert" >&times;</button>
 		<strong>¡Error! </strong>{{session('msj')}}
 		</div>
 	@endif
 
 	@if (session()->has('re'))
-		<div class="alert alert-danger" role="alert" style="width: 30%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
+		<div class="alert alert-danger" role="alert" style="width: 25%; position:  absolute;top: 44%; left: 35%;z-index: 1;">
 			<button type="button" class="close" data-dismiss="alert" >&times;</button>
-			<strong>¡Reinscrito! </strong>{{session('msj')}}
+			<strong>¡Reinscrito! </strong>{{session('re')}}
 		</div>
 
 	@endif
 
 
-	<div id="Contenedor" style="position: absolute; top: 45%; left: 35%">
+	<div id="Contenedor" style="width: 25%;position: absolute; top: 45%; left: 35%">
 
 		<div class="ContentForm" style="text-align: center;">
 

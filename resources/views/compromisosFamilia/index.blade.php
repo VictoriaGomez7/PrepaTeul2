@@ -10,9 +10,11 @@
 </head>
 
 <body>
+
+<div style="position: absolute; top: 52%; left: 3%">
 	<center>
 	 <div style="width: 80%; height: 50px; background: #000080; color: rgb(212, 172, 13);">	<h2> Nuestros Compromisos Como Familia:</h2></div>
-<div style=" width: 80%; background-color:#aaa">
+	<div style=" width: 80%; background-color:#aaa">
 
 	@include('compromisosFamilia.mostrar')
 
@@ -27,6 +29,7 @@
 	@endif
 	<br>
 	</center>
+</div>
 </div>
 </body>
  @if (session()->has('msj2'))

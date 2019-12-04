@@ -51,7 +51,7 @@ class DocenteController extends Controller
         }
 
         if ($id->name=="" && $id->id1==""){
-            return back()->with('msj','Favor de ingresar un dato' );
+            return back()->with('msj','Favor de ingresar un dato.' );
         }
 
         if ($id->name!="" && $id->id1!=""){
@@ -62,7 +62,7 @@ class DocenteController extends Controller
                     return view('DocenteC.showC',compact('CDocente'));
                 }
                 else{
-                   return back()->with('msj','El usuario y nombre no coinciden' );
+                   return back()->with('msj','El usuario y nombre no coinciden.' );
                 }
             }
         }
@@ -88,7 +88,6 @@ class DocenteController extends Controller
      */
     public function store(TagStoreRequestDocentes $request)
     {
-
         $docente=new Docentes();
         $docente->Clave_D=$request['Clave'];
         $docente->Nombre=$request['nombre'];
@@ -115,12 +114,7 @@ class DocenteController extends Controller
      */
     public function show(request $id)
     {
-        //echo "hola";
-        //return $id;
         $CDocente = Docentes::where('Clave_D', $id->id)->get();
-        //return $CAlumno;
-        //return $CDocente;
-        //return $CDocente;
         return view('DocenteC.show',compact('CDocente'));
 
     }
@@ -144,7 +138,7 @@ class DocenteController extends Controller
         $doce->save();
 
 
-        return Redirect('docenteconsulta')->with('msj1','Docente modificado exitosamente' );
+        return Redirect('docenteconsulta')->with('msj1','Docente modificado exitosamente.' );
 
     }
 
@@ -159,7 +153,7 @@ class DocenteController extends Controller
      */
     public function update($id)
     {
-        return Redirect('Docente')->with('msj1','Docente modificado exitosamente' );
+        return Redirect('Docente')->with('msj1','Docente modificado exitosamente.' );
     }
 
     /**

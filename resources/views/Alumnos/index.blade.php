@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 <title>Alumnos</title>
 <body>
-  <div class="container">
+  <div class="container" style=" position:  absolute;top: 52%; left: 5%;">
     <table  id="alumn" class="table" >
       <thead>
         <tr>

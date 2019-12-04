@@ -14,13 +14,13 @@
 @include('ControlEscolar.CEprincipal')
 <body>
 	  @if (session()->has('msj2'))
-    <div class="alert alert-danger" role="alert" style="width: 30%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
+    <div class="alert alert-danger" role="alert" style="width: 25%; position:  absolute;top: 44%; left: 35%;z-index: 1;">
       <button type="button" class="close" data-dismiss="alert" >&times;</button>
       <strong>¡Error! </strong>{{session('msj2')}}
     </div>
   @endif
     @if (session()->has('msj'))
-    <div class="alert alert-success" role="alert" style="width: 30%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
+    <div class="alert alert-success" role="alert" style="width: 25%; position:  absolute;top: 44%; left: 35%;z-index: 1;">
       <button type="button" class="close" data-dismiss="alert" >&times;</button>
       <strong>¡Correcto! </strong>{{session('msj')}}
     </div>
@@ -115,7 +115,7 @@ body{
 <link rel="stylesheet" type="text/css" href="estilo.css"-->
 		</head>
 		<body>
-		 <div id="Contenedor" style="position: absolute; top: 45%; left: 35%">
+		 <div id="Contenedor" style="position: absolute; top: 45%; left: 35%;width: 25%">
 <div class="ContentForm"style="text-align: center;">
 	{!! Form::open(['route'=>['materia.edit','a'],'method'=>'GET','files'=>false]) !!}
 

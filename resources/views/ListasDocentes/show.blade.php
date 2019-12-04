@@ -13,7 +13,7 @@
     @section('BuscarListas')
 
         @if (session()->has('msjERROR'))
-            <div class="alert alert-danger" role="alert" style="width: 40%; position:  absolute;top: 43%; left: 30%;z-index: 1;">
+            <div class="alert alert-danger" role="alert" style="width: 40%; position:  absolute;top: 44%; left: 30%;z-index: 1;">
                 <button class="close" data-dismiss="alert"><span>&times;</span></button>
                 <strong>¡Error! </strong>{{ session('msjERROR') }}
             </div>

@@ -129,7 +129,7 @@
               @if($Pr->Oportunidades==null and $Pr->Calificacion>0)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Calificacion}}</font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -139,7 +139,7 @@
               @elseif($Pr->Oportunidades==1)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Fecha}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Calificacion}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -149,7 +149,7 @@
                   @elseif($Pr->Oportunidades==2)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Fecha}}</font></td>
@@ -159,7 +159,7 @@
                   @elseif($Pr->Oportunidades>=3)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -169,7 +169,7 @@
               @else
                 <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->NombreM}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1">{{$Pr->Faltas}}%</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -241,7 +241,7 @@
               @if($Sg->Oportunidades==null and $Sg->Calificacion>0)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Calificacion}}</font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -251,7 +251,7 @@
               @elseif($Sg->Oportunidades==1)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Fecha}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Calificacion}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -261,7 +261,7 @@
                   @elseif($Sg->Oportunidades==2)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Fecha}}</font></td>
@@ -271,7 +271,7 @@
                   @elseif($Sg->Oportunidades>=3)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -281,7 +281,7 @@
               @else
                 <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->NombreM}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1">{{$Sg->Faltas}}%</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -356,7 +356,7 @@
               @if($Tr->Oportunidades==null and $Tr->Calificacion>0)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Calificacion}}</font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -366,7 +366,7 @@
               @elseif($Tr->Oportunidades==1)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Fecha}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Calificacion}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -376,7 +376,7 @@
                   @elseif($Tr->Oportunidades==2)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Fecha}}</font></td>
@@ -386,7 +386,7 @@
                   @elseif($Tr->Oportunidades>=3)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -396,7 +396,7 @@
               @else
                 <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->NombreM}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1">{{$Tr->Faltas}}%</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -511,7 +511,7 @@
               @if($Cu->Oportunidades==null and $Cu->Calificacion>0)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Calificacion}}</font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -521,7 +521,7 @@
               @elseif($Cu->Oportunidades==1)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Fecha}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Calificacion}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -531,7 +531,7 @@
                   @elseif($Cu->Oportunidades==2)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Fecha}}</font></td>
@@ -541,7 +541,7 @@
                   @elseif($Cu->Oportunidades>=3)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -551,7 +551,7 @@
               @else
                 <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->NombreM}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1">{{$Cu->Faltas}}%</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -666,7 +666,7 @@
               @if($Qi->Oportunidades==null and $Qi->Calificacion>0)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Calificacion}}</font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -676,7 +676,7 @@
               @elseif($Qi->Oportunidades==1)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Fecha}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Calificacion}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -686,7 +686,7 @@
                   @elseif($Qi->Oportunidades==2)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Fecha}}</font></td>
@@ -696,7 +696,7 @@
                   @elseif($Qi->Oportunidades>=3)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -706,7 +706,7 @@
               @else
                 <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->NombreM}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1">{{$Qi->Faltas}}%</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -877,7 +877,7 @@
               @if($Sx->Oportunidades==null and $Sx->Calificacion>0)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Calificacion}}</font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -887,7 +887,7 @@
               @elseif($Sx->Oportunidades==1)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Fecha}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Calificacion}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -897,7 +897,7 @@
                   @elseif($Sx->Oportunidades==2)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Fecha}}</font></td>
@@ -907,7 +907,7 @@
                   @elseif($Sx->Oportunidades>=3)
                     <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->NombreM}}</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                    <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                    <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Faltas}}%</font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                     <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -917,7 +917,7 @@
               @else
                 <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->NombreM}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
-                <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
+                <td align="left" style="border: 1px solid black;"><font size="1">{{$Sx->Faltas}}%</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -942,7 +942,7 @@
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
               </tr>
             @endforeach()
-            @foreach($MATQuint3 as $MATSx3)
+            @foreach($MATSex3 as $MATSx3)
              <tr>
                 <td align="left" style="border: 1px solid black;"><font size="1">{{$MATSx3->Nombre}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -955,7 +955,7 @@
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
               </tr>
             @endforeach()
-            @foreach($MATQuint2 as $MATSx2)
+            @foreach($MATSex2 as $MATSx2)
              <tr>
                 <td align="left" style="border: 1px solid black;"><font size="1">{{$MATSx2->Nombre}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -970,7 +970,7 @@
             @endforeach()
             
           @else()
-            @foreach($MATQuint as $MATSx)
+            @foreach($MATSex as $MATSx)
              <tr>
                 <td align="left" style="border: 1px solid black;"><font size="1">{{$MATSx->Nombre}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
@@ -996,7 +996,7 @@
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>
               </tr>
             @endfor()
-            @foreach($MATQuint2 as $MATSx2)
+            @foreach($MATSex2 as $MATSx2)
              <tr>
                 <td align="left" style="border: 1px solid black;"><font size="1">{{$MATSx2->Nombre}}</font></td>
                 <td align="left" style="border: 1px solid black;"><font size="1"></font></td>

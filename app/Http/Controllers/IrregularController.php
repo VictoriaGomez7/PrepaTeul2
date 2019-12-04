@@ -32,13 +32,13 @@ class IrregularController extends Controller
         $Cantidad_Materias_Reprobadas=array();
 
         if (count($ObtenerIrregulares)==0){
-            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay alumnos irregulares');
+            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay alumnos irregulares.');
         }
         elseif (count($Alumno_B)==0) {
-            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay alumnos registrados');
+            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay alumnos registrados.');
         }
         elseif (count($Materia_B)==0) {
-            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay materias registradas');
+            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay materias registradas.');
         }
         else{
             //return $ObtenerIrregulares;

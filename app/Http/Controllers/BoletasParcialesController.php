@@ -10,6 +10,7 @@ use App\Grupo;
 use App\Nombrealumno;
 use App\CalificacionesParciales;
 use Carbon\Carbon;
+use App\Logos;
 use DB;
 use PDF;
 use Session;
@@ -42,16 +43,16 @@ class BoletasParcialesController extends Controller
         //return $Sem_Activado;
 
         if (count($Datos_Tutor)==0){
-            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay tutores registrados');
+            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay tutores registrados.');
         }
         elseif (count($Datos_Alumno)==0) {
-            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay alumnos registrados');
+            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay alumnos registrados.');
         }
         elseif (count($Datos_Materia)==0) {
-            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay materias registradas');
+            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay materias registradas.');
         }
         elseif (count($Datos_Grupo)==0) {
-            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay grupos creados');
+            return redirect('/ControlEscolarInicio')->with('MsjERR','No hay grupos creados.');
         }
         else {
             //return 'Si hay todo';
@@ -191,7 +192,8 @@ class BoletasParcialesController extends Controller
             }
             //return $Nombres_A;
             $Opcion=3;
-            $pdf= PDF::loadView('IBoletasParciales.Boleta',compact('SEM','Year_1','Year_2','Nombres_A','Nombres_B','Docente_A','Docente_B','Materias','Cal_Alu_A','Cal_Alu_B','Materias_Clave','Opcion'));
+            $ImagenesEnDB=Logos::all();
+            $pdf= PDF::loadView('IBoletasParciales.Boleta',compact('SEM','Year_1','Year_2','Nombres_A','Nombres_B','Docente_A','Docente_B','Materias','Cal_Alu_A','Cal_Alu_B','Materias_Clave','Opcion','ImagenesEnDB'));
             return $pdf->stream();
         }
         elseif ($Alumnos_A!='' and $Alumnos_B==''){
@@ -200,7 +202,6 @@ class BoletasParcialesController extends Controller
             $nom=$N_A[0]->ApellidoP.' '.$N_A[0]->ApellidoM.' '.$N_A[0]->Nombre;
             array_push($Nombres_A,$nom);
             }
-
             foreach ($Alumnos_A as $Al_A) {
                 $C_A=CalificacionesParciales::where('Clave_A',$Al_A)->get();
                 array_push($Calificaciones_A,$C_A[0]);
@@ -216,7 +217,6 @@ class BoletasParcialesController extends Controller
                     }
                 }
             }
-
             $Cal_Alu_A=array();
             $bandera=False;
             $pa1=0;
@@ -243,7 +243,9 @@ class BoletasParcialesController extends Controller
                 }
             }
             $Opcion=1;
-            $pdf= PDF::loadView('IBoletasParciales.Boleta',compact('SEM','Year_1','Year_2','Nombres_A','Docente_A','Materias','Cal_Alu_A','Materias_Clave','Opcion'));
+            $ImagenesEnDB=Logos::all();
+            $pdf= PDF::loadView('IBoletasParciales.Boleta',compact('SEM','Year_1','Year_2','Nombres_A','Docente_A','Materias','Cal_Alu_A','Materias_Clave','Opcion','ImagenesEnDB'));
+
             return $pdf->stream();
         }
         
@@ -294,7 +296,8 @@ class BoletasParcialesController extends Controller
                 }
             }
             $Opcion=2;
-            $pdf= PDF::loadView('IBoletasParciales.Boleta',compact('SEM','Year_1','Year_2','Nombres_B','Docente_B','Materias','Cal_Alu_B','Materias_Clave','Opcion'));
+            $ImagenesEnDB=Logos::all();
+            $pdf= PDF::loadView('IBoletasParciales.Boleta',compact('SEM','Year_1','Year_2','Nombres_B','Docente_B','Materias','Cal_Alu_B','Materias_Clave','Opcion','ImagenesEnDB'));
             return $pdf->stream();
         }
         

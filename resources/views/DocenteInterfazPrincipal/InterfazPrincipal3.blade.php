@@ -32,7 +32,7 @@
     @endif
 
 	<header>
-		<nav class="navegacion" style="width: 90%">
+		<nav class="navegacion" style="width: 90%; position:  absolute; top: 30%; left: 5%;">
 			<ul class="menu">
 				<li><a href="#">Listas</a>
 						<ul class="submenu">

@@ -11,13 +11,13 @@
 @section('content')
 
   @if (session()->has('msj'))
-    <div class="alert alert-warning" role="alert" style="width: 50%; position:  absolute;top: 43%; left: 25%;z-index: 1;">
+    <div class="alert alert-warning" role="alert" style="width: 50%; position:  absolute;top: 44%; left: 25%;z-index: 1;">
       <button class="close" data-dismiss="alert"><span>&times;</span></button>
       <strong>¡Incorrecto! </strong>{{ session('msj') }}
     </div>
   @endif
   @if (session()->has('msj1'))
-    <div class="alert alert-success" role="alert" style="width: 50%; position:  absolute;top: 43%; left: 25%;z-index: 1;">
+    <div class="alert alert-success" role="alert" style="width: 50%; position:  absolute;top: 44%; left: 25%;z-index: 1;">
       <button class="close" data-dismiss="alert"><span>&times;</span></button>
       <strong>¡Correcto! </strong>{{ session('msj1') }}
     </div>

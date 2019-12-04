@@ -60,7 +60,7 @@ class ImprimelistasController extends Controller
         $top=10;
         if(($r->grupos =='formacion' && $r->semestre =='PRIMER SEMESTRE') || ($r->grupos =='formacion' && $r->semestre =='SEGUNDO SEMESTRE')){
        
-            return back()->with('msj2','Sólo Tercer y Cuarto Semestre tienen asignado Formación Para el Trabajo');
+            return back()->with('msj2','Sólo Tercer y Cuarto semestre tienen asignado Formación Para el Trabajo.');
             }else if($r->grupos =='formacion'){
                 $formaciones=formaciones::take(100)->get();
                 $radios="";
@@ -93,7 +93,7 @@ class ImprimelistasController extends Controller
                     return view('Listas.bachillerato',compact('semestre','radios'));
                 }
                 else{
-                    return back()->with('msj2','Sólo Quinto y Sexto Semestre tienen Área Propedéutica');
+                    return back()->with('msj2','Sólo Quinto y Sexto semestre tienen Área Propedéutica.');
                 }
                 
 
@@ -115,14 +115,14 @@ class ImprimelistasController extends Controller
                  
             }else{
 
-                return back()->with('msj2','No se selecciono ningun grupo');
+                return back()->with('msj2','No se ha seleccionado ningún grupo.');
             }
             if(count($listaA)>0){
                 $titulo=$semestre . " GRUPO ".$r->Grupo;
                  $pdf= PDF::loadView('Listas.muestraGrupos',compact('listaA','semestre','titulo'));
              return $pdf->stream();
             }else{
-                 return back()->with('msj2','No existen alumnos registrados');
+                 return back()->with('msj2','No hay alumnos registrados.');
             }
             
 
@@ -156,7 +156,7 @@ class ImprimelistasController extends Controller
 
         }else{
             
-           return back()->with('msj2','No existen alumnos registrados');
+           return back()->with('msj2','No hay alumnos registrados.');
         }
       
     }
@@ -185,9 +185,9 @@ class ImprimelistasController extends Controller
        return $pdf->stream();
         }else{
 
-            $msj2= "No existen alumnos registrados";
+            $msj2= "No hay alumnos registrados";
             
-            return back()->with('msj2','No existen alumnos registrados');
+            return back()->with('msj2','No hay alumnos registrados.');
         }
     }
 
