@@ -10,13 +10,13 @@
 <body>
 
     @if ($BanMSJ==1)
-        <div class="alert alert-success" role="alert" style="width: 75%; position:  absolute; top: 43%; left: 15%;z-index: 1;">
+        <div class="alert alert-success" role="alert" style="width: 75%; position:  absolute; top: 44%; left: 15%;z-index: 1;">
         <button class="close" data-dismiss="alert"><span>&times;</span></button>
         <strong>¡Correcto! </strong>{{($msj)}}
         </div>
     @endif
     @if ($BanMSJ==2)
-        <div class="alert alert-danger" role="alert" style="width: 75%; position:  absolute;top: 43%; left: 15%;z-index: 1;">
+        <div class="alert alert-danger" role="alert" style="width: 75%; position:  absolute;top: 44%; left: 15%;z-index: 1;">
         <button type="button" class="close" data-dismiss="alert" >&times;</button>
         <strong>¡Error! </strong>{{($msj)}}
         </div>

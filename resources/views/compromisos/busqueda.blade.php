@@ -3,7 +3,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <center>
 
-<div style="position: absolute; top: 52%; left: 10%">
+<div style="position: absolute; top: 52%; left: 3%">
   <div style="width: 80%; height: 50px; background: #000080; color: rgb(212, 172, 13);">  <h2> Mis compromisos como estudiante:</h2></div>
 
   <div style=" width: 80%; background-color:#aaa">

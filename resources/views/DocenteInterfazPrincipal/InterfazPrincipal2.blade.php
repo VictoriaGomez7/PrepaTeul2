@@ -35,7 +35,7 @@
 				<button class="close" data-dismiss="alert"><span>&times;</span></button>
 				<strong>Bienvenido </strong> {{$Docente[0]->Nombre}}
 			</div>
-		<nav class="navegacion" style="width: 90%">
+		<nav class="navegacion" style="width: 90%; position:  absolute; top: 30%; left: 5%;">
 
 			<ul class="menu" style="width: 1000px;">
 				<li><a href="#">Listas</a>

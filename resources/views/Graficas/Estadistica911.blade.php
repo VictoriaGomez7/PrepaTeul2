@@ -249,7 +249,7 @@
 	<!--<h3 style="position: absolute;left:5%;position: absolute;left:5%;">Hombres</h3>
 	<h3 style="position: absolute; left: 40%;">Mujeres</h3>
 	<br-->
-	<table style="position: absolute;top:10%;left:40%;width: 30%; border-collapse: collapse">
+	<table style="position: absolute;top:10%;left:42%;width: 30%; border-collapse: collapse">
 		<tr>
 			<th align="center" style="border: 1px solid black;">Hombres</th>
 			<th align="center" style="border: 1px solid black;">Mujeres</th>
@@ -266,7 +266,7 @@
 	@endfor()
 	</table>
 
-	<h5 style="position: absolute;top:14.5%;left:28%;">14 años o más</h5>
+	<h5 style="position: absolute;top:14.5%;left:28%;">14 años o menos</h5>
 	<h5 style="position: absolute;top:19.5%;left:28%;">15 años</h5>
 	<h5 style="position: absolute;top:24.5%;left:28%;">16 años</h5>
 	<h5 style="position: absolute;top:29.5%;left:28%;">17 años</h5>

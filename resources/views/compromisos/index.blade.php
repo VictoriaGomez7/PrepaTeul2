@@ -10,7 +10,7 @@
 
 </head>
 <body>
-
+<div style="position: absolute; top: 52%; left: 3%">
 	<center>
 		 <div style="width: 80%;  background: #000080; color: rgb(212, 172, 13);"> <label for="compromiso"  ><h2> Mis compromisos como estudiante:</h2></label>
 		 </div>
@@ -31,6 +31,7 @@
 </div>
 <br>
 	</center>
+</div>
 </body>
 
 @if (session()->has('msj2'))

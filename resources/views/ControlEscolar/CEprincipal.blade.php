@@ -59,7 +59,6 @@
 						<ul class="submenu">
 						<li><a href="http://127.0.0.1:8000/compromisos">Agregar Compromisos Estudiantes</a></li>
 						<li><a href="http://127.0.0.1:8000/compromisosFamilia">Agregar Compromisos Familia</a></li>
-						<li><a href="http://127.0.0.1:8000/compro">Formatos PDF</a></li>
 					</ul>
 				</li>
 				<li><a href="#">Asignaciones</a>
@@ -77,6 +76,7 @@
 							<li><a href="http://127.0.0.1:8000/Imprimelistas">Listas</a></li>
 							<li><a href="http://127.0.0.1:8000/ImprimeBoletasParciales">Boletas Parciales</a></li>
 							<li><a href="http://127.0.0.1:8000/ImprimeCarta">Carta de Buena Conducta</a></li>
+							<li><a href="http://127.0.0.1:8000/compro">Formatos PDF</a></li>
 							<li><a href="http://127.0.0.1:8000/kardex">Kardex</a></li>
 						</ul>
 					</li>
