@@ -36,21 +36,62 @@ tr:nth-child(even) {
   <tr>
     <th>Materia</th>
     <th>Parcial 1</th>
+    <th>Asistencias</th>
+    <th>Faltas</th>
+    <th>Total de clases</th>
     <th>Parcial 2</th>
+    <th>Asist</th>
+    <th>Faltas</th>
+    <th>Total de clases</th>
+    <th>Promedio parcial</th>
+    <th>Semestral</th>
+    <th>Promedio final</th>
   </tr>
+
   @foreach($mat as $materia)
   @foreach($cali as $califi)
   @if($califi->ClaveM==$materia->Clave_M)
+  <?php $cont=0; ?>
     <tr>
+
       <td align="center">{{ $materia->Nombre}}</td>
 
       <td align="center">{{ $califi->Parcial1}} </td>
-      <td align="center">{{ $califi->Parcial2}}</td>
+      @if($Asist[$cont]->Materia==$materia->Clave_M and $Asist[$cont]->Periodo==1)
+      <td align="center">{{$Asist[$cont]->Asistencias}} </td>
+      <td align="center">{{$Asist[$cont]->Faltas}} </td>
+      <td align="center">{{$Asist[$cont]->Faltas+$Asist[$cont]->Asistencias}} </td>
+      @else
+      <td align="center">{{0}} </td>
+      <td align="center">{{0}} </td>
+      <td align="center">{{0}} </td>
+      <td align="center">{{0}}</td>
+      @endif
+      @if($Asist[$cont]->Materia==$materia->Clave_M and $Asist[$cont]->Periodo==2)
+      <td align="center">{{$Asist[$cont]->Asistencias}} </td>
+      <td align="center">{{$Asist[$cont]->Faltas}} </td>
+      <td align="center">{{$Asist[$cont]->$Asist[$cont]->Asistencias}} </td>
+      @else
+      <td align="center">{{0}} </td>
+      <td align="center">{{0}} </td>
+      <td align="center">{{0}} </td>
+      <td align="center">{{0}} </td>
+
+      @endif
+      <td align="center">{{($califi->Parcial1+ $califi->Parcial2)/2}} </td>
+      <td align="center">{{$califi->Semestral}} </td>
+      <td align="center">{{9}} </td>
+
+
+
 
     </tr>
+
     @endif()
   @endforeach()
+  <?php $cont=$cont+1; ?>
   @endforeach()
+
 
 </table>
 

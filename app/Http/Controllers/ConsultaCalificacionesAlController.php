@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\CalificacionesParciales;
 use App\Alumno;
 use App\Materia;
+use App\Asistencia;
 
 class ConsultaCalificacionesAlController extends Controller
 {
@@ -21,13 +22,14 @@ class ConsultaCalificacionesAlController extends Controller
         $usua=$_GET['valor'];
 
         //$usua=$request->valor;
+        $Asist=Asistencia::where('Clave_A',$request->valor)->get();
         $mat=Materia::all();
         $NombreDoc=Alumno::where('Clave_A',$request->valor)->get();
         $cali=CalificacionesParciales::where('Clave_A',$request->valor)->get();
         $nombre=$NombreDoc[0]->Nombre_A;
-        //return $cali;
+        //return $Asist;
 
-        return view('Calificaciones.ConsultaAl',compact('mat','cali','nombre','usua'));
+        return view('Calificaciones.ConsultaAl',compact('mat','cali','nombre','usua','Asist'));
     }
 
     /**

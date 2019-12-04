@@ -32,15 +32,15 @@ class CalificacionesController extends Controller
         $MateriasDelDocente=RelacionDocenteMateriaGrupo::where('Clave_D',$NombreDoc[0]->Nombre)->get();
 
 
-           
+
 
         $Periodo1ini=Periodo::where('id','1')->get('fecha1');
         $Periodo1fin=Periodo::where('id','1')->get('fecha2');
         $Periodo2ini=Periodo::where('id','2')->get('fecha1');
         $Periodo2fin=Periodo::where('id','2')->get('fecha2');
         $visibility=2;
-        
-        
+
+
         if (count($MateriasDelDocente)==0){
             return redirect('/DocenteInicios?valor='.$usua)->with('MsjERR','No tiene materias asignadas');
         }
@@ -52,7 +52,7 @@ class CalificacionesController extends Controller
             view('DocenteInterfazPrincipal.InterfazPrincipal',compact('usua'));
             return view('Calificaciones.VisualizarCali',compact('MateriasDelDocente','visibility','id','usua'));
         }
-        
+
     }
 
     /**
@@ -62,7 +62,7 @@ class CalificacionesController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -86,7 +86,7 @@ class CalificacionesController extends Controller
 
         if (($Periodo1ini[0]->fecha1<=$dia) && ($Periodo1fin[0]->fecha2>=$dia)){
         $PeriodoActivo=1;
-    
+
         } else if (($Periodo2ini[0]->fecha1<=$dia) && ($Periodo2fin[0]->fecha2>=$dia)){
             $PeriodoActivo=2;
         } else if (($Periodo2fin[0]->fecha2<$dia) && ($final2>=$dia)) {
@@ -105,7 +105,7 @@ class CalificacionesController extends Controller
 
         $AlumnoEnGrupo=Grupo::where('Grupo',$request->Grupo)->get();
         //return $request->Grupo;
-        
+
         if(count($AlumnoEnGrupo)==0){
            $AlumnoEnGrupo=ft_bach::where('Formación_Trabajo',$request->Grupo)->get();
            //return $AlumnoEnGrupo;
@@ -113,7 +113,7 @@ class CalificacionesController extends Controller
                 $AlumnoEnGrupo=ft_bach::where('Bachillerato',$request->Grupo)->get();
                 //return $AlumnoEnGrupo;
            }
-           //return 'entro';     
+           //return 'entro';
         }
         //return $AlumnoEnGrupo;
         //return $request->ClaveMateriaSelec;
@@ -165,7 +165,7 @@ class CalificacionesController extends Controller
                 $Asis->save();
             }
         }
-        
+
         else
         {
             $Calif_Extraidas=CalificacionesParciales::where('ClaveM',$request->ClaveMateriaSelec)->where('Grupo',$request->Grupo)->get();
@@ -215,7 +215,7 @@ class CalificacionesController extends Controller
         view('DocenteInterfazPrincipal.InterfazPrincipal',compact('usua'));
         return view('Calificaciones.VisualizarCali',compact('MateriasDelDocente','AlumnosEnMismoSemestre','visibility','id','usua','Materiasele','PeriodoActivo','Calif_Extraidas','Grupo_Seleccionado'));
 
-        
+
     }
 
     /**
@@ -226,15 +226,15 @@ class CalificacionesController extends Controller
      */
     public function show($g, Request $r)
     {
-        
-        $calif=CalificacionesParciales::find($g);
 
-        $usua=$calif->Clave_A;
-        $calif->Parcial1 = $r->Parcial1;
-        $calif->Parcial2 = $r->Parcial2;
-        $calif->save();
+        //$calif=CalificacionesParciales::find($g);
 
-        return Redirect('/CONSULTACALIFICACIONESCE/show?id='.$usua)->with('msj1','Calificación modificada exitosamente' );
+        //$usua=$calif->Clave_A;
+        //$calif->Parcial1 = $r->Parcial1;
+        //$calif->Parcial2 = $r->Parcial2;
+        //$calif->save();
+
+        //return Redirect('/CONSULTACALIFICACIONESCE/show?id='.$usua)->with('msj1','Calificación modificada exitosamente' );
 
     }
 
@@ -246,6 +246,7 @@ class CalificacionesController extends Controller
      */
     public function edit(Request $id)
     {
+      //return "Si llega";
         //return $id->Periodo;
         $Reprobados=0;
         $Aprobados=0;
@@ -263,19 +264,19 @@ class CalificacionesController extends Controller
 
         $ban=0;
         $Faltas=$id->get('Faltas');
-        
+
         $banFaltas=False;
         if ($Faltas==''){
             $banFaltas=True;
         }
         else{
-            for ($i=0; $i <count($Faltas) ; $i++) { 
+            for ($i=0; $i <count($Faltas) ; $i++) {
                 if ($Faltas[$i]>$id->NumTotalAsis) {
                     $ban=1;
                 }
             }
         }
-        
+
         $year_date=date('o');
         $Cant_Calif=count($id->get('Calif1'));
         $Calificaciones_1=$id->get('Calif1');
@@ -287,12 +288,12 @@ class CalificacionesController extends Controller
         $usua=$id->Usua;
         if ($ban==1) {
             return redirect('Calificaciones?valor='.$usua)->with('msj2','El número de faltas no puede ser mayor que el total de clases' );
-        } 
+        }
 
         else {
             for ($i=0; $i < $Cant_Calif; $i++)
                 {
-                
+
                 if ($id->Periodo==1){
                     if ($Calificaciones_1[$i]<6){
                         $Reprobados+=1;
@@ -326,12 +327,12 @@ class CalificacionesController extends Controller
                     CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial2'=>$Calificaciones_2[$i]]);
                     CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Semestral'=>$Semestral[$i]]);
                 }
-                
-                
+
+
             }
 
         $Estadistica=EstadisticaPeriodo::get();
-        
+
         if (count($Estadistica)==0){
             $mate=new EstadisticaPeriodo();
             $mate->Aprobados1=$Aprobados;
@@ -369,7 +370,7 @@ class CalificacionesController extends Controller
                 }
             }
         }
-            
+
         return redirect('Calificaciones?valor='.$usua)->with('msj','Calificacines registradas exitosamente' );}
     }
 
@@ -382,7 +383,7 @@ class CalificacionesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
         $alum=CalificacionesParciales::where('id',$id)->get();
         //$mate=Materia::get();
         //return $id;

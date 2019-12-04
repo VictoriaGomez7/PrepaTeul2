@@ -39,7 +39,7 @@ tr:nth-child(even) {
 @endforeach()
 
 <section style="position: absolute;top:62%; left:5%;width: 80%; background:#aaa">
-    
+
 
     <table id="alumn" class="table" style="width: 100%;" >
       <tr>
