@@ -2,7 +2,7 @@
 
 @extends('layouts.app')
 
-@section('title','Inscripción Alumnos')
+@section('title','Cambiar Logos')
 
 @include('ControlEscolar.CEprincipal')
 
@@ -14,23 +14,26 @@
     </div>
   @endif
 <body>
-	<div class="Contenedor de imagenes" style="right: 20%; top: 80%; width: 100%; border: 4; ">	
-	{!!Form::open(['route' => ['Logotipos.store'],'method'=>'POST','enctype'=>'multipart/form-data'])!!}
+	<div style="position:  absolute;top: 53%; left: 2%;">
+		<div class="Contenedor de imagenes" style="right: 20%; top: 80%; width: 100%; border: 4; ">	
+		{!!Form::open(['route' => ['Logotipos.store'],'method'=>'POST','enctype'=>'multipart/form-data'])!!}
 
-	<div class="imagen01" align="center">
-		<img class="card-img-top" src="images/{{$ImagenesEnDB[0]->Imagen}}" style="width: 15%;" >
-		<input type="file" name="Imagen1" class="btn btn-success">
-	
-		<img class="card-img-top" src="images/{{$ImagenesEnDB[1]->Imagen}}"  style="width: 15%;">
-		<input type="file" name="Imagen2" class="btn btn-success"></div>
-	<div class="imagen03" align="center">
-		<img class="card-img-top" src="images/{{$ImagenesEnDB[2]->Imagen}}"  style="width: 15%;">
-		<input type="file" name="Imagen3" class="btn btn-success">
-	
-		<img class="card-img-top" src="images/{{$ImagenesEnDB[3]->Imagen}}"  style="width: 15%;">
-		<input type="file" name="Imagen4" class="btn btn-success"></div>
-		{!!Form::submit('Cambiar Imagenes',['class'=>'btn btn-primary','style'=>'position: absolute; right: 1.2%; top: 80%;'])!!}
-	{!! Form::close()!!}
+		<div class="imagen01" align="center">
+			<img class="card-img-top" src="images/{{$ImagenesEnDB[0]->Imagen}}" style="width: 15%;" >
+			<input type="file" name="Imagen1" class="btn btn-success">
+		
+			<img class="card-img-top" src="images/{{$ImagenesEnDB[1]->Imagen}}"  style="width: 15%;">
+			<input type="file" name="Imagen2" class="btn btn-success"></div>
+		<div class="imagen03" align="center">
+			<img class="card-img-top" src="images/{{$ImagenesEnDB[2]->Imagen}}"  style="width: 15%;">
+			<input type="file" name="Imagen3" class="btn btn-success">
+		
+			<img class="card-img-top" src="images/{{$ImagenesEnDB[3]->Imagen}}"  style="width: 15%;">
+			<input type="file" name="Imagen4" class="btn btn-success"></div>
+			{!!Form::submit('Cambiar Imagenes',['class'=>'btn btn-primary','style'=>'position: absolute; right: 4%; top: 85%;'])!!}
+		{!! Form::close()!!}
+		</div>
 	</div>
+	
 
 </body>

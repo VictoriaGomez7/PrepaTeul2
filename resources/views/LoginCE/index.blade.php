@@ -93,47 +93,41 @@ body{
 
 </style>
 	<head>
-		    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-			<!-- vinculo a bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<!-- vinculo a bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	</head>
+	<body>
+		<div id="Contenedor" style="position: absolute;top: 25%; left: 37%">
+			<div class="Icon">
+	        	<!--Icono de usuario-->
+	            <span class="glyphicon glyphicon-user"></span>
+	        </div>
+			<div class="ContentForm">
+				<form type="session" class="form-group"  method="GET" action="/LoginControlEscolar/show">
+					<div class="input-group input-group-lg">
+				  		<span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-user"></i></span>
+				  		<input type="text" class="form-control" name="Usuario" placeholder="Usuario" id="Usuario" aria-describedby="sizing-addon1" required>
+					</div>
+					<br>
+					<div class="input-group input-group-lg">
+				  		<span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-lock"></i></span>
+				  		<input type="password" name="Contraseña" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon1" required>
+					</div>
+					<br>
+					<p><button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button></p>
 
-		</head>
-		<body>
-		 <div id="Contenedor">
-		 <div class="Icon">
-                    <!--Icono de usuario-->
-                   <span class="glyphicon glyphicon-user"></span>
-                 </div>
-<div class="ContentForm">
-	<form type="session" class="form-group"  method="GET" action="/LoginControlEscolar/show">
-		<div class="input-group input-group-lg">
-				  <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-user"></i></span>
-				  <input type="text" class="form-control" name="Usuario" placeholder="Usuario" id="Usuario" aria-describedby="sizing-addon1" required>
-				</div>
-				<br>
-				<div class="input-group input-group-lg">
-				  <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-lock"></i></span>
-				  <input type="password" name="Contraseña" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon1" required>
-				</div>
-				<br>
-				<p><button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button></p>
-
-		 	</form>
-		 </div>
-
-		 <a href="interfazpri">
-    <button class="btn  btn-lg btn-success btn-block btn-signin">Cancelar</button></a>
-		 </div>
-     <br><br><br><br><br>
-      <p align="center" style="color: black; font-size: 1.3em;"> Constitución #100 Teul de González Ortega.<br/>
-     Zac. C.P. 99800 <br/>
-    Teléfono: (467)-952-71-83 <br/>
-      Correo-e: prepateul@yahoo.com.mx
-     </p >
-</body>
- <!-- vinculando a libreria Jquery-->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
- <!-- Libreria java scritp de bootstrap -->
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		 		</form>
+		 	</div>
+		 	<a href="interfazpri">
+    		<button class="btn  btn-lg btn-success btn-block btn-signin">Cancelar</button></a>
+		</div>
+	    <br><br><br><br><br>
+	    <p align="center" style="color: black; font-size: 1.3em; position: absolute;top: 90%; left: 38%"> Constitución #100 Teul de González Ortega.<br/>
+		    Zac. C.P. 99800 <br/>
+		    Teléfono: (467)-952-71-83 <br/>
+		    Correo-e: prepateul@yahoo.com.mx
+	    </p >
+	</body>
 
 @endsection

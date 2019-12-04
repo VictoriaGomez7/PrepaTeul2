@@ -104,7 +104,7 @@ body{
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	</head>
 	<body>
-		<div id="Contenedor">
+		<div id="Contenedor" style="position: absolute;top: 25%; left: 37%">
 			<div class="Icon">
                 <span class="glyphicon glyphicon-user"></span></div>
 
@@ -130,7 +130,7 @@ body{
 		</div>
 
 	    <br><br><br><br><br>
-	    <p align="center" style="color: black; font-size: 1.3em;"> Constitución #100 Teul de González Ortega.<br/>
+	    <p align="center" style="color: black; font-size: 1.3em; position: absolute;top: 90%; left: 38%"> Constitución #100 Teul de González Ortega.<br/>
 	    Zac. C.P. 99800 <br/>
 	    Teléfono: (467)-952-71-83 <br/>
 	    Correo-e: prepateul@yahoo.com.mx

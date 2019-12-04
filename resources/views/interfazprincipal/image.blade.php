@@ -42,6 +42,8 @@
 		<div class="ContenImages" id="dosdos"><img class="card-img-top" src="/images/{{$ImagenesEnDB[1]->Imagen}}" style="height: 150px;" ></div>
 		<div class="ContenImages" id="trestres"><img class="card-img-top" src="/images/{{$ImagenesEnDB[2]->Imagen}}"  style="height: 150px;" ></div>
 		<div class="ContenImages" id="cuatrocuatro"><img class="card-img-top" src="/images/{{$ImagenesEnDB[3]->Imagen}}" style="height: 150px;"></div>
+
+
 		
 		
 		

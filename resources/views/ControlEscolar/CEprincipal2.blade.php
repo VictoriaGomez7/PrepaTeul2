@@ -2,10 +2,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
-   <link rel="stylesheet" type="text/css" href="/css/style.css">
-     <link rel="stylesheet" type="text/css" href="/css/estilos2.css">
-      <link rel="stylesheet" type="text/css" href="/css/image.css">
-     <link rel="icon" href="/images/escolarcono.ico">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/estilos2.css">
+    <link rel="stylesheet" type="text/css" href="/css/image.css">
+    <link rel="icon" href="/images/escolarcono.ico">
 	@extends('layouts.app')
 
 	<title>Servicios Escolares</title>
@@ -34,7 +34,7 @@
 				<strong>Bienvenido </strong>{{$C->Usuario}}
 			</div>
 		@endforeach--}}
-		<nav class="navegacion" style="width: 90%">
+		<nav class="navegacion" style="width: 90%; position:  absolute; top: 30%; left: 5%;">
 			<ul class="menu">
 				<li><a href="#">Alumnos</a>
 						<ul class="submenu">
@@ -111,7 +111,11 @@
 
 		@include('interfazprincipal.imagenn')
 	</header>
-	<!--<img src="/images/img7.png" class="imagen">-->
+	<p align="center" style="color: black; font-size: 1.3em; position: absolute;top: 100%; left: 40%"> Constitución #100 Teul de González Ortega.<br/>
+     Zac. C.P. 99800 <br/>
+    Teléfono: (467)-952-71-83 <br/>
+      Correo-e: prepateul@yahoo.com.mx
+     </p >
 
 </body>
 </html>

@@ -10,6 +10,7 @@
 <body>
 		 
 		<?php use App\Logos;
+
 		$totalogos=Logos::where('Nombre_Imagen','Imagen1')->get();
         $sinimagen='SinImagen.jpg';
         //return $sinimagen;
@@ -38,11 +39,14 @@
             $nuevoLogo->save();}
 		$ImagenesEnDB=Logos::all();
 				?>
+
+
+
 		<div class="ContenImages" id="unouno"><img class="card-img-top" src="/images/<?php echo e($ImagenesEnDB[0]->Imagen); ?>" style="height: 150px;" ></div>
 		<div class="ContenImages" id="dosdos"><img class="card-img-top" src="/images/<?php echo e($ImagenesEnDB[1]->Imagen); ?>" style="height: 150px;" ></div>
 		<div class="ContenImages" id="trestres"><img class="card-img-top" src="/images/<?php echo e($ImagenesEnDB[2]->Imagen); ?>"  style="height: 150px;" ></div>
 		<div class="ContenImages" id="cuatrocuatro"><img class="card-img-top" src="/images/<?php echo e($ImagenesEnDB[3]->Imagen); ?>" style="height: 150px;"></div>
-		
+	
 		
 		
         <!--<img src="/images/img2c.jpeg"  style=" width:100% ; height: 21% ">--></div>
