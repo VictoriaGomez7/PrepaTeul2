@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use App\PeriodoAlumno;
 use App\Alumno;
 use App\Materia;
+use App\Asistencia;
 Use Session;
 Use Redirect;
 Use Alert;
@@ -180,6 +181,17 @@ class CierreController extends Controller
                 $Cambia=$mod[0]->Reprobados+1;
                 EstadisticaSemestre::where('Materia',$todo[$i]->ClaveM)->where('Semestre',$S)->update(['Reprobados'=>$Cambia]);
                 
+                $p1=1;
+                $p2=2;
+                $porcentaje=0;
+                $in1=Asistencia::where('Clave_A',$todo[$i]->Clave_A)->where('Materia',$todo[$i]->ClaveM)->where('Periodo',$p1)->get();
+                $in2=Asistencia::where('Clave_A',$todo[$i]->Clave_A)->where('Materia',$todo[$i]->ClaveM)->where('Periodo',$p2)->get();
+                if ((count($in1)>0) and (count($in2)>0))
+                    {
+                        $asis=($in1[0]->Asistencias)+($in2[0]->Asistencias);
+                        $faltas=($in1[0]->Faltas)+($in2[0]->Faltas);
+                        $porcentaje=($asis*100)/($asis+$faltas);
+                    }
                 $nomM=Materia::where('Clave_M',$todo[$i]->ClaveM)->get('Nombre');
                 //return $nomM[0]->Nombre;
                 $nK=new Kardex();
@@ -189,6 +201,7 @@ class CierreController extends Controller
                 $nK->Fecha=null;
                 $nK->Oportunidades=null;
                 $nK->Calificacion=0;
+                $nK->Faltas=$porcentaje;
                 $nK->Grupo=$todo[$i]->Grupo;
                 $nK->Semestre=$todo[$i]->Semestre;
                 $nK->save();
@@ -215,8 +228,21 @@ class CierreController extends Controller
                 {
                     $ss=$suma;
                 }
+                $p1=1;
+                $p2=2;
+
+                $porcentaje=0;
+                
+
+                $in1=Asistencia::where('Clave_A',$todo[$i]->Clave_A)->where('Materia',$todo[$i]->ClaveM)->where('Periodo',$p1)->get();
+                $in2=Asistencia::where('Clave_A',$todo[$i]->Clave_A)->where('Materia',$todo[$i]->ClaveM)->where('Periodo',$p2)->get();
+                if ((count($in1)>0) and (count($in2)>0))
+                    {
+                        $asis=($in1[0]->Asistencias)+($in2[0]->Asistencias);
+                        $faltas=($in1[0]->Faltas)+($in2[0]->Faltas);
+                        $porcentaje=($asis*100)/($asis+$faltas);
+                    }
                 $nomM=Materia::where('Clave_M',$todo[$i]->ClaveM)->get('Nombre');
-                //return $nomM[0]->Nombre;
                 $nK=new Kardex();
                 $nK->Clave_A=$todo[$i]->Clave_A;
                 $nK->Clave_M=$todo[$i]->ClaveM;
@@ -224,10 +250,13 @@ class CierreController extends Controller
                 $nK->Fecha=null;
                 $nK->Oportunidades=null;
                 $nK->Calificacion=$ss;
+                $nK->Faltas=$porcentaje;
                 $nK->Grupo=$todo[$i]->Grupo;
                 $nK->Semestre=$todo[$i]->Semestre;
                 $nK->save();
+                
                 CalificacionesParciales::where('ClaveM',$todo[$i]->ClaveM)->where('Clave_A',$todo[$i]->Clave_A)->delete();
+                Asistencia::where('Clave_A',$todo[$i]->Clave_A)->where('Materia',$todo[$i]->ClaveM)->delete();
             }
         }
         $bandera=False;
