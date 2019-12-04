@@ -16,7 +16,7 @@
 
     
         @if (session()->has('msj2'))
-    <div class="alert alert-danger" role="alert" style="width: 50%; position:  relative;text-align: center; left: 25%;">
+    <div class="alert alert-danger" role="alert" style="width: 50%; position:  absolute;top:44% ; left: 25%;">
       <button type="button" class="close" data-dismiss="alert" >&times;</button>
       <strong>¡Error! </strong>{{session('msj2')}}
     </div>

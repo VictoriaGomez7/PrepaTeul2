@@ -20,7 +20,7 @@ class VisuaDocentesController extends Controller
         $Relacion=RelacionDocenteMateriaGrupo::all();
         //return $Docents;//->nombre;
         if (count($Relacion)==0){
-            return redirect('/ControlEscolarInicio')->with('MsjERR',' Datos no encontrados' );
+            return redirect('/ControlEscolarInicio')->with('MsjERR','Aún no tienen materias asignadas los docentes.' );
         }
         else{
             return view('DocentesMaterias.index',compact('Docents','Relacion'));

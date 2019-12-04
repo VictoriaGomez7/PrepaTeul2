@@ -34,7 +34,7 @@
 
         @if ($errors->any())
             @foreach ($errors->all() as $error)
-                <div class="alert alert-danger" role="alert" style="width: 80%; position:  absolute;top: 43%; left: 10%;z-index: 1;">
+                <div class="alert alert-danger" role="alert" style="width: 80%; position:  absolute;top: 44%; left: 10%;z-index: 1;">
                         <button class="close" data-dismiss="alert"><span>&times;</span></button>
                         <strong>¡Error! </strong>{{ $error }}
                 </div>
@@ -42,21 +42,21 @@
         @endif
 
         @if (session()->has('msj'))
-            <div class="alert alert-success" role="alert" style="width: 80%; position:  absolute;top: 43%; left: 10%;z-index: 1;">
+            <div class="alert alert-success" role="alert" style="width: 80%; position:  absolute;top: 44%; left: 10%;z-index: 1;">
                 <button class="close" data-dismiss="alert"><span>&times;</span></button>
                 <strong>¡Correcto! </strong>{{ session('msj') }}
             </div>
         @endif
 
         @if (session()->has('msjERROR'))
-            <div class="alert alert-danger" role="alert" style="width: 80%; position:  absolute;top: 43%; left: 10%;z-index: 1;">
+            <div class="alert alert-danger" role="alert" style="width: 80%; position:  absolute;top: 44%; left: 10%;z-index: 1;">
                 <button class="close" data-dismiss="alert"><span>&times;</span></button>
                 <strong>¡Error! </strong>{{ session('msjERROR') }}
             </div>
         @endif
 
 
-        <div class="card-header text-center" style="font-size:200%;width: 80%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 50%; left: 10%;" >{{ __('Registrar Materias') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
+        <div class="card-header text-center" style="font-size:200%;width: 80%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 10%;" >{{ __('Registrar Materias') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
          {!!Form::open(['route' => ['materia.create'],'method'=>'GET'])!!}
          {{--<form type="session" class="form-group" method="POST" action="/RegistrarMaterias">--}}
 

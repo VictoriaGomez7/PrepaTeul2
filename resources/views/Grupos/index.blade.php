@@ -19,13 +19,13 @@
     
         @if (session()->has('msj2'))
 
-    <div class="alert alert-danger" role="alert" style="width: 50%; position:  relative;text-align: center; left: 25%;">
+    <div class="alert alert-danger" role="alert" style="width: 50%; position:  absolute;top:44% ; left: 25%;">
       <button type="button" class="close" data-dismiss="alert" >&times;</button>
       <strong>¡Error! </strong>{{session('msj2')}}
     </div>
   @endif
 @if (session()->has('msj'))
-        <div class="alert alert-success" role="alert" style="width: 50%; position:  relative;text-align: center; left: 25%;">
+        <div class="alert alert-success" role="alert" style="width: 50%; position:  absolute;top:44% ; left: 25%;">
             <button class="close" data-dismiss="alert"><span>&times;</span></button>
             <strong>¡Correcto! </strong>{{ session('msj') }}
         </div>

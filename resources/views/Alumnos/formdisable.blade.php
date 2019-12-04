@@ -1,6 +1,6 @@
 <!doctype html>
 <a href="http://127.0.0.1:8000/alumnosconsulta">
-            <button class="btn btn-success" style="position: absolute;top: 220%;left:85%">Cancelar</button></a>
+            <button class="btn btn-success" style="position: absolute;top: 210%;left:85%">Cancelar</button></a>
 @extends('layouts.app')
 
 @section('title','Modificar Alumno')
@@ -33,7 +33,7 @@
             {{--@method('PUT')--}}
             @csrf
 
-            <div style="position: absolute;top: 62%; left: 5%; width: 20%;height:53%;background-color:#aaa">
+            <div style="font-size:95%;position: absolute;top: 62%; left: 5%; width: 20%;height:53%;background-color:#aaa">
                 <p style="font-size:130%">{{('Matrícula:')}}</p>
                 <p style="font-size:130%">{{('Nombre del alumno:')}}</p>
                 <p style="font-size:130%">{{('Nombre de la madre:')}}</p>
@@ -60,7 +60,7 @@
                 <p><input type="address" required readonly id="domicilio" name="Domicilio" value="{{$alumno->Domicilio}}" style="font-size:105%; width: 95%"/></p>
             </div>
 
-            <div style="position: absolute;top: 62%; left: 49.9%; width: 20.1%;height:53%;background-color:#aaa">
+            <div style="font-size:95%;position: absolute;top: 62%; left: 49.9%; width: 20.1%;height:53%;background-color:#aaa">
                 <p style="font-size:130%">{{('Municipio:')}}</p>
                 <p style="font-size:130%">{{('Población:')}}</p>
                 <p style="font-size:130%">{{('Correo electrónico:')}}</p>
@@ -78,10 +78,10 @@
                 <p><input type="text" required readonly id="curp" pattern="^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$" name="Curp" value="{{$alumno->Curp}}"  value="{{$alumno->Curp}}" style="font-size:105%; width:97%;"/></p>
                 <p><input type="text" id="nss"  value="{{$alumno->NSS}}" min="1" max="99999999999" name="NSS" style="font-size:105%; width:97%;"/></p>
 
-                <p> <input type="date" name="Fecha_Nac" required readonly value="{{$alumno->Fecha_Nac}}" style="position: absolute;top: 69%;left:0%; width:90%"> </p>
+                <p> <input type="date" name="Fecha_Nac" required readonly value="{{$alumno->Fecha_Nac}}" style="width:90%"> </p>
 
 
-                <p> <select name="Edad" required disabled style="position: absolute;top: 86%;left:0%; width: 20%">
+                <p> <select name="Edad" required disabled style="width: 20%">
                     <option  value="{{$alumno->Edad}}" >{{$alumno->Edad}} </option>
                     <option value="12">12</option>
                     <option value="13">13</option>
@@ -96,14 +96,14 @@
                     </select>
                 </p>
 
-                <label style="position: absolute;top: 84%;left:40%;font-size:140%;">Sexo: </label>
-                <label style="position: absolute;top: 85%;left:57%;font-size:130%; width: 20%">{{$alumno->Sexo}}</label>
+                <label style="position: absolute;top: 70%;left:40%;font-size:140%;">Sexo: </label>
+                <label style="position: absolute;top: 71%;left:57%;font-size:130%; width: 20%">{{$alumno->Sexo}}</label>
 
             </div>
 
-            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top:130%;left:5%; background-color:#aaa">
+            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top:120%;left:5%; background-color:#aaa">
                     <p style="position: absolute;top: 3px;left:170px; width: 900px">{{('Con todo respeto solicito a Usted Sr. Director, me acepte como alumno  de esta Escuela Preparatoria a su cargo para cursar el')}}</p>
-                        <select name="Grado" disabled onchange="Grados(this.value); semes(this.options[this.selectedIndex].innerHTML);" required="true" style="font-size:80%;width: 17%;/*posicion->*/position: absolute;top:54%; left:46%;">
+                        <select name="Grado" disabled onchange="Grados(this.value); semes(this.options[this.selectedIndex].innerHTML);" required="true" style="font-size:80%;width: 17%;/*posicion->*/position: absolute;top:54%; left:41%;">
                           <option value="{{ $alumno->Grado }}">{{ $alumno->Semestre }}</option>
                             <option value="PRIMER ">PRIMER SEMESTRE</option>
                             <option value="PRIMER ">SEGUNDO SEMESTRE</option>
@@ -112,20 +112,20 @@
                             <option value="TERCER ">QUINTO SEMESTRE</option>
                             <option value="TERCER ">SEXTO SEMESTRE</option>
                       </select>
-                    <p style="position: absolute;top: 50%;left:64%">{{('del')}}</p>
+                    <p style="position: absolute;top: 50%;left:59%">{{('del')}}</p>
                     <!--Caja del grado-->
-                    <input type="text" id="grado"  value="{{$alumno->Grado}}" name="Gradoo" disabled style="background-color:#aaa; position: absolute; top:51%; left: 67%; width: 8%;border: 0px;font-size:90%;text-align: center; color:black">
-                    <input type="text" id="semestree" name="Semestre" value="{{$alumno->Semestre}}"  style="background-color:#aaa; position: absolute; top:51%; left: 85%; width: 0%;border: 0px;font-size:90%;text-align: center; color:black">
+                    <input type="text" id="grado"  value="{{$alumno->Grado}}" name="Gradoo" disabled style="background-color:#aaa; position: absolute; top:51%; left: 62%; width: 8%;border: 0px;font-size:90%;text-align: center; color:black">
+                    <input type="text" id="semestree" name="Semestre" value="{{$alumno->Semestre}}"  style="background-color:#aaa; position: absolute; top:51%; left: 80%; width: 0%;border: 0px;font-size:90%;text-align: center; color:black">
 
-                    <p style="position: absolute; top:53%; left: 75.5%;font-size:90%"> {{('GRADO.')}}</p>
+                    <p style="position: absolute; top:53%; left: 71%;font-size:90%"> {{('GRADO.')}}</p>
 
             </div>
 
 
 
-            <div style="position: absolute;top: 115%; left: 5%; width: 90%;height:16%;background-color:#aaa">
-                <p style="font-size:138%">{{('Formación para el Trabajo:')}}</p>
-                <p style="font-size:138%">{{('Bachillerato:')}}</p>
+            <div style="position: absolute;top: 105%; left: 5%; width: 90%;height:16%;background-color:#aaa">
+                <p style="font-size:130%">{{('Formación para el Trabajo:')}}</p>
+                <p style="font-size:130%">{{('Bachillerato:')}}</p>
                 <select required name="ft1" id="ft1" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  disabled="true">
                             
                             <option >{{$bachil->Formación_Trabajo}}</option>
@@ -139,10 +139,10 @@
 
             </div>
 
-            <div class="card-header text-center" style="font-size:180%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 142%; left: 5%;" >{{ __('Requisitos') }}</div>
+            <div class="card-header text-center" style="font-size:180%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 132%; left: 5%;" >{{ __('Requisitos') }}</div>
 
             <!-- ********************** PARTE DE DONDE SE AGREGA PARA LOS REQUISITOS ********************************-->
-            <div style="position: absolute;top: 152%; left: 5%; width: 70%;height:65%;background-color:#aaa">
+            <div style="position: absolute;top: 142%; left: 5%; width: 70%;height:65%;background-color:#aaa">
                 <p style="font-size:138%">{{('A) Certificado de Secundaria.')}}</p>
                 <p style="font-size:138%">{{('B) Acta de Nacimiento.')}}</p>
                 <p style="font-size:138%">{{('C) Curp.')}}</p>
@@ -153,7 +153,7 @@
                 <p style="font-size:138%">{{('H) Firmar de conformidad padres y alumno  en la hoja de solicitud de inscripción.')}}</p>
             </div>
 
-            <div style="position: absolute;top: 152%; left: 75%; width: 20%; height:65%;background-color:#aaa">
+            <div style="position: absolute;top: 142%; left: 75%; width: 20%; height:65%;background-color:#aaa">
                 <p><select id="A" name="Requisito_A" required disabled style="width: 18%;height: 9%; position: absolute;top: 0%;left:10%">
                     <option  value="{{$requi->Requisito_A}}"> {{$requi->Requisito_A}} </option>
                     <option value="Si">SI</option>
@@ -202,11 +202,11 @@
         </form>
 
     {!!Form::open(['route' => ['Alumnos.update',$alumno->Clave_A],'method'=>'PUT'])!!}
-    {!!Form::submit('Modificar',['class'=>'btn btn-primary','style'=>'position: absolute;top:220%;left:5%;'])!!}
+    {!!Form::submit('Modificar',['class'=>'btn btn-primary','style'=>'position: absolute;top:210%;left:5%;'])!!}
     {!! Form::close()!!}
 
     {!!Form::open(['route' => ['Alumnos.destroy',$alumno->Clave_A],'method'=>'DELETE'])!!}
-    {!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'position: absolute;top:220%;left:15%;'])!!}
+    {!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'position: absolute;top:210%;left:15%;'])!!}
     {!! Form::close()!!}
 
 

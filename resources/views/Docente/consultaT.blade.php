@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 <title>Alumnos</title>
 <body>
-  <div class="container">
+  <div class="container" style="position: absolute; top: 52%; left: 5%">
     <table id="alumn" class="table">
       <thead>
         <tr>
@@ -32,15 +32,15 @@
         <tbody>
           @foreach($CDocente as $docente)
           <tr>
-          	<form class="form-group" method="PUT" action="/Docente/{{$docente->id}}">
-	          	<td><input type="hiddn" required readonly name="id" value="{{$docente->id}}"></td>
+          	<form class="form-group" method="PUT" action="/Docente/{{$docente->Clave_D}}">
+	          	<td><input required readonly name="id" value="{{$docente->Clave_D}}"></td>
 	            <!--<td align="center">{{ $docente->id }}</td>-->
 	            <td align="center">{{ $docente->Nombre}}</td>
 	            <td align="center">{{ $docente->Domicilio }}</td>
 	            <td align="center">{{ $docente->Telefono}}</td>
-	            <td><button class="btn btn-success">Modificar</button></td>
+	            <td><button class="btn btn-primary">Modificar</button></td>
             </form>
-            {!!Form::open(['route' => ['Docente.destroy',$docente->id],'method'=>'DELETE'])!!}
+            {!!Form::open(['route' => ['Docente.destroy',$docente->Clave_D],'method'=>'DELETE'])!!}
             <td>{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}</td>
             {!! Form::close()!!}
           </tr>

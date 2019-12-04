@@ -8,13 +8,13 @@
 @include('ControlEscolar.CEprincipal')
 @section('content')
 	@if (session()->has('msj'))
-		<div class="alert alert-danger" role="alert" style="width: 30%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
+		<div class="alert alert-danger" role="alert" style="width: 25%; position:  absolute;top: 44%; left: 35%;z-index: 1;">
 			<button type="button" class="close" data-dismiss="alert" >&times;</button>
 			<strong>¡Error! </strong>{{session('msj')}}
 		</div>
 	@endif
 	@if (session()->has('msj1'))
-    <div class="alert alert-success" role="alert" style="width: 30%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
+    <div class="alert alert-success" role="alert" style="width: 25%; position:  absolute;top: 44%; left: 35%;z-index: 1;">
       <button class="close" data-dismiss="alert"><span>&times;</span></button>
         <strong>¡Correcto! </strong>{{ session('msj1') }}
     </div>
@@ -98,7 +98,7 @@ body{
   </head>
 
 <body>
-  <div id="Contenedor" style="position: absolute; top: 45%; left: 35%">
+  <div id="Contenedor" style="width: 25%; position: absolute; top: 45%; left: 35%">
   <div class="ContentForm" style="text-align: center;" >
     <form type="session" class="form-group"  method="GET" action="/Docente">
 

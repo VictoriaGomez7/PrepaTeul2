@@ -8,14 +8,14 @@
 
 @section('frameTitulo')
   @if (Session()->has('msj'))
-    <div class="alert alert-danger" role="alert" style="width: 30%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
+    <div class="alert alert-danger" role="alert" style="width: 30%; position:  absolute;top: 44%; left: 35%;z-index: 1;">
       <button class="close" data-dismiss="alert"><span>&times;</span></button>
       <strong>¡Error! </strong>{{Session('msj')}}
     </div>
   @endif
 
   @if (Session()->has('msj2'))
-    <div class="alert alert-success" role="alert" style="width: 30%; position:  absolute;top: 43%; left: 35%;z-index: 1;">
+    <div class="alert alert-success" role="alert" style="width: 30%; position:  absolute;top: 44%; left: 35%;z-index: 1;">
       <button class="close" data-dismiss="alert"><span>&times;</span></button>
       <strong>¡Correcto! </strong>{{Session('msj2')}}
     </div>
@@ -33,7 +33,7 @@ body{
  * a la izquierda y derecha
  */
 #Contenedor{
-  width: 400px;
+  width: 30%;
   margin: 50px auto;
   background-color: #EEF0F3;
         border: 1px solid #C9D0D9;
