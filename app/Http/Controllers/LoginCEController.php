@@ -39,7 +39,8 @@ class LoginCEController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request;
+        //return "Si llega2";
     }
 
     /**
@@ -92,17 +93,14 @@ class LoginCEController extends Controller
      */
     public function update(Request $request)
     {
-      usuarioalumno::where('Usuario',$request->clave)->update(['Password'=>$request['contra']]);
-      return view('LoginA.index');
-      $usuario= usuarioCE::get();
+      //return $request;
+      //return "Si llega";
+      $usu=usuarioCE::all();
+      //return $usu;
+      usuarioCE::where('Usuario',$usu[0]->Usuario)->update(['Password'=>$request['contra']]);
+      return redirect('LoginControlEscolar')->with('msjC','Contraseña modificada correctamente');
+      //$usuario= usuarioCE::get();
       //return $usuario;
-
-
-      $usuario->Password=$request['contra'];
-
-      return $usuario;
-      $usu->Update();
-      return view('LoginCE.index');
     }
 
     /**

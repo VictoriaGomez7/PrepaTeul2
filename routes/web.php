@@ -130,6 +130,7 @@ Route::get('/ContraseñaCE' ,function(){
     return view('ControlEscolar.cambiarcontra');
 });
 Route::resource('ModificarcontraCe','LoginCEController');
+Route::get('ModificarcontraCe2','LoginCEController@update');
 
 
 
