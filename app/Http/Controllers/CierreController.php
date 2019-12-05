@@ -254,7 +254,125 @@ class CierreController extends Controller
                 $nK->Grupo=$todo[$i]->Grupo;
                 $nK->Semestre=$todo[$i]->Semestre;
                 $nK->save();
+
+
+
+                $SEM=Alumno::where('Clave_A',$todo[$i]->Clave_A)->get();
+                $PA=PeriodoAlumno::where('Clave_A',$todo[$i]->Clave_A)->get();
+                $dia=date("d");
+                $mes=date("n");
+                $año=date("Y");
                 
+                $PeriodoAD="AGOS/DIC/".$año;
+                $PeriodoEJ="FEB/JUL/".$año;
+
+                //$hoy = date("Y-m-d")
+                if (count($PA)==0)
+                {
+                    if ($SEM[0]->Semestre=="PRMER SEMESTRE")
+                    {
+                        $np=new PeriodoAlumno();
+                        $np->Clave_A=$todo[$i]->Clave_A;
+                        $np->PRIMERO=$PeriodoAD;
+                        $np->SEGUNDO=null;
+                        $np->TERCERO=null;
+                        $np->CUARTO=null;
+                        $np->QUINTO=null;
+                        $np->SEXTO=null;
+                        $np->save();
+                    }
+                    if ($SEM[0]->Semestre=="SEGUNDO SEMESTRE")
+                    {
+                        $np=new PeriodoAlumno();
+                        $np->Clave_A=$todo[$i]->Clave_A;
+                        $np->PRIMERO=null;
+                        $np->SEGUNDO=$PeriodoEJ;
+                        $np->TERCERO=null;
+                        $np->CUARTO=null;
+                        $np->QUINTO=null;
+                        $np->SEXTO=null;
+                        $np->save();
+                    }
+                    if ($SEM[0]->Semestre=="TERCER SEMESTRE")
+                    {
+                        $np=new PeriodoAlumno();
+                        $np->Clave_A=$todo[$i]->Clave_A;
+                        $np->PRIMERO=null;
+                        $np->SEGUNDO=null;
+                        $np->TERCERO=$PeriodoAD;
+                        $np->CUARTO=null;
+                        $np->QUINTO=null;
+                        $np->SEXTO=null;
+                        $np->save();
+                    }
+                    if ($SEM[0]->Semestre=="CUARTO SEMESTRE")
+                    {
+                        $np=new PeriodoAlumno();
+                        $np->Clave_A=$todo[$i]->Clave_A;
+                        $np->PRIMERO=null;
+                        $np->SEGUNDO=null;
+                        $np->TERCERO=null;
+                        $np->CUARTO=$PeriodoEJ;
+                        $np->QUINTO=null;
+                        $np->SEXTO=null;
+                        $np->save();
+                    }
+                    if ($SEM[0]->Semestre=="QUINTO SEMESTRE")
+                    {
+                        $np=new PeriodoAlumno();
+                        $np->Clave_A=$todo[$i]->Clave_A;
+                        $np->PRIMERO=null;
+                        $np->SEGUNDO=null;
+                        $np->TERCERO=null;
+                        $np->CUARTO=null;
+                        $np->QUINTO=$PeriodoAD;
+                        $np->SEXTO=null;
+                        $np->save();
+                    }
+                    if ($SEM[0]->Semestre=="SEXTO SEMESTRE")
+                    {
+                        $np=new PeriodoAlumno();
+                        $np->Clave_A=$todo[$i]->Clave_A;
+                        $np->PRIMERO=null;
+                        $np->SEGUNDO=null;
+                        $np->TERCERO=null;
+                        $np->CUARTO=null;
+                        $np->QUINTO=null;
+                        $np->SEXTO=$PeriodoEJ;
+                        $np->save();
+                    }
+
+                }
+                else
+                {
+
+                    if($SEM[0]->Semestre=="PRIMER SEMESTRE")
+                    {
+                        PeriodoAlumno::where('Clave_A',$todo[$i]->Clave_A)->update(['PRIMERO'=>$PeriodoAD]);
+                    }
+                    if($SEM[0]->Semestre=="SEGUNDO SEMESTRE")
+                    {
+                        PeriodoAlumno::where('Clave_A',$todo[$i]->Clave_A)->update(['SEGUNDO'=>$PeriodoEJ]);
+                    }
+                    if($SEM[0]->Semestre=="TERCER SEMESTRE")
+                    {
+                        PeriodoAlumno::where('Clave_A',$todo[$i]->Clave_A)->update(['TERCERO'=>$PeriodoAD]);
+                    }
+                    if($SEM[0]->Semestre=="CUARTO SEMESTRE")
+                    {
+                        PeriodoAlumno::where('Clave_A',$todo[$i]->Clave_A)->update(['CUARTO'=>$PeriodoEJ]);
+                    }
+                    if($SEM[0]->Semestre=="QUINTO SEMESTRE")
+                    {
+                        PeriodoAlumno::where('Clave_A',$todo[$i]->Clave_A)->update(['QUINTO'=>$PeriodoAD]);
+                    }
+                    if($SEM[0]->Semestre=="SEXTO SEMESTRE")
+                    {
+                        PeriodoAlumno::where('Clave_A',$todo[$i]->Clave_A)->update(['SEXTO'=>$PeriodoEJ]);
+                    }
+
+                }
+
                 CalificacionesParciales::where('ClaveM',$todo[$i]->ClaveM)->where('Clave_A',$todo[$i]->Clave_A)->delete();
                 Asistencia::where('Clave_A',$todo[$i]->Clave_A)->where('Materia',$todo[$i]->ClaveM)->delete();
             }

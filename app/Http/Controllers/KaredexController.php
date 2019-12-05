@@ -30,7 +30,7 @@ class KaredexController extends Controller
         if (count($NombreA)==0)
         {
 
-            return back()->with('msj','EL estudiante no existe.' );
+            return back()->with('msj','EL estudiante no existe' );
         }
         else
         {
@@ -81,30 +81,43 @@ class KaredexController extends Controller
             $infoA=Alumno::where('Clave_A', $request->id)->get();
             
             $Grup=Grupo::where('Clave_A', $request->id)->get();
-            
+            //return $Primer;
+            $Gr1="";
+            $Gr2="";
+            $Gr3="";
+            $Gr4="";
+            $Gr5="";
+            $Gr6="";
             if (count($Primer)>0)
             {
                 $var1=1;
+                $Gr1=$Primer[0]->Grupo;
             }
             if (count($Segund)>0)
             {
                 $var2=1;
+                $Gr2=$Segund[0]->Grupo;
             }
             if (count($Terce)>0)
             {
                 $var3=1;
+                $Gr3=$Terce[0]->Grupo;
             }
             if (count($Cuart)>0)
             {
                 $var4=1;
+                $Gr4=$Cuart[0]->Grupo;
             }
             if (count($Quint)>0)
             {
                 $var5=1;
+                $Gr5=$Quint[0]->Grupo;   
+
             }
             if (count($Sex)>0)
             {
                 $var6=1;
+                $Gr6=$Sex[0]->Grupo;
             }
             $seme=0;
             $semeft=0;
@@ -118,9 +131,9 @@ class KaredexController extends Controller
                 $semeft=1;
             } 
             //return $MATSex.$MATSex2.$MATSex3;
-            //return $MATTerceft;
+            //return $MATTerceft
             $Peri=PeriodoAlumno::where('Clave_A', $request->id)->get();
-            $pdf= PDF::loadView('Alumnos.pdf',compact('NombreA','infoA','Grup','ba','Primer','Segund','Terce','Cuart','Quint','Sex','MATPrimer','MATSegund','MATTerce','MATTerceft','MATCuart','MATCuartft','MATQuint','MATQuint2','MATQuint3','MATQuintft','MATSex','MATSex2','MATSex3','MATSexft','Peri','bachi','var1','var2','var3','var4','var5','var6','seme','semeft'));
+            $pdf= PDF::loadView('Alumnos.pdf',compact('NombreA','infoA','Grup','ba','Primer','Segund','Terce','Cuart','Quint','Sex','MATPrimer','MATSegund','MATTerce','MATTerceft','MATCuart','MATCuartft','MATQuint','MATQuint2','MATQuint3','MATQuintft','MATSex','MATSex2','MATSex3','MATSexft','Peri','bachi','var1','var2','var3','var4','var5','var6','seme','semeft','Gr1','Gr2','Gr3','Gr4','Gr5','Gr6'));
             return $pdf->stream();
             
         //return view('Alumnos.PDFKARDEX',compact('NombreA','infoA','Grup','bachi','kard'));

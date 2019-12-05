@@ -83,14 +83,12 @@
 
         <p style="position: absolute;top: 320px;left: 180px"><font size="1">PERIODO ESCOLAR:</font></p>
         @foreach($Peri as $Pe)
-        <p style="position: absolute;top: 318px;left: 574px"><font size="2">{{$Pe->PRIMERO}}</font></p>
+        <p style="position: absolute;top: 318px;left: 290px"><font size="1">{{$Pe->PRIMERO}}</font></p>
         @endforeach()
 
         <p style="position: absolute;top: 320px;left: 430px"><font size="1">GRUPO:</font></p>
 
-        @foreach($Grup as $GR)
-        <p style="position: absolute;top: 318px;left: 474px"><font size="2">{{$GR->Grupo}}</font></p>
-        @endforeach()
+        <p style="position: absolute;top: 320px;left: 474px"><font size="1">{{$Gr1}}</font></p>
         <br>
         <br>
         <br>
@@ -202,14 +200,12 @@
 
         <p style="position: absolute;left: 180px"><font size="1">PERIODO ESCOLAR:</font></p>
         @foreach($Peri as $Pe)
-        <p style="position: absolute;left: 574px"><font size="2">{{$Pe->PRIMERO}}</font></p>
+        <p style="position: absolute;left: 290px"><font size="1">{{$Pe->SEGUNDO}}</font></p>
         @endforeach()
 
         <p style="position: absolute;left: 430px"><font size="1">GRUPO:</font></p>
 
-        @foreach($Grup as $GR)
-        <p style="position: absolute;left: 474px"><font size="2">{{$GR->Grupo}}</font></p>
-        @endforeach()
+        <p style="position: absolute;left: 474px"><font size="1">{{$Gr2}}</font></p>
         <br>
         <br>
 <!--______ Tabla 2_________-->
@@ -318,14 +314,12 @@
 
         <p style="position: absolute;left: 180px"><font size="1">PERIODO ESCOLAR:</font></p>
         @foreach($Peri as $Pe)
-        <p style="position: absolute;left: 574px"><font size="2">{{$Pe->PRIMERO}}</font></p>
+        <p style="position: absolute;left: 290px"><font size="1">{{$Pe->TERCERO}}</font></p>
         @endforeach()
 
         <p style="position: absolute;left: 430px"><font size="1">GRUPO:</font></p>
 
-        @foreach($Grup as $GR)
-        <p style="position: absolute;left: 474px"><font size="1">{{$GR->Grupo}}</font></p>
-        @endforeach()
+        <p style="position: absolute;left: 474px"><font size="1">{{$Gr3}}</font></p>
         <br>
         <br>
         <form name="frame" style="width: 80%">
@@ -473,14 +467,12 @@
 
         <p style="position: absolute;left: 180px"><font size="1">PERIODO ESCOLAR:</font></p>
         @foreach($Peri as $Pe)
-        <p style="position: absolute;left: 574px"><font size="2">{{$Pe->PRIMERO}}</font></p>
+        <p style="position: absolute;left: 290px"><font size="1">{{$Pe->CUARTO}}</font></p>
         @endforeach()
 
         <p style="position: absolute;left: 430px"><font size="1">GRUPO:</font></p>
 
-        @foreach($Grup as $GR)
-        <p style="position: absolute;left: 474px"><font size="1">{{$GR->Grupo}}</font></p>
-        @endforeach()
+        <p style="position: absolute;left: 474px"><font size="1">{{$Gr4}}</font></p>
         <br>
         <br>
         <form name="frame" style="width: 80%">
@@ -628,14 +620,12 @@
 
         <p style="position: absolute;left: 180px"><font size="1">PERIODO ESCOLAR:</font></p>
         @foreach($Peri as $Pe)
-        <p style="position: absolute;left: 574px"><font size="2">{{$Pe->PRIMERO}}</font></p>
+        <p style="position: absolute;left: 290px"><font size="1">{{$Pe->QUINTO}}</font></p>
         @endforeach()
 
         <p style="position: absolute;left: 430px"><font size="1">GRUPO:</font></p>
 
-        @foreach($Grup as $GR)
-        <p style="position: absolute;left: 474px"><font size="1">{{$GR->Grupo}}</font></p>
-        @endforeach()
+        <p style="position: absolute;left: 474px"><font size="1">{{$Gr5}}</font></p>
         <br>
         <br>
         <form name="frame" style="width: 80%">
@@ -839,14 +829,12 @@
 
         <p style="position: absolute;left: 180px"><font size="1">PERIODO ESCOLAR:</font></p>
         @foreach($Peri as $Pe)
-        <p style="position: absolute;left: 574px"><font size="2">{{$Pe->PRIMERO}}</font></p>
+        <p style="position: absolute;left:290px"><font size="1">{{$Pe->SEXTO}}</font></p>
         @endforeach()
 
         <p style="position: absolute;left: 430px"><font size="1">GRUPO:</font></p>
 
-        @foreach($Grup as $GR)
-        <p style="position: absolute;left: 474px"><font size="1">{{$GR->Grupo}}</font></p>
-        @endforeach()
+        <p style="position: absolute;left: 474px"><font size="1">{{$Gr6}}</font></p>
         <br>
         <br>
         <form name="frame" style="width: 80%">
