@@ -78,14 +78,14 @@ body{
 
         <p></p>
         <h1></h1>
-        <input type="text" class="form-control" name="contra" placeholder="Contraseña" id="contra" aria-describedby="sizing-addon1" style="z-index: 0;">
+        <input type="password" class="form-control"  name="contra" minlength="8" maxlength="20" placeholder="Contraseña" id="contra" aria-describedby="sizing-addon1" style="z-index: 0;">
 <input id="clave" name="clave" type="hidden" value={{$usua}}>
-      
+
           </div>
 
 
   </div>
-  
+
     <button  class="btn btn-lg btn-primary btn-block btn-signin" type="submit" style="position: absolute;top:105%;left:0%">Modificar</button>
 
 
