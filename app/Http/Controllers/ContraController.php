@@ -58,7 +58,7 @@ class ContraController extends Controller
             $usu->Usuario=$request['clave'];
             $usu->Password=Crypt::encrypt($request['contra']);
             $usu->save();
-        return redirect('LoginAlumno')->with('msjC','Contraseña modificada correctamente');
+        return redirect('LoginAlumno')->with('msjC','Contraseña modificada correctamente.');
 
         }
         $maestros=usuariomaestro::where([['Usuario',$usua]])->get();
@@ -70,7 +70,7 @@ class ContraController extends Controller
             $usu->Usuario=$request['clave'];
             $usu->Password=Crypt::encrypt($request['contra']);
             $usu->save();
-        return redirect('LoginDocente')->with('msjC','Contraseña modificada correctamente');
+        return redirect('LoginDocente')->with('msjC','Contraseña modificada correctamente.');
 
         }
 

@@ -8,6 +8,7 @@ Use Session;
 Use Redirect;
 Use Alert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class LoginCEController extends Controller
 {
@@ -59,17 +60,15 @@ class LoginCEController extends Controller
             return back()->with('msj',' Usuario o Contraseña incorrecta' );
         }
         else{
-            $con= usuarioCE::where('Password', $request->Contraseña)->get();
-            //return $con;
-            if (count($con)==0)
+            $con= usuarioCE::where('Usuario', $request->Usuario)->get('Password');
+            $var=Crypt::decrypt($con[0]->Password);
+            if ($var==$request->Contraseña)
             {
-
-                return back()->with('msj',' Usuario o Contraseña incorrecta' );
+                return Redirect('/ControlEscolarInicio');
             }
             else{
 
-              //return view('ControlEscolar.CEprincipal2',compact('CE'));
-             return Redirect('/ControlEscolarInicio');
+                return back()->with('msj',' Usuario o Contraseña incorrecta' );
             }
         }
     }
@@ -93,14 +92,9 @@ class LoginCEController extends Controller
      */
     public function update(Request $request)
     {
-      //return $request;
-      //return "Si llega";
-      $usu=usuarioCE::all();
-      //return $usu;
-      usuarioCE::where('Usuario',$usu[0]->Usuario)->update(['Password'=>$request['contra']]);
-      return redirect('LoginControlEscolar')->with('msjC','Contraseña modificada correctamente');
-      //$usuario= usuarioCE::get();
-      //return $usuario;
+        $usu=usuarioCE::all();
+        usuarioCE::where('Usuario',$usu[0]->Usuario)->update(['Password'=>Crypt::encrypt($request['contra'])]);
+        return redirect('LoginControlEscolar')->with('msjC','Contraseña modificada correctamente.');
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Crypt;
 
 class PoblarUsuarioCE extends Seeder
 {
@@ -13,7 +14,7 @@ class PoblarUsuarioCE extends Seeder
     {
         DB::table('usuario_c_e_s')->insert([
             'Usuario' => 'controlescolar',
-            'Password'=>'12345'
+            'Password'=>Crypt::encrypt('ServiciosEscolares')
         ]);
     }
 }

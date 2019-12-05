@@ -16,7 +16,7 @@ class CreateUsuarioCESTable extends Migration
         Schema::create('usuario_c_e_s', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Usuario')->unique();
-            $table->string('Password');
+            $table->string('Password',3500);
             $table->timestamps();
         });
     }
