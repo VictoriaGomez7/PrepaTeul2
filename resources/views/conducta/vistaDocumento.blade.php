@@ -10,10 +10,12 @@
      
         
 
-          <img src="{{public_path('images\LogoPrepaTeul.jpg')}}" style="height:100px;  left: 10px">
-       
-      <br>
-      <br>
+        <div class="ContenImages" id="unouno" style="width:100%">
+            <img style="width:30% ;height: 100%" class="card-img-top" src="images/{{$ImagenesEnDB[0]->Imagen}}">
+            <img style="width:28% ;height: 100%" class="card-img-top" src="images/{{$ImagenesEnDB[1]->Imagen}}">
+            <img style="width:25% ;height: 100%" class="card-img-top" src="images/{{$ImagenesEnDB[2]->Imagen}}">
+            <img style="width:15% ;height: 100%" class="card-img-top" src="images/{{$ImagenesEnDB[3]->Imagen}}">
+        </div>
         </head>
 <body>
 

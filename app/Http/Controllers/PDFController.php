@@ -8,6 +8,7 @@ use App\compromisoEstudiante;
 use App\compromisosFamilia;
 use App\Alumno;
 use App\Requisito;
+use App\Logos;
 use DB;
 use PDF;
 use Session;
@@ -54,7 +55,8 @@ class PDFController extends Controller
 
                  $compromisos2=compromisosFamilia::take(100)->get();
                  $compromisos=compromisoEstudiante::take(100)->get();
-                 $pdf= PDF::loadView('Inscripcion.show0',compact('compromisos','row','compromisos2','req'));
+                 $ImagenesEnDB=Logos::all();
+                 $pdf= PDF::loadView('Inscripcion.show0',compact('compromisos','row','compromisos2','req','ImagenesEnDB'));
 
                  return $pdf->stream();
           }
@@ -71,7 +73,8 @@ class PDFController extends Controller
 
             $compromisos2=compromisosFamilia::take(100)->get();
              $compromisos=compromisoEstudiante::take(100)->get();
-             $pdf= PDF::loadView('Inscripcion.show',compact('compromisos','row','compromisos2','req'));
+             $ImagenesEnDB=Logos::all();
+             $pdf= PDF::loadView('Inscripcion.show',compact('compromisos','row','compromisos2','req','ImagenesEnDB'));
 
            return $pdf->stream();
           }

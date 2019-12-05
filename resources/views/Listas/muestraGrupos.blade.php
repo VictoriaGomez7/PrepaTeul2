@@ -9,13 +9,12 @@
      
         
 
-          <img src="{{public_path('images\logo_Zacatecas.jpg')}}" style="width: 120px; height: 50px;position: absolute;top: 35px; left: 10px">
-        <img src="{{public_path('images/logo_Prepas.png')}}" style="width: 100px; height: 70px; position: absolute;top: 35px; left: 380px"> <!-- EL left es de manera horizontal-->
-        <img src="{{public_path('images/datos_Prepa_Negro.jpg')}}" style="width: 180px; height: 80px; position: absolute;top: 35px; left: 150px"> <!-- EL left es de manera horizontal-->
-        <img src="{{public_path('images/logo_Prepa_Teul.jpg')}}" style="width: 123px; height: 129px; position: absolute;top: 5px; left: 550px">
-        <br>
-        <br>
-        <br><br>
+        <div class="ContenImages" id="unouno" style="width:100%">
+            <img style="width:30% ;height: 100%" class="card-img-top" src="images/{{$ImagenesEnDB[0]->Imagen}}">
+            <img style="width:28% ;height: 100%" class="card-img-top" src="images/{{$ImagenesEnDB[1]->Imagen}}">
+            <img style="width:25% ;height: 100%" class="card-img-top" src="images/{{$ImagenesEnDB[2]->Imagen}}">
+            <img style="width:15% ;height: 100%" class="card-img-top" src="images/{{$ImagenesEnDB[3]->Imagen}}">
+        </div>
 <body>
 
     <br>

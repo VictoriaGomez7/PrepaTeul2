@@ -8,6 +8,7 @@ use PDF;
 use Session;
 use App\Alumno;
 use App\ft_bach;
+use App\Logos;
 class ImprimeCartaController extends Controller
 {
     //
@@ -117,8 +118,8 @@ class ImprimeCartaController extends Controller
             else if($promedio==10){
                 array_push($dato, "EXCELENTE"); 
             }
-
-            $pdf= PDF::loadView('conducta.vistaDocumento' ,compact('dato','fecha3'));
+            $ImagenesEnDB=Logos::all();
+            $pdf= PDF::loadView('conducta.vistaDocumento' ,compact('dato','fecha3','ImagenesEnDB'));
             return $pdf->stream();
            //return view('conducta.vistaDocumento' ,compact('dato'));
         }

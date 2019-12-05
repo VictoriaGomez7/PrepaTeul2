@@ -7,14 +7,14 @@
 
 @section('content')
 @if (session()->has('msj'))
-	<div class="alert alert-danger" role="alert" style="width: 30%; position:  absolute;top: 28%; left: 35%;z-index: 1;">
+	<div class="alert alert-danger" role="alert" style="width: 28%; position:  absolute;top: 28%; left: 37%;z-index: 1;">
 		<button type="button" class="close" data-dismiss="alert" >&times;</button>
 		<strong>¡Error! </strong>{{session('msj')}}
 	</div>
 @endif
 
 @if (session()->has('msjC'))
-	<div class="alert alert-success" role="alert" style="width: 30%; position:  absolute;top: 28%; left: 35%;z-index: 1;">
+	<div class="alert alert-success" role="alert" style="width: 28%; position:  absolute;top: 28%; left: 37%;z-index: 1;">
 		<button type="button" class="close" data-dismiss="alert" >&times;</button>
 		<strong>¡Correcto! </strong>{{session('msjC')}}
 	</div>
@@ -32,7 +32,7 @@ body{
  * a la izquierda y derecha
  */
 #Contenedor{
-	width: 400px;
+	width: 28%;
 	margin: 50px auto;
 	background-color: #F3EDED;
         border: 1px solid #ECE8E8;
@@ -103,7 +103,7 @@ body{
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	</head>
 	<body>
-		<div id="Contenedor" style="position: absolute;top: 25%; left: 37%">
+		<div id="Contenedor" style="position: absolute;top: 30%; left: 37%">
 			<div class="Icon">
 	        	<!--Icono de usuario-->
 	            <span class="glyphicon glyphicon-user"></span>

@@ -30,7 +30,7 @@ class KaredexController extends Controller
         if (count($NombreA)==0)
         {
 
-            return back()->with('msj','EL estudiante no existe' );
+            return back()->with('msj','EL estudiante no existe.' );
         }
         else
         {

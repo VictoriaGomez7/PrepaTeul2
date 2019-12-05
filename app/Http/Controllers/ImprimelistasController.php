@@ -9,7 +9,7 @@ use App\ft_bach;
 use App\formaciones;
 use App\Bachilleratos;
 use Illuminate\Support\Facades\DB;
-
+use App\Logos;
 
 use PDF;
 use Session;
@@ -119,7 +119,8 @@ class ImprimelistasController extends Controller
             }
             if(count($listaA)>0){
                 $titulo=$semestre . " GRUPO ".$r->Grupo;
-                 $pdf= PDF::loadView('Listas.muestraGrupos',compact('listaA','semestre','titulo'));
+                $ImagenesEnDB=Logos::all();
+                 $pdf= PDF::loadView('Listas.muestraGrupos',compact('listaA','semestre','titulo','ImagenesEnDB'));
              return $pdf->stream();
             }else{
                  return back()->with('msj2','No hay alumnos registrados.');
@@ -149,8 +150,8 @@ class ImprimelistasController extends Controller
       $titulo=$semestre . " ".$r->formacionT;
 
         if(count($listaA)>0){
-
-                 $pdf= PDF::loadView('Listas.muestraGrupos',compact('listaA','semestre','titulo'));
+                $ImagenesEnDB=Logos::all();
+                 $pdf= PDF::loadView('Listas.muestraGrupos',compact('listaA','semestre','titulo','ImagenesEnDB'));
        
        return $pdf->stream();
 
@@ -179,8 +180,8 @@ class ImprimelistasController extends Controller
                           AND alumnos.Semestre= :sem" ,['sem'=>$semestre   , 'bachillerato'=>$bachillerato]);
          if(count($listaA)>0){
          $titulo=$semestre . " ".$r->bachilleratoT;
-
-      $pdf= PDF::loadView('Listas.muestraGrupos',compact('listaA','semestre','titulo'));
+         $ImagenesEnDB=Logos::all();
+      $pdf= PDF::loadView('Listas.muestraGrupos',compact('listaA','semestre','titulo','ImagenesEnDB'));
        
        return $pdf->stream();
         }else{

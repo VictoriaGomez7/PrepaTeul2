@@ -213,6 +213,7 @@ class AlumnosController extends Controller
      */
     public function update($id)
     {
+
         $CAlumno = Alumno::where('Clave_A', $id)->get();
         $Requisitos = Requisito::where('Clave_A', $id)->get();
         $bachis=ft_bach::where('Clave_A',$id)->get();
