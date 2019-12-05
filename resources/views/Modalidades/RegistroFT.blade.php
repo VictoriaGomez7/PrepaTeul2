@@ -40,7 +40,7 @@
             @csrf
       <label style="font-size:150%;position: absolute;top: 5%; left: 15%; width: 30%;height:65%;">Nombre:</label>
   <input 
-   id="Nombre_B" name="Nombre_FT" style="font-size:150%;position: absolute;top: 5%; left: 30%; width: 30%;"
+   id="Nombre_B" name="Nombre_FT" required="true" style="font-size:150%;position: absolute;top: 5%; left: 30%; width: 30%;"
     />
 
 
@@ -83,7 +83,7 @@ function mostrar(id) {
 
   <label style="font-size:130%; position: absolute;top: 10%; left: -6%;">Nombre:</label>
   <input 
-   id="Nombre_B" name="Nombre_FT" value="{{$doc->Nombre_FT}}" style="font-size:130%; position: absolute;top: 10%; left: 15%;"
+   id="Nombre_B" name="Nombre_FT" required="true" value="{{$doc->Nombre_FT}}" style="font-size:130%; position: absolute;top: 10%; left: 15%;"
     />
     <input name='id' value='{{$doc->id}} 'style="visibility:hidden;"></input>
 <button class="btn btn-primary" style="position: absolute;top: 8%; left: 75%;">Modificar</button>
