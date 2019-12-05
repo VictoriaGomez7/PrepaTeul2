@@ -60,12 +60,10 @@
         </table>
         <h1 style="font-size:100%; position: absolute;top: 75%; left: 1%">Observaciones:</h1>
         
-        <pre align="center" style="position: absolute;top: 91%; left: 1%">“Los datos personales proporcionados y contenidos en el presente formato, 
-serán tratados de conformidad a lo que establece la Ley de Protección de
-Datos Personales en posesión de los sujetos obligados del Estado de 
-Zacatecas y el aviso de privacidad de la Secretaría de Educación de 
-Zacatecas, el cual podrá consultar en la dirección electrónica: 
-http://www.seduzac.gob.mx/portal/avisos_privacidad.php”</pre>
+
+<center>
+        <p style="text-align:justify; position: absolute;top: 91%; left: 1%">“Los datos personales proporcionados y contenidos en el presente formato, serán tratados de conformidad a lo que establece la Ley de Protección de Datos Personales en posesión de los sujetos obligados del Estado de Zacatecas y el aviso de privacidad de la Secretaría de Educación de Zacatecas, el cual podrá consultar en la dirección electrónica: http://www.seduzac.gob.mx/portal/avisos_privacidad.php”</p>
+</center>
       @endforeach
 
     @elseif($Opcion==2)
@@ -99,12 +97,10 @@ http://www.seduzac.gob.mx/portal/avisos_privacidad.php”</pre>
         </table>
         <h1 style="font-size:100%; position: absolute;top: 75%; left: 1%">Observaciones:</h1>
 
-        <pre align="center" style="position: absolute;top: 91%; left: 1%">“Los datos personales proporcionados y contenidos en el presente formato, 
-serán tratados de conformidad a lo que establece la Ley de Protección de
-Datos Personales en posesión de los sujetos obligados del Estado de 
-Zacatecas y el aviso de privacidad de la Secretaría de Educación de 
-Zacatecas, el cual podrá consultar en la dirección electrónica: 
-http://www.seduzac.gob.mx/portal/avisos_privacidad.php”</pre>
+
+<center>
+        <p style="text-align:justify; position: absolute;top: 91%; left: 1%">“Los datos personales proporcionados y contenidos en el presente formato, serán tratados de conformidad a lo que establece la Ley de Protección de Datos Personales en posesión de los sujetos obligados del Estado de Zacatecas y el aviso de privacidad de la Secretaría de Educación de Zacatecas, el cual podrá consultar en la dirección electrónica: http://www.seduzac.gob.mx/portal/avisos_privacidad.php”</p>
+</center>
       @endforeach
 
     @elseif($Opcion==3)
@@ -139,13 +135,10 @@ http://www.seduzac.gob.mx/portal/avisos_privacidad.php”</pre>
           @endforeach
         </table>
         <h1 style="font-size:100%; position: absolute;top: 75%; left: 1%">Observaciones:</h1>
-        
-        <pre align="center" style="position: absolute;top: 91%; left: 1%">“Los datos personales proporcionados y contenidos en el presente formato, 
-serán tratados de conformidad a lo que establece la Ley de Protección de
-Datos Personales en posesión de los sujetos obligados del Estado de 
-Zacatecas y el aviso de privacidad de la Secretaría de Educación de 
-Zacatecas, el cual podrá consultar en la dirección electrónica: 
-http://www.seduzac.gob.mx/portal/avisos_privacidad.php”</pre>
+
+<center>
+        <p style="text-align:justify; position: absolute;top: 91%; left: 1%">“Los datos personales proporcionados y contenidos en el presente formato, serán tratados de conformidad a lo que establece la Ley de Protección de Datos Personales en posesión de los sujetos obligados del Estado de Zacatecas y el aviso de privacidad de la Secretaría de Educación de Zacatecas, el cual podrá consultar en la dirección electrónica: http://www.seduzac.gob.mx/portal/avisos_privacidad.php”</p>
+</center>
       @endforeach
 
       @foreach($Nombres_B as $Alum_B)
@@ -178,12 +171,10 @@ http://www.seduzac.gob.mx/portal/avisos_privacidad.php”</pre>
         </table>
         <h1 style="font-size:100%; position: absolute;top: 75%; left: 1%">Observaciones:</h1>
 
-        <pre align="center" style="position: absolute;top: 91%; left: 1%">“Los datos personales proporcionados y contenidos en el presente formato, 
-serán tratados de conformidad a lo que establece la Ley de Protección de
-Datos Personales en posesión de los sujetos obligados del Estado de 
-Zacatecas y el aviso de privacidad de la Secretaría de Educación de 
-Zacatecas, el cual podrá consultar en la dirección electrónica: 
-http://www.seduzac.gob.mx/portal/avisos_privacidad.php”</pre>
+
+<center>
+        <p style="text-align:justify; position: absolute;top: 91%; left: 1%">“Los datos personales proporcionados y contenidos en el presente formato, serán tratados de conformidad a lo que establece la Ley de Protección de Datos Personales en posesión de los sujetos obligados del Estado de Zacatecas y el aviso de privacidad de la Secretaría de Educación de Zacatecas, el cual podrá consultar en la dirección electrónica: http://www.seduzac.gob.mx/portal/avisos_privacidad.php”</p>
+</center>
       @endforeach
 
     @endif

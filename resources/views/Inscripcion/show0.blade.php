@@ -264,6 +264,11 @@ width: 20px;
           <pre>__________________________                   __________________________</pre>
           <pre>Firma del padre o tutor                    Firma de la madre o tutor</pre>
         </center>
+        <br>
+        <br>
+        <center>
+        <p style="text-align:justify">“Los datos personales proporcionados y contenidos en el presente formato, serán tratados de conformidad a lo que establece la Ley de Protección de Datos Personales en posesión de los sujetos obligados del Estado de Zacatecas y el aviso de privacidad de la Secretaría de Educación de Zacatecas, el cual podrá consultar en la dirección electrónica: http://www.seduzac.gob.mx/portal/avisos_privacidad.php”</p>
+</center>
       </body>
       </html>
 
