@@ -13,6 +13,8 @@
       <button type="button" class="close" data-dismiss="alert" ><span>&times;</span></button>
       <strong>¡Error! </strong>{{session('msj2')}}
     </div>
+  <div style=" width: 80%; background-color:#aaa">
+   
   @endif
    @include('compromisos.mostrar')
   {!! Form::open(['route'=>'compromisos.store','method'=>'POST','files'=>true]) !!}

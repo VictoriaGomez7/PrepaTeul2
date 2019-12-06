@@ -61,7 +61,7 @@ class compromisoEstudianteController extends Controller
          $compromisos="";
         
 
-            $compromiso=new compromisoEstudiante();
+        $compromiso=new compromisoEstudiante();
          $comp=$r->compromiso;
          $base=compromisoEstudiante::find($comp);
        
@@ -74,11 +74,11 @@ class compromisoEstudianteController extends Controller
        
        }else{
             $c='';
-            return redirect()->route('compromisos.index')->with('status',$c);
+            return redirect()->route('compromisos.index')->with('status',$c)->with('Correcto','Compromiso Guardado Correctamente');
         }
         }
            $compromisos=compromisoEstudiante::take(100)->get();
-            return redirect()->route('compromisos.index')->with('status',$compromisos);
+            return redirect()->route('compromisos.index')->with('status',$compromisos)->with('Correcto','Compromiso Guardado Correctamente');
         }
         else if($r->editar){
                 $compromisoEstudiante=compromisoEstudiante::take(100)->get();
@@ -91,7 +91,7 @@ class compromisoEstudianteController extends Controller
                     $compromiso->save();
                     $compromisoEstudiante=compromisoEstudiante::take(100)->get();
                     $compromisos= compromisoEstudiante::take(100)->get();
-                    return redirect('formatoestudiantes' )->with('compromiso','compromisos');
+                    return redirect('formatoestudiantes' )->with('compromiso','compromisos')->with('Editado','Compromiso Editado Correctamente');
             }
             else{
                 $compromisos= compromisoEstudiante::take(100)->get();
@@ -113,7 +113,7 @@ class compromisoEstudianteController extends Controller
                     
                     $compromisoEstudiante=compromisoEstudiante::take(100)->get();
                     $compromisos= compromisoEstudiante::take(100)->get();  
-                        return redirect('formatoestudiantes' )->with('compromiso','compromisos');
+                        return redirect('formatoestudiantes' )->with('compromiso','compromisos')->with('Eliminado','Compromiso Eliminado Correctamente');
                 }
                 else{
                     $compromisos= compromisoEstudiante::take(100)->get();  
