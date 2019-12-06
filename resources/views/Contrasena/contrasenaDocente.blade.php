@@ -131,7 +131,7 @@ body{
 		</div>
 		<div class="input-group input-group-lg">
 
-			<input type="text" id="claveId" name="Clave_M" class="form-control" placeholder="" aria-describedby="sizing-addon1" required style="z-index: 0;">
+			<input type="text" id="claveId" name="Clave_M" class="form-control" placeholder="Clave o Nombre"  aria-describedby="sizing-addon1" required style="z-index: 0; " >
 		</div>
 		
 

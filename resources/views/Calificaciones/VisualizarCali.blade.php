@@ -93,7 +93,7 @@
 						            @if($PeriodoActivo==1)
 						            	<td><input type="number" id="Cal1{{$Con_cal}}" onkeyup="calificacionesp1()" step="0.1" name="Calif1[]" min="0" max="10" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
 
-						            	<td><input required type="number"min="0"name="Faltas[]" style="width: 100%;" ></td>
+						            	<td><input required type="number"min="0" value="{{$Faltas_Extraidas[$Con_cal]->Faltas}}" name="Faltas[]" style="width: 100%;" ></td>
 
 						            	<?php if ($contador_Clases==0){ ?>
 
@@ -133,7 +133,7 @@
 					            		} else {
 					            			$promedi=round($promedi);
 					            		} ?>
-						 				<td><input required disabled id="Promedofinal{{$Con_cal}}" value="{{$promedi}}" type="number"min="0"name="Promedofinal" style="width: 50%;" ></td>
+						 				<td><input required disabled id="Promedofinal{{$Con_cal}}" value="{{$promedi}}" type="number"min="0"name="Promedofinal[]" style="width: 50%;" > <input required hidden="" id="Promedofinal{{$Con_cal}}" value="{{$promedi}}" type="number"min="0"name="Promedofinal[]" style="width: 50%;" ></td>
 
 					            	
 
@@ -168,7 +168,7 @@
 
 							 			<?php } ?>
 
-							 			<td><input required disabled type="number"min="0" id="Promedo1{{$Con_cal}}" name="Promedo1" value="{{($Calif_Extraidas[$Con_cal]->Parcial1+$Calif_Extraidas[$Con_cal]->Parcial2)/2}}" style="width: 50%;" ></td>
+							 			<td><input required disabled type="number"min="0" id="Promedo1{{$Con_cal}}" name="Promedo1" value="{{($Calif_Extraidas[$Con_cal]->Parcial1+$Calif_Extraidas[$Con_cal]->Parcial2)/2}}" style="width: 50%;" > </td>
 
 					            		<td><input disabled="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}" >
 					            		<input hidden="" type="number" step="0.1" min="0"  max="10" name="Semestral[]" value="{{$Calif_Extraidas[$Con_cal]->Semestral}}" ></td>
@@ -180,7 +180,7 @@
 					            		} else {
 					            			$promedi=round($promedi);
 					            		} ?>
-					            		<td><input required id="Promedofinal{{$Con_cal}}" disabled value="{{$promedi}}" type="number"min="0"name="Promedofinal" style="width: 50%;" ></td>
+					            		<td><input required id="Promedofinal{{$Con_cal}}" disabled value="{{$promedi}}" type="number"min="0"name="Promedofinal" style="width: 50%;" > </td>
 					            		
 					            		
 

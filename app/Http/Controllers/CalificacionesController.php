@@ -73,7 +73,6 @@ class CalificacionesController extends Controller
      */
     public function store(Request $request)
     {
-
         $PeriodoActivo=0;
         $Periodo1ini=Periodo::where('id','1')->get('fecha1');
         $Periodo1fin=Periodo::where('id','1')->get('fecha2');
@@ -212,8 +211,9 @@ class CalificacionesController extends Controller
 
         $Grupo_Seleccionado=$request->Grupo;
         $Calif_Extraidas=CalificacionesParciales::where('ClaveM',$request->ClaveMateriaSelec)->where('Grupo',$Grupo_Seleccionado)->get();
+        $Faltas_Extraidas=Asistencia::where('Materia',$request->ClaveMateriaSelec)->where('Grupo',$Grupo_Seleccionado)->get();
         view('DocenteInterfazPrincipal.InterfazPrincipal',compact('usua'));
-        return view('Calificaciones.VisualizarCali',compact('MateriasDelDocente','AlumnosEnMismoSemestre','visibility','id','usua','Materiasele','PeriodoActivo','Calif_Extraidas','Grupo_Seleccionado'));
+        return view('Calificaciones.VisualizarCali',compact('Faltas_Extraidas','MateriasDelDocente','AlumnosEnMismoSemestre','visibility','id','usua','Materiasele','PeriodoActivo','Calif_Extraidas','Grupo_Seleccionado'));
 
 
     }
@@ -248,6 +248,7 @@ class CalificacionesController extends Controller
     {
       //return "Si llega";
         //return $id->Periodo;
+        //return $id;
         $Reprobados=0;
         $Aprobados=0;
         $now= Carbon::now();
@@ -310,16 +311,46 @@ class CalificacionesController extends Controller
                         $Aprobados+=1;
                     }
                 }
-
+                 $prom=($Calificaciones_1[$i]+$Calificaciones_2[$i])/2.0;
+                    $prom2=$prom/2;
+                    if ($prom<5){
+                        $prom=5;
+                    }
+                    if ($prom2>6 && $prom2<10) {
+                        $prom2=round($prom2);
+                       
+                    } else if ($prom>10) {
+                        $prom2=10;
+                        
+                    }else{
+                        $prom2=5;                   
+                    }
                 if ($banFaltas==False){
+                    if ($id->Periodo==1){ 
+                   
+
                     $Asisten=$TotalClases-$Faltas[$i];
                     CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial1'=>$Calificaciones_1[$i]]);
                     CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial2'=>$Calificaciones_2[$i]]);
                     CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Semestral'=>$Semestral[$i]]);
-                    Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Asistencias'=>$Asisten]);
-                    Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Faltas'=>$Faltas[$i]]);
-                    Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Periodo'=>$id->Periodo]);
-                    Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['PorcentajeAsistencias'=>(($Asisten*100)/$TotalClases)]);
+                    CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['PromedioParcial'=>$prom]);
+                    CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['PromedioFinal'=>$prom2]);
+
+                    Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->where('Periodo',1)->update(['Asistencias'=>$Asisten]);
+                    Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->where('Periodo',1)->update(['Faltas'=>$Faltas[$i]]);
+                    Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->where('Periodo',1)->update(['PorcentajeAsistencias'=>(($Asisten*100)/$TotalClases)]);
+                } else {
+                    $Asisten=$TotalClases-$Faltas[$i];
+                    CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial1'=>$Calificaciones_1[$i]]);
+                    CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Parcial2'=>$Calificaciones_2[$i]]);
+                    CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['Semestral'=>$Semestral[$i]]);
+                    CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['PromedioParcial'=>$prom]);
+                    CalificacionesParciales::where('ClaveM',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->update(['PromedioFinal'=>$prom2]);
+
+                    Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->where('Periodo',2)->update(['Asistencias'=>$Asisten]);
+                    Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->where('Periodo',2)->update(['Faltas'=>$Faltas[$i]]);
+                    Asistencia::where('Materia',$id->ClaveM)->where('Clave_A',$Claves_Alumnos[$i])->where('Grupo',$id->Grupo_Selec)->where('Periodo',2)->update(['PorcentajeAsistencias'=>(($Asisten*100)/$TotalClases)]);
+                }
                 }
                 else{
                     $Asisten=$TotalClases-$Faltas[$i];

@@ -13,7 +13,7 @@
     <body>
 
       <!-- ESTO ES PARA AGREGAR LAS IMAGENES DE LOS LOGOS -->
-      <img src="{{public_path('images\logo_Zacatecas.jpg')}}" style="width: 300px; height: 100px;position: absolute;top: 4px; left: 28%">
+      <img style="width: 300px; height: 100px;position: absolute;top: 4px; left: 28%" class="card-img-top" src="images/{{$ImagenesEnDB[0]->Imagen}}">
       <br>
       <br>
       <br><br><br>
@@ -23,7 +23,7 @@
         <h3 style="position: absolute;top: 135px;left: 100px">KÁRDEX DEL ALUMNO DE EDUCACIÓN MEDIA SUPERIOR</h3>
         <br>
       </center>
-        <p style="position: absolute;top: 175px;left: 10px"><font size="2">ESCULEA PREPARATORIA ESTATAL "GONZÁLEZ ORTEGA"</font></p>
+        <p style="position: absolute;top: 175px;left: 10px"><font size="2">ESCUELA PREPARATORIA ESTATAL "GONZÁLEZ ORTEGA"</font></p>
         <p style="position: absolute;top: 160px;left: 550px"><font size="2">32EBH0011K</font></p>
 
         <p style="position: absolute;top: 160px;left: 10px">_____________________________________________________________________________________</p>

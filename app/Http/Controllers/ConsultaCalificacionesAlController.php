@@ -17,19 +17,20 @@ class ConsultaCalificacionesAlController extends Controller
      */
     public function index(Request $request)
     {
-        //return 'Aqui';
-
+        
         $usua=$_GET['valor'];
-
         //$usua=$request->valor;
-        $Asist=Asistencia::where('Clave_A',$request->valor)->get();
+        $Asist=Asistencia::where('Clave_A',$usua)->where('Periodo',1)->get();
+        $Asist2=Asistencia::where('Clave_A',$usua)->where('Periodo',2)->get();
         $mat=Materia::all();
         $NombreDoc=Alumno::where('Clave_A',$request->valor)->get();
         $cali=CalificacionesParciales::where('Clave_A',$request->valor)->get();
         $nombre=$NombreDoc[0]->Nombre_A;
-        //return $Asist;
-
-        return view('Calificaciones.ConsultaAl',compact('mat','cali','nombre','usua','Asist'));
+      
+        //return $Asist2;
+        return view('Calificaciones.ConsultaAl',compact('mat','cali','nombre','usua','Asist','Asist2'));
+        
+    
     }
 
     /**

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-@extends('layouts.app')
-@include('interfazprincipal.image')
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -8,11 +7,12 @@
      <link rel="stylesheet" type="text/css" href="/css/estilos2.css">
       <link rel="stylesheet" type="text/css" href="/css/image.css">
      <link rel="icon" href="/images/images.ico">
-
+@extends('layouts.app')
 	<title>Alumno Inicio</title>
 </head>
 <body>
 
+@include('interfazprincipal.image')
 	<header>
 		<?php use App\Alumno;
 			$usua=$_GET['valor'];

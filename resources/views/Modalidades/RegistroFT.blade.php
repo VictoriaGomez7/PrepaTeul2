@@ -33,7 +33,7 @@
 
 <body>
 
-  <div class="card-header text-center" style="font-size:200%;width: 50%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 25%;" >{{ __('Registro de Formaciones para el trabajo') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
+  <div class="card-header text-center" style="font-size:200%;width: 50%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 25%;" >{{ __('Registro de formaciones para el trabajo') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
     <div style="position: absolute;top: 62%; left: 25%; width: 50%;height:40%; background-color:#aaa">
 {!! Form::open(['route'=>'Formaciones.create','method'=>'GET'])!!}
 

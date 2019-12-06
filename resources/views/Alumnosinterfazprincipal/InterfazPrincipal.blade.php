@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-@extends('layouts.app')
-@include('interfazprincipal.image')
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -9,16 +8,17 @@
       <link rel="stylesheet" type="text/css" href="/css/image.css">
      <link rel="icon" href="/images/images.ico">
 
+@extends('layouts.app')
 	<title>Alumno Inicio</title>
 </head>
 <body>
-
+@include('interfazprincipal.image')
 
 	<header>
 		<?php use App\Alumno;
 			$Alumnos=Alumno::where('Clave_A',$usua)->get('Nombre_A');
 		?>
-		<div class="alert alert-success" role="alert" style="width: 90%; position:  absolute;top: 45%; left: 5%;z-index: 1;">
+		<div class="alert alert-success" role="alert" style="width: 90%; position:  absolute;top: 35%; left: 5%;z-index: 1;">
 				<button class="close" data-dismiss="alert"><span>&times;</span></button>
 				<strong>Bienvenido </strong> {{$Alumnos[0]->Nombre_A}}
 			</div>

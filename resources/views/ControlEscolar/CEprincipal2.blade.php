@@ -103,6 +103,7 @@
                     <li><a href="#" >Servicios Escolares</a>
 						<ul class="submenu">
 							<li><a href="http://127.0.0.1:8000/ContraseñaCE">Cambiar Contraseña</a>
+							<li><a href="http://127.0.0.1:8000/Correo">Correo</a>
 							<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESIÓN</a>
 						</ul>
 					</li>

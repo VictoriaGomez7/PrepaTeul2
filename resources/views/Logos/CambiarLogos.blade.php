@@ -15,7 +15,7 @@
   @endif
 <body>
 	 <div class="alert alert-danger" role="alert" style="width: 90%; position:  absolute; top: 49%; left: 5%;z-index: 1;">
-                <button class="close" data-dismiss="alert"><span>&times;</span></button>
+            
                 <strong>AVISO: Procure seleccionar imágenes en formato JPG o PNG, no colocar imagenes de peso mayor a 1.5 MB, el tamaño de la misma puede afectar la visualización del sistema. </strong>
             </div>
 	<div style="position:  absolute;top: 70%; left: 2%;">

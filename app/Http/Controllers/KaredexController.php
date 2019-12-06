@@ -10,6 +10,7 @@ use App\ft_bach;
 use App\Grupo;
 use App\PeriodoAlumno;
 use App\Materia;
+use App\Logos;
 use DB;
 use PDF;
 use Session;
@@ -133,7 +134,8 @@ class KaredexController extends Controller
             //return $MATSex.$MATSex2.$MATSex3;
             //return $MATTerceft
             $Peri=PeriodoAlumno::where('Clave_A', $request->id)->get();
-            $pdf= PDF::loadView('Alumnos.pdf',compact('NombreA','infoA','Grup','ba','Primer','Segund','Terce','Cuart','Quint','Sex','MATPrimer','MATSegund','MATTerce','MATTerceft','MATCuart','MATCuartft','MATQuint','MATQuint2','MATQuint3','MATQuintft','MATSex','MATSex2','MATSex3','MATSexft','Peri','bachi','var1','var2','var3','var4','var5','var6','seme','semeft','Gr1','Gr2','Gr3','Gr4','Gr5','Gr6'));
+            $ImagenesEnDB=Logos::all();
+            $pdf= PDF::loadView('Alumnos.pdf',compact('NombreA','infoA','Grup','ba','Primer','Segund','Terce','Cuart','Quint','Sex','MATPrimer','MATSegund','MATTerce','MATTerceft','MATCuart','MATCuartft','MATQuint','MATQuint2','MATQuint3','MATQuintft','MATSex','MATSex2','MATSex3','MATSexft','Peri','bachi','var1','var2','var3','var4','var5','var6','seme','semeft','Gr1','Gr2','Gr3','Gr4','Gr5','Gr6','ImagenesEnDB'));
             return $pdf->stream();
             
         //return view('Alumnos.PDFKARDEX',compact('NombreA','infoA','Grup','bachi','kard'));

@@ -17,8 +17,10 @@ class Calificaciones2Seeder extends Seeder
             'Grupo'=>'B',
             'Parcial1'=>8.00,
             'Parcial2'=>10.00,
+            'PromedioParcial'=>0.00,
             'Semestral'=>9.00,
             'Semestre'=>'PRIMER SEMESTRE',
+            'PromedioFinal'=>0.00,
   			'Año'=>'2017'
         ]);
 
@@ -28,8 +30,10 @@ class Calificaciones2Seeder extends Seeder
             'Grupo'=>'B',
             'Parcial1'=>7.00,
             'Parcial2'=>7.00,
+            'PromedioParcial'=>0.00,
             'Semestral'=>7.00,
             'Semestre'=>'PRIMER SEMESTRE',
+            'PromedioFinal'=>0.00,
             'Año'=>'2017'
   
         ]);
@@ -40,8 +44,10 @@ class Calificaciones2Seeder extends Seeder
             'Grupo'=>'B',
             'Parcial1'=>8.00,
             'Parcial2'=>8.00,
+            'PromedioParcial'=>0.00,
             'Semestral'=>8.00,
             'Semestre'=>'PRIMER SEMESTRE',
+            'PromedioFinal'=>0.00,
             'Año'=>'2017'
   
         ]);
@@ -52,8 +58,10 @@ class Calificaciones2Seeder extends Seeder
             'Grupo'=>'B',
             'Parcial1'=>8.00,
             'Parcial2'=>8.00,
+            'PromedioParcial'=>0.00,
             'Semestral'=>8.00,
             'Semestre'=>'PRIMER SEMESTRE',
+            'PromedioFinal'=>0.00,
             'Año'=>'2017'
   
         ]);
@@ -63,8 +71,10 @@ class Calificaciones2Seeder extends Seeder
             'Grupo'=>'B',
             'Parcial1'=>8.00,
             'Parcial2'=>8.00,
+            'PromedioParcial'=>0.00,
             'Semestral'=>8.00,
             'Semestre'=>'PRIMER SEMESTRE',
+            'PromedioFinal'=>0.00,
             'Año'=>'2017'
   
         ]);
@@ -75,8 +85,10 @@ class Calificaciones2Seeder extends Seeder
             'Grupo'=>'B',
             'Parcial1'=>8.00,
             'Parcial2'=>8.00,
+            'PromedioParcial'=>0.00,
             'Semestral'=>8.00,
             'Semestre'=>'PRIMER SEMESTRE',
+            'PromedioFinal'=>0.00,
             'Año'=>'2017'
         ]);
 
@@ -87,8 +99,10 @@ class Calificaciones2Seeder extends Seeder
             'Grupo'=>'B',
             'Parcial1'=>8.00,
             'Parcial2'=>8.00,
+            'PromedioParcial'=>0.00,
             'Semestral'=>8.00,
             'Semestre'=>'PRIMER SEMESTRE',
+            'PromedioFinal'=>0.00,
   			'Año'=>'2017'
         ]);
 
@@ -98,8 +112,10 @@ class Calificaciones2Seeder extends Seeder
             'Grupo'=>'B',
             'Parcial1'=>8.00,
             'Parcial2'=>8.00,
+            'PromedioParcial'=>0.00,
             'Semestral'=>8.00,
             'Semestre'=>'PRIMER SEMESTRE',
+            'PromedioFinal'=>0.00,
             'Año'=>'2017'
   
         ]);
@@ -110,8 +126,10 @@ class Calificaciones2Seeder extends Seeder
             'Grupo'=>'B',
             'Parcial1'=>8.00,
             'Parcial2'=>8.00,
+            'PromedioParcial'=>0.00,
             'Semestral'=>8.00,
             'Semestre'=>'PRIMER SEMESTRE',
+            'PromedioFinal'=>0.00,
             'Año'=>'2017'
   
         ]);
@@ -122,8 +140,10 @@ class Calificaciones2Seeder extends Seeder
             'Grupo'=>'B',
             'Parcial1'=>8.00,
             'Parcial2'=>8.00,
+            'PromedioParcial'=>0.00,
             'Semestral'=>8.00,
             'Semestre'=>'PRIMER SEMESTRE',
+            'PromedioFinal'=>0.00,
             'Año'=>'2017'
   
         ]);
@@ -134,8 +154,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
 	        'Parcial1'=>7.00,
 	        'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
 	        'Semestral'=>8.00,
 	        'Semestre'=>'SEGUNDO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'
 	    ]);
 	   DB::table('calificaciones_parciales')->insert([
@@ -144,8 +166,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
 	        'Parcial1'=>7.00,
 	        'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
 	        'Semestral'=>8.00,
 	        'Semestre'=>'SEGUNDO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -154,8 +178,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
 	        'Parcial1'=>7.00,
 	        'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
 	        'Semestral'=>8.00,     
 	        'Semestre'=>'SEGUNDO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'	
         ]); 
         DB::table('calificaciones_parciales')->insert([
@@ -164,8 +190,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
 	        'Parcial1'=>7.00,
 	        'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
 	        'Semestral'=>8.00,
 	        'Semestre'=>'SEGUNDO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'
 	     ]);	
 	  
@@ -175,8 +203,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
 	        'Parcial1'=>7.00,
 	        'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
 	        'Semestral'=>8.00,
 	        'Semestre'=>'SEGUNDO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'
         ]);
 
@@ -186,8 +216,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
 	        'Parcial1'=>7.00,
 	        'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
 	        'Semestral'=>8.00,
 	        'Semestre'=>'SEGUNDO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -196,8 +228,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
 	        'Parcial1'=>7.00,
 	        'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
 	        'Semestral'=>8.00,
 	        'Semestre'=>'SEGUNDO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'
         ]);
 
@@ -207,8 +241,10 @@ class Calificaciones2Seeder extends Seeder
         	'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'SEGUNDO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'	
         ]);
 
@@ -218,8 +254,10 @@ class Calificaciones2Seeder extends Seeder
         	'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'SEGUNDO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'
         ]);
 
@@ -229,8 +267,10 @@ class Calificaciones2Seeder extends Seeder
         	'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'SEGUNDO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'	
         ]);
         //Tercer semestre
@@ -240,8 +280,10 @@ class Calificaciones2Seeder extends Seeder
         	'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'TERCER SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -250,8 +292,10 @@ class Calificaciones2Seeder extends Seeder
         	'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'TERCER SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'	
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -260,8 +304,10 @@ class Calificaciones2Seeder extends Seeder
         	'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'TERCER SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -270,8 +316,10 @@ class Calificaciones2Seeder extends Seeder
         	'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'TERCER SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'	
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -280,8 +328,10 @@ class Calificaciones2Seeder extends Seeder
         	'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'TERCER SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -290,8 +340,10 @@ class Calificaciones2Seeder extends Seeder
         	'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'TERCER SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'	
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -300,8 +352,10 @@ class Calificaciones2Seeder extends Seeder
 			'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
        		'Semestre'=>'TERCER SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -310,8 +364,10 @@ class Calificaciones2Seeder extends Seeder
         	'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'TERCER SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -320,8 +376,10 @@ class Calificaciones2Seeder extends Seeder
         	'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'TERCER SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'	
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -330,8 +388,10 @@ class Calificaciones2Seeder extends Seeder
         	'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'TERCER SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2018'	
         ]);
         //Cuarto semestre
@@ -341,8 +401,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'CUARTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2019'	
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -351,8 +413,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'CUARTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2019'
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -361,8 +425,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'CUARTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2019'
         ]);
 
@@ -372,8 +438,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'CUARTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2019'	
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -382,8 +450,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'CUARTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2019'
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -392,8 +462,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'CUARTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2019'
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -402,8 +474,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>9.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>9.00,
 	        'Semestre'=>'CUARTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2019'	
         ]);
 
@@ -413,8 +487,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>7.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>7.00,
 	        'Semestre'=>'CUARTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2019'
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -423,8 +499,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'CUARTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2019'
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -433,8 +511,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'CUARTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>'2019'	
         ]);
 
@@ -446,8 +526,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'QUINTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>2019	
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -456,8 +538,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'QUINTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>2019
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -466,8 +550,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>5.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>6.00,
 	        'Semestre'=>'QUINTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>2019	
         ]);
 
@@ -477,8 +563,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'QUINTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>2019
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -487,8 +575,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'QUINTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>2019
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -497,8 +587,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'QUINTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>2019
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -507,8 +599,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'QUINTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>2019
         ]);
         
@@ -518,8 +612,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'QUINTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>2019
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -528,8 +624,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'QUINTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>2019
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -538,8 +636,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'QUINTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>2019
         ]);
         DB::table('calificaciones_parciales')->insert([
@@ -548,8 +648,10 @@ class Calificaciones2Seeder extends Seeder
 	        'Grupo'=>'B',
         	'Parcial1'=>7.00,
         	'Parcial2'=>9.00,
+            'PromedioParcial'=>0.00,
         	'Semestral'=>8.00,
 	        'Semestre'=>'QUINTO SEMESTRE',
+            'PromedioFinal'=>0.00,
 	        'Año'=>2019
         ]);   
 

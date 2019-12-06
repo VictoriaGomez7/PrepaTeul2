@@ -20,8 +20,10 @@ class CreateCalificacionesParcialesTable extends Migration
             $table->string('Grupo')->null();
             $table->float('Parcial1');
             $table->float('Parcial2');
+            $table->float('PromedioParcial');
             $table->float('Semestral');
             $table->string('Semestre');
+            $table->float('PromedioFinal');
             $table->string('Año');
             $table->timestamps();
         });

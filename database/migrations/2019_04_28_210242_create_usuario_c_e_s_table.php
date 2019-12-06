@@ -17,7 +17,7 @@ class CreateUsuarioCESTable extends Migration
             $table->bigIncrements('id');
             $table->string('Usuario')->unique();
              $table->string('Correo')->unique()->nullable();
-            $table->string('Password');
+            $table->string('Password',3500);
             $table->timestamps();
         });
     }

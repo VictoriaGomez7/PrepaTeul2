@@ -9,6 +9,7 @@ use App\EstadisticaGenero;
 use Carbon\Carbon;
 use App\CalificacionesParciales;
 use App\materia_grupo;
+use App\Asistencia;
 use Illuminate\Support\Facades\DB;
 class gruposController extends Controller
 {
@@ -132,12 +133,36 @@ class gruposController extends Controller
                                     $Calif->Grupo=$grupo;
                                     $Calif->Parcial1=0;
                                     $Calif->Parcial2=0;
+                                    $Calif->PromedioParcial=0;
                                     $Calif->Semestral=0;
                                     $year_DATE=date('o');
                                     $Calif->Semestre=$semestre;
+                                    $Calif->PromedioFinal=0;
                                     $Calif->Año=$year_DATE;
                                     $Calif->save();
-                                }
+
+                                    $Asis=new Asistencia();
+                                    $Asis->Clave_A=$numero;
+                                    $Asis->Asistencias=0;
+                                    $Asis->Faltas=0;
+                                    $Asis->Periodo=1;
+                                    $Asis->Materia=$mater->Clave_M;
+                                    $Asis->Semestre=$semestre;
+                                    $Asis->Grupo=$grupo;
+                                    $Asis->PorcentajeAsistencias=0;
+                                    $Asis->save();
+
+                                    $Asis=new Asistencia();
+                                    $Asis->Clave_A=$numero;
+                                    $Asis->Asistencias=0;
+                                    $Asis->Faltas=0;
+                                    $Asis->Periodo=2;
+                                    $Asis->Materia=$mater->Clave_M;
+                                    $Asis->Semestre=$semestre;
+                                    $Asis->Grupo=$grupo;
+                                    $Asis->PorcentajeAsistencias=0;
+                                    $Asis->save();
+                                                        }
                             }
                         }
                         else {
@@ -150,10 +175,12 @@ class gruposController extends Controller
                                         $key->Grupo=$grupo;
                                         $key->Parcial1=0;
                                         $key->Parcial2=0;
+                                        $key->PromedioParcial=0;
                                         $key->Semestral=0;
                                         $year_DATE=date('o');
                                         $key->Semestre=$semestre;
                                         $key->Año=$year_DATE;
+                                        $key->PromedioFinal=0;
                                         $key->save();
                                     }
                                 }
