@@ -17,6 +17,8 @@ Route::get('/RegistraMateria', function () {
     return view('RegistrarMaterias.create');
 });
 */
+Route::resource('Correos','correoController');
+ Route::get('Correo','correoController@buscaCorreo');
 
  Route::get('RegistraMateria','combos@formaciones');
 
