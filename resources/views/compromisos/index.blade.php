@@ -41,4 +41,27 @@
       <strong>¡Error! </strong>{{session('msj2')}}
     </div>
   @endif
+ @if (session()->has('Correcto'))
+
+    <div class="alert alert-success" role="alert" style=" position: absolute; top: 45%; left: 40%">
+      <button type="button" class="close" data-dismiss="alert" ><span>&times;</span></button>
+      <strong>¡Correcto! </strong>{{session('Correcto')}}
+    </div>
+   @endif
+
+  @if (session()->has('Eliminado'))
+
+    <div class="alert alert-success" role="alert" style=" position: absolute; top: 45%; left: 40%">
+      <button type="button" class="close" data-dismiss="alert" ><span>&times;</span></button>
+      <strong>¡Correcto! </strong>{{session('Eliminado')}}
+    </div>
+   @endif
+
+   @if (session()->has('Editado'))
+
+    <div class="alert alert-success" role="alert" style=" position: absolute; top: 45%; left: 40%">
+      <button type="button" class="close" data-dismiss="alert" ><span>&times;</span></button>
+      <strong>¡Correcto! </strong>{{session('Editado')}}
+    </div>
+   @endif
 </html>
