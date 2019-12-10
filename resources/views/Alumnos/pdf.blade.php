@@ -45,7 +45,7 @@
        @foreach($infoA as $infor)
         <p style="position: absolute;top: 195px;left: 450px"><font size="2">{{$infor->Curp}}</font></p>
        @endforeach()
-        <p style="position: absolute;top: 215px;left: 400px"><font size="0">CLAVE UNICA DE REGISTRO DE POBLACIÓN (CURP)</font></p>
+        <p style="position: absolute;top: 215px;left: 400px"><font size="0">CLAVE ÚNICA DE REGISTRO DE POBLACIÓN (CURP)</font></p>
         
         <p style="position: absolute;top: 235px;left: 10px">_____________________________________________________________________________________</p>
         @foreach($NombreA as $nalum)
@@ -61,7 +61,7 @@
         @foreach($NombreA as $nalum)
         <p style="position: absolute;top: 235px;left: 500px"><font size="2">{{$nalum->Nombre}}</font></p>
        @endforeach()
-        <p style="position: absolute;top: 255px;left: 500px"><font size="0">NOMBRE(S)</font></p>
+        <p style="position: absolute;top: 255px;left: 500px"><font size="0">NOMBRE (S)</font></p>
         <p style="position: absolute;top: 275px;left: 10px">_____________________________________________________________________________________</p>
         
         
@@ -77,7 +77,7 @@
         @foreach($bachi as $ba)
           <p style="position: absolute;top: 275px;left: 500px"><font size="2">{{$ba->Clave_A}}</font></p>
        @endforeach()
-        <p style="position: absolute;top: 295px;left: 500px"><font size="0">MATRICULA</font></p>
+        <p style="position: absolute;top: 295px;left: 500px"><font size="0">MATRÍCULA</font></p>
 
         <p style="position: absolute;top: 320px;left: 10px"><font size="1">I PRIMER SEMESTRE</font></p>
 

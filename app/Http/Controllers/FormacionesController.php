@@ -122,6 +122,7 @@ class FormacionesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Formaciones::where('Nombre_FT',$id)->delete();
+        return back()->with('msj1','Formación eliminada correctamente');
     }
 }

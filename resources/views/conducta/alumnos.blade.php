@@ -43,7 +43,7 @@
                 <thead align="center">
                 <td align="center"><b>Clave del alumno</b></td>
                 <td align="center"><b>Nombre del alumno</b></td>
-                <td align="center"><b>Evaluacion de conducta</b></td>
+                <td align="center"><b>Evaluación de conducta</b></td>
                  
                </thead>
                <?php

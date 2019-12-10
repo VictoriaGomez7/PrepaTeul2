@@ -114,7 +114,7 @@ th {
 
           <tr>
 
-              <th  align="center">Curp</th>
+              <th  align="center">CURP</th>
 
               <td align="justify">{{ $row->Curp}}</td>
 
@@ -148,7 +148,7 @@ th {
 
 
           <tr>
-            <th  align="center">C) Curp</th>
+            <th  align="center">C) CURP</th>
 
             <td align="justify">{{ $req->Requisito_C}}</td>
           </tr>

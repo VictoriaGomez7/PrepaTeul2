@@ -122,6 +122,8 @@ class BachilleratoController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        Bachilleratos::where('Nombre_B',$id)->delete();
+        return back()->with('msj1','Bachillerato eliminado correctamente');
     }
 }

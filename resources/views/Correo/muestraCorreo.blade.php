@@ -112,9 +112,7 @@ body{
 		    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 			<!-- vinculo a bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- Temas--
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<!-- se vincula al hoja de estilo para definir el aspecto del formulario de login-->
+
 <link rel="stylesheet" type="text/css" href="estilo.css"-->
 		</head>
 		<body>
@@ -126,13 +124,13 @@ body{
 		<div class="input-group input-group-lg" style="padding:10px; text-align: center; ">
 			{{--<span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-user"></i></span>
 			<input type="text" class="form-control" name="Usuario"   placeholder="Usuario" id="Usuario" aria-describedby="sizing-addon1" required>--}}
-			<label for="Materia" style="margin: 0px; padding: 0px;color: #4B5E7B; font-size:20px;">Registro de Correo Electronico</label>
+			<label for="Materia" style="margin: 0px; padding: 0px;color: #4B5E7B; font-size:20px;">Registro de Correo Electrónico</label>
 
 		</div>
 		<div class="input-group input-group-lg">
 
-			<input type="email" id="claveId" name="correo" class="form-control" placeholder="" size="60" value="{{ $correoActual }}" required style="z-index: 0;">
-			<p><button class="btn  btn-primary "  type="submit">Aceptar	</button></p>
+			<input type="email" placeholder="Correo" id="claveId" name="correo" class="form-control" placeholder="" size="60" value="{{ $correoActual }}" required style="z-index: 0;">
+			<button class="btn btn-lg btn-primary btn-block btn-signin" style="position: absolute;top:155%;left:0%"  type="submit">Aceptar</button>
 		</div>
 		
 

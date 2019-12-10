@@ -11,7 +11,7 @@
     </div>
   @endif
 <a href="http://127.0.0.1:8000/CONSULTACALIFICACIONESCE">
-            <button class="btn btn-success" style="position: absolute;top: 165%;left:75%">Cancelar</button></a>
+            <button class="btn btn-success" style="position: absolute;top: 170%;left:80%">Cancelar</button></a>
 <html>
 <head>
 <style>

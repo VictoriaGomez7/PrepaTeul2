@@ -2,7 +2,7 @@
     @if (count($alumnos1A)>0)
         <table width="250%" style=" position: absolute;left: -100px;">
             <tr align="center">
-                <td><b>Matricula</b></td>
+                <td><b>Matrícula</b></td>
                 <td><b>Nombre</b></td>
                 <td><b>Contraseña</b></td>
                 @foreach ($alumnos1A as $alumno)    

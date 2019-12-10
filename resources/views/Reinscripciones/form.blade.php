@@ -1,6 +1,6 @@
 <!doctype html>
 <a href="http://127.0.0.1:8000/reinscripcion">
-            <button class="btn btn-success" style="position: absolute;top: 135%;left:75%">Cancelar</button></a>
+            <button class="btn btn-success" style="position: absolute;top: 140%;left:75%">Cancelar</button></a>
 
 <body>
 @foreach($CAlumno as $alumno)
@@ -18,7 +18,7 @@
 
 
 
-        <div class="card-header text-center" style="font-size:200%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 5%;" >{{ __('SOLICITUD DE RE-INSCRIPCIÓN') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
+        <div class="card-header text-center" style="font-size:200%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 5%;" >{{ __('SOLICITUD DE REINSCRIPCIÓN') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
 
         {!! Form::open(['route'=>['Reinscripcion.edit',$alumno->Clave_A],'method'=>'GET','files'=>true]) !!}
                 <!--<form class="form-group" method="PUT" action="/Reinscripcion/{{$alumno->id}}/edit">-->
@@ -88,12 +88,12 @@
                     </select>
                 </p>
 
-                <label style="position: absolute;top: 70%;left:40%;font-size:140%;">Sexo: </label>
-                <label style="position: absolute;top: 70%;left:60%;font-size:130%; width: 20%">{{$alumno->Sexo}}</label>
+                <label style="position: absolute;top: 80%;left:40%;font-size:140%;">Sexo: </label>
+                <label style="position: absolute;top: 80%;left:60%;font-size:130%; width: 20%">{{$alumno->Sexo}}</label>
 
             </div>
 
-            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top:122%;left:5%; background-color:#aaa">
+            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top:125%;left:5%; background-color:#aaa">
                     <p style="position: absolute;top: 3px;left:170px; width: 900px">{{('Con todo respeto solicito a Usted Sr. Director, me acepte como alumno  de esta Escuela Preparatoria a su cargo para cursar el')}}</p>
                         <select name="Grado" readonly onchange="Grados(this.value); semes(this.options[this.selectedIndex].innerHTML);" required="true" style="font-size:80%;width: 17%;/*posicion->*/position: absolute;top:54%; left:41%;">
                             <?php
@@ -110,7 +110,7 @@
             </div>
 
             @foreach($FtOBache as $FTBH)
-            <div style="position: absolute;top: 108%; left: 5%; width: 90%;height:15%;background-color:#aaa">
+            <div style="position: absolute;top: 112%; left: 5%; width: 90%;height:15%;background-color:#aaa">
                 <p style="font-size:138%">{{('Formación para el Trabajo:')}}</p>
                 <p style="font-size:138%">{{('Bachillerato:')}}</p>
                 @if($bandera==1)
@@ -147,7 +147,7 @@
             @endforeach
 
 
-            <button type="submit" class="btn btn-primary" href="#" style="position: absolute;top: 135%;left:65%">Reinscribir</button>
+            <button type="submit" class="btn btn-primary" href="#" style="position: absolute;top: 140%;left:65%">Reinscribir</button>
 
         {!! Form::close()!!}
 

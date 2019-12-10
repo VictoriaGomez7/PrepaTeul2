@@ -227,14 +227,14 @@ class CalificacionesController extends Controller
     public function show($g, Request $r)
     {
 
-        //$calif=CalificacionesParciales::find($g);
+        $calif=CalificacionesParciales::find($g);
 
-        //$usua=$calif->Clave_A;
-        //$calif->Parcial1 = $r->Parcial1;
-        //$calif->Parcial2 = $r->Parcial2;
-        //$calif->save();
+        $usua=$calif->Clave_A;
+        $calif->Parcial1 = $r->Parcial1;
+        $calif->Parcial2 = $r->Parcial2;
+        $calif->save();
 
-        //return Redirect('/CONSULTACALIFICACIONESCE/show?id='.$usua)->with('msj1','Calificación modificada exitosamente' );
+        return Redirect('/CONSULTACALIFICACIONESCE/show?id='.$usua)->with('msj1','Calificación modificada exitosamente' );
 
     }
 

@@ -43,9 +43,10 @@
 				<li><a href="#">Materias</a>
 					<ul class="submenu">
 						<li><a href="http://127.0.0.1:8000/RegistraMateria">Registrar</a></li>
+						<li><a href="http://127.0.0.1:8000/materia">Consultar</a></li>
 						<li><a href="http://127.0.0.1:8000/Bachillerato">Bachilleratos</a></li>
 						<li><a href="http://127.0.0.1:8000/Formaciones">Formaciones para el Trabajo</a></li>
-						<li><a href="http://127.0.0.1:8000/materia">Consultar</a></li>
+						
 					</ul>
 				</li>
 
@@ -89,7 +90,7 @@
                     <li><a href="#" >Servicios Escolares</a>
 						<ul class="submenu">
 							<li><a href="http://127.0.0.1:8000/ContraseñaCE">Cambiar Contraseña</a>
-							<li><a href="http://127.0.0.1:8000/Correo">Correo</a>
+							<li><a href="http://127.0.0.1:8000/Correo">Correo Electrónico  </a>
 							<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESIÓN</a>
 						</ul>
 					</li>

@@ -4,7 +4,7 @@
  @include('Alumnosinterfazprincipal.InterfazPrincipal2')
 @section('content')
 <a href="/Alumnoinicio?valor={{ ($usua)}}">
-            <button class="btn btn-success" style="position: absolute;top: 150%;left:75%">Cancelar</button></a>
+            <button class="btn btn-success" style="position: absolute;top: 160%;left:85%">Cancelar</button></a>
     {{--@include('Reinscripciones.form',compact('CAlumno','bandera','FtOBache'))--}}
 <html>
 <head>
@@ -30,13 +30,13 @@ tr:nth-child(even) {
 
   <h2 style="position: absolute;left: 5%;">{{$nombre}}</h2>
 
-  <div class="alert alert-primary" role="alert" style="width: 90%; position:  absolute;top: 41%; left: 5%;z-index: 1;">
+  <div class="alert alert-primary" role="alert" style="width: 90%; position:  absolute;top: 47%; left: 5%;z-index: 1;">
     <strong> AP1: </strong> Asistencias del parcial 1,<strong> FP1:</strong> Faltas del parcial 1, <strong>AP2:</strong> Asistencias del parcial 2,<strong> FP2:</strong> Faltas del parcial 2, <strong> TCP1:</strong> Total de clases del parcial 1, <strong> TCP2:</strong> Total de clases del parcial 2.
   </div>
 
 
 
-<table id="alumn" class="table" style="width: 80%;" >
+<table id="alumn" class="table" style="width: 90%; position: absolute;top: 60%" >
   <tr>
     <th><center>Materia</center></th>
     <th><center>Parcial 1</center></th>

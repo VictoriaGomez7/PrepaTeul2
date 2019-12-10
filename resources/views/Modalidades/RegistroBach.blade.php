@@ -86,11 +86,14 @@ function mostrar(id) {
    id="Nombre_B" name="Nombre_B" required="true" value="{{$doc->Nombre_B}}" style="font-size:130%; position: absolute;top: 10%; left: 15%;"
     />
     <input name='id' value='{{$doc->id}} 'style="visibility:hidden;"></input>
-<button class="btn btn-primary" style="position: absolute;top: 8%; left: 75%;">Modificar</button>
-</form>
-{!!Form::open(['route' => ['Bachillerato.store'],'method'=>'POST'])!!}
+<button class="btn btn-primary" style="position: absolute;top: 30%; left: 20%;">Modificar</button>
 
+</form>
+
+{!!Form::open(['route' => ['Bachillerato.destroy',$doc->Nombre_B],'method'=>'DELETE'])!!}
+    {!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'position: absolute;top: 30%; left: 45%;'])!!}
     {!! Form::close()!!}
+
   </div>
 @endforeach
 

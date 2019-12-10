@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <a href="http://127.0.0.1:8000/ControlEscolarInicio">
-  <button class="btn btn-success" style="position: absolute;top: 78%;left:50%; width:10%">Cancelar</button></a>
+  <button class="btn btn-success" style="position: absolute;top: 80%;left:50%; width:10%">Cancelar</button></a>
 
 <html>
 
@@ -31,7 +31,7 @@
                   <p style="font-size:130%">{{('Matrícula:')}}</p> </div>
               <input type="input" class="form-control" placeholder="Matricula" name="cajaAlumno" style="width:50%;">
               
-              <input type="submit" class="btn btn-primary" name="aceptar"  value="Generar carta" style="width:25%; position: absolute; top: 140%; left: 15%">
+              <input type="submit" class="btn btn-primary" name="aceptar"  value="Generar carta" style="width:25%; position: absolute; top: 115%; left: 15%">
               {!! Form::close() !!}
               </center>
               <br>
