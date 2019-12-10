@@ -33,7 +33,7 @@ body{
   margin: 50px auto;
   background-color: #EEF0F3;
         border: 1px solid #C9D0D9;
-  height: 150px;
+  height: 100px;
   border-radius:8px;
   padding: 0px 9px 0px 9px;
 }

@@ -67,7 +67,7 @@ th {
        @foreach($infoA as $infor)
         <p style="position: absolute;top: 195px;left: 450px"><font size="2">{{$infor->Curp}}</font></p>
        @endforeach()
-        <p style="position: absolute;top: 215px;left: 400px"><font size="0">CLAVE UNICA DE REGISTRO DE POBLACIÓN (CURP)</font></p>
+        <p style="position: absolute;top: 215px;left: 400px"><font size="0">CLAVE ÚNICA DE REGISTRO DE POBLACIÓN (CURP)</font></p>
         
         <p style="position: absolute;top: 235px;left: 10px">_____________________________________________________________________________________</p>
         @foreach($NombreA as $nalum)
@@ -99,7 +99,7 @@ th {
         @foreach($bachi as $ba)
           <p style="position: absolute;top: 275px;left: 500px"><font size="2">{{$ba->Clave_A}}</font></p>
        @endforeach()
-        <p style="position: absolute;top: 295px;left: 500px"><font size="0">MATRICULA</font></p>
+        <p style="position: absolute;top: 295px;left: 500px"><font size="0">MATRÍCULA</font></p>
 
         <p style="position: absolute;top: 320px;left: 10px"><font size="1">I PRIMER SEMESTRE</font></p>
 
@@ -129,9 +129,9 @@ th {
 
             <th  align="left" rowspan="2" style="border: 1px solid black;"><font size="0">CALIFI CACIÓN FINAL</font></th>
 
-            <th   align="left"  rowspan="2" style="border: 1px solid black;"><font size="0">% DE ASISTEN CIAS</font></th>
+            <th   align="left"  rowspan="2" style="border: 1px solid black;"><font size="0">% DE ASISTENCIAS</font></th>
 
-            <th align="center" colspan="6" style="border: 1px solid black;"><font size="1">PERIODO DE REGURRALIZACIÓN</font></th>
+            <th align="center" colspan="6" style="border: 1px solid black;"><font size="1">PERIODO DE REGULARIZACIÓN</font></th>
 
             <!--th align="center" rowspan="12" style="border: 1px solid black">ABALADO</th-->
 

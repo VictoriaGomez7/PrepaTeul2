@@ -56,7 +56,7 @@
         @endif
 
 
-        <div class="card-header text-center" style="font-size:200%;width: 80%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 52%; left: 10%;" >{{ __('Registrar Materias') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
+        <div class="card-header text-center" style="font-size:200%;width: 80%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 50%; left: 10%;" >{{ __('Registrar Materias') }}</div> <!-- text-center ES PARA CENTRA EL TEXTO -->
          {!!Form::open(['route' => ['materia.create'],'method'=>'GET'])!!}
          {{--<form type="session" class="form-group" method="POST" action="/RegistrarMaterias">--}}
 
@@ -66,11 +66,11 @@
 
                 <p style="font-size:130%; position:  absolute;top: 10%; left: 5%">{{('Nombre:')}}</p>
                 <p style="font-size:130%; position:  absolute;top: 25%; left: 5%">{{('Tipo:')}}</p>
-                <p style="font-size:130%; position:  absolute;top: 38%; left: 5%">{{('Formación Para El Trabajo:')}}</p>
+                <p style="font-size:130%; position:  absolute;top: 40%; left: 5%">{{('Formación Para El Trabajo:')}}</p>
               
-                <p style="font-size:130%; position:  absolute;top: 57%; left: 5%">{{('Área Propedéutica:')}}</p>
+                <p style="font-size:130%; position:  absolute;top: 55%; left: 5%">{{('Área Propedéutica:')}}</p>
                 <p style="font-size:130%; position:  absolute;top: 70%; left: 5%">{{('Semestre:')}}</p>
-                <p style="font-size:130%; position:  absolute;top: 88%; left: 5%">{{('Horas:')}}</p>
+                <p style="font-size:130%; position:  absolute;top: 85%; left: 5%">{{('Horas:')}}</p>
 
                 <p><input type="text" placeholder="Matemáticas I" value="{{ old('nombre') }}" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" id="nombre" name="nombre" style="font-size:105%; width:65%; position:  absolute;top: 10%; left: 30%"/></p>
 
@@ -81,7 +81,7 @@
                             <option value="Actividades Paraescolares">Actividades Paraescolares</option>
                             <option value="Formación Básica" selected>Formación Básica</option>
                       </select>
-                        <select name="formacion" id="formacion" required style="font-size:110%;width: 65%; position:  absolute;top: 42%; left: 30%" disabled="true">
+                        <select name="formacion" id="formacion" required style="font-size:110%;width: 65%; position:  absolute;top: 40%; left: 30%" disabled="true">
                             <option value="{{ old('formacion') }}">{{ old('formacion') }}</option>
                            <?php
                             echo $opcionesFormacion;
@@ -89,14 +89,14 @@
                           
                       </select>
 
-                <select name="bachillerato" id="bachillerato" required style="font-size:110%;width: 65%; position:  absolute;top: 59%; left: 30%" disabled="true">
+                <select name="bachillerato" id="bachillerato" required style="font-size:110%;width: 65%; position:  absolute;top: 55%; left: 30%" disabled="true">
                             <option value="{{ old('tipo') }}">{{ old('tipo') }}</option>
                             <?php 
                             echo $opcionesBachillerato;
                             ?>
                       </select>
 
-                <select name="semestre" required style="font-size:110%;width: 65%;;position: absolute;    top:74%; left:30%;">
+                <select name="semestre" required style="font-size:110%;width: 65%;;position: absolute;    top:70%; left:30%;">
                             <option value="{{ old('semestre') }}">{{ old('semestre') }}</option>
                             <option value="PRIMER SEMESTRE" selected>PRIMER SEMESTRE</option>
                             <option value="SEGUNDO SEMESTRE">SEGUNDO SEMESTRE</option>
@@ -105,7 +105,7 @@
                             <option value="QUINTO SEMESTRE">QUINTO SEMESTRE</option>
                             <option value="SEXTO SEMESTRE">SEXTO SEMESTRE</option>
                       </select>
-                <p><input type="number" placeholder="1" value="{{ old('horas') }}" required min="1" max="12" id="horas" name="horas" style="font-size:103%; width: 65%; position:  absolute;top:88%; left: 30%"/></p>
+                <p><input type="number" placeholder="1" value="{{ old('horas') }}" required min="1" max="12" id="horas" name="horas" style="font-size:103%; width: 65%; position:  absolute;top:85%; left: 30%"/></p>
 
 
             </div>

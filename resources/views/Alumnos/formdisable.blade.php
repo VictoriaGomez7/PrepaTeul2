@@ -59,13 +59,27 @@
 
                 <p><input type="address" required readonly id="domicilio" name="Domicilio" value="{{$alumno->Domicilio}}" style="font-size:105%; width: 95%"/></p>
             </div>
+<div style="position: absolute;top: 105%; left: 5%; width: 90%;height:16%;background-color:#aaa">
+                <p style="font-size:130%">{{('Formación para el Trabajo:')}}</p>
+                <p style="font-size:130%">{{('Bachillerato:')}}</p>
+                <select required name="ft1" id="ft1" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  disabled="true">
+                            
+                            <option >{{$bachil->Formación_Trabajo}}</option>
+                           
+                      </select>
 
+                <select name="bach1" id="bach1" style="font-size:110%;width: 26.5%; position:  absolute;top: 53%; left: 22%" disabled="true" required>
+                            <option >{{$bachil->Bachillerato}}</option>
+                      </select>
+
+
+            </div>
             <div style="font-size:95%;position: absolute;top: 62%; left: 49.9%; width: 20.1%;height:53%;background-color:#aaa">
                 <p style="font-size:130%">{{('Municipio:')}}</p>
                 <p style="font-size:130%">{{('Población:')}}</p>
                 <p style="font-size:130%">{{('Correo electrónico:')}}</p>
                 <p style="font-size:130%">{{('Clave CURP:')}} </p>
-                <p style="font-size:130%">{{('Num. de Seguro Social:')}}</p>
+                <p style="font-size:130%">{{('Núm. de Seguro Social:')}}</p>
                 <p style="font-size:130%">{{('Fecha de Nacimiento:')}}</p>
                 <p style="font-size:130%">{{('Edad:')}}</p>
             </div>
@@ -96,8 +110,8 @@
                     </select>
                 </p>
 
-                <label style="position: absolute;top: 70%;left:40%;font-size:140%;">Sexo: </label>
-                <label style="position: absolute;top: 71%;left:57%;font-size:130%; width: 20%">{{$alumno->Sexo}}</label>
+                <label style="position: absolute;top: 80%;left:40%;font-size:140%;">Sexo: </label>
+                <label style="position: absolute;top: 80%;left:57%;font-size:130%; width: 20%">{{$alumno->Sexo}}</label>
 
             </div>
 
@@ -123,21 +137,7 @@
 
 
 
-            <div style="position: absolute;top: 105%; left: 5%; width: 90%;height:16%;background-color:#aaa">
-                <p style="font-size:130%">{{('Formación para el Trabajo:')}}</p>
-                <p style="font-size:130%">{{('Bachillerato:')}}</p>
-                <select required name="ft1" id="ft1" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  disabled="true">
-                            
-                            <option >{{$bachil->Formación_Trabajo}}</option>
-                           
-                      </select>
-
-                <select name="bach1" id="bach1" style="font-size:110%;width: 26.5%; position:  absolute;top: 53%; left: 22%" disabled="true" required>
-                            <option >{{$bachil->Bachillerato}}</option>
-                      </select>
-
-
-            </div>
+            
 
             <div class="card-header text-center" style="font-size:180%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 132%; left: 5%;" >{{ __('Requisitos') }}</div>
 
@@ -145,7 +145,7 @@
             <div style="position: absolute;top: 142%; left: 5%; width: 70%;height:65%;background-color:#aaa">
                 <p style="font-size:138%">{{('A) Certificado de Secundaria.')}}</p>
                 <p style="font-size:138%">{{('B) Acta de Nacimiento.')}}</p>
-                <p style="font-size:138%">{{('C) Curp.')}}</p>
+                <p style="font-size:138%">{{('C) CURP.')}}</p>
                 <p style="font-size:138%">{{('D) Carta de Conducta.')}} </p>
                 <p style="font-size:138%">{{('E) 6 Fotografías tamaño infantil, blanco y negro (no instantáneas).')}}</p>
                 <p style="font-size:138%">{{('F) Ser alumno regular del grado anterior.')}}</p>

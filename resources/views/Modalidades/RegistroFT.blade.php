@@ -86,10 +86,10 @@ function mostrar(id) {
    id="Nombre_B" name="Nombre_FT" required="true" value="{{$doc->Nombre_FT}}" style="font-size:130%; position: absolute;top: 10%; left: 15%;"
     />
     <input name='id' value='{{$doc->id}} 'style="visibility:hidden;"></input>
-<button class="btn btn-primary" style="position: absolute;top: 8%; left: 75%;">Modificar</button>
+<button class="btn btn-primary" style="position: absolute;top: 30%; left: 20%;">Modificar</button>
 </form>
-{!!Form::open(['route' => ['Formaciones.store'],'method'=>'POST'])!!}
-
+{!!Form::open(['route' => ['Formaciones.destroy',$doc->Nombre_FT],'method'=>'DELETE'])!!}
+    {!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'position: absolute;top: 30%; left: 45%;'])!!}
     {!! Form::close()!!}
   </div>
 @endforeach

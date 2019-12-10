@@ -1,7 +1,7 @@
 <!doctype html>
 
 <a href="http://127.0.0.1:8000/ControlEscolarInicio">
-            <button class="btn btn-success" style="position: absolute;top: 220%;left:75%">Cancelar</button></a>
+            <button class="btn btn-success" style="position: absolute;top: 223%;left:75%">Cancelar</button></a>
 <script type="text/javascript">
     var Grado = function(x)
     {
@@ -97,7 +97,7 @@
                 <p style="font-size:130%">{{('Población:')}}</p>
                 <p style="font-size:130%">{{('Correo electrónico:')}}</p>
                 <p style="font-size:130%">{{('Clave CURP:')}} </p>
-                <p style="font-size:130%">{{('Num. de Seguro Social:')}}</p>
+                <p style="font-size:130%">{{('Núm. de Seguro Social:')}}</p>
                 <p style="font-size:130%">{{('Fecha de Nacimiento:')}}</p>
                 <p style="font-size:130%">{{('Edad:')}}</p>
             </div>
@@ -128,15 +128,15 @@
                     </select>
                 </p>
 
-                <label style="position: absolute;top: 72%;left:37%;font-size:140%;">Sexo: </label>
-                <label style="position: absolute;top: 72%;left:66%;font-size:130%; width: 20%">F</label>
-                <input type="radio" name="sexo" required value="Mujer" style="width: 6%;height: 6%; position: absolute;top: 73%;left:59%" @if(old('sexo')) checked @endif>
-                <label style="position: absolute;top: 72%;left:83%;font-size:130%; width: 20%" @if(old('sexo')) checked @endif>M</label>
-                <input type="radio" name="sexo" required value="Hombre" style="width: 6%;height: 6%; position: absolute;top: 73%;left:75%;">
+                <label style="position: absolute;top: 83%;left:37%;font-size:140%;">Sexo: </label>
+                <label style="position: absolute;top: 83%;left:66%;font-size:130%; width: 20%">F</label>
+                <input type="radio" name="sexo" required value="Mujer" style="width: 6%;height: 6%; position: absolute;top: 84%;left:59%" @if(old('sexo')) checked @endif>
+                <label style="position: absolute;top: 83%;left:83%;font-size:130%; width: 20%" @if(old('sexo')) checked @endif>M</label>
+                <input type="radio" name="sexo" required value="Hombre" style="width: 6%;height: 6%; position: absolute;top: 84%;left:75%;">
             </div>
 
-            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top: 130%;left:5%; background-color:#aaa  ">
-                    <p style="position: absolute;top: 2%;left:14%; width: 80%">{{('Con todo respeto solicito a Usted Sr. Director, me acepte como alumno  de esta Escuela Preparatoria a su cargo para cursar el')}}</p>
+            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top: 135%;left:5%; background-color:#aaa  ">
+                    <p style="position: absolute;top: 3%;left:14%; width: 80%">{{('Con todo respeto solicito a Usted Sr. Director, me acepte como alumno  de esta Escuela Preparatoria a su cargo para cursar el')}}</p>
                         <select name="semestres" id="semestres" required onchange="Grado(this.value); semes(this.options[this.selectedIndex].innerHTML);habilitar(this.value),habilitar2(this.value)" style="font-size:80%;width: 17%;/*posicion->*/position: absolute;top:54%; left:46%;">
                             <option value="{{ old('semestres') }}">{{ old('semestres') }}</option>
                             <option value="PRIMER">PRIMER SEMESTRE</option>
@@ -154,9 +154,9 @@
 
                     <p style="position: absolute; top:53%; left: 75.5%;font-size:90%"> {{('GRADO.')}}</p>
             </div>
-            <div style="position: absolute;top: 115%; left: 5%; width: 90%;height:16%;background-color:#aaa">
-                <p style="font-size:138%">{{('Formación para el Trabajo:')}}</p>
-                <p style="font-size:138%">{{('Bachillerato:')}}</p>
+            <div style="position: absolute;top: 120%; left: 5%; width: 90%;height:16%;background-color:#aaa">
+                <p style="font-size:130%">{{('Formación para el Trabajo:')}}</p>
+                <p style="font-size:130%">{{('Bachillerato:')}}</p>
                 <select required name="ft1" id="ft1" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  disabled="true">
                             <option value="{{ old('Grado') }}">{{ old('Grado') }}</option>
                             <?php 
@@ -175,13 +175,13 @@
             </div>
 
 
-            <div class="card-header text-center" style="font-size:180%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 142%; left: 5%;" >{{ __('Requisitos') }}</div>
+            <div class="card-header text-center" style="font-size:180%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 147%; left: 5%;" >{{ __('Requisitos') }}</div>
 
             <!-- ********************** PARTE DE DONDE SE AGREGA PARA LOS REQUISITOS ********************************-->
-            <div style="position: absolute;top: 150%; left: 5%; width: 70%;height:65%;background-color:#aaa">
+            <div style="position: absolute;top: 157%; left: 5%; width: 70%;height:65%;background-color:#aaa">
                 <p style="font-size:138%">{{('A) Certificado de Secundaria.')}}</p>
                 <p style="font-size:138%">{{('B) Acta de Nacimiento.')}}</p>
-                <p style="font-size:138%">{{('C) Curp.')}}</p>
+                <p style="font-size:138%">{{('C) CURP.')}}</p>
                 <p style="font-size:138%">{{('D) Carta de Conducta.')}} </p>
                 <p style="font-size:138%">{{('E) 6 Fotografías tamaño infantil, blanco y negro (no instantáneas).')}}</p>
                 <p style="font-size:138%">{{('F) Ser alumno regular del grado anterior.')}}</p>
@@ -189,7 +189,7 @@
                 <p style="font-size:138%">{{('H) Firmar de conformidad padres y alumno  en la hoja de solicitud de inscripción.')}}</p>
             </div>
 
-            <div style="position: absolute;top: 150%; left: 75%; width: 20%; height:65%;background-color:#aaa">
+            <div style="position: absolute;top: 157%; left: 75%; width: 20%; height:65%;background-color:#aaa">
                 <p><select id="A" name="A" value="No" required style="width: 18%;height: 9%; position: absolute;top: 0%;left:10%">
                     <option value="{{ old('A') }}">{{ old('A') }}</option>
                     <option selected value="Si">SI</option>
@@ -234,7 +234,7 @@
 
             </div>
 
-            <button type="submit" class="btn btn-primary" style="position: absolute;top: 220%;left:65%">Inscribir</button>
+            <button type="submit" class="btn btn-primary" style="position: absolute;top: 223%;left:65%">Inscribir</button>
 
             
         <!--</form>-->
