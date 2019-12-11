@@ -1,7 +1,8 @@
 <!doctype html>
 
 <a href="http://127.0.0.1:8000/ControlEscolarInicio">
-            <button class="btn btn-success" style="position: absolute;top: 223%;left:75%">Cancelar</button></a>
+    <button class="btn btn-success" style="position: absolute;top: 218%;left:75%">Cancelar</button></a>
+
 <script type="text/javascript">
     var Grado = function(x)
     {
@@ -22,24 +23,36 @@
 <body>
     @section('frameTitulo')
     <script type="text/javascript">
-           function habilitar(valor){
-            if (valor=="SEGUNDO"){
-                document.getElementById("ft1").disabled = false;
-            }else{
+       function habilitar(valor){
+        if (valor=="SEGUNDO"){
+            document.getElementById("ft1").disabled = false;
+        }else{
 
-                document.getElementById("ft1").disabled = true;
-            }
-           }
-    </script>
-    <script type="text/javascript">
-           function habilitar2(valor){
-            if (valor=="TERCER"){
-                document.getElementById("bach1").disabled = false;
-            }else{
+            document.getElementById("ft1").disabled = true;
+        }
+       }
 
-                document.getElementById("bach1").disabled = true;
+       function habilitar2(valor){
+        if (valor=="TERCER"){
+            document.getElementById("bach1").disabled = false;
+        }else{
+
+            document.getElementById("bach1").disabled = true;
+        }
+       }
+        function ObtenerEdad(fecha){
+            var hoy = new Date();
+            var cumpleanos = new Date(fecha);
+            var edad_o = hoy.getFullYear() - cumpleanos.getFullYear();
+            var m = hoy.getMonth() - cumpleanos.getMonth();
+
+            if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+                edad_o--;
             }
-           }
+
+            document.getElementById("edad").value=edad_o;
+        }
+            
     </script>
 
         @if (session()->has('msj'))
@@ -110,32 +123,18 @@
                 <p><input type="text" placeholder="VETC030913MZSLRMA6"  value="{{ old('curp') }}" required pattern="^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$" id="curp" name="curp" style="font-size:105%; width:97%;"/></p>
                 <p><input type="text" placeholder="23145678903" value="{{ old('nss') }}" pattern="[0-9]{11}" id="nss" name="nss" style="font-size:105%; width:97%;"/></p>
 
-                <p> <input type="date" value="{{ old('fecha') }}" min="1990-01-01" name="fecha" required style="width: 93%"></p>
+                <p> <input type="date" value="{{ old('fecha') }}" min="1990-01-01" id="fecha" name="fecha" required style="width: 93%" onchange="ObtenerEdad(this.value)"></p>
 
-                <p> <select name="edad" required style="width: 20%">
-                    <option value="{{ old('edad') }}">{{ old('edad') }}</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    </select>
-                </p>
+                <p><input type="text" name="edad" id="edad" readonly style="width: 25%; background: #FFFFFF"></p>
 
-                <label style="position: absolute;top: 83%;left:37%;font-size:140%;">Sexo: </label>
-                <label style="position: absolute;top: 83%;left:66%;font-size:130%; width: 20%">F</label>
-                <input type="radio" name="sexo" required value="Mujer" style="width: 6%;height: 6%; position: absolute;top: 84%;left:59%" @if(old('sexo')) checked @endif>
-                <label style="position: absolute;top: 83%;left:83%;font-size:130%; width: 20%" @if(old('sexo')) checked @endif>M</label>
-                <input type="radio" name="sexo" required value="Hombre" style="width: 6%;height: 6%; position: absolute;top: 84%;left:75%;">
+                <label style="position: absolute;top: 74%;left:37%;font-size:140%;">Sexo: </label>
+                <label style="position: absolute;top: 74%;left:66%;font-size:130%; width: 20%">F</label>
+                <input type="radio" name="sexo" required value="Mujer" style="width: 6%;height: 6%; position: absolute;top: 75%;left:59%" @if(old('sexo')) checked @endif>
+                <label style="position: absolute;top: 74%;left:83%;font-size:130%; width: 20%" @if(old('sexo')) checked @endif>M</label>
+                <input type="radio" name="sexo" required value="Hombre" style="width: 6%;height: 6%; position: absolute;top: 75%;left:75%;">
             </div>
 
-            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top: 135%;left:5%; background-color:#aaa  ">
+            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top: 130%;left:5%; background-color:#aaa  ">
                     <p style="position: absolute;top: 3%;left:14%; width: 80%">{{('Con todo respeto solicito a Usted Sr. Director, me acepte como alumno  de esta Escuela Preparatoria a su cargo para cursar el')}}</p>
                         <select name="semestres" id="semestres" required onchange="Grado(this.value); semes(this.options[this.selectedIndex].innerHTML);habilitar(this.value),habilitar2(this.value)" style="font-size:80%;width: 17%;/*posicion->*/position: absolute;top:54%; left:46%;">
                             <option value="{{ old('semestres') }}">{{ old('semestres') }}</option>
@@ -154,7 +153,7 @@
 
                     <p style="position: absolute; top:53%; left: 75.5%;font-size:90%"> {{('GRADO.')}}</p>
             </div>
-            <div style="position: absolute;top: 120%; left: 5%; width: 90%;height:16%;background-color:#aaa">
+            <div style="position: absolute;top: 115%; left: 5%; width: 90%;height:16%;background-color:#aaa">
                 <p style="font-size:130%">{{('Formación para el Trabajo:')}}</p>
                 <p style="font-size:130%">{{('Bachillerato:')}}</p>
                 <select required name="ft1" id="ft1" style="font-size:110%;width: 26.5%; position:  absolute;top: 4%; left: 22%"  disabled="true">
@@ -175,10 +174,10 @@
             </div>
 
 
-            <div class="card-header text-center" style="font-size:180%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 147%; left: 5%;" >{{ __('Requisitos') }}</div>
+            <div class="card-header text-center" style="font-size:180%;width: 90%; height: 9.8%; background: #000080; color: rgb(212, 172, 13); position:  absolute;top: 142%; left: 5%;" >{{ __('Requisitos') }}</div>
 
             <!-- ********************** PARTE DE DONDE SE AGREGA PARA LOS REQUISITOS ********************************-->
-            <div style="position: absolute;top: 157%; left: 5%; width: 70%;height:65%;background-color:#aaa">
+            <div style="position: absolute;top: 152%; left: 5%; width: 70%;height:65%;background-color:#aaa">
                 <p style="font-size:138%">{{('A) Certificado de Secundaria.')}}</p>
                 <p style="font-size:138%">{{('B) Acta de Nacimiento.')}}</p>
                 <p style="font-size:138%">{{('C) CURP.')}}</p>
@@ -189,7 +188,7 @@
                 <p style="font-size:138%">{{('H) Firmar de conformidad padres y alumno  en la hoja de solicitud de inscripción.')}}</p>
             </div>
 
-            <div style="position: absolute;top: 157%; left: 75%; width: 20%; height:65%;background-color:#aaa">
+            <div style="position: absolute;top: 152%; left: 75%; width: 20%; height:65%;background-color:#aaa">
                 <p><select id="A" name="A" value="No" required style="width: 18%;height: 9%; position: absolute;top: 0%;left:10%">
                     <option value="{{ old('A') }}">{{ old('A') }}</option>
                     <option selected value="Si">SI</option>
@@ -234,7 +233,7 @@
 
             </div>
 
-            <button type="submit" class="btn btn-primary" style="position: absolute;top: 223%;left:65%">Inscribir</button>
+            <button type="submit" class="btn btn-primary" style="position: absolute;top: 218%;left:65%">Inscribir</button>
 
             
         <!--</form>-->

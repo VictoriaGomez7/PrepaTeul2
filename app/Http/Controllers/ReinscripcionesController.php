@@ -87,7 +87,7 @@ class ReinscripcionesController extends Controller
         }
         else{
             if ($CAlumno[0]->Semestre=="SEXTO SEMESTRE") {
-                return back()->with('msj','No se puede reinscribir un alumno de Sexto Semestre' );
+                return back()->with('msj','No se puede reinscribir un alumno de Sexto Semestre.' );
             } else {
             $Semes= Alumno::where('Clave_A', $alumno1->PMatri)->get();
             $FtOBache=ft_bach::where('Clave_A', $alumno1->PMatri)->get();//id
@@ -126,7 +126,6 @@ class ReinscripcionesController extends Controller
                             <option value="TERCER" selected="true">SEXTO SEMESTRE</option>';
                     }
             }
-
         return view('Reinscripciones.show',compact('CAlumno','alumno1','opciones2','bandera','FtOBache','Gra','opcionesFormacion','opcionesBachillerato'));
         }
     }

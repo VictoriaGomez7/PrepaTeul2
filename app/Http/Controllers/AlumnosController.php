@@ -14,6 +14,7 @@ use App\Http\Requests\TagStoreRequest;
 use Illuminate\Support\Facades\Crypt;
 use App\Formaciones;
 use App\Bachilleratos;
+use Carbon\Carbon;
 
 class AlumnosController extends Controller
 {
@@ -40,7 +41,7 @@ class AlumnosController extends Controller
               return view('Alumnos.formdisable',compact('CAlumno','Requisitos','bachis'));
             }
             else {
-                return back()->with('msj',' Datos no encontrados' );
+                return back()->with('msj',' Datos no encontrados.' );
             }
           }
         }
@@ -104,6 +105,8 @@ class AlumnosController extends Controller
         $nombrealumn='';
         $nombrealumn=$nombrealumn.$request['nombre'].' '.$request['ApellidoP'].' '.$request['ApellidoM'];
         //return $nombrealumn;
+        //return $request['fecha'];
+       
         $alumno=new Alumno();
         $alumno->Clave_A=$request['matricula'];
         $alumno->Nombre_A=$nombrealumn;
@@ -195,7 +198,7 @@ class AlumnosController extends Controller
         $bach->save();
         
 
-       return redirect('alumnosconsulta')->with('msj2','Alumno modificado correctamente');
+       return redirect('alumnosconsulta')->with('msj2','Alumno modificado correctamente.');
 
         //return 'actualizado';
         //return redirect()->view('Reinscripcion.show');
@@ -254,6 +257,6 @@ class AlumnosController extends Controller
         ft_bach::where('Clave_A',$id)->delete();
        $alumnos=Alumno::get();
         //return  view('Alumnos.index',compact('alumnos'));
-       return redirect('/alumnosconsulta')->with('msj2','Alumno eliminado correctamente');
+       return redirect('/alumnosconsulta')->with('msj2','Alumno eliminado correctamente.');
     }
 }

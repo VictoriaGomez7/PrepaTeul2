@@ -14,6 +14,18 @@
             {
                 document.getElementById('semestree').value=x;
             }
+        function ObtenerEdad(fecha){
+            var hoy = new Date();
+            var cumpleanos = new Date(fecha);
+            var edad_o = hoy.getFullYear() - cumpleanos.getFullYear();
+            var m = hoy.getMonth() - cumpleanos.getMonth();
+
+            if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+                edad_o--;
+            }
+
+            document.getElementById("edad").value=edad_o;
+        }
         </script>
 
 
@@ -70,37 +82,23 @@
                 <p><input type="text" required id="curp" pattern="^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$" name="curp" value="{{$alumno->Curp}}" readonly value="{{$alumno->Curp}}" style="font-size:105%; width:97%;"/></p>
                 <p><input type="text" id="nss" min="1" max="99999999999" value="{{$alumno->NSS}}" name="NSS" style="font-size:105%; width:97%;"/></p>
 
-                <p> <input type="date" name="fecha" required  readonly value="{{$alumno->Fecha_Nac}}" style="font-size:105%; width:97%"> </p>
+                <p><input type="text" id="fecha" name="fecha"  readonly value="{{$alumno->Fecha_Nac}}" style="font-size:105%; width:97%" onmousemove="ObtenerEdad(this.value)"></p>
 
+                <p><input type="text" name="edad" id="edad" readonly style="width: 25%; background: #FFFFFF"></p>
 
-                <p> <select name="Edad" required style="width: 20%">
-                    <option value="{{$alumno->Edad}}">{{$alumno->Edad}}</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    </select>
-                </p>
-
-                <label style="position: absolute;top: 80%;left:40%;font-size:140%;">Sexo: </label>
-                <label style="position: absolute;top: 80%;left:60%;font-size:130%; width: 20%">{{$alumno->Sexo}}</label>
+                <label style="position: absolute;top: 70%;left:40%;font-size:140%;">Sexo: </label>
+                <label style="position: absolute;top: 70%;left:60%;font-size:130%; width: 20%">{{$alumno->Sexo}}</label>
 
             </div>
 
-            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top:125%;left:5%; background-color:#aaa">
+            <div style="font-size:140%;width: 90%; height: 11.5%;position: absolute;top:122%;left:5%; background-color:#aaa">
                     <p style="position: absolute;top: 3px;left:170px; width: 900px">{{('Con todo respeto solicito a Usted Sr. Director, me acepte como alumno  de esta Escuela Preparatoria a su cargo para cursar el')}}</p>
-                        <select name="Grado" readonly onchange="Grados(this.value); semes(this.options[this.selectedIndex].innerHTML);" required="true" style="font-size:80%;width: 17%;/*posicion->*/position: absolute;top:54%; left:41%;">
+                        <select name="Grado" readonly onchange="Grados(this.value); semes(this.options[this.selectedIndex].innerHTML);" required="true" style="font-size:80%;width: 17%;/*posicion->*/position: absolute;top:54%; left:42%;">
                             <?php
                             echo $opciones2;
                              ?>
                       </select>
-                    <p style="position: absolute;top: 50%;left:59%">{{('del')}}</p>
+                    <p style="position: absolute;top: 50%;left:60%">{{('del')}}</p>
                     <!--Caja del grado-->
                     <input type="text" id="grado" value="<?php echo $Gra ?>" name="Gradoo" disabled style="background-color:#aaa; position: absolute; top:51%; left: 62%; width: 8%;border: 0px;font-size:90%;text-align: center; color:black">
                     <input type="text" id="semestree" value="{{$alumno->Semestre}}" name="Semestre" style="background-color:#aaa; position: absolute; top:51%; left: 81%; width: 0%;border: 0px;font-size:90%;text-align: center; color:black">
@@ -110,7 +108,7 @@
             </div>
 
             @foreach($FtOBache as $FTBH)
-            <div style="position: absolute;top: 112%; left: 5%; width: 90%;height:15%;background-color:#aaa">
+            <div style="position: absolute;top: 108%; left: 5%; width: 90%;height:15%;background-color:#aaa">
                 <p style="font-size:138%">{{('Formación para el Trabajo:')}}</p>
                 <p style="font-size:138%">{{('Bachillerato:')}}</p>
                 @if($bandera==1)
