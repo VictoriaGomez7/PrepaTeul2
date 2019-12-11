@@ -52,12 +52,12 @@
             
             foreach ($listaA as $r) {
                 ?>
-                <tr><td>
-               <label for="eliminar{{ $r->Clave_A }}"> {{$r->Nombre_A}}</label>
+                <tr style="height:32px;"><td>
+               <td> {{$r->Nombre_A}}</td>
                @if($bandera==0)
-                <input type="submit" name="eliminar{{$r->Clave_A}}" value="Mover" > 
+                <td><input type="submit" name="eliminar{{$r->Clave_A}}" value="Mover" > </td>
                 @endif
-              </td></tr>
+             </tr>
                 <?php
               }  
           ?>
@@ -71,56 +71,60 @@
             
             foreach ($listaB as $r) {
                 ?>
-                <tr><td>
-               <label for="eliminar{{ $r->Clave_A }}"> {{$r->Nombre_A}}</label>
+                <tr style="height:32px;"><td>
+               <td> {{$r->Nombre_A}}</td>
                @if($bandera==0)
-                <input type="submit" name="eliminar{{$r->Clave_A}}" value="Mover" > 
+               <td> <input type="submit" name="eliminar{{$r->Clave_A}}" value="Mover" ></td> 
                 @endif
-                </td></tr>
+                </tr>
                 <?php
               }  
           ?>
-          </table>
+          
       
-            </td>
+            </td></table>
             <td  align="center">
           <table>
           <?php
             
             foreach ($alumnosHombres as $r) {
                 ?>
-                <tr><td>
-               <label for="{{ $r->Clave_A }}"> {{ $r->Nombre_A }}</label>
-               <select name="combo{{$r->Clave_A}}" >
+                <tr style="height:32px;"><td>
+               <td> {{ $r->Nombre_A }}</td>
+               <td><select name="combo{{$r->Clave_A}}" >
                   <option value="A" >A</option>
                   <option value="B" >B</option>
-              </select>
+              </select></td><td>
                 <input type="submit" name="{{ $r->Clave_A }}" value="Aceptar" > 
                 </td></tr>
                 <?php
               }  
           ?>
-        </table>
-        </td>
-        <td  align="center">
+       
+        </td> </table>
+<td  align="center">
+        <table>
              <?php
          
             foreach ($alumnosMujeres as $r) {
-                ?>
-               <label for="{{ $r->Clave_A }}"> {{ $r->Nombre_A }}</label>
-               <select name="combo{{$r->Clave_A}}" >
+                ?><tr style="height:32px;">
+               <td> {{ $r->Nombre_A }}</td>
+               <td><select name="combo{{$r->Clave_A}}" >
                   <option value="A">A</option>
                   <option value="B">B</option>
-              </select>
-                <input type="submit" name="{{ $r->Clave_A }}" value="Aceptar" > 
-                <br><br>
+              </select></td>
+
+              <td>
+                <input type="submit" name="{{ $r->Clave_A }}" value="Aceptar" ></td>
+                </tr>
 
                 <?php
               }  
           ?>
 
         </td>
-        </tr>
+        
+      </table>
         </table>
        <input type="submit" name="A" value="Guardar" class="btn btn-primary" top="20%" align="center" style="position: absolute;left: 45%">
              

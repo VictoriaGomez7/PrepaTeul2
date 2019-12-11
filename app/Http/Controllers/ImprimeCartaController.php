@@ -79,15 +79,18 @@ class ImprimeCartaController extends Controller
                 $NombreAlumno=$nombreAlum->Nombre_A;
                 $sexo=$nombreAlum->Sexo;            
             }
+
             $materiasEvaluadas = evaluacionConducta::where('Clave_A',$r->cajaAlumno)->get();
+                if(count($materiasEvaluadas)==0){
+                 return back()->with('MsjERR','No cuenta  evaluacion de conducta');
+           }
             $ultimaFecha=date("o",strtotime($materiasEvaluadas[count($materiasEvaluadas)-1]->updated_at.""));
+
            
             $fecha3= ($ultimaFecha-3)."-".($ultimaFecha-2)." , ".($ultimaFecha-2) ."-".
             ($ultimaFecha-1)." y ".($ultimaFecha-1)."-".($ultimaFecha);
             $total=0;
-           if(count($materiasEvaluadas)==0){
-                 return back()->with('MsjERR','No cuenta  evaluacion de conducta');
-           }
+           
             foreach ($materiasEvaluadas as $materias) {
                 if($materias->evaluacion=="EXCELENTE"){
                     $total+=10;
