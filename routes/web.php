@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,23 +38,34 @@ Route::resource('EvaluacionConducta','conductaController');
 Route::get('materia/buscador','materiasBuscadorController@buscador');
 
 Route::get('/interfazpri', function () {
+    session_destroy();
     return view('interfazprincipal.Interfaz');
 });
 Route::get('/', function () {
+
     return view('interfazprincipal.Interfaz');
 });
 
 Route::get('/ControlEscolar', function () {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+return view('interfazprincipal.Interfaz');
+}
     return view('ControlEscolar.CEprincipal');
 });
 
 Route::get('/ControlEscolarInicio', function () {
+    if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+return view('interfazprincipal.Interfaz');
+}
     return view('ControlEscolar.CEprincipal2');
 });
 
 
 
 Route::get('/reinscripcion', function () {
+           if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+return view('interfazprincipal.Interfaz');
+}
     return view('Reinscripciones.create');
 });
 

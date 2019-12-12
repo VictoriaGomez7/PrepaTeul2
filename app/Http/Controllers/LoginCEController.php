@@ -52,6 +52,8 @@ class LoginCEController extends Controller
      */
     public function show(Request $request)
     {
+        
+
         $CE = usuarioCE::where('Usuario', $request->Usuario)->get();
         //return $CE;
         if (count($CE)==0)
@@ -62,6 +64,9 @@ class LoginCEController extends Controller
         else{
             $con= usuarioCE::where('Usuario', $request->Usuario)->get('Password');
             $var=Crypt::decrypt($con[0]->Password);
+
+            $_SESSION['usuarioUser']=$request->Usuario;
+            $_SESSION['ContraPass']=$var;
             if ($var==$request->Contraseña)
             {
                 return Redirect('/ControlEscolarInicio');
