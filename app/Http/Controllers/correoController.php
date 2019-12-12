@@ -7,7 +7,10 @@ use App\usuarioCE;
 class correoController extends Controller
 {
     //
-    public function buscaCorreo(Request $r){
+        public function buscaCorreo(Request $r){
+           if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+    return view('interfazprincipal.Interfaz');
+    }
     		$controlEscolar=usuarioCE::get('Correo');
     		$correoActual= $controlEscolar[0]->Correo;
     		return view('Correo.muestraCorreo',compact('correoActual'));
