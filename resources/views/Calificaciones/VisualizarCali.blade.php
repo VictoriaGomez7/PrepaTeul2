@@ -76,7 +76,8 @@
 			        	<?php $contador=0;
 			        		$Con_cal=0;
 			        		$contador_Clases=0;
-			        		$contador_Clases2=0; ?>
+			        		$contador_Clases2=0;
+			        		$contador_posiciones_faaltas=0; ?>
 				        	
 					        @foreach($AlumnosEnMismoSemestre as $AlumnosEnMismoSemestr)
 
@@ -93,15 +94,15 @@
 						            @if($PeriodoActivo==1)
 						            	<td><input type="number" id="Cal1{{$Con_cal}}" onkeyup="calificacionesp1()" step="0.1" name="Calif1[]" min="0" max="10" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
 
-						            	<td><input required type="number"min="0" value="{{$Faltas_Extraidas[$Con_cal]->Faltas}}" name="Faltas[]" style="width: 100%;" ></td>
+						            	<td><input required type="number"min="0" value="{{$Faltas_Extraidas[$contador_posiciones_faaltas]->Faltas}}" name="Faltas[]" style="width: 100%;" ></td>
 
 						            	<?php if ($contador_Clases==0){ ?>
 
-							 			<td><input required type="number" min="1"name="NumTotalAsis" style="width: 50%;" ></td>
+							 			<td><input required type="number" min="1"name="NumTotalAsis" style="width: 100%;" value="{{$Faltas_Extraidas[$Con_cal]->Faltas+$Faltas_Extraidas[$Con_cal]->Asistencias}}"></td>
 
 							 			<?php $contador_Clases=$contador_Clases+1; }else { ?>
 
-							 			<td><input required disabled type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+							 			<td><input required disabled type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" ></td>
 
 							 			<?php }  ?>
 
@@ -109,8 +110,8 @@
 
 
 						            	<input disabled="" id="Cal2{{$Con_cal}}" type="number" step="0.1" min="0"  max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
-
-						            	<td><input required disabled="" type="number"min="0"name="Faltas2[]" style="width: 90%;" ></td>
+						            	<?php $contador_posiciones_faaltas=$contador_posiciones_faaltas+1;?>
+						            	<td><input required disabled="" type="number"min="0"name="Faltas2[]" style="width: 90%;" value="{{$Faltas_Extraidas[$contador_posiciones_faaltas]->Faltas}}"></td>
 
 						            	<?php if ($contador_Clases2==0){ ?>
 
@@ -142,7 +143,7 @@
 					            		<input hidden=""  type="number" step="0.1" min="0"  max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}">
 					            		<td><input disabled id="Cali1{{$Con_cal}}" type="number" min="0"  max="10" step="0.1" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
 
-					            		<td><input required disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" ></td>
+					            		<td><input required disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" value="{{$Faltas_Extraidas[$contador_posiciones_faaltas]->Faltas}}"></td>
 
 						            	<?php if ($contador_Clases==0){ ?>
 
@@ -156,11 +157,11 @@
 
 					            		<td><input type="number" id="Cali2{{$Con_cal}}" step="0.1" min="0"  max="10" onkeyup="calificacionesp2()" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
 
-					            		<td><input required type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" ></td>
+					            		<td><input required type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" value="{{$Faltas_Extraidas[$contador_posiciones_faaltas]->Faltas}}"></td>
 
 						            	<?php if ($contador_Clases2==0){ ?>
 
-							 			<td><input required type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" ></td>
+							 			<td><input required type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" value="{{$Faltas_Extraidas[$Con_cal]->Faltas+$Faltas_Extraidas[$Con_cal]->Asistencias}}"></td>
 
 							 			<?php $contador_Clases2=$contador_Clases2+1; } else { ?>
 
@@ -194,30 +195,30 @@
 							            <input hidden="" id="Calif2{{$Con_cal}}" type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}">							            						            
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
 
-					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" ></td>
+					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" value="{{$Faltas_Extraidas[$contador_posiciones_faaltas]->Faltas}}"></td>
 
 						            	<?php if ($contador_Clases==0){ ?>
 
-							 			<td><input disabled="" type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+							 			<td><input disabled="" type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" ></td>
 
 							 			<?php $contador_Clases=$contador_Clases+1; }else { ?>
 
-							 			<td><input required disabled  type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+							 			<td><input required disabled  type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" ></td>
 
 							 			<?php }  ?>
 					            		
 
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
 
-					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" ></td>
+					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" value="{{$Faltas_Extraidas[$contador_posiciones_faaltas]->Faltas}}"></td>
 
 						            	<?php if ($contador_Clases2==0){ ?>
 
-							 			<td><input disabled="" type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+							 			<td><input disabled="" type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" ></td>
 					            		
 					            		<?php $contador_Clases2=$contador_Clases2+1; } else { ?>
 
-							 			<td><input required disabled  type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+							 			<td><input required disabled  type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" ></td>
 
 							 			<?php } ?>
 
@@ -244,29 +245,29 @@
 							            <input hidden="" type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}">
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif1[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial1}}"> </td>
 
-					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" ></td>
+					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" value="{{$Faltas_Extraidas[$contador_posiciones_faaltas]->Faltas}}"></td>
 
 						            	<?php if ($contador_Clases==0){ ?>
 
-							 			<td><input required disabled  type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+							 			<td><input required disabled  type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" ></td>
 
 							 			<?php $contador_Clases=$contador_Clases+1; } else { ?>
 
-							 			<td><input required type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+							 			<td><input required type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" value="{{$Faltas_Extraidas[$Con_cal]->Faltas+$Faltas_Extraidas[$Con_cal]->Asistencias}}"></td>
 
 							 			<?php } ?> 
 
 					            		<td><input disabled type="number" step="0.1" min="0" max="10" name="Calif2[]" value="{{$Calif_Extraidas[$Con_cal]->Parcial2}}"></td>
 
-					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" ></td>
+					            		<td><input disabled="" type="number"min="0" max="25" name="Faltas[]" style="width: 100%;" value="{{$Faltas_Extraidas[$contador_posiciones_faaltas]->Faltas}}"></td>
 
 						            	<?php if ($contador_Clases2==0){ ?>
 
-							 			<td><input required type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+							 			<td><input required type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" value="{{$Faltas_Extraidas[$Con_cal]->Faltas+$Faltas_Extraidas[$Con_cal]->Asistencias}}"></td>
 
 							 			<?php $contador_Clases2=$contador_Clases2+1; } else { ?>
 
-							 			<td><input required disabled  type="number"min="1" max="25" name="NumTotalAsis" style="width: 50%;" ></td>
+							 			<td><input required disabled  type="number"min="1" max="25" name="NumTotalAsis" style="width: 100%;" ></td>
 
 							 			<?php } ?>
 
@@ -294,7 +295,8 @@
 					            	
 				          		</tr>
 				        		<?php $contador=$contador+0;
-				        		$Con_cal=$Con_cal+1; ?>
+				        		$Con_cal=$Con_cal+1; 
+				        		$contador_posiciones_faaltas=$contador_posiciones_faaltas+1;?>
 				        	@endforeach
 				        	
 

@@ -42,10 +42,10 @@ class CalificacionesController extends Controller
 
 
         if (count($MateriasDelDocente)==0){
-            return redirect('/DocenteInicios?valor='.$usua)->with('MsjERR','No tiene materias asignadas');
+            return redirect('/DocenteInicios?valor='.$usua)->with('MsjERR','No tiene materias asignadas.');
         }
         elseif (count($Periodo1ini)==0 or count($Periodo1fin)==0 or count($Periodo2ini)==0 or count($Periodo2fin)==0){
-            return redirect('/DocenteInicios?valor='.$usua)->with('MsjERR','Los períodos no han sido asignados');
+            return redirect('/DocenteInicios?valor='.$usua)->with('MsjERR','Los períodos no han sido asignados.');
         }
         else{
             //return $MateriasDelDocente;
@@ -148,8 +148,10 @@ class CalificacionesController extends Controller
                 $Calif->Grupo=$request->Grupo;
                 $Calif->Parcial1=0;
                 $Calif->Parcial2=0;
+                $Calif->PromedioParcial=0;
                 $Calif->Semestral=0;
                 $Calif->Semestre=$AlumnosEnMismoSemestre[$i][0]->Semestre;
+                $Calif->PromedioFinal=0;
                 $Calif->Año=$year_DATE;
                 $Calif->save();
                 $Asis=new Asistencia();
@@ -167,6 +169,7 @@ class CalificacionesController extends Controller
 
         else
         {
+           
             $Calif_Extraidas=CalificacionesParciales::where('ClaveM',$request->ClaveMateriaSelec)->where('Grupo',$request->Grupo)->get();
             if (count($AlumnosEnMismoSemestre)!=count($Calif_Extraidas)){
 
@@ -188,8 +191,10 @@ class CalificacionesController extends Controller
                         $Calif->Grupo=$request->Grupo;
                         $Calif->Parcial1=0;
                         $Calif->Parcial2=0;
+                        $Calif->PromedioParcial=0;
                         $Calif->Semestral=0;
                         $Calif->Semestre=$AlumnosEnMismoSemestre[$i][0]->Semestre;
+                        $Calif->PromedioFinal=0;
                         $Calif->Año=$year_DATE;
                         $Calif->save();
 
@@ -227,14 +232,13 @@ class CalificacionesController extends Controller
     public function show($g, Request $r)
     {
 
-        $calif=CalificacionesParciales::find($g);
-
+        /*$calif=CalificacionesParciales::find($g);
         $usua=$calif->Clave_A;
         $calif->Parcial1 = $r->Parcial1;
         $calif->Parcial2 = $r->Parcial2;
-        $calif->save();
+        $calif->save();*/
 
-        return Redirect('/CONSULTACALIFICACIONESCE/show?id='.$usua)->with('msj1','Calificación modificada exitosamente' );
+        return Redirect('/CONSULTACALIFICACIONESCE/show?id='.$usua)->with('msj1','Calificación modificada exitosamente.' );
 
     }
 
