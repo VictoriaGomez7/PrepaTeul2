@@ -20,6 +20,9 @@ class ConsultarCalificacionesCEController extends Controller
      */
     public function index()
     {
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         return view('Calificaciones.ConsultaCE');
 
     }
@@ -52,6 +55,9 @@ class ConsultarCalificacionesCEController extends Controller
      */
     public function show(Request $request)
     {
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         //return "hola";
         $AL = CalificacionesParciales::where('Clave_A', $request->id)->get();
         $nombreA=Alumno::where('Clave_A', $request->id)->get('Nombre_A');

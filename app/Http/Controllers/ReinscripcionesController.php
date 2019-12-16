@@ -30,7 +30,9 @@ class ReinscripcionesController extends Controller
      */
     public function create()
     {
-
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         return view('Reinscripciones.create');
     }
 
@@ -42,7 +44,9 @@ class ReinscripcionesController extends Controller
      */
     public function store(TagStoreRequestFTyBACH $request2)
     {
-
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         $campo=new ft_bach();
         $campo->Clave_A=$request['Clave_A'];//id
         $campo->Formación_Trabajo=$request2['ft1'];
@@ -59,7 +63,9 @@ class ReinscripcionesController extends Controller
     public function show(Request $alumno1)//show($id)
     {
 
-
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }           
              $dbFormaciones=Formaciones::get();
         $opcionesFormacion='';
         foreach ($dbFormaciones as $formacion) {
@@ -140,6 +146,9 @@ class ReinscripcionesController extends Controller
      */
     public function edit(Request $alumno1)
     {
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         $Semestres=['PRIMER SEMESTRE','SEGUNDO SEMESTRE','TERCER SEMESTRE','CUARTO SEMESTRE','QUINTO SEMESTRE','SEXTO SEMESTRE'];
         $Grados=['PRIMER','SEGUNDO','TERCER'];
         $ides=$alumno1['Clave_A'];

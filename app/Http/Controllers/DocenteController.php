@@ -23,6 +23,9 @@ class DocenteController extends Controller
     {
         //return $id->id1;
         //return $id->name;
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         if ($id->name!="" && $id->id1==""){
 
             $CDocente = Docentes::where('Nombre', $id->name)->get();
@@ -88,6 +91,9 @@ class DocenteController extends Controller
      */
     public function store(TagStoreRequestDocentes $request)
     {
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         $docente=new Docentes();
         $docente->Clave_D=$request['Clave'];
         $docente->Nombre=$request['nombre'];
@@ -114,6 +120,9 @@ class DocenteController extends Controller
      */
     public function show(request $id)
     {
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         $CDocente = Docentes::where('Clave_D', $id->id)->get();
         return view('DocenteC.show',compact('CDocente'));
 
@@ -128,6 +137,9 @@ class DocenteController extends Controller
      */
     public function edit(request $docente1)
     {
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         $doce="";
         $doces=Docentes::where([['Clave_D',$docente1->clave1]])->get();
         //return $doces;
@@ -153,6 +165,9 @@ class DocenteController extends Controller
      */
     public function update($id)
     {
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         return Redirect('Docente')->with('msj1','Docente modificado exitosamente.' );
     }
 
@@ -164,6 +179,9 @@ class DocenteController extends Controller
      */
     public function destroy($id)
     {
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         Docentes::where('Clave_D',$id)->delete();
         usuariomaestro::where('Usuario',$id)->delete();
         Docentes::get();

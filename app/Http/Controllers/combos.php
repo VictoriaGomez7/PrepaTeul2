@@ -9,6 +9,9 @@ class combos extends Controller
 {
     //
     public function formaciones(){
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
     	$dbFormaciones=Formaciones::get();
     	$opcionesFormacion='';
     	foreach ($dbFormaciones as $formacion) {
@@ -28,7 +31,9 @@ class combos extends Controller
     	return view('RegistrarMaterias.create' ,compact('opcionesFormacion','opcionesBachillerato'));
     }
     public function incripcion(){
-
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
             $dbFormaciones=Formaciones::get();
         $opcionesFormacion='';
         foreach ($dbFormaciones as $formacion) {

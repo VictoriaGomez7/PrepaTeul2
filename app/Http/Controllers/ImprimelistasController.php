@@ -22,7 +22,9 @@ class ImprimelistasController extends Controller
      */
     public function index()
     {
-
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         return view('Listas.listar');
     }
 
@@ -55,6 +57,9 @@ class ImprimelistasController extends Controller
     public function show(Request $r )
     {
         //  return "hola";
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         $semestre=$r->semestre;
         $titulo='';
         $top=10;
@@ -141,7 +146,9 @@ class ImprimelistasController extends Controller
    
     public function edit(Request $r,$semestre)
     {
-
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         $formacion=$r->formacionT;
         $listaA=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A
             from alumnos    WHERE  (EXISTS (SELECT 1 from ft_baches
@@ -172,7 +179,9 @@ class ImprimelistasController extends Controller
     public function update(Request $r,$semestre)
     {
  //   return $r;
-
+      if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
        $bachillerato=$r->bachilleratoT;
         $listaA=DB::select("SELECT DISTINCT alumnos.Clave_A,alumnos.Nombre_A
            from alumnos    WHERE  (EXISTS (SELECT 1 from ft_baches

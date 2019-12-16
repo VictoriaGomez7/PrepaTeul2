@@ -25,7 +25,9 @@ class AlumnosController extends Controller
      */
     public function index(Request $alumno1)
     {
-    
+      if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
       $clave=$alumno1->id;
       $nombre=$alumno1->nombre;
       if (isset($clave)&&isset($nombre)) {
@@ -90,6 +92,9 @@ class AlumnosController extends Controller
      */
     public function create($alumno1)
     {
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         return $alumno1;
     }
 
@@ -101,6 +106,10 @@ class AlumnosController extends Controller
      */
     public function store(TagStoreRequest $request, TagStoreRequestFTyBACH $request2)
     {
+       if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
+        
         //return $request;
         $nombrealumn='';
         $nombrealumn=$nombrealumn.$request['nombre'].' '.$request['ApellidoP'].' '.$request['ApellidoM'];
@@ -172,6 +181,9 @@ class AlumnosController extends Controller
     public function edit(Request $alumno1)
 
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         //return $alumno1;
         $alumn="";
         $alumns=Alumno::where([['Clave_A',$alumno1->Clave_A]])->get();
@@ -200,10 +212,7 @@ class AlumnosController extends Controller
 
        return redirect('alumnosconsulta')->with('msj2','Alumno modificado correctamente.');
 
-        //return 'actualizado';
-        //return redirect()->view('Reinscripcion.show');
-        //return back()->with('re',' correctamente' );
-        //return back()->with('msj',' esa matricula no existe' );
+
     }
 
 
@@ -216,7 +225,9 @@ class AlumnosController extends Controller
      */
     public function update($id)
     {
-
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         $CAlumno = Alumno::where('Clave_A', $id)->get();
         $Requisitos = Requisito::where('Clave_A', $id)->get();
         $bachis=ft_bach::where('Clave_A',$id)->get();
@@ -251,6 +262,9 @@ class AlumnosController extends Controller
      */
     public function destroy($id)
     {
+    if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
       Alumno::where('Clave_A',$id)->delete();
       usuarioalumno::where('Usuario',$id)->delete();
         Requisito::where('Clave_A',$id)->delete();

@@ -19,6 +19,7 @@ class LoginCEController extends Controller
      */
     public function index()
     {
+        
         return view('LoginCE.index');
     }
 
@@ -97,6 +98,9 @@ class LoginCEController extends Controller
      */
     public function update(Request $request)
     {
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         $usu=usuarioCE::all();
         usuarioCE::where('Usuario',$usu[0]->Usuario)->update(['Password'=>Crypt::encrypt($request['contra'])]);
         return redirect('LoginControlEscolar')->with('msjC','Contraseña modificada correctamente.');

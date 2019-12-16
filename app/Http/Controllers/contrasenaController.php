@@ -19,6 +19,9 @@ class contrasenaController extends Controller
      */
     public function index()
     {
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         return view('contrasena.contrasena');
 
     }
@@ -30,6 +33,9 @@ class contrasenaController extends Controller
      */
     public function create()
     {
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         return view('contrasena.contrasenaDocente');
     }
 
@@ -64,6 +70,9 @@ class contrasenaController extends Controller
     public function edit($id)
     {
         //
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         $contrasena=usuariomaestro::where('Usuario',$id)->get('Password');
         $cont="";
         
@@ -87,6 +96,9 @@ class contrasenaController extends Controller
     public function update( $id)
     {
         //
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         $contrasena=usuarioalumno::where('Usuario',$id)->get('Password');
         $contl="";
         
@@ -111,6 +123,9 @@ class contrasenaController extends Controller
         
     }
     public function buscador(Request $request){
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         $alumnos1A =Alumno::where("Nombre_A",'like',"%".$request->claveId."%")
         ->orWhere("Clave_A",'like',$request->claveId."%")
         ->orWhere("Nombre_M",'like',"%".$request->claveId."%")
@@ -127,6 +142,12 @@ class contrasenaController extends Controller
     }
 
     public function buscadorDocente(Request $request){
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         $docente1A    =   Docentes::where("Clave_D",'like',   "%".$request->claveId."%")
         ->orWhere("Nombre",'like',  $request->claveId."%")
         ->orWhere("Telefono",'like',   "%".$request->claveId."%")->get()->unique();

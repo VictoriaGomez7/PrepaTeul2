@@ -16,7 +16,9 @@ class compromisoEstudianteController extends Controller
      */
     public function index()
     {
-     
+     if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         $compromisos=compromisoEstudiante::take(100)->get();
         
         return view('compromisos.index',compact('compromisos'));
@@ -44,6 +46,9 @@ class compromisoEstudianteController extends Controller
      */
     public function store(Request $r,compromisoEstudiante $compromiso)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
       $ban=0;
       $cadena=$r->compromiso;
       $c="";
@@ -148,6 +153,9 @@ class compromisoEstudianteController extends Controller
      */
     public function show(Request $r)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         //
         $comp="";
         $compromisoEstudiante=compromisoEstudiante::where([
@@ -188,6 +196,9 @@ class compromisoEstudianteController extends Controller
     public function update($r)
     {
         //
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
         return $r;
     }
 

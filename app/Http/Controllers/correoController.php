@@ -16,6 +16,9 @@ class correoController extends Controller
     		return view('Correo.muestraCorreo',compact('correoActual'));
     		    }
    	public function edit(Request $datos ){
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
    		$usuario=usuarioCE::all();
    		$usua="";
    		foreach ($usuario as $usu ) {

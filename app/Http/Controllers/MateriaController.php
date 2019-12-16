@@ -19,7 +19,9 @@ class MateriaController extends Controller
      */
     public function index()
     {
-
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
      // $materias=materia::all();
       return view('materias.consulta');
 
@@ -33,6 +35,9 @@ class MateriaController extends Controller
     public function create(TagStoreRequestMaterias $request)
     {       //return $request;
             //Arreglo de numero romanos
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
             $bandera1=0;
             $bandera4=0;
             $Romanos=array('I','II','III',"IV",'V','VI' );
@@ -683,7 +688,9 @@ class MateriaController extends Controller
      */
     public function store(Request $request)
     {
-
+              if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
          //return $request;
             //Arreglo de numero romanos
             $bandera1=0;
@@ -1517,7 +1524,9 @@ if(strlen($materia)){
                */
     public function edit($g, Request $r)
     {
-
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
       $materia=[];
       $materias=Materia::where([['Clave_M',$r->Clave_M]])->get();
 
@@ -1569,7 +1578,9 @@ if(strlen($materia)){
      */
     public function destroy($id)
     {
-
+          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
        materia::where('Clave_M',$id)->delete();
        materia_grupo::where('Clave_M',$id)->delete();
        return redirect('materia')->with('msj','Materia Eliminada Correctamente');

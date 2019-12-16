@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 class materiasBuscadorController extends Controller
 {
 public function buscador(Request $request){
-
+            
+      if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+    }
          $materias1A    =   Materia::where("Nombre",'like',   $request->claveId."%")->get();
          $materias2A    =   Materia::where("Clave_M",'like',  $request->claveId."%")->get();
         
