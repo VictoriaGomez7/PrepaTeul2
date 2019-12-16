@@ -24,15 +24,14 @@ class CalificacionesController extends Controller
      */
     public function index()
     {
-
+        if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+            return view('interfazprincipal.Interfaz');
+        }
         $id=$_GET['valor'];
         $usua=$id;
         //return $id;
         $NombreDoc=Docentes::where('Clave_D',$id)->get();
         $MateriasDelDocente=RelacionDocenteMateriaGrupo::where('Clave_D',$NombreDoc[0]->Nombre)->get();
-
-
-
 
         $Periodo1ini=Periodo::where('id','1')->get('fecha1');
         $Periodo1fin=Periodo::where('id','1')->get('fecha2');
@@ -62,7 +61,7 @@ class CalificacionesController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -73,6 +72,9 @@ class CalificacionesController extends Controller
      */
     public function store(Request $request)
     {
+        if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+            return view('interfazprincipal.Interfaz');
+        }
         $PeriodoActivo=0;
         $Periodo1ini=Periodo::where('id','1')->get('fecha1');
         $Periodo1fin=Periodo::where('id','1')->get('fecha2');
@@ -231,7 +233,9 @@ class CalificacionesController extends Controller
      */
     public function show($g, Request $r)
     {
-
+        if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+            return view('interfazprincipal.Interfaz');
+        }
         /*$calif=CalificacionesParciales::find($g);
         $usua=$calif->Clave_A;
         $calif->Parcial1 = $r->Parcial1;
@@ -250,6 +254,9 @@ class CalificacionesController extends Controller
      */
     public function edit(Request $id)
     {
+        if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+            return view('interfazprincipal.Interfaz');
+        }
       //return "Si llega";
         //return $id->Periodo;
         //return $id;
@@ -292,7 +299,7 @@ class CalificacionesController extends Controller
         $Claves_Alumnos=$id->get('ClaveA');
         $usua=$id->Usua;
         if ($ban==1) {
-            return redirect('Calificaciones?valor='.$usua)->with('msj2','El número de faltas no puede ser mayor que el total de clases' );
+            return redirect('Calificaciones?valor='.$usua)->with('msj2','El número de faltas no puede ser mayor que el total de clases.' );
         }
 
         else {
@@ -418,7 +425,9 @@ class CalificacionesController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+            return view('interfazprincipal.Interfaz');
+        }
         $alum=CalificacionesParciales::where('id',$id)->get();
         //$mate=Materia::get();
         //return $id;

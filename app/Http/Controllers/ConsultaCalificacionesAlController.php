@@ -17,7 +17,9 @@ class ConsultaCalificacionesAlController extends Controller
      */
     public function index(Request $request)
     {
-        
+        if(!isset($_SESSION['ContraPassA']) || !isset($_SESSION['usuarioUserA'])){
+            return view('interfazprincipal.Interfaz');
+        }   
         $usua=$_GET['valor'];
         //$usua=$request->valor;
         $Asist=Asistencia::where('Clave_A',$usua)->where('Periodo',1)->get();

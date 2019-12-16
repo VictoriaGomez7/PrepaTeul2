@@ -16,14 +16,21 @@ class ContraController extends Controller
      */
     public function index(Request $request)
     {
+
         $usua=$request->valor;
         $alumns=usuarioalumno::where([['Usuario',$usua]])->get();
         if (count($alumns)!=0) {
+            if(!isset($_SESSION['ContraPassA']) || !isset($_SESSION['usuarioUserA'])){
+                return view('interfazprincipal.Interfaz');
+            }
             return view('Alumnos.cambiarcontra',compact('usua'));
         }
         $maestros=usuariomaestro::where([['Usuario',$usua]])->get();
 
         if (count($maestros)==1) {
+            if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+                return view('interfazprincipal.Interfaz');
+            }
             return view('DocenteC.cambiarcontra',compact('usua'));
         }
 
@@ -52,24 +59,31 @@ class ContraController extends Controller
 
         $alumns=usuarioalumno::where([['Usuario',$usua]])->get();
         if (count($alumns)!=0) {
+            if(!isset($_SESSION['ContraPassA']) || !isset($_SESSION['usuarioUserA'])){
+                return view('interfazprincipal.Interfaz');
+            }
+
             usuarioalumno::where('Usuario',$request->clave)->delete();
-        $usu=new usuarioalumno();
+            $usu=new usuarioalumno();
             $usu->Usuario=$request['clave'];
             $usu->Password=Crypt::encrypt($request['contra']);
             $usu->save();
-        return redirect('LoginAlumno')->with('msjC','Contraseña modificada correctamente.');
+            return redirect('LoginAlumno')->with('msjC','Contraseña modificada correctamente.');
 
         }
         $maestros=usuariomaestro::where([['Usuario',$usua]])->get();
 
         if (count($maestros)==1) {
-            usuariomaestro::where('Usuario',$request->clave)->delete();
+            if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+                return view('interfazprincipal.Interfaz');
+            }
 
-        $usu=new usuariomaestro();
+            usuariomaestro::where('Usuario',$request->clave)->delete();
+            $usu=new usuariomaestro();
             $usu->Usuario=$request['clave'];
             $usu->Password=Crypt::encrypt($request['contra']);
             $usu->save();
-        return redirect('LoginDocente')->with('msjC','Contraseña modificada correctamente.');
+            return redirect('LoginDocente')->with('msjC','Contraseña modificada correctamente.');
 
         }
 
@@ -83,7 +97,7 @@ class ContraController extends Controller
      */
     public function show($request)
     {
-
+        //
     }
 
     /**
@@ -94,7 +108,7 @@ class ContraController extends Controller
      */
     public function edit($request)
     {
-      ;
+      //
     }
 
     /**
@@ -106,7 +120,7 @@ class ContraController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        //
     }
 
     /**

@@ -27,7 +27,9 @@ class AsistenciasController extends Controller
     public function index()
     {
 
-        //return view('Asistencias.provicional');
+        if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+          return view('interfazprincipal.Interfaz');
+        }
 
         $request=$_GET['valor'];
         $usua=$_GET['valor'];
@@ -51,6 +53,9 @@ class AsistenciasController extends Controller
      */
     public function create(Request $request)
     {
+      if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+        return view('interfazprincipal.Interfaz');
+      }
 
       $id=$request['id'];
       $usua=$request['usua'];
@@ -96,7 +101,7 @@ class AsistenciasController extends Controller
             $CMateria = Materia::get();
             //return $CMateria;
             $new=[$CDocente,$CMateria];
-            return back()->with('msj1', 'Datos Guardados Correctamente');
+            return back()->with('msj1', 'Datos Guardados Correctamente.');
         }
           break;
 
@@ -108,14 +113,14 @@ class AsistenciasController extends Controller
             $CMateria = Materia::get();
             //return $CMateria;
             $new=[$CDocente,$CMateria];
-            return back()->with('msj', ' Ya registraste la asistencia de esta materia en el periodo disponible ');
+            return back()->with('msj', ' Ya registraste la asistencia de esta materia en el periodo disponible.');
 
           break;
       }
      }
      else{
 
-      return back()->with('msj',' La cantidad de días habiles en el periodo no concuerdan con el total de asistencias' );
+      return back()->with('msj',' La cantidad de días habiles en el periodo no concuerdan con el total de asistencias.');
      }
 
 
@@ -132,6 +137,9 @@ class AsistenciasController extends Controller
      */
     public function store(Request $request)
     {
+      if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+        return view('interfazprincipal.Interfaz');
+      }
       $id= $request['id'];
       $separar = explode("_", $id);
       $Clavemat=$separar[0];
@@ -156,7 +164,7 @@ class AsistenciasController extends Controller
       }
 
       if ($bandera==True) {
-        return back()->with('msj',' No se han capturado asistencias');
+        return back()->with('msj',' No se han capturado asistencias.');
       }
 
       $arrayalumnos = array();
@@ -191,7 +199,7 @@ class AsistenciasController extends Controller
       }
 
       if ($bandera==True) {
-        return back()->with('msj',' No se han capturado asistencias');
+        return back()->with('msj',' No se han capturado asistencias.');
       }
 
       $arrayalumnos = array();
@@ -223,7 +231,7 @@ class AsistenciasController extends Controller
       }
 
       if ($bandera==True) {
-        return back()->with('msj',' No se han capturado asistencias');
+        return back()->with('msj',' No se han capturado asistencias.');
       }
 
       $arrayalumnos = array();
@@ -251,7 +259,9 @@ class AsistenciasController extends Controller
      */
     public function show($id)
     {
-
+      if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+        return view('interfazprincipal.Interfaz');
+      }
       $separar = explode("_", $id);
       $Clavemat=$separar[0];
       $Grupo=$separar[1];
@@ -265,12 +275,12 @@ class AsistenciasController extends Controller
       $estep=[];
       foreach ($per as $pe) {
         if ($pe->fecha1==null || $pe->fecha2==null) {
-          return back()->with('msj',' Favor de solicitar a Control Escolar asignar periodos' );
+          return back()->with('msj',' Favor de solicitar a Servicios Escolares asignar periodos.' );
         }
       }
         
           if ($per[0]->fecha1<=$fecha && $per[0]->fecha2>$fecha != null && $per[0]->fecha2!=null) {
-            return back()->with('msj',' Favor de asignar asistencias hasta culminar el primer periodo' );
+            return back()->with('msj',' Favor de asignar asistencias hasta culminar el primer periodo.' );
           }
           
         

@@ -65,6 +65,8 @@ class LoginMController extends Controller
             $var=Crypt::decrypt($Ps[0]->Password);
             if ($var==$request->Contraseña)
             {
+                $_SESSION['usuarioUserM']=$request->Usuario;
+                $_SESSION['ContraPassM']=$var;
                 view('DocenteInterfazPrincipal.InterfazPrincipal',compact('usua'));
                 return view('DocenteInterfazPrincipal.InterfazPrincipal2',compact('usua','CE'));
             }
@@ -82,8 +84,11 @@ class LoginMController extends Controller
      */
     public function edit(Request $request)
     {
-      $usua = $request['valor'];
-      return view('LoginM.cambiarcontra',compact('usua'));
+        if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+            return view('interfazprincipal.Interfaz');
+        }
+        $usua = $request['valor'];
+        return view('LoginM.cambiarcontra',compact('usua'));
     }
 
     /**
@@ -95,12 +100,14 @@ class LoginMController extends Controller
      */
     public function update(Request $request)
     {
+        if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+            return view('interfazprincipal.Interfaz');
+        }
+        $var=Crypt::encrypt($request['contra']);
 
-      $var=Crypt::encrypt($request['contra']);
-
-      return $var;
-      usuariomaestro::where('Usuario',$request->clave)->update(['Password'=>$var]);
-      return view('LoginM.index');
+        return $var;
+        usuariomaestro::where('Usuario',$request->clave)->update(['Password'=>$var]);
+        return view('LoginM.index');
     }
 
     /**

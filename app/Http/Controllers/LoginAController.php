@@ -85,6 +85,9 @@ class LoginAController extends Controller
      */
     public function edit(Request $request)
     {
+        if(!isset($_SESSION['ContraPassA']) || !isset($_SESSION['usuarioUserA'])){
+            return view('interfazprincipal.Interfaz');
+        }
       //return $request['valor'];
       $usua = $request['valor'];
       return view('Alumnos.cambiarcontra',compact('usua'));
@@ -99,6 +102,9 @@ class LoginAController extends Controller
      */
     public function update(Request $request)
     {
+        if(!isset($_SESSION['ContraPassA']) || !isset($_SESSION['usuarioUserA'])){
+            return view('interfazprincipal.Interfaz');
+        }
       $var=Crypt::encrypt($request['contra']);
       return $var;
         usuarioalumno::where('Usuario',$request->clave)->update(['Password'=>$var]);

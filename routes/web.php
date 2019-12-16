@@ -33,7 +33,7 @@ Route::get('contrasenaDocente','contrasenaController@create');//CE
 
 Route::resource('contrasena','contrasenaController');//CE
 
-Route::resource('EvaluacionConducta','conductaController'); //Docente
+Route::resource('EvaluacionConducta','conductaController'); //Docente LISTO
 
 Route::get('materia/buscador','materiasBuscadorController@buscador'); //CE
 
@@ -123,23 +123,38 @@ Route::get('/docenteconsulta' ,function(){
 
 //PARA LA INTERFAZ DE DOCENTE
 Route::get('/DocenteInicio', function () {
+    if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+        return view('interfazprincipal.Interfaz');
+    }
     return view('DocenteInterfazPrincipal.InterfazPrincipal2'); //Docente
 });
 
 Route::get('/DocenteInicios', function () {
+    if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+        return view('interfazprincipal.Interfaz');
+    }
     return view('DocenteInterfazPrincipal.InterfazPrincipal3'); //Docente
 });
 
 Route::get('/Docentes', function () {
+    if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+        return view('interfazprincipal.Interfaz');
+    }
     return view('DocenteInterfazPrincipal.InterfazPrincipal'); //Docente
 });
 
 // PARA LA INTERFAZ DE AUMNO
 Route::get('/Alumnosinicio', function () {
+    if(!isset($_SESSION['ContraPassA']) || !isset($_SESSION['usuarioUserA'])){
+        return view('interfazprincipal.Interfaz');
+    }
     return view('Alumnosinterfazprincipal.InterfazPrincipal'); //Alumno
 });
 
 Route::get('/Alumnoinicio', function () {
+    if(!isset($_SESSION['ContraPassA']) || !isset($_SESSION['usuarioUserA'])){
+        return view('interfazprincipal.Interfaz');
+    }
     return view('Alumnosinterfazprincipal.InterfazPrincipal2'); //Alumno
 });
 
@@ -151,18 +166,21 @@ Route::get('/periodos' ,function(){
 });
 
 Route::get('/Asistencias' ,function(){ //Docente
+    if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+        return view('interfazprincipal.Interfaz');
+    }
     return view('Periodos.show');
 });
 
 
 
-Route::get('ContraseñaAlumn','LoginAController@edit'); //Alumno
+Route::get('ContraseñaAlumn','LoginAController@edit'); //Alumno LISTO
 
-Route::resource('ModificarcontraA','LoginAController'); //Alumno
+Route::resource('ModificarcontraA','LoginAController'); //Alumno LISTO
 
-Route::get('ContraseñaDocen','LoginMController@edit'); //Docente
+Route::get('ContraseñaDocen','LoginMController@edit'); //Docente LISTO
 
-Route::resource('ModificarcontraM','LoginMController'); //Docente
+Route::resource('ModificarcontraM','LoginMController'); //Docente LISTO
 
 Route::get('/ContraseñaCE' ,function(){
     if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
@@ -178,9 +196,12 @@ Route::get('ModificarcontraCe2','LoginCEController@update');//CE
 //Ruta para vista de calificaciones de Control Escolar
 Route::resource('CONSULTACALIFICACIONESCE','ConsultarCalificacionesCEController'); //CE
 
-Route::resource('CONSULTACALIFICACIONESAL','ConsultaCalificacionesAlController'); //Alumno
+Route::resource('CONSULTACALIFICACIONESAL','ConsultaCalificacionesAlController'); //Alumno LISTO
 //Ruta para vista de calificaciones de Docentes
 Route::get('/CONSULTACALIFICACIONESDC', function () { //Docente
+    if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+        return view('interfazprincipal.Interfaz');
+    }
     return view('Calificaciones.ConsultaDC');
 });
 
@@ -240,15 +261,15 @@ Route::get('/E_Espera', function () {
     }
     return view('Graficas.Presentacio');
 });
-Route::resource('Modificarcontra','ContraController'); //Esto es para ambos (Docentes, Alumnos)
+Route::resource('Modificarcontra','ContraController'); //Esto es para ambos (Docentes, Alumnos)  listo
 
-Route::get('Asistencias','AsistenciasController@Report'); //Doc
+Route::get('Asistencias','AsistenciasController@Report'); //Docente LISTO
 
 Route::resource('Imprimelistas','ImprimelistasController'); //CE
 
-Route::resource('LoginAlumno','LoginAController'); //Alumno
+Route::resource('LoginAlumno','LoginAController'); //Alumno LISTO
 
-Route::resource('LoginDocente','LoginMController'); //Docente
+Route::resource('LoginDocente','LoginMController'); //Docente LISTO
 
 Route::resource('LoginControlEscolar','LoginCEController'); //CE
 
@@ -282,7 +303,7 @@ Route::resource('VisualizarDocentes','VisuaDocentesController'); //CE
 
 Route::resource('VisualizaMaGr','VisualizarMateriaGrupoController'); //CE
 
-Route::resource('AsignarCalificacion','CalificacionesController'); //Docentes
+Route::resource('AsignarCalificacion','CalificacionesController'); //Docente LISTO
 
 Route::resource('Calificaciones','CalificacionesController');
 

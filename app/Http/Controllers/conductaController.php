@@ -20,6 +20,10 @@ class conductaController extends Controller
      */
     public function index( Request $usua)
     {
+        if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+            return view('interfazprincipal.Interfaz');
+        }
+
         $fechaActual=DB::select("SELECT NOW() as fecha; ");
         /// return $fechaActual;
         $hoy=[];
@@ -78,6 +82,9 @@ class conductaController extends Controller
      */
     public function store(Request $materia)
     {   
+        if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+            return view('interfazprincipal.Interfaz');
+        }
         $materia2=explode(">", $materia->boton);
        
         $nombreDocentes=Docentes::WHERE('Clave_D',$materia->caja)->get();
@@ -184,7 +191,7 @@ class conductaController extends Controller
     public function edit(Request $materia)
 
     {
-        
+        //
     }
 
 
@@ -197,7 +204,9 @@ class conductaController extends Controller
      */
     public function update(Request $evaluaciones, $id)
     {
-        
+        if(!isset($_SESSION['ContraPassM']) || !isset($_SESSION['usuarioUserM'])){
+            return view('interfazprincipal.Interfaz');
+        }
         $datos=explode('^', $id);
         $Clave_D=$datos[0];
         $Clave_M=$datos[1];
@@ -272,6 +281,6 @@ class conductaController extends Controller
      */
     public function destroy($id)
     {
-       
+       //
     }
 }
