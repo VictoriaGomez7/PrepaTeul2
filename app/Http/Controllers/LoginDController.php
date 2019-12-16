@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-
-use App\usuarioCE;
+use App\usuariodirector;
 Use Session;
 Use Redirect;
 Use Alert;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
 
-class LoginCEController extends Controller
+class LoginDController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +17,7 @@ class LoginCEController extends Controller
      */
     public function index()
     {
-        
-        return view('LoginCE.index');
+        return view('LoginD.index');
     }
 
     /**
@@ -41,8 +38,7 @@ class LoginCEController extends Controller
      */
     public function store(Request $request)
     {
-        //return $request;
-        //return "Si llega2";
+        //
     }
 
     /**
@@ -53,31 +49,25 @@ class LoginCEController extends Controller
      */
     public function show(Request $request)
     {
-        $request->validate([
-            
-            'g-recaptcha-response' => 'required|captcha'
-        ]);
-
-        $CE = usuarioCE::where('Usuario', $request->Usuario)->get();
-        //return $CE;
+        $CE = usuariodirector::where('Usuario', $request->Usuario)->get();
+        return $CE;
         if (count($CE)==0)
         {
-            return back()->with('msj',' Usuario o Contraseña incorrecta' );
+
+            return back()->with('msj',' Usuario o Contrseña incorrecta' );
         }
         else{
-            $con= usuarioCE::where('Usuario', $request->Usuario)->get('Password');
-            $var=Crypt::decrypt($con[0]->Password);
-
-            
-            if ($var==$request->Contraseña)
+            //$contraFinal=Crypt::decrypt($cont); //DESENCRIPTAR DATOS
+            $con= usuariodirector::where('Password', Crypt::decrypt($request->Contraseña))->get();
+            return $con;
+            if (count($con)==0)
             {
-                $_SESSION['usuarioUser']=$request->Usuario;
-                $_SESSION['ContraPass']=$var;
-                return Redirect('/ControlEscolarInicio');
+
+                return back()->with('msj',' Usuario o Contrseña incorrecta' );
             }
             else{
 
-                return back()->with('msj',' Usuario o Contraseña incorrecta' );
+             return 'LoginD';//view('ControlEscolar.CEprincipal');
             }
         }
     }
@@ -88,8 +78,9 @@ class LoginCEController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit($id)
     {
+        //
     }
 
     /**
@@ -99,14 +90,9 @@ class LoginCEController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-          if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
-        return view('interfazprincipal.Interfaz');
-    }
-        $usu=usuarioCE::all();
-        usuarioCE::where('Usuario',$usu[0]->Usuario)->update(['Password'=>Crypt::encrypt($request['contra'])]);
-        return redirect('LoginControlEscolar')->with('msjC','Contraseña modificada correctamente.');
+        //
     }
 
     /**

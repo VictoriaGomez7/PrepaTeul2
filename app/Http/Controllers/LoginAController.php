@@ -53,6 +53,12 @@ class LoginAController extends Controller
     public function show(Request $request)
     {
         //return 'Aqui';
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+            'g-recaptcha-response' => 'required|captcha'
+        ]);
         $CE = usuarioalumno::where('Usuario', $request->Usuario)->get();
 
         if (count($CE)==0)
