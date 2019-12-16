@@ -67,11 +67,13 @@ class LoginAController extends Controller
 
             if ($var==$request->Contraseña)
             {
+                $_SESSION['usuarioUserA']=$request->Usuario;
+                $_SESSION['ContraPassA']=$var;
                 return view('Alumnosinterfazprincipal.InterfazPrincipal',compact('usua','CE'));
             }
             else{
 
-                return back()->with('msj',' Usuario o Contraseña incorrecta' );
+                return back()->with('msj',' Usuario o Contraseña incorrecta.' );
             }
         }
     }

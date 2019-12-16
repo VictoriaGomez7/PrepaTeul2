@@ -17,7 +17,6 @@ class ContraController extends Controller
     public function index(Request $request)
     {
         $usua=$request->valor;
-
         $alumns=usuarioalumno::where([['Usuario',$usua]])->get();
         if (count($alumns)!=0) {
             return view('Alumnos.cambiarcontra',compact('usua'));

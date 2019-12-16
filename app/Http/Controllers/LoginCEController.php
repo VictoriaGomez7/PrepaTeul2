@@ -58,17 +58,17 @@ class LoginCEController extends Controller
         //return $CE;
         if (count($CE)==0)
         {
-
             return back()->with('msj',' Usuario o Contraseña incorrecta' );
         }
         else{
             $con= usuarioCE::where('Usuario', $request->Usuario)->get('Password');
             $var=Crypt::decrypt($con[0]->Password);
 
-            $_SESSION['usuarioUser']=$request->Usuario;
-            $_SESSION['ContraPass']=$var;
+            
             if ($var==$request->Contraseña)
             {
+                $_SESSION['usuarioUser']=$request->Usuario;
+                $_SESSION['ContraPass']=$var;
                 return Redirect('/ControlEscolarInicio');
             }
             else{
