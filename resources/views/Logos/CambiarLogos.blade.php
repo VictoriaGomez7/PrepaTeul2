@@ -8,13 +8,13 @@
 
 <!DOCTYPE HTML>
 @if (session()->has('Msj'))
-    <div class="alert alert-success" role="alert" style="width: 50%; position:  absolute;top: 53%; left: 25%;z-index: 1;">
+    <div class="alert alert-success" role="alert" style="width: 50%; position:  absolute;top: 60%; left: 25%;z-index: 4;">
       <button class="close" data-dismiss="alert"><span>&times;</span></button>
       <strong>¡Correcto! </strong>{{ session('Msj') }}
     </div>
   @endif
 <body>
-	 <div class="alert alert-danger" role="alert" style="width: 90%; position:  absolute; top: 49%; left: 5%;z-index: 1;">
+	 <div class="alert alert-danger" role="alert" style="width: 90%; position:  absolute; top: 47%; left: 5%;z-index: 1;">
             
                 <strong>AVISO: Procure seleccionar imágenes en formato JPG o PNG, no colocar imagenes de peso mayor a 1.5 MB, el tamaño de la misma puede afectar la visualización del sistema. </strong>
             </div>
