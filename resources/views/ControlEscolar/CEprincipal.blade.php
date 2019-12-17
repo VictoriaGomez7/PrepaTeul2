@@ -91,7 +91,7 @@
 						<ul class="submenu">
 							<li><a href="http://127.0.0.1:8000/ContraseñaCE">Cambiar Contraseña</a>
 							<li><a href="http://127.0.0.1:8000/Correo">Correo Electrónico  </a>
-							<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESIÓN</a>
+							<li><a href="http://127.0.0.1:8000/interfazpri/{{ 'ServiciosEscolares' }}/{{'SE'}}">CERRAR SESION</a>
 						</ul>
 					</li>
 			</ul>

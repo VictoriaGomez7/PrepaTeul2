@@ -19,7 +19,15 @@
 			<strong>¡Correcto! </strong>{{session('msjC')}}
 		</div>
 	@endif
+@if ($errors->any())
+      <div class="alert alert-danger" role="alert" style="width: 28%; position:  absolute;top: 28%; left: 37%;z-index: 1;">
 
+              @foreach ($errors->all() as $error)
+              @endforeach
+              <button type="button" class="close" data-dismiss="alert" >&times;</button>
+		<strong>¡Error! </strong>{{ $error }}
+      </div>
+      @endif
 	<style>
 /*Al cuerpo de la
 pagina se aplica el tamaño de fuente
@@ -37,7 +45,7 @@ body{
 	margin: 50px auto;
 	background-color: #F3EDED;
         border: 1px solid #ECE8E8;
-	height: 360px;
+	height: 450px;
 	border-radius:8px;
 	padding: 0px 9px 0px 9px;
 }
@@ -99,6 +107,11 @@ body{
 
 </style>
 	<head>
+<link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">   
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 			<!-- vinculo a bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -121,6 +134,12 @@ body{
 						</div>
 					<br>
 
+<div class="form-group col-md-4">
+
+          {!! NoCaptcha::renderJs() !!}
+          {!! NoCaptcha::display() !!}
+            </div>
+
 					<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
 			 	</form>
 			</div>
@@ -130,7 +149,7 @@ body{
 		</div>
 
 	    <br><br><br><br><br>
-	    <p align="center" style="color: black; font-size: 1.3em; position: absolute;top: 95%; left: 38%"> Constitución #100 Teul de González Ortega.<br/>
+	    <p align="center" style="color: black; font-size: 1.3em; position: absolute;top: 110%; left: 38%"> Constitución #100 Teul de González Ortega.<br/>
 	    Zac. C.P. 99800 <br/>
 	    Teléfono: (467)-952-71-83 <br/>
 	    Correo-e: prepateul@yahoo.com.mx

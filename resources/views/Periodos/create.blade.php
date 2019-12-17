@@ -76,6 +76,7 @@
   </select>
 
 @foreach($no_p as $per)
+
 @endforeach
 <div id="Primer" class="element" style="display: none; position: absolute;top: 5%; left: 45%; width: 20%;height:53%;">
 

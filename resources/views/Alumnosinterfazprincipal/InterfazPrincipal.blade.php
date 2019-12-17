@@ -33,7 +33,7 @@
 					<li style="left: 40%;"><a  href="#" >Alumno: {{$Alumnos[0]->Nombre_A}}</a>
 						<ul class="submenu">
 							<li><a href ="http://127.0.0.1:8000/Modificarcontra?valor={{$usua}}">Cambiar Contrseña</a></li>
-							<li><a href="http://127.0.0.1:8000/interfazpri">CERRAR SESION</a>
+							<li><a href="http://127.0.0.1:8000/interfazpri/{{ $usua }}/{{'alumno'}}">CERRAR SESION</a>
 						</ul>
 					</li>
 
