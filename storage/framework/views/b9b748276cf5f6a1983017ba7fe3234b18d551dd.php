@@ -32,21 +32,21 @@
         <br>
         <header>
       
-        <a href="LoginAlumno">
+        <a href="http://127.0.0.1:8000/LoginAlumno">
           <div class="Contenedor" id="uno">
             <img class="icon" src="/images/icon66.png">
             <p class="texto1">Estudiantes</p>
           </div>
       </a>
 
-      <a href="LoginDocente">
+      <a href="http://127.0.0.1:8000/LoginDocente">
           <div class="Contenedor" id="dos">
             <img class="icon" src="/images/icon44.png">
             <p class="texto2">Maestros</p>
           </div>
         </a>
         
-       <a  href="LoginControlEscolar">
+       <a  href="http://127.0.0.1:8000/LoginControlEscolar">
           <div class="Contenedor" id="tres">
             <img class="icon" src="/images/icon22.png">
             <p class="texto3">Servicios Escolares</p>

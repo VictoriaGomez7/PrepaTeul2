@@ -37,10 +37,129 @@ Route::resource('EvaluacionConducta','conductaController'); //Docente LISTO
 
 Route::get('materia/buscador','materiasBuscadorController@buscador'); //CE
 
-Route::get('/interfazpri', function () {
-    session_destroy();
-    return view('interfazprincipal.Interfaz');
+
+Route::get('/interfazpri/{valor}/{sesion}', function ($valor ,$sesion) {
+   //return $_SESSION;
+    if($sesion=="docente"){
+        
+        $sesiones=explode(",", $_SESSION['usuarioUserM']);
+        $contras=explode(",",$_SESSION['ContraPassM']);
+        
+        
+        $nueva="";
+        $contraNueva="";
+        for($i=0; $i<count($sesiones); $i++){
+            if(! ($sesiones[$i]==$valor)){
+                $nueva.=$sesiones[$i].",";
+                $contraNueva.=$_SESSION['ContraPassM'].",";
+            }
+        }
+        
+        $sesionSE=null;
+        $contraSE= null;
+        $sesionAlumno=null;
+        $contraAlumno  = null;
+          if(isset($_SESSION['usuarioUserA'])){
+           $sesionAlumno= $_SESSION['usuarioUserA'];
+         $contraAlumno  = $_SESSION['ContraPassA'];
+        }
+       
+        if(isset($_SESSION['usuarioUser'])){
+          $sesionSE=$_SESSION['usuarioUser'];
+        $contraSE= $_SESSION['ContraPass'];
+        }
+        
+        
+            session_destroy();
+        session_start();
+         $_SESSION['usuarioUser']=$sesionSE;
+         $_SESSION['ContraPass']=$contraSE;
+        
+        $_SESSION['usuarioUserM']=$nueva;
+        $_SESSION['ContraPassM']=$contraNueva;
+        
+         $_SESSION['ContraPassA']=$sesionAlumno;
+        $_SESSION['ContraPassA']= $contraAlumno ;
+        
+        return view('interfazprincipal.Interfaz');
+    }else if($sesion=="alumno"){
+        
+        
+        
+        
+
+      
+       $sesiones=explode(",", $_SESSION['usuarioUserA']);
+        $nueva="";
+        $contraNueva="";
+        $contras=explode("," , $_SESSION['ContraPassA']);
+        for($i=0; $i<count($sesiones); $i++){
+            if(! ($sesiones[$i]==$valor)){
+                $nueva.=$sesiones[$i].",";
+                $contraNueva.=$contras[$i].",";
+            }
+        }
+        
+        $sesionDocente=null;
+          $contraDocente= null;
+        if(isset($_SESSION['usuarioUserM'])){
+          $sesionDocente=$_SESSION['usuarioUserM'];
+          $contraDocente=  $_SESSION['ContraPassM'];
+        }
+        $sesionSE=null;
+        $contraSE=null;
+        if(isset($_SESSION['usuarioUser'])){
+         $sesionSE=$_SESSION['usuarioUser'];
+        $contraSE= $_SESSION['ContraPass'];
+        }
+        
+        
+            session_destroy();
+        session_start();
+         $_SESSION['usuarioUser']=$sesionSE;
+         $_SESSION['ContraPass']=$contraSE;
+        
+         $_SESSION['usuarioUserA']=$nueva;
+         $_SESSION['ContraPassA']=$contraNueva;
+        
+         $_SESSION['usuarioUserM']= $sesionDocente;
+      $_SESSION['ContraPassM']= $contraDocente;
+        return view('interfazprincipal.Interfaz');
+    }else if($sesion=="SE"){
+        
+        
+     $sesionDocente=null;
+          $contraDocente= null;
+        if(isset($_SESSION['usuarioUserM'])){
+          $sesionDocente=$_SESSION['usuarioUserM'];
+          $contraDocente=  $_SESSION['ContraPassM'];
+        }
+        
+    $sesionAlumno=null;
+        $contraAlumno  = null;
+          if(isset($_SESSION['usuarioUserA'])){
+           $sesionAlumno= $_SESSION['usuarioUserA'];
+         $contraAlumno  = $_SESSION['ContraPassA'];
+        }
+        
+        
+        session_destroy();
+        session_start();
+         $_SESSION['usuarioUserM']=$sesionDocente;
+      $_SESSION['ContraPassM']=  $contraDocente;
+        
+     $_SESSION['usuarioUserA']=$sesionAlumno;
+      $_SESSION['ContraPassA']=$contraAlumno ;
+        return view('interfazprincipal.Interfaz');
+    }else{
+        
+        return view('interfazprincipal.Interfaz');
+    }
+ 
 });
+
+
+
 Route::get('/', function () {
     return view('interfazprincipal.Interfaz');
 });

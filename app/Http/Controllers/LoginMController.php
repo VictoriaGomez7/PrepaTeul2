@@ -52,7 +52,10 @@ class LoginMController extends Controller
      */
     public function show(Request $request)
     {
-
+        if(!isset($_SESSION['usuarioUserD'])){
+            $_SESSION['usuarioUserM']="";
+            $_SESSION['ContraPassM']="";
+        }
         $CE = usuariomaestro::where('Usuario', $request->Usuario)->get();
         if (count($CE)==0)
         {
@@ -65,8 +68,8 @@ class LoginMController extends Controller
             $var=Crypt::decrypt($Ps[0]->Password);
             if ($var==$request->Contraseña)
             {
-                $_SESSION['usuarioUserM']=$request->Usuario;
-                $_SESSION['ContraPassM']=$var;
+                $_SESSION['usuarioUserM'].=$request->Usuario.",";
+                $_SESSION['ContraPassM'].=$var.",";
                 view('DocenteInterfazPrincipal.InterfazPrincipal',compact('usua'));
                 return view('DocenteInterfazPrincipal.InterfazPrincipal2',compact('usua','CE'));
             }

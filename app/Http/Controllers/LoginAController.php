@@ -53,6 +53,10 @@ class LoginAController extends Controller
     public function show(Request $request)
     {
         //return 'Aqui';
+          if(!isset($_SESSION['usuarioUserA'])){
+            $_SESSION['usuarioUserA']="";
+            $_SESSION['ContraPassA']="";
+        }
         $CE = usuarioalumno::where('Usuario', $request->Usuario)->get();
 
         if (count($CE)==0)
@@ -67,8 +71,8 @@ class LoginAController extends Controller
 
             if ($var==$request->Contraseña)
             {
-                $_SESSION['usuarioUserA']=$request->Usuario;
-                $_SESSION['ContraPassA']=$var;
+                $_SESSION['usuarioUserA'].=$request->Usuario.",";
+                $_SESSION['ContraPassA'].=$var.",";
                 return view('Alumnosinterfazprincipal.InterfazPrincipal',compact('usua','CE'));
             }
             else{
