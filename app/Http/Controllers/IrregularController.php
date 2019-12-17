@@ -21,6 +21,9 @@ class IrregularController extends Controller
      */
     public function index()
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         $Alumno_B=Alumno::all();
         $Materia_B=Materia::all();
         $ObtenerIrregulares=Irregulares::all();
@@ -82,6 +85,9 @@ class IrregularController extends Controller
      */
     public function create(Request $request)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         $clave_A=$request->Clave_A;
         $materias=IrregularMateria::where('Clave_A',$clave_A)->get();
         $cuenta=count($materias);
@@ -166,6 +172,9 @@ class IrregularController extends Controller
      */
     public function store(Request $request)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
 
         $clave_A= $request->Clave_A;
         $Nombres_Mat=array();

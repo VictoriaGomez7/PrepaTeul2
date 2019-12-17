@@ -19,6 +19,9 @@ class VisualizarMateriaGrupoController extends Controller
      */
     public function index()
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         //$idtemporal=1800110001;
         $id=$_GET['valor'];
         $usua=$id;
@@ -56,6 +59,9 @@ class VisualizarMateriaGrupoController extends Controller
      */
     public function store(Request $request)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         //return $request;
         $Materiasele=$request->MateriaSeleccionada;
         //return $Materiasele;

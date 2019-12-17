@@ -23,6 +23,9 @@ class PDFController extends Controller
      */
     public function index(Request $id)
     {
+      if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
       if ($id->opcion==null) {
 
       }
@@ -93,6 +96,9 @@ class PDFController extends Controller
      */
     public function create(Request $id)
     {
+      if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
       //return $id->id;
 
 

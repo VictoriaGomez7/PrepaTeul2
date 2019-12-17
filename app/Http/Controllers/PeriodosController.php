@@ -18,6 +18,9 @@ class PeriodosController extends Controller
      */
     public function index()
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
 
         $no_p = Periodo::get();
             if (count($no_p)==0) {
@@ -58,6 +61,9 @@ class PeriodosController extends Controller
      */
     public function store(Request $request)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         if ($request['fecha1']>$request['fecha2'] || $request['fecha1']==$request['fecha2']) {
             return back()->with('msj',' La fecha inicial debe ser menor que la fecha final' );
             //echo "si";

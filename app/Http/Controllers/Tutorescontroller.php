@@ -16,6 +16,9 @@ class Tutorescontroller extends Controller
      */
     public function index()
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         $now= Carbon::now();
         $fecha=$now-> format('m');
         $fecha_generacion=$now-> format('o');
@@ -90,6 +93,9 @@ class Tutorescontroller extends Controller
      */
     public function store(Request $request)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         $Datos_tabla_tutor=Tutor::get();
         
         $ba2=false;

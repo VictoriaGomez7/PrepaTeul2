@@ -24,6 +24,9 @@ class BoletasParcialesController extends Controller
      */
     public function index()
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         $Datos_Tutor=Tutor::get();
         $Datos_Alumno=Alumno::get();
         $Datos_Materia=Materia::get();
@@ -69,6 +72,9 @@ class BoletasParcialesController extends Controller
      */
     public function create(Request $request)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         //return $request->;
         $Materias=Materia::where('Semestre',$request->SemestreSelect)->get('Nombre');
         $Materias_Clave=Materia::where('Semestre',$request->SemestreSelect)->get('Clave_M');
@@ -311,6 +317,9 @@ class BoletasParcialesController extends Controller
      */
     public function store(Request $request)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         //return 'stote';
         $Semestre_Seleccionado=$request->SemestreSelect;
         $Lista_Alumnos_Grupo=array();

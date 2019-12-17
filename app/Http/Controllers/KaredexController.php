@@ -24,6 +24,9 @@ class KaredexController extends Controller
      */
     public function index(Request $request)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         $CL_A=$request->id;
         //return $CL_A;
         $NombreA=Nombrealumno::where('Clave_A', $CL_A)->get();

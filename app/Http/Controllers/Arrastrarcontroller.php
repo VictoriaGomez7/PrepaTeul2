@@ -19,6 +19,9 @@ class Arrastrarcontroller extends Controller
      */
     public function index()
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
 
         $Docentes = Docentes::all();
 
@@ -223,6 +226,9 @@ class Arrastrarcontroller extends Controller
      */
     public function store(Request $request)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
 
         //return $request;
         $arreglo1=array();

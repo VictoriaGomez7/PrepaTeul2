@@ -15,6 +15,9 @@ class compromisoFamiliaController extends Controller
      */
     public function index()
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
 
      
         $compromisos=compromisosFamilia::take(100)->get();
@@ -41,6 +44,9 @@ class compromisoFamiliaController extends Controller
      */
     public function store(Request $r,compromisosFamilia $compromiso)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
       $ban=0;
       $cadena=$r->compromiso;
       $c="";
@@ -136,6 +142,9 @@ class compromisoFamiliaController extends Controller
      */
     public function show(Request $r)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         //
         $comp="";
         $compromisosFamilia=compromisosFamilia::where([

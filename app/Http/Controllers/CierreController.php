@@ -28,6 +28,9 @@ class CierreController extends Controller
      */
     public function index()
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         $bandera=False;
         $Fecha=periodo::where('id','2')->get();
         //$Fecha=periodo::all();
@@ -67,6 +70,9 @@ class CierreController extends Controller
      */
     public function create()
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         //return "ya lo hice";
         $todo=CalificacionesParciales::all();
         $now= Carbon::now();

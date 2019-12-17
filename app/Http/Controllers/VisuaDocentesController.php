@@ -16,6 +16,9 @@ class VisuaDocentesController extends Controller
      */
     public function index()
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         $Docents=Docentes::all();
         $Relacion=RelacionDocenteMateriaGrupo::all();
         //return $Docents;//->nombre;

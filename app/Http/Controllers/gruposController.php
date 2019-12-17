@@ -20,6 +20,9 @@ class gruposController extends Controller
      */
     public function index()
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         
         $Alumnoss= Alumno::get();
 
@@ -60,6 +63,9 @@ class gruposController extends Controller
      */
     public function show(Request $r ,$semestre)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         if(isset($r->aceptar)){
             
 

@@ -14,6 +14,10 @@ class LogosController extends Controller
      */
     public function index()
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
+        
         //$VariableADividir="Hola.png.exe.div";
         
         $totalogos=Logos::where('Nombre_Imagen','Imagen1')->get();
@@ -68,6 +72,9 @@ class LogosController extends Controller
      */
     public function store(Request $request)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
 
         if ($request->hasFile('Imagen1')) {
             $file=$request->file('Imagen1');

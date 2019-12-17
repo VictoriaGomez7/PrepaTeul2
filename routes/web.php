@@ -281,48 +281,48 @@ Route::resource('materia','MateriaController'); //CE
 
 Route::resource('Alumnos','AlumnosController' ); //CE
 
-Route::resource('compromisos','compromisoEstudianteController' ); //CE
+Route::resource('compromisos','compromisoEstudianteController' ); //CE-- Listo
 
-Route::resource('compromisosFamilia','compromisoFamiliaController' ); //CE
+Route::resource('compromisosFamilia','compromisoFamiliaController' ); //CE Listo
 
-Route::resource('PDF','PDFController' ); //CE
+Route::resource('PDF','PDFController' ); //CE Listo
 
-Route::resource('/formatoestudiantes', 'compromisoEstudianteController'); //CE
+Route::resource('/formatoestudiantes', 'compromisoEstudianteController'); //CE Listo
 
-Route::resource('/formatofamilia', 'compromisoFamiliaController'); //CE
+Route::resource('/formatofamilia', 'compromisoFamiliaController'); //CE Listo
 
-Route::resource('/grupos','gruposController'); //CE
+Route::resource('/grupos','gruposController'); //CE Listo
 
-Route::resource('Asigna','Arrastrarcontroller'); //CE
+Route::resource('Asigna','Arrastrarcontroller'); //CE Listo
 
-Route::resource('Periodos','PeriodosController'); //CE
+Route::resource('Periodos','PeriodosController'); //CE Listo
 
 Route::resource('Asistencias','AsistenciasController'); 
 
-Route::resource('VisualizarDocentes','VisuaDocentesController'); //CE
+Route::resource('VisualizarDocentes','VisuaDocentesController'); //CE Listo
 
-Route::resource('VisualizaMaGr','VisualizarMateriaGrupoController'); //CE
+Route::resource('VisualizaMaGr','VisualizarMateriaGrupoController'); //CE Listo
 
 Route::resource('AsignarCalificacion','CalificacionesController'); //Docente LISTO
 
 Route::resource('Calificaciones','CalificacionesController');
 
-Route::resource('Irregulares', 'IrregularController'); //CE
+Route::resource('Irregulares', 'IrregularController'); //CE Listo
 
-Route::resource('Cerrar_Semestre', 'CierreController'); //CE
+Route::resource('Cerrar_Semestre', 'CierreController'); //CE Listo
 
-Route::resource('RegistrarTutores', 'TutoresController'); //CE
+Route::resource('RegistrarTutores', 'TutoresController'); //CE Listo
 
-Route::resource('ImprimeBoletasParciales', 'BoletasParcialesController'); //CE
+Route::resource('ImprimeBoletasParciales', 'BoletasParcialesController'); //CE Listo
 
 //ruta para generar kardex
-Route::resource('ImprimirKardex', 'KaredexController'); //CE
+Route::resource('ImprimirKardex', 'KaredexController'); //CE Listo
 
-Route::resource('ImprimeCarta','ImprimeCartaController'); //CE
+Route::resource('ImprimeCarta','ImprimeCartaController'); //CE Listo
 
-Route::resource('Bachillerato','BachilleratoController'); //CE
+Route::resource('Bachillerato','BachilleratoController'); //CE Listo
 
-Route::resource('Formaciones','FormacionesController'); //CE
+Route::resource('Formaciones','FormacionesController'); //CE Listo
 
 // Cambiar Logos
-Route::resource('Logotipos','LogosController'); //CE
+Route::resource('Logotipos','LogosController'); //CE Listo

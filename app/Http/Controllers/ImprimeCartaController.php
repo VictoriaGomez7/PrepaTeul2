@@ -21,7 +21,9 @@ class ImprimeCartaController extends Controller
      */
     public function index()
     {
-        
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         return view('conducta.consulta');
         
     }
@@ -54,8 +56,9 @@ class ImprimeCartaController extends Controller
      */
     public function show(Request $r )
     {
-
-
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         $Alumno=Alumno::where("Clave_A",$r->cajaAlumno)->get();
         $area=ft_bach::where("Clave_A",$r->cajaAlumno)->get();
         $bachillerato="";

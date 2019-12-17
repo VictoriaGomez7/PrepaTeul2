@@ -14,6 +14,9 @@ class BachilleratoController extends Controller
      */
     public function index()
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         $bach=Bachilleratos::all();
         //return $bach;
         //return 'entra a bachilleratos';
@@ -27,6 +30,9 @@ class BachilleratoController extends Controller
      */
     public function create(Request $request)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         $bach=Bachilleratos::all();
         $band=false;
         foreach ($bach as $campo) {
@@ -80,6 +86,9 @@ class BachilleratoController extends Controller
      */
     public function edit(Request $id)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
         $bach=Bachilleratos::all();
         $band=false;
         foreach ($bach as $campo) {
@@ -122,6 +131,9 @@ class BachilleratoController extends Controller
      */
     public function destroy($id)
     {
+        if(!isset($_SESSION['ContraPass']) || !isset($_SESSION['usuarioUser'])){
+        return view('interfazprincipal.Interfaz');
+        }
 
         Bachilleratos::where('Nombre_B',$id)->delete();
         return back()->with('msj1','Bachillerato eliminado correctamente');
